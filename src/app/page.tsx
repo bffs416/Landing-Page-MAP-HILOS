@@ -124,8 +124,12 @@ export default function Home() {
                 Arquitectura Facial
               </h3>
               <div className="space-y-8">
-                {facialProtocols.map(protocol => (
-                  <div key={protocol.name} className="flex items-start gap-4">
+                {facialProtocols.map((protocol, index) => (
+                  <div
+                    key={protocol.name}
+                    className="flex items-start gap-4 animate-in fade-in slide-in-from-bottom-5 duration-500"
+                    style={{ animationDelay: `${index * 150}ms`, animationFillMode: 'backwards' }}
+                  >
                     <Image
                       src={protocol.imageUrl}
                       alt={protocol.name}
@@ -151,8 +155,12 @@ export default function Home() {
                 Arquitectura Corporal
               </h3>
               <div className="space-y-8">
-                {corporalProtocols.map(protocol => (
-                  <div key={protocol.name} className="flex items-start gap-4">
+                {corporalProtocols.map((protocol, index) => (
+                  <div
+                    key={protocol.name}
+                    className="flex items-start gap-4 animate-in fade-in slide-in-from-bottom-5 duration-500"
+                    style={{ animationDelay: `${(index + facialProtocols.length) * 150}ms`, animationFillMode: 'backwards' }}
+                  >
                      <Image
                       src={protocol.imageUrl}
                       alt={protocol.name}
