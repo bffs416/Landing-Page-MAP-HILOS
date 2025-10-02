@@ -73,7 +73,7 @@ const mapPillars = [
 
 export default function Home() {
   return (
-    <div className="bg-gradient-to-br from-secondary via-background to-background text-foreground">
+    <div className="bg-gradient-to-br from-secondary via-primary to-accent text-foreground">
       <header className="fixed top-0 left-0 w-full bg-background/80 backdrop-blur-sm z-50 shadow-sm">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="flex items-center justify-between h-20">
@@ -90,18 +90,8 @@ export default function Home() {
       <main className="overflow-x-hidden">
         {/* Hero Section */}
         <section className="relative min-h-screen flex items-center justify-center text-center px-4">
-           <video 
-            autoPlay 
-            loop 
-            muted 
-            playsInline
-            className="absolute top-0 left-0 w-full h-full object-cover -z-10"
-           >
-            <source src="https://videos.pexels.com/video-files/8065302/8065302-hd.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-           </video>
-           <div className="absolute top-0 left-0 w-full h-full bg-secondary/80 -z-10"></div>
-          <div className="z-10 text-white">
+           <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-secondary/30 via-primary/30 to-accent/30 -z-10"></div>
+          <div className="z-10">
             <h1 className="font-headline text-5xl md:text-7xl font-bold text-primary-foreground">
               MINT® Architectural Lift™
             </h1>
@@ -147,7 +137,7 @@ export default function Home() {
             {[...facialProtocols, ...corporalProtocols].map((protocol, index) => (
               <div key={protocol.name} className="relative group overflow-hidden">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                  <div className={`flex flex-col md:flex-row items-center gap-8 md:gap-16 ${index % 2 === 0 ? 'md:flex-row-reverse' : ''}`}>
+                  <div className={`flex flex-col md:flex-row items-center gap-8 md:gap-16 ${index % 2 === 1 ? 'md:flex-row-reverse' : ''}`}>
                     <div className="w-full md:w-1/2">
                       <h4 className="text-sm font-bold tracking-widest uppercase text-primary mb-2">
                         {index < facialProtocols.length ? 'Arquitectura Facial' : 'Arquitectura Corporal'}
