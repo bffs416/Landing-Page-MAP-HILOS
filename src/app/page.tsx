@@ -50,11 +50,23 @@ const mapPillars = [
 
 export default function Home() {
   return (
-    <main className="min-h-screen w-full bg-secondary text-foreground p-4 sm:p-6 md:p-8 flex items-center justify-center">
-      <div className="w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-6">
+    <main className="relative min-h-screen w-full text-foreground p-4 sm:p-6 md:p-8 flex items-center justify-center overflow-hidden">
+        <video 
+            autoPlay 
+            loop 
+            muted 
+            playsInline
+            className="absolute top-0 left-0 w-full h-full object-cover -z-10"
+        >
+            <source src="https://videos.pexels.com/video-files/8065302/8065302-hd.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+        </video>
+        <div className="absolute top-0 left-0 w-full h-full bg-secondary/80 -z-10"></div>
+
+      <div className="w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-6 z-10">
         
         {/* Left Panel */}
-        <Card className="lg:col-span-1 bg-background shadow-2xl">
+        <Card className="lg:col-span-1 bg-background/90 shadow-2xl backdrop-blur-sm">
           <CardHeader>
             <Logo className="text-primary" />
              <div className="pt-8">
@@ -90,7 +102,7 @@ export default function Home() {
         {/* Right Panels (Center and Right) */}
         <div className="lg:col-span-2 space-y-6">
             {/* Top Right Panel */}
-            <Card className="bg-background shadow-2xl p-8 text-center">
+            <Card className="bg-background/90 shadow-2xl p-8 text-center backdrop-blur-sm">
                 <h1 className="font-headline text-4xl sm:text-5xl font-bold text-primary">MINT® Architectural Lift™</h1>
                 <p className="mt-2 text-lg sm:text-xl text-foreground font-medium">
                     Rediseña. Reposiciona. Rejuvenece.
@@ -101,7 +113,7 @@ export default function Home() {
             </Card>
 
             {/* Bottom Right Panel */}
-            <Card className="bg-background shadow-2xl">
+            <Card className="bg-background/90 shadow-2xl backdrop-blur-sm">
               <CardHeader>
                 <CardTitle className="font-headline text-2xl md:text-3xl">Descubre tu Protocolo Ideal</CardTitle>
                  <p className="text-muted-foreground pt-2">Cada zona de tu rostro y cuerpo merece una solución diseñada a la perfección.</p>
