@@ -26,7 +26,7 @@ export default function Home() {
 
       <main className="overflow-x-hidden">
         {/* Hero Section */}
-        <section className="relative min-h-screen flex items-center justify-center text-center px-4 pt-20">
+        <section className="relative h-[60vh] flex items-center justify-center text-center px-4 pt-20">
           {heroImage && (
             <Image
               src={heroImage.imageUrl}
