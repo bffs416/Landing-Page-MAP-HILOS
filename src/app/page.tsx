@@ -52,27 +52,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ICL Calculator Section */}
-        <section id="calculadora" className="py-24 bg-background/70">
-          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center max-w-3xl mx-auto">
-              <h2 className="font-headline text-4xl md:text-5xl font-bold">
-                Descubre tu Candidatura Ideal con ICL-MINT®
-              </h2>
-              <p className="mt-6 text-lg text-muted-foreground">
-                Tu belleza, basada en datos. Nuestro Índice de Candidatura para
-                Lifting (ICL) es una herramienta exclusiva que nos permite
-                realizar un diagnóstico preciso y 100% personalizado. Evalúa los
-                factores clave para asegurar que el tratamiento con hilos
-                tensores MINT® sea la mejor opción para ti.
-              </p>
-            </div>
-            <div className="mt-16">
-              <ICLCalculator />
-            </div>
-          </div>
-        </section>
-
         {/* Philosophy Section */}
         <section id="filosofia" className="py-24">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -106,8 +85,29 @@ export default function Home() {
           </div>
         </section>
 
+        {/* ICL Calculator Section */}
+        <section id="calculadora" className="py-24 bg-background/70">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center max-w-3xl mx-auto">
+              <h2 className="font-headline text-4xl md:text-5xl font-bold">
+                Descubre tu Candidatura Ideal con ICL-MINT®
+              </h2>
+              <p className="mt-6 text-lg text-muted-foreground">
+                Tu belleza, basada en datos. Nuestro Índice de Candidatura para
+                Lifting (ICL) es una herramienta exclusiva que nos permite
+                realizar un diagnóstico preciso y 100% personalizado. Evalúa los
+                factores clave para asegurar que el tratamiento con hilos
+                tensores MINT® sea la mejor opción para ti.
+              </p>
+            </div>
+            <div className="mt-16">
+              <ICLCalculator />
+            </div>
+          </div>
+        </section>
+
         {/* Protocols Section */}
-        <section id="protocolos" className="py-24 bg-background/70">
+        <section id="protocolos" className="py-24">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 className="font-headline text-4xl md:text-5xl font-bold">
               Descubre tu Protocolo Ideal
