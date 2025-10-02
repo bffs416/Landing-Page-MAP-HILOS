@@ -71,7 +71,7 @@ export default function Home() {
               {mapPillars.map(pillar => (
                 <div key={pillar.name} className="flex flex-col items-center">
                   <div className="bg-muted text-foreground rounded-full p-3 mb-4">
-                    <Gem className="w-7 h-7" />
+                    <Gem className="w-7 h-7 text-black" />
                   </div>
                   <h3 className="font-headline text-2xl font-semibold">
                     {pillar.name}
@@ -126,7 +126,7 @@ export default function Home() {
               <div className="space-y-6">
                 {facialProtocols.map(protocol => (
                   <div key={protocol.name}>
-                    <h4 className="font-semibold text-lg text-primary">
+                    <h4 className="font-semibold text-lg text-foreground">
                       {protocol.name}
                     </h4>
                     <p className="text-muted-foreground mt-1">
@@ -143,7 +143,7 @@ export default function Home() {
               <div className="space-y-6">
                 {corporalProtocols.map(protocol => (
                   <div key={protocol.name}>
-                    <h4 className="font-semibold text-lg text-primary">
+                    <h4 className="font-semibold text-lg text-foreground">
                       {protocol.name}
                     </h4>
                     <p className="text-muted-foreground mt-1">
