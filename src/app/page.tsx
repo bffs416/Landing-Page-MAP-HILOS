@@ -70,7 +70,7 @@ export default function Home() {
             <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
               {mapPillars.map(pillar => (
                 <div key={pillar.name} className="flex flex-col items-center">
-                  <div className="bg-primary/20 text-primary rounded-full p-3 mb-4">
+                  <div className="bg-muted text-foreground rounded-full p-3 mb-4">
                     <Gem className="w-7 h-7" />
                   </div>
                   <h3 className="font-headline text-2xl font-semibold">
