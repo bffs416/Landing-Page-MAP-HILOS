@@ -8,9 +8,12 @@ import {
   corporalProtocols,
   mapPillars,
 } from '@/lib/assets';
+import { PlaceHolderImages } from '@/lib/placeholder-images';
 import ICLCalculator from '@/components/icl-calculator';
 
 export default function Home() {
+  const heroImage = PlaceHolderImages.find(img => img.id === 'hero-background');
+
   return (
     <div className="bg-gradient-to-br from-secondary/50 via-primary/50 to-accent/50 text-foreground min-h-screen font-body">
       <header className="absolute top-0 left-0 w-full z-50 py-6">
@@ -23,15 +26,26 @@ export default function Home() {
 
       <main className="overflow-x-hidden">
         {/* Hero Section */}
-        <section className="min-h-screen flex items-center justify-center text-center px-4 pt-20">
+        <section className="relative min-h-screen flex items-center justify-center text-center px-4 pt-20">
+          {heroImage && (
+            <Image
+              src={heroImage.imageUrl}
+              alt={heroImage.description}
+              fill
+              className="object-cover object-center absolute -z-10"
+              priority
+              data-ai-hint={heroImage.imageHint}
+            />
+          )}
+          <div className="absolute inset-0 bg-black/50 -z-10" />
           <div className="max-w-4xl">
-            <h1 className="font-headline text-5xl md:text-7xl font-bold text-primary-foreground">
+            <h1 className="font-headline text-5xl md:text-7xl font-bold text-white">
               MINT® Architectural Lift™
             </h1>
-            <p className="mt-4 text-lg md:text-xl max-w-3xl mx-auto text-primary-foreground/90">
+            <p className="mt-4 text-lg md:text-xl max-w-3xl mx-auto text-white/90">
               Rediseña. Reposiciona. Rejuvenece.
             </p>
-            <p className="mt-2 text-md md:text-lg max-w-3xl mx-auto text-primary-foreground/80">
+            <p className="mt-2 text-md md:text-lg max-w-3xl mx-auto text-white/80">
               Protocolos de lifting no quirúrgico para rostro y cuerpo. Una nueva
               era en la medicina estética.
             </p>
