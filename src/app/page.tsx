@@ -39,13 +39,13 @@ export default function Home() {
           )}
           <div className="absolute inset-0 bg-black/50 -z-10" />
           <div className="max-w-4xl">
-            <h1 className="font-headline text-5xl md:text-7xl font-bold text-white">
+            <h1 className="font-headline text-5xl md:text-7xl font-bold text-white animate-in fade-in slide-in-from-bottom-5 duration-700">
               MINT® Architectural Lift™
             </h1>
-            <p className="mt-4 text-lg md:text-xl max-w-3xl mx-auto text-white/90">
+            <p className="mt-4 text-lg md:text-xl max-w-3xl mx-auto text-white/90 animate-in fade-in slide-in-from-bottom-5 duration-700" style={{ animationDelay: '200ms' }}>
               Rediseña. Reposiciona. Rejuvenece.
             </p>
-            <p className="mt-2 text-md md:text-lg max-w-3xl mx-auto text-white/80">
+            <p className="mt-2 text-md md:text-lg max-w-3xl mx-auto text-white/80 animate-in fade-in slide-in-from-bottom-5 duration-700" style={{ animationDelay: '300ms' }}>
               Protocolos de lifting no quirúrgico para rostro y cuerpo. Una nueva
               era en la medicina estética.
             </p>
@@ -56,10 +56,10 @@ export default function Home() {
         <section id="filosofia" className="py-24">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-3xl mx-auto">
-              <h2 className="font-headline text-4xl md:text-5xl font-bold">
+              <h2 className="font-headline text-4xl md:text-5xl font-bold animate-in fade-in slide-in-from-bottom-5 duration-700">
                 Nuestra Filosofía M.A.P.®
               </h2>
-              <p className="mt-6 text-lg text-muted-foreground">
+              <p className="mt-6 text-lg text-muted-foreground animate-in fade-in slide-in-from-bottom-5 duration-700" style={{ animationDelay: '200ms' }}>
                 El envejecimiento no es solo la caída del tejido. Es un cambio
                 en la estructura y la calidad de la piel. Por eso, nuestro
                 enfoque MINT® Architectural Lift™ no solo "levanta", sino que
@@ -68,8 +68,9 @@ export default function Home() {
               </p>
             </div>
             <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
-              {mapPillars.map(pillar => (
-                <div key={pillar.name} className="flex flex-col items-center">
+              {mapPillars.map((pillar, index) => (
+                <div key={pillar.name} className="flex flex-col items-center animate-in fade-in slide-in-from-bottom-5 duration-700"
+                  style={{ animationDelay: `${300 + index * 150}ms`, animationFillMode: 'backwards' }}>
                   <div className="bg-muted text-foreground rounded-full p-3 mb-4">
                     <Gem className="w-7 h-7 text-black" />
                   </div>
@@ -89,10 +90,10 @@ export default function Home() {
         <section id="calculadora" className="py-24 bg-background/70">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-3xl mx-auto">
-              <h2 className="font-headline text-4xl md:text-5xl font-bold">
+              <h2 className="font-headline text-4xl md:text-5xl font-bold animate-in fade-in slide-in-from-bottom-5 duration-700">
                 Descubre tu Candidatura Ideal con ICL-MINT®
               </h2>
-              <p className="mt-6 text-lg text-muted-foreground">
+              <p className="mt-6 text-lg text-muted-foreground animate-in fade-in slide-in-from-bottom-5 duration-700" style={{ animationDelay: '200ms' }}>
                 Tu belleza, basada en datos. Nuestro Índice de Candidatura para
                 Lifting (ICL) es una herramienta exclusiva que nos permite
                 realizar un diagnóstico preciso y 100% personalizado. Evalúa los
@@ -100,7 +101,7 @@ export default function Home() {
                 tensores MINT® sea la mejor opción para ti.
               </p>
             </div>
-            <div className="mt-16">
+            <div className="mt-16 animate-in fade-in slide-in-from-bottom-5 duration-700" style={{ animationDelay: '300ms' }}>
               <ICLCalculator />
             </div>
           </div>
@@ -109,10 +110,10 @@ export default function Home() {
         {/* Protocols Section */}
         <section id="protocolos" className="py-24">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="font-headline text-4xl md:text-5xl font-bold">
+            <h2 className="font-headline text-4xl md:text-5xl font-bold animate-in fade-in slide-in-from-bottom-5 duration-700">
               Descubre tu Protocolo Ideal
             </h2>
-            <p className="mt-6 max-w-3xl mx-auto text-lg text-muted-foreground">
+            <p className="mt-6 max-w-3xl mx-auto text-lg text-muted-foreground animate-in fade-in slide-in-from-bottom-5 duration-700" style={{ animationDelay: '200ms' }}>
               Cada zona de tu rostro y cuerpo merece una solución diseñada a la
               perfección.
             </p>
@@ -120,7 +121,7 @@ export default function Home() {
 
           <div className="mt-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-12">
             <div>
-              <h3 className="font-headline text-3xl font-bold mb-8 text-center md:text-left">
+              <h3 className="font-headline text-3xl font-bold mb-8 text-center md:text-left animate-in fade-in slide-in-from-bottom-5 duration-700" style={{ animationDelay: '300ms' }}>
                 Arquitectura Facial
               </h3>
               <div className="space-y-8">
@@ -128,7 +129,7 @@ export default function Home() {
                   <div
                     key={protocol.name}
                     className="flex items-start gap-4 animate-in fade-in slide-in-from-bottom-5 duration-500"
-                    style={{ animationDelay: `${index * 150}ms`, animationFillMode: 'backwards' }}
+                    style={{ animationDelay: `${400 + index * 150}ms`, animationFillMode: 'backwards' }}
                   >
                     <Image
                       src={protocol.imageUrl}
@@ -151,7 +152,7 @@ export default function Home() {
               </div>
             </div>
             <div>
-              <h3 className="font-headline text-3xl font-bold mb-8 text-center md:text-left">
+              <h3 className="font-headline text-3xl font-bold mb-8 text-center md:text-left animate-in fade-in slide-in-from-bottom-5 duration-700" style={{ animationDelay: '400ms' }}>
                 Arquitectura Corporal
               </h3>
               <div className="space-y-8">
@@ -159,7 +160,7 @@ export default function Home() {
                   <div
                     key={protocol.name}
                     className="flex items-start gap-4 animate-in fade-in slide-in-from-bottom-5 duration-500"
-                    style={{ animationDelay: `${(index + facialProtocols.length) * 150}ms`, animationFillMode: 'backwards' }}
+                    style={{ animationDelay: `${500 + index * 150}ms`, animationFillMode: 'backwards' }}
                   >
                      <Image
                       src={protocol.imageUrl}
@@ -186,7 +187,7 @@ export default function Home() {
       </main>
 
       <footer className="py-12 bg-background/80">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-muted-foreground">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-muted-foreground animate-in fade-in-25 duration-700">
           <Logo />
           <p className="mt-4 text-sm">
             MINT® Architectural Lift™ &copy; {new Date().getFullYear()}. Todos
