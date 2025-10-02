@@ -18,8 +18,8 @@ const Logo = (props: SVGProps<SVGSVGElement>) => (
       <path d="M12 18.2c-2.8 0-5-2.2-5-5s2.2-5 5-5 5 2.2 5 5-2.2 5-5 5Z" />
       <path d="M12 21.2c-4.4 0-8-3.6-8-8s3.6-8 8-8 8 3.6 8 8-3.6 8-8 8Z" />
     </svg>
-    <span className="font-headline text-2xl font-bold text-foreground">
-      MINT Lift
+    <span className="font-headline text-lg font-bold text-foreground">
+      MINT® Lift™
     </span>
   </div>
 );

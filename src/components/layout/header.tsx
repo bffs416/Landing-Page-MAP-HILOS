@@ -3,10 +3,10 @@ import { Button } from '@/components/ui/button';
 import Logo from '@/components/logo';
 
 const navLinks = [
-  { href: '#tecnicas', label: 'Técnicas' },
-  { href: '#resultados', label: 'Resultados' },
-  { href: '#testimonios', label: 'Testimonios' },
-  { href: '#clinicas', label: 'Clínicas' },
+  { href: '#filosofia', label: 'Filosofía' },
+  { href: '#protocolos', label: 'Protocolos' },
+  { href: '#confianza', label: 'Confianza' },
+  { href: '#faq', label: 'Preguntas' },
 ];
 
 export default function Header() {
@@ -31,7 +31,7 @@ export default function Header() {
         </div>
         <div className="flex flex-1 items-center justify-end space-x-2">
           <Button asChild>
-            <Link href="#contacto">Agendar Consulta</Link>
+            <Link href="#contacto">Agendar Valoración</Link>
           </Button>
         </div>
       </div>

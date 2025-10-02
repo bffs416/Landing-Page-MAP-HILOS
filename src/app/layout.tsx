@@ -3,8 +3,8 @@ import { Toaster } from "@/components/ui/toaster"
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'MINT Lift',
-  description: 'Técnicas novedosas de hilos tensores',
+  title: 'MINT® Architectural Lift™',
+  description: 'La ciencia y el arte de rejuvenecer sin cirugía.',
 };
 
 export default function RootLayout({

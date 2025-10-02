@@ -7,88 +7,46 @@
       "imageHint": "woman face"
     },
     {
-      "id": "technique-1",
-      "description": "Abstract visualization of lifting threads.",
-      "imageUrl": "https://images.unsplash.com/photo-1521114978264-2223e08aa0d2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxhYnN0cmFjdCUyMGxpbmVzfGVufDB8fHx8MTc1OTMwOTgxN3ww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "abstract lines"
-    },
-    {
-      "id": "technique-2",
-      "description": "Anatomical drawing of facial muscles.",
-      "imageUrl": "https://images.unsplash.com/photo-1601119955552-c848b0a7be67?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxmYWNpYWwlMjBhbmF0b215fGVufDB8fHx8MTc1OTQyNTEwMnww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "facial anatomy"
-    },
-    {
-      "id": "technique-3",
-      "description": "Close up of beautiful, healthy skin.",
-      "imageUrl": "https://images.unsplash.com/photo-1581182800629-7d90925ad072?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxza2luJTIwY2FyZXxlbnwwfHx8fDE3NTk0MjUxMDJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "skin care"
-    },
-    {
       "id": "before-1",
       "description": "Side profile of a woman before the procedure.",
-      "imageUrl": "https://images.unsplash.com/photo-1723274686573-681cf98f30fb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxwb3J0cmFpdCUyMHNpZGV8ZW58MHx8fHwxNzU5NDI1MTAyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1736374143053-cb070a404533?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxwb3J0cmFpdCUyMHNpZGV8ZW58MHx8fHwxNzU5NDI1MTAyfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "portrait side"
     },
     {
       "id": "after-1",
       "description": "Side profile of a woman after the procedure, looking rejuvenated.",
-      "imageUrl": "https://images.unsplash.com/photo-1558072844-b2e8b546d415?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxwcm9maWxlJTIwYmVhdXRpZnVsfGVufDB8fHx8MTc1OTQyNTEwM3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1684070006672-09792c2ea5af?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxwcm9maWxlJTIwYmVhdXRpZnVsfGVufDB8fHx8MTc1OTQyNTEwM3ww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "profile beautiful"
     },
     {
       "id": "before-2",
       "description": "Front view of a person with visible aging signs.",
-      "imageUrl": "https://images.unsplash.com/photo-1609505848912-b7c3b8b4beda?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHx3b21hbiUyMHBvcnRyYWl0fGVufDB8fHx8MTc1OTM5NjU1MXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1557053908-4793c484d06f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHx3b21hbiUyMHBvcnRyYWl0fGVufDB8fHx8MTc1OTM5NjU1MXww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "woman portrait"
     },
     {
       "id": "after-2",
       "description": "Front view of the same person, looking younger and refreshed.",
-      "imageUrl": "https://images.unsplash.com/photo-1525134479668-1bee5c7c6845?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHx3b21hbiUyMHNtaWxpbmd8ZW58MHx8fHwxNzU5MzYxNDEzfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1719087358997-12957d0859e2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHx3b21hbiUyMHNtaWxpbmd8ZW58MHx8fHwxNzU5MzYxNDEzfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "woman smiling"
     },
     {
       "id": "before-3",
       "description": "Person showing sagging jowls before treatment.",
-      "imageUrl": "https://images.unsplash.com/photo-1581403341630-a6e0b9d2d257?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHx3b21hbiUyMHByb2ZpbGV8ZW58MHx8fHwxNzU5MzUwOTIzfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1521252659862-eec69941b071?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHx3b21hbiUyMHByb2ZpbGV8ZW58MHx8fHwxNzU5MzUwOTIzfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "woman profile"
     },
     {
       "id": "after-3",
       "description": "Same person with a more defined jawline after treatment.",
-      "imageUrl": "https://images.unsplash.com/photo-1621154641519-3753e1ea6d89?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxkZWZpbmVkJTIwamF3bGluZXxlbnwwfHx8fDE3NTk0MjUxMDJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1642310290702-c232e4e8579a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxkZWZpbmVkJTIwamF3bGluZXxlbnwwfHx8fDE3NTk0MjUxMDJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "defined jawline"
-    },
-    {
-      "id": "ai-upload-placeholder",
-      "description": "Placeholder for user to upload their photo for AI consultation.",
-      "imageUrl": "https://images.unsplash.com/photo-1635483530064-2b3e539a1405?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxmYWNlJTIwc2NhbnxlbnwwfHx8fDE3NTkzMzczODJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "face scan"
     },
     {
       "id": "clinic-map",
       "description": "A map of a city to locate clinics.",
       "imageUrl": "https://images.unsplash.com/photo-1717343824623-06293a62a70d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxjaXR5JTIwbWFwfGVufDB8fHx8MTc1OTM3NDE5OHww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "city map"
-    },
-    {
-      "id": "testimonial-1",
-      "description": "Avatar for a customer giving a testimonial.",
-      "imageUrl": "https://images.unsplash.com/photo-1557053908-4793c484d06f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHx3b21hbiUyMHBvcnRyYWl0fGVufDB8fHx8MTc1OTM5NjU1MXww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "woman portrait"
-    },
-    {
-      "id": "testimonial-2",
-      "description": "Avatar for another customer.",
-      "imageUrl": "https://images.unsplash.com/photo-1656337789708-cdf37b07112d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxtYW4lMjBzbWlsaW5nfGVufDB8fHx8MTc1OTM2ODQxNnww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "man smiling"
-    },
-    {
-      "id": "testimonial-3",
-      "description": "Avatar for a third customer.",
-      "imageUrl": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8cGVyc29uJTIwc21pbGluZ3xlbnwwfHx8fDE3NTk0MTU1MjN8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "person smiling"
     }
   ]
 }

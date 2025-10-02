@@ -1,12 +1,10 @@
 import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
 import Hero from '@/components/sections/hero';
-import Techniques from '@/components/sections/techniques';
-import BeforeAfter from '@/components/sections/before-after';
-import ProcedureInfo from '@/components/sections/procedure-info';
-import AiConsultation from '@/components/sections/ai-consultation';
-import Testimonials from '@/components/sections/testimonials';
-import ClinicLocator from '@/components/sections/clinic-locator';
+import Philosophy from '@/components/sections/philosophy';
+import Protocols from '@/components/sections/protocols';
+import Confidence from '@/components/sections/confidence';
+import Faq from '@/components/sections/faq';
 import Contact from '@/components/sections/contact';
 
 export default function Home() {
@@ -15,12 +13,10 @@ export default function Home() {
       <Header />
       <main className="flex-1">
         <Hero />
-        <Techniques />
-        <BeforeAfter />
-        <ProcedureInfo />
-        <AiConsultation />
-        <Testimonials />
-        <ClinicLocator />
+        <Philosophy />
+        <Protocols />
+        <Confidence />
+        <Faq />
         <Contact />
       </main>
       <Footer />
