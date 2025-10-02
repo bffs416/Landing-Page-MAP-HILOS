@@ -10,70 +10,22 @@ import {
 } from '@/components/ui/card';
 import { CheckCircle, Gem } from 'lucide-react';
 import Logo from '@/components/logo';
+import { facialProtocols, corporalProtocols, heroVideo, mapPillars } from '@/lib/assets';
 
-const facialProtocols = [
-  {
-    name: 'VectorLift™ (Óvalo Facial)',
-    description: 'Redefine el contorno de tu mandíbula y recupera la firmeza del tercio inferior.',
-    imageUrl: "https://picsum.photos/seed/face1/800/600",
-    imageHint: "woman jawline"
-  },
-  {
-    name: 'ApexLift™ (Fox Eyes)',
-    description: 'Eleva y abre tu mirada para un efecto rejuvenecido y cautivador.',
-    imageUrl: "https://picsum.photos/seed/face2/800/600",
-    imageHint: "woman eyes"
-  },
-  {
-    name: 'RhinoStructure™ (Nariz)',
-    description: 'Define y eleva tu nariz de forma sutil y segura, sin cirugía.',
-    imageUrl: "https://picsum.photos/seed/face3/800/600",
-    imageHint: "woman nose"
-  },
-  {
-    name: 'ContourNeck™ (Cuello y Papada)',
-    description: 'Recupera un cuello estilizado y combate la flacidez.',
-    imageUrl: "https://picsum.photos/seed/face4/800/600",
-    imageHint: "woman neck"
-  },
-  {
-    name: 'DermalGrid™ (Cicatrices)',
-    description: 'Restaura la textura de tu piel y suaviza cicatrices de acné o quirúrgicas.',
-    imageUrl: "https://picsum.photos/seed/face5/800/600",
-    imageHint: "skin texture"
-  },
-];
-
-const corporalProtocols = [
-  {
-    name: 'CoreDefine™ (Abdomen)',
-    description: 'Tonifica la piel de tu abdomen y corrige el "ombligo triste".',
-    imageUrl: "https://picsum.photos/seed/body1/800/600",
-    imageHint: "woman abdomen"
-  },
-  {
-    name: 'ArmContour™ (Brazos)',
-    description: 'Combate la flacidez para unos brazos más firmes y definidos.',
-    imageUrl: "https://picsum.photos/seed/body2/800/600",
-    imageHint: "woman arms"
-  },
-  {
-    name: 'GluteCurve™ (Glúteos)',
-    description: 'Eleva y moldea tus glúteos para una silueta más armónica.',
-    imageUrl: "https://picsum.photos/seed/body3/800/600",
-    imageHint: "woman glutes"
-  },
-];
-
-const mapPillars = [
-  { name: 'Mapeo Preciso', description: 'Un diagnóstico 100% personalizado para un plan a tu medida.' },
-  { name: 'Aplicación Experta', description: 'Una técnica segura y depurada para un resultado natural y armónico.' },
-  { name: 'Potenciación Sinérgica', description: 'Combinamos lo mejor para potenciar y prolongar la belleza de tu piel.' },
-];
 
 export default function Home() {
   return (
     <div className="bg-gradient-to-br from-secondary via-primary to-accent text-foreground">
+       <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute top-0 left-0 w-full h-full object-cover -z-10"
+        >
+          <source src={heroVideo} type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
       <header className="fixed top-0 left-0 w-full bg-background/80 backdrop-blur-sm z-50 shadow-sm">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="flex items-center justify-between h-20">
