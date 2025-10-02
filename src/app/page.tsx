@@ -123,15 +123,25 @@ export default function Home() {
               <h3 className="font-headline text-3xl font-bold mb-8 text-center md:text-left">
                 Arquitectura Facial
               </h3>
-              <div className="space-y-6">
+              <div className="space-y-8">
                 {facialProtocols.map(protocol => (
-                  <div key={protocol.name}>
-                    <h4 className="font-semibold text-lg text-foreground">
-                      {protocol.name}
-                    </h4>
-                    <p className="text-muted-foreground mt-1">
-                      {protocol.description}
-                    </p>
+                  <div key={protocol.name} className="flex items-start gap-4">
+                    <Image
+                      src={protocol.imageUrl}
+                      alt={protocol.name}
+                      width={64}
+                      height={64}
+                      className="rounded-full object-cover w-16 h-16"
+                      data-ai-hint={protocol.imageHint}
+                    />
+                    <div>
+                      <h4 className="font-semibold text-lg text-foreground">
+                        {protocol.name}
+                      </h4>
+                      <p className="text-muted-foreground mt-1">
+                        {protocol.description}
+                      </p>
+                    </div>
                   </div>
                 ))}
               </div>
@@ -140,15 +150,25 @@ export default function Home() {
               <h3 className="font-headline text-3xl font-bold mb-8 text-center md:text-left">
                 Arquitectura Corporal
               </h3>
-              <div className="space-y-6">
+              <div className="space-y-8">
                 {corporalProtocols.map(protocol => (
-                  <div key={protocol.name}>
-                    <h4 className="font-semibold text-lg text-foreground">
-                      {protocol.name}
-                    </h4>
-                    <p className="text-muted-foreground mt-1">
-                      {protocol.description}
-                    </p>
+                  <div key={protocol.name} className="flex items-start gap-4">
+                     <Image
+                      src={protocol.imageUrl}
+                      alt={protocol.name}
+                      width={64}
+                      height={64}
+                      className="rounded-full object-cover w-16 h-16"
+                      data-ai-hint={protocol.imageHint}
+                    />
+                    <div>
+                      <h4 className="font-semibold text-lg text-foreground">
+                        {protocol.name}
+                      </h4>
+                      <p className="text-muted-foreground mt-1">
+                        {protocol.description}
+                      </p>
+                    </div>
                   </div>
                 ))}
               </div>
