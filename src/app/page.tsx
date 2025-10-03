@@ -143,7 +143,7 @@ export default function Home() {
           </div>
         </section>
 
-        <Collapsible open={isCalculatorVisible} onOpenChange={setIsCalculatorVisible} className="bg-card">
+        <Collapsible open={isCalculatorVisible} onOpenChange={setIsCalculatorVisible} className="bg-card transition-all duration-500">
           {/* Philosophy Section */}
           <section id="filosofia" className="py-24">
             <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -167,8 +167,9 @@ export default function Home() {
                       {pillar.href === '#calculadora' && (
                         <CollapsibleTrigger asChild>
                            <Button
-                             variant="link"
-                             className="px-0 mt-2"
+                             variant="default"
+                             size="lg"
+                             className="mt-4 shadow-lg hover:shadow-primary/30 transform hover:-translate-y-1 transition-all duration-300"
                              onClick={() => setIsCalculatorVisible((prev) => !prev)}
                            >
                              {isCalculatorVisible ? 'Ocultar herramienta' : 'Ver herramienta'}
@@ -183,7 +184,7 @@ export default function Home() {
             </div>
           </section>
           
-          <CollapsibleContent>
+          <CollapsibleContent className="transition-all duration-500 ease-in-out">
             {/* ICL Calculator Section */}
             <section id="calculadora" ref={calculatorRef} className="py-24 bg-background/70">
               <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -310,5 +311,3 @@ export default function Home() {
     </div>
   );
 }
-
-    
