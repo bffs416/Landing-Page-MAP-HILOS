@@ -12,10 +12,27 @@ import { PlaceHolderImages } from '@/lib/placeholder-images';
 import ICLCalculator from '@/components/icl-calculator';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
+import { useState, useRef, useEffect } from 'react';
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
+import { Button } from '@/components/ui/button';
+import { ChevronDown } from 'lucide-react';
 
 
 export default function Home() {
   const heroImage = PlaceHolderImages.find(img => img.id === 'hero-background');
+  const [isCalculatorVisible, setIsCalculatorVisible] = useState(false);
+  const calculatorRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (isCalculatorVisible) {
+      setTimeout(() => {
+        calculatorRef.current?.scrollIntoView({
+          behavior: 'smooth',
+          block: 'center',
+        });
+      }, 100); // Small delay to allow collapsible to start opening
+    }
+  }, [isCalculatorVisible]);
 
   const learningJourney = [
     {
@@ -126,8 +143,8 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Philosophy Section */}
-        <div className="bg-card">
+        <Collapsible open={isCalculatorVisible} onOpenChange={setIsCalculatorVisible} className="bg-card">
+          {/* Philosophy Section */}
           <section id="filosofia" className="py-24">
             <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="max-w-2xl mx-auto space-y-12">
@@ -138,13 +155,7 @@ export default function Home() {
                       {pillar.name.charAt(0)}
                     </div>
                     <div className="flex-1">
-                       {pillar.href ? (
-                        <a href={pillar.href} className="font-headline text-2xl md:text-3xl font-bold hover:text-primary transition-colors">
-                          {pillar.name}
-                        </a>
-                      ) : (
-                        <h3 className="font-headline text-2xl md:text-3xl font-bold">{pillar.name}</h3>
-                      )}
+                       <h3 className="font-headline text-2xl md:text-3xl font-bold">{pillar.name}</h3>
                       <p className="mt-2 text-muted-foreground">
                         {pillar.description}
                       </p>
@@ -153,37 +164,52 @@ export default function Home() {
                            {pillar.creator}
                         </span>
                       )}
+                      {pillar.href === '#calculadora' && (
+                        <CollapsibleTrigger asChild>
+                           <Button
+                             variant="link"
+                             className="px-0 mt-2"
+                             onClick={() => setIsCalculatorVisible((prev) => !prev)}
+                           >
+                             {isCalculatorVisible ? 'Ocultar herramienta' : 'Ver herramienta'}
+                             <ChevronDown className={`ml-2 h-4 w-4 transition-transform duration-300 ${isCalculatorVisible ? 'rotate-180' : ''}`} />
+                           </Button>
+                        </CollapsibleTrigger>
+                      )}
                     </div>
                   </div>
                 ))}
               </div>
             </div>
           </section>
-        </div>
-
-        {/* ICL Calculator Section */}
-        <section id="calculadora" className="py-24 bg-background/70">
-          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center max-w-3xl mx-auto">
-              <h2 className="font-headline text-4xl md:text-5xl font-bold animate-in fade-in slide-in-from-bottom-5 duration-700">
-                ICL-MINT®
-              </h2>
-              <div className="mt-4 inline-block bg-primary/10 text-primary-foreground px-3 py-1 rounded-full text-xs font-medium animate-in fade-in slide-in-from-bottom-5 duration-700" style={{ animationDelay: '100ms' }}>
-                Creado por Felipe Franco
+          
+          <CollapsibleContent>
+            {/* ICL Calculator Section */}
+            <section id="calculadora" ref={calculatorRef} className="py-24 bg-background/70">
+              <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="text-center max-w-3xl mx-auto">
+                  <h2 className="font-headline text-4xl md:text-5xl font-bold animate-in fade-in slide-in-from-bottom-5 duration-700">
+                    ICL-MINT®
+                  </h2>
+                  <div className="mt-4 inline-block bg-primary/10 text-primary-foreground px-3 py-1 rounded-full text-xs font-medium animate-in fade-in slide-in-from-bottom-5 duration-700" style={{ animationDelay: '100ms' }}>
+                    Creado por Felipe Franco
+                  </div>
+                  <p className="mt-6 text-lg text-muted-foreground animate-in fade-in slide-in-from-bottom-5 duration-700" style={{ animationDelay: '200ms' }}>
+                    Tu belleza, basada en datos. Nuestro Índice de Candidatura para
+                    Lifting (ICL) es una herramienta exclusiva que nos permite
+                    realizar un diagnóstico preciso y 100% personalizado. Evalúa los
+                    factores clave para asegurar que el tratamiento con hilos
+                    tensores MINT® sea la mejor opción para ti.
+                  </p>
+                </div>
+                <div className="mt-16 animate-in fade-in slide-in-from-bottom-5 duration-700" style={{ animationDelay: '300ms' }}>
+                  <ICLCalculator />
+                </div>
               </div>
-              <p className="mt-6 text-lg text-muted-foreground animate-in fade-in slide-in-from-bottom-5 duration-700" style={{ animationDelay: '200ms' }}>
-                Tu belleza, basada en datos. Nuestro Índice de Candidatura para
-                Lifting (ICL) es una herramienta exclusiva que nos permite
-                realizar un diagnóstico preciso y 100% personalizado. Evalúa los
-                factores clave para asegurar que el tratamiento con hilos
-                tensores MINT® sea la mejor opción para ti.
-              </p>
-            </div>
-            <div className="mt-16 animate-in fade-in slide-in-from-bottom-5 duration-700" style={{ animationDelay: '300ms' }}>
-              <ICLCalculator />
-            </div>
-          </div>
-        </section>
+            </section>
+          </CollapsibleContent>
+        </Collapsible>
+
 
         {/* Protocols Section */}
         <section id="protocolos" className="py-24">
@@ -284,3 +310,5 @@ export default function Home() {
     </div>
   );
 }
+
+    
