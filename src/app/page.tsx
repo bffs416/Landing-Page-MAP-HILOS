@@ -277,9 +277,9 @@ export default function Home() {
                           <CarouselContent>
                             {protocol.steps.map((step, index) => (
                               <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
-                                <div className="p-1 h-full">
-                                  <Card className="h-full flex flex-col">
-                                    <CardContent className="flex flex-col items-center justify-center p-4 flex-grow">
+                                <div className="p-1">
+                                  <Card className="flex flex-col">
+                                    <CardContent className="p-4">
                                        <Image
                                         src={step.imageUrl}
                                         alt={step.title}
@@ -351,9 +351,9 @@ export default function Home() {
                           <CarouselContent>
                             {protocol.steps.map((step, index) => (
                               <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
-                                <div className="p-1 h-full">
-                                  <Card className="h-full flex flex-col">
-                                    <CardContent className="flex flex-col items-center justify-center p-4 flex-grow">
+                                <div className="p-1">
+                                  <Card className="flex flex-col">
+                                    <CardContent className="p-4">
                                        <Image
                                         src={step.imageUrl}
                                         alt={step.title}
@@ -406,5 +406,7 @@ export default function Home() {
     </div>
   );
 }
+
+    
 
     
