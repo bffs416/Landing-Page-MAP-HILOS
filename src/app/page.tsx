@@ -17,7 +17,7 @@ import { useState, useRef, useEffect } from 'react';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
 import { Button } from '@/components/ui/button';
 import { ChevronDown } from 'lucide-react';
-import { Dialog, DialogTrigger, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
+import { Dialog, DialogContent, DialogTrigger, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 
 
 export default function Home() {
@@ -121,28 +121,27 @@ export default function Home() {
             <div className="relative mt-20 max-w-3xl mx-auto">
               <div className="absolute left-4 top-0 h-full w-0.5 bg-border md:left-1/2 md:-translate-x-1/2"></div>
               {learningJourney.map((item, index) => (
-                <div key={index} className="relative pl-12 mb-12 md:pl-0 animate-in fade-in slide-in-from-bottom-5 duration-700" style={{ animationDelay: `${300 + index * 150}ms` }}>
-                  <div className={`flex items-center md:justify-center`}>
-                    <div className={`w-full md:w-1/2 ${index % 2 === 0 ? 'md:pr-8 md:text-right' : 'md:pl-8 md:text-left'}`}>
-                       <div className="absolute top-1/2 -translate-y-1/2 left-4 md:left-auto md:right-auto md:w-full">
-                          <div className={`absolute top-1/2 -translate-y-1/2 left-0 md:left-1/2 md:-translate-x-1/2`}>
-                            <div className="bg-primary rounded-full p-2 ring-8 ring-background">
-                              <item.icon className="w-5 h-5 text-primary-foreground" />
-                            </div>
-                          </div>
-                        </div>
-                        <div className={`${index % 2 === 0 ? 'md:ml-auto' : 'md:mr-auto'} md:max-w-[calc(100%)]`}>
-                          <Card className={`shadow-lg hover:shadow-primary/20 transition-shadow duration-300 ${index % 2 === 0 ? 'md:text-left' : 'md:text-left'}`}>
-                            <CardHeader>
-                              <CardTitle className="font-headline text-lg">{item.title}</CardTitle>
-                            </CardHeader>
-                            <CardContent>
-                              <p className="text-muted-foreground text-sm">{item.description}</p>
-                            </CardContent>
-                          </Card>
-                        </div>
+                 <div
+                  key={index}
+                  className="relative pl-12 mb-12 flex items-center md:pl-0 animate-in fade-in slide-in-from-bottom-5 duration-700"
+                  style={{ animationDelay: `${300 + index * 150}ms` }}
+                >
+                  <div className={`flex items-start md:items-center w-full ${index % 2 === 0 ? 'md:justify-start' : 'md:justify-end'}`}>
+                     <div className="absolute top-1/2 -translate-y-1/2 left-4 md:left-1/2 md:-translate-x-1/2">
+                       <div className="bg-primary rounded-full p-2 ring-8 ring-background">
+                        <item.icon className="w-5 h-5 text-primary-foreground" />
+                      </div>
                     </div>
-                    {index % 2 !== 0 && <div className="hidden md:block w-1/2" />}
+                    <div className={`w-full md:w-1/2 ${index % 2 === 0 ? 'md:pr-8' : 'md:pl-8'}`}>
+                       <Card className="shadow-lg hover:shadow-primary/20 transition-shadow duration-300">
+                        <CardHeader>
+                          <CardTitle className="font-headline text-lg">{item.title}</CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                          <p className="text-muted-foreground text-sm">{item.description}</p>
+                        </CardContent>
+                      </Card>
+                    </div>
                   </div>
                 </div>
               ))}
@@ -176,7 +175,7 @@ export default function Home() {
                   ))}
                 </div>
                  <div className="text-center mt-16 animate-in fade-in slide-in-from-bottom-5 duration-700" style={{ animationDelay: '900ms' }}>
-                    <div className="mb-4 inline-block bg-primary/10 text-primary px-3 py-1 rounded-full text-xs font-medium">
+                    <div className="mb-4 inline-block bg-primary/10 text-primary-foreground px-3 py-1 rounded-full text-xs font-medium">
                       Filosofía M.A.P.® y herramienta ICL-MINT® creadas por Felipe Franco
                     </div>
                    <CollapsibleTrigger asChild>
