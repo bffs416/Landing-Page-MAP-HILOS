@@ -58,10 +58,10 @@ const getResult = (score: number) => {
       title: 'Candidato Ideal',
       description:
         'Presentas condiciones óptimas para un resultado excepcional y duradero. La estructura, piel y expectativas están perfectamente alineadas.',
-      color: 'text-green-500',
-      bgColor: 'bg-green-500/10',
-      borderColor: 'border-green-500/20',
-      icon: <CheckCircle className="w-12 h-12 text-green-500" />,
+      color: 'text-accent-foreground',
+      bgColor: 'bg-accent/20',
+      borderColor: 'border-accent/30',
+      icon: <CheckCircle className="w-12 h-12 text-accent" />,
     };
   }
   if (score >= 11) {
@@ -69,20 +69,20 @@ const getResult = (score: number) => {
       title: 'Buen Candidato (con posible combinación)',
       description:
         'Obtendrás un resultado muy satisfactorio. Puede que uno de los factores no sea "óptimo", pero es totalmente corregible, a menudo combinando con otras técnicas.',
-      color: 'text-yellow-500',
-      bgColor: 'bg-yellow-500/10',
-      borderColor: 'border-yellow-500/20',
-      icon: <AlertTriangle className="w-12 h-12 text-yellow-500" />,
+      color: 'text-primary-foreground',
+      bgColor: 'bg-primary/20',
+      borderColor: 'border-primary/30',
+      icon: <AlertTriangle className="w-12 h-12 text-primary" />,
     };
   }
   return {
     title: 'No Apto / Derivar',
     description:
       'Los hilos tensores podrían no ser la solución más adecuada en este momento. Es crucial una valoración profesional para explorar alternativas que se ajusten mejor a tus necesidades.',
-    color: 'text-red-500',
-    bgColor: 'bg-red-500/10',
-    borderColor: 'border-red-500/20',
-    icon: <XCircle className="w-12 h-12 text-red-500" />,
+    color: 'text-secondary-foreground',
+    bgColor: 'bg-secondary/20',
+    borderColor: 'border-secondary/30',
+    icon: <XCircle className="w-12 h-12 text-secondary" />,
   };
 };
 
@@ -105,12 +105,12 @@ const ICLCalculator = () => {
   const result = useMemo(() => getResult(totalScore), [totalScore]);
 
   return (
-    <Card className="w-full max-w-4xl mx-auto shadow-2xl overflow-hidden">
+    <Card className="w-full max-w-4xl mx-auto shadow-2xl overflow-hidden bg-card">
       <CardContent className="p-0 md:grid md:grid-cols-2">
         <div className="p-8 space-y-8">
           {factors.map(factor => (
             <div key={factor.id}>
-              <h3 className="font-headline text-lg font-semibold mb-3">
+              <h3 className="font-headline text-lg font-semibold mb-3 text-card-foreground">
                 {factor.title}
               </h3>
               <Slider
@@ -127,13 +127,13 @@ const ICLCalculator = () => {
           ))}
         </div>
         <div
-          className={`flex flex-col items-center justify-center p-8 text-center ${result.bgColor} border-l ${result.borderColor}`}
+          className={`flex flex-col items-center justify-center p-8 text-center transition-colors duration-300 ${result.bgColor} border-l ${result.borderColor}`}
         >
           <div className="mb-4">{result.icon}</div>
           <p className="text-sm font-semibold uppercase tracking-wider text-muted-foreground">
             Tu resultado
           </p>
-          <p className="font-headline text-3xl font-bold my-2">{totalScore} / 20</p>
+          <p className="font-headline text-3xl font-bold my-2 text-card-foreground">{totalScore} / 20</p>
           <h3 className={`font-headline text-2xl font-bold ${result.color}`}>
             {result.title}
           </h3>
