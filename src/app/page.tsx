@@ -130,7 +130,7 @@ export default function Home() {
                   key={index}
                   className={cn(
                     "relative mb-12 flex items-start",
-                    "md:items-center animate-in fade-in slide-in-from-bottom-5 duration-700"
+                    "animate-in fade-in slide-in-from-bottom-5 duration-700 md:items-center"
                   )}
                   style={{ animationDelay: `${300 + index * 150}ms` }}
                 >
