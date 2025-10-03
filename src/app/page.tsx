@@ -118,33 +118,41 @@ export default function Home() {
                 Una metodología diseñada para potenciar la práctica clínica y elevar los resultados en medicina estética.
               </p>
             </div>
-             <div className="relative mt-20 max-w-lg mx-auto md:max-w-none lg:max-w-3xl">
-              <div className="absolute left-4 top-0 h-full w-0.5 bg-border md:left-1/2 md:-translate-x-1/2"></div>
-                {learningJourney.map((item, index) => (
-                  <div
-                    key={index}
-                    className="relative pl-12 mb-12 flex items-start md:items-center md:pl-0 animate-in fade-in slide-in-from-bottom-5 duration-700"
-                    style={{ animationDelay: `${300 + index * 150}ms` }}
-                  >
-                    <div className="absolute top-1/2 -translate-y-1/2 left-4 md:left-1/2 md:-translate-x-1/2 -ml-0.5">
-                      <div className="bg-primary rounded-full p-2 ring-8 ring-background">
-                        <item.icon className="w-5 h-5 text-primary-foreground" />
-                      </div>
-                    </div>
-                    <div className={`w-full flex ${index % 2 === 0 ? 'md:justify-start' : 'md:justify-end'}`}>
-                        <div className={`w-full md:w-1/2 ${index % 2 === 0 ? 'md:pr-8' : 'md:pl-8'}`}>
-                          <Card className="shadow-lg hover:shadow-primary/20 transition-shadow duration-300">
-                            <CardHeader>
-                              <CardTitle className="font-headline text-lg">{item.title}</CardTitle>
-                            </CardHeader>
-                            <CardContent>
-                              <p className="text-muted-foreground text-sm">{item.description}</p>
-                            </CardContent>
-                          </Card>
-                        </div>
+            <div className="relative mt-20 max-w-lg mx-auto md:max-w-none lg:max-w-3xl">
+              <div className="absolute top-0 h-full w-0.5 bg-border left-4 md:left-1/2 md:-translate-x-1/2"></div>
+              {learningJourney.map((item, index) => (
+                <div
+                  key={index}
+                  className="relative mb-12 flex items-start md:items-center animate-in fade-in slide-in-from-bottom-5 duration-700"
+                  style={{ animationDelay: `${300 + index * 150}ms` }}
+                >
+                  <div className="absolute top-1/2 -translate-y-1/2 left-4 md:left-1/2 md:-translate-x-1/2 -ml-0.5">
+                    <div className="bg-primary rounded-full p-2 ring-8 ring-background">
+                      <item.icon className="w-5 h-5 text-primary-foreground" />
                     </div>
                   </div>
-                ))}
+                  <div
+                    className={`w-full flex pl-12 md:pl-0 ${
+                      index % 2 === 0 ? 'md:justify-start' : 'md:justify-end'
+                    }`}
+                  >
+                    <div
+                      className={`w-full md:w-1/2 ${
+                        index % 2 === 0 ? 'md:pr-8' : 'md:pl-8'
+                      }`}
+                    >
+                      <Card className="shadow-lg hover:shadow-primary/20 transition-shadow duration-300">
+                        <CardHeader>
+                          <CardTitle className="font-headline text-lg">{item.title}</CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                          <p className="text-muted-foreground text-sm">{item.description}</p>
+                        </CardContent>
+                      </Card>
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </section>
@@ -240,9 +248,9 @@ export default function Home() {
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 {facialProtocols.map((protocol, index) => (
-                  <Dialog key={protocol.name}>
-                    <DialogTrigger asChild>
-                      <Card className="h-full bg-card/80 backdrop-blur-sm shadow-lg hover:shadow-primary/20 hover:-translate-y-2 transition-all duration-300 overflow-hidden text-left cursor-pointer flex flex-col animate-in fade-in slide-in-from-bottom-5" style={{ animationDelay: `${400 + index * 100}ms`, animationFillMode: 'backwards' }}>
+                  <Collapsible key={protocol.name} className="animate-in fade-in slide-in-from-bottom-5" style={{ animationDelay: `${400 + index * 100}ms`, animationFillMode: 'backwards' }}>
+                    <CollapsibleTrigger className="w-full">
+                      <Card className="h-full bg-card/80 backdrop-blur-sm shadow-lg hover:shadow-primary/20 hover:-translate-y-2 transition-all duration-300 overflow-hidden text-left cursor-pointer flex flex-col">
                         <Image
                           src={protocol.imageUrl}
                           alt={protocol.name}
@@ -252,7 +260,7 @@ export default function Home() {
                           data-ai-hint={protocol.imageHint}
                         />
                         <CardHeader className="p-4 flex-grow">
-                            <CardTitle className="font-semibold text-lg text-foreground">
+                          <CardTitle className="font-semibold text-lg text-foreground">
                             {protocol.name}
                           </CardTitle>
                         </CardHeader>
@@ -262,40 +270,35 @@ export default function Home() {
                           </CardDescription>
                         </CardContent>
                       </Card>
-                    </DialogTrigger>
-                    <DialogContent className="max-w-sm md:max-w-3xl">
-                      <DialogHeader>
-                        <DialogTitle className="font-headline text-2xl">{protocol.name}</DialogTitle>
-                        <DialogDescription className="text-base">
-                          {protocol.fullDescription}
-                        </DialogDescription>
-                      </DialogHeader>
-                      <div className="w-full px-6">
+                    </CollapsibleTrigger>
+                    <CollapsibleContent>
+                      <div className="mt-2 p-4 bg-card/80 rounded-b-lg">
+                        <p className="text-base font-headline mb-4">{protocol.fullDescription}</p>
                         <Carousel
-                          opts={{
-                            align: "start",
-                          }}
+                          opts={{ align: "start" }}
                           className="w-full"
                         >
                           <CarouselContent>
                             {protocol.steps.map((step, index) => (
                               <CarouselItem key={index}>
-                                <Card>
-                                  <CardContent className="p-4 space-y-4">
+                                <div className="p-1">
+                                  <Card>
+                                    <CardContent className="p-4 space-y-4">
                                       <Image
-                                      src={step.imageUrl}
-                                      alt={step.title}
-                                      width={400}
-                                      height={300}
-                                      className="rounded-lg object-cover w-full h-60"
-                                      data-ai-hint={step.imageHint}
-                                    />
-                                    <div className="space-y-1 text-center">
-                                      <h4 className="font-headline text-md font-semibold">{step.title}</h4>
-                                      <p className="text-xs text-muted-foreground">{step.description}</p>
-                                    </div>
-                                  </CardContent>
-                                </Card>
+                                        src={step.imageUrl}
+                                        alt={step.title}
+                                        width={400}
+                                        height={300}
+                                        className="rounded-lg object-cover w-full h-60"
+                                        data-ai-hint={step.imageHint}
+                                      />
+                                      <div className="space-y-1 text-center">
+                                        <h4 className="font-headline text-md font-semibold">{step.title}</h4>
+                                        <p className="text-xs text-muted-foreground">{step.description}</p>
+                                      </div>
+                                    </CardContent>
+                                  </Card>
+                                </div>
                               </CarouselItem>
                             ))}
                           </CarouselContent>
@@ -303,30 +306,30 @@ export default function Home() {
                           <CarouselNext className="hidden sm:flex" />
                         </Carousel>
                       </div>
-                    </DialogContent>
-                  </Dialog>
+                    </CollapsibleContent>
+                  </Collapsible>
                 ))}
               </div>
             </div>
-             <div>
+            <div>
               <h3 className="font-headline text-3xl font-bold mb-8 text-center animate-in fade-in slide-in-from-bottom-5 duration-700" style={{ animationDelay: '400ms' }}>
                 Arquitectura Corporal
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {corporalProtocols.map((protocol, index) => (
-                   <Dialog key={protocol.name}>
-                    <DialogTrigger asChild>
-                       <Card className="h-full bg-card/80 backdrop-blur-sm shadow-lg hover:shadow-primary/20 hover:-translate-y-2 transition-all duration-300 overflow-hidden text-left cursor-pointer flex flex-col animate-in fade-in slide-in-from-bottom-5" style={{ animationDelay: `${500 + index * 100}ms`, animationFillMode: 'backwards' }}>
-                          <Image
-                            src={protocol.imageUrl}
-                            alt={protocol.name}
-                            width={400}
-                            height={300}
-                            className="w-full h-40 object-cover"
-                            data-ai-hint={protocol.imageHint}
-                          />
+                  <Collapsible key={protocol.name} className="animate-in fade-in slide-in-from-bottom-5" style={{ animationDelay: `${500 + index * 100}ms`, animationFillMode: 'backwards' }}>
+                    <CollapsibleTrigger className="w-full">
+                      <Card className="h-full bg-card/80 backdrop-blur-sm shadow-lg hover:shadow-primary/20 hover:-translate-y-2 transition-all duration-300 overflow-hidden text-left cursor-pointer flex flex-col">
+                        <Image
+                          src={protocol.imageUrl}
+                          alt={protocol.name}
+                          width={400}
+                          height={300}
+                          className="w-full h-40 object-cover"
+                          data-ai-hint={protocol.imageHint}
+                        />
                         <CardHeader className="p-4 flex-grow">
-                            <CardTitle className="font-semibold text-lg text-foreground">
+                          <CardTitle className="font-semibold text-lg text-foreground">
                             {protocol.name}
                           </CardTitle>
                         </CardHeader>
@@ -336,40 +339,35 @@ export default function Home() {
                           </CardDescription>
                         </CardContent>
                       </Card>
-                    </DialogTrigger>
-                    <DialogContent className="max-w-sm md:max-w-3xl">
-                      <DialogHeader>
-                        <DialogTitle className="font-headline text-2xl">{protocol.name}</DialogTitle>
-                        <DialogDescription className="text-base">
-                          {protocol.fullDescription}
-                        </DialogDescription>
-                      </DialogHeader>
-                      <div className="w-full px-6">
+                    </CollapsibleTrigger>
+                    <CollapsibleContent>
+                      <div className="mt-2 p-4 bg-card/80 rounded-b-lg">
+                        <p className="text-base font-headline mb-4">{protocol.fullDescription}</p>
                         <Carousel
-                           opts={{
-                            align: "start",
-                          }}
+                          opts={{ align: "start" }}
                           className="w-full"
                         >
                           <CarouselContent>
                             {protocol.steps.map((step, index) => (
                               <CarouselItem key={index}>
-                                <Card>
-                                  <CardContent className="p-4 space-y-4">
+                                <div className="p-1">
+                                  <Card>
+                                    <CardContent className="p-4 space-y-4">
                                       <Image
-                                      src={step.imageUrl}
-                                      alt={step.title}
-                                      width={400}
-                                      height={300}
-                                      className="rounded-lg object-cover w-full h-60"
-                                      data-ai-hint={step.imageHint}
-                                    />
-                                    <div className="space-y-1 text-center">
-                                      <h4 className="font-headline text-md font-semibold">{step.title}</h4>
-                                      <p className="text-xs text-muted-foreground">{step.description}</p>
-                                    </div>
-                                  </CardContent>
-                                </Card>
+                                        src={step.imageUrl}
+                                        alt={step.title}
+                                        width={400}
+                                        height={300}
+                                        className="rounded-lg object-cover w-full h-60"
+                                        data-ai-hint={step.imageHint}
+                                      />
+                                      <div className="space-y-1 text-center">
+                                        <h4 className="font-headline text-md font-semibold">{step.title}</h4>
+                                        <p className="text-xs text-muted-foreground">{step.description}</p>
+                                      </div>
+                                    </CardContent>
+                                  </Card>
+                                </div>
                               </CarouselItem>
                             ))}
                           </CarouselContent>
@@ -377,8 +375,8 @@ export default function Home() {
                           <CarouselNext className="hidden sm:flex" />
                         </Carousel>
                       </div>
-                    </DialogContent>
-                  </Dialog>
+                    </CollapsibleContent>
+                  </Collapsible>
                 ))}
               </div>
             </div>
@@ -412,5 +410,3 @@ export default function Home() {
     </div>
   );
 }
-
-    
