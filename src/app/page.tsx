@@ -130,11 +130,6 @@ export default function Home() {
         <div className="bg-card">
           <section id="filosofia" className="py-24">
             <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="text-center max-w-3xl mx-auto mb-16">
-                 <h2 className="font-headline text-4xl md:text-5xl font-bold animate-in fade-in slide-in-from-bottom-5 duration-700">
-                    M.A.P.®
-                 </h2>
-              </div>
               <div className="max-w-2xl mx-auto space-y-12">
                 {mapPillars.map((pillar, index) => (
                   <div key={pillar.name} className="flex items-start gap-6 md:gap-8 animate-in fade-in slide-in-from-bottom-5 duration-700"
@@ -272,6 +267,17 @@ export default function Home() {
           <p className="mt-4 text-sm">
             MINT® Architectural Lift™ &copy; {new Date().getFullYear()}. Todos
             los derechos reservados.
+          </p>
+          <p className="mt-2 text-xs">
+            Diseñado por{" "}
+            <a
+              href="https://www.nyvaragroup.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-primary transition-colors"
+            >
+              Nyvara Group
+            </a>
           </p>
         </div>
       </footer>
