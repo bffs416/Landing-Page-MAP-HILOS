@@ -170,11 +170,11 @@ export default function Home() {
                     </div>
                   ))}
                 </div>
-                <div className="text-center mt-16 animate-in fade-in slide-in-from-bottom-5 duration-700" style={{ animationDelay: '900ms' }}>
-                  <span className="mb-4 inline-block bg-primary/10 text-primary-foreground px-3 py-1 rounded-full text-xs font-medium">
+                 <div className="text-center mt-16 animate-in fade-in slide-in-from-bottom-5 duration-700" style={{ animationDelay: '900ms' }}>
+                   <span className="mb-4 inline-block bg-primary/10 text-primary-foreground px-3 py-1 rounded-full text-xs font-medium">
                       Filosofía M.A.P.® y herramienta ICL-MINT® creadas por Felipe Franco
                   </span>
-                  <CollapsibleTrigger asChild>
+                   <CollapsibleTrigger asChild>
                      <Button
                        variant="default"
                        size="lg"
@@ -262,37 +262,44 @@ export default function Home() {
                         </Card>
                       </div>
                     </DialogTrigger>
-                    <DialogContent className="max-w-3xl">
+                     <DialogContent className="max-w-4xl">
                       <DialogHeader>
                         <DialogTitle className="font-headline text-2xl">{protocol.name}</DialogTitle>
                          <DialogDescription className="text-muted-foreground pt-2">
                            {protocol.description}
                          </DialogDescription>
                       </DialogHeader>
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
-                        <div className="text-center">
-                          <h4 className="font-semibold mb-2">Antes</h4>
-                          <Image
-                            src={protocol.beforeImageUrl}
-                            alt={`Antes - ${protocol.name}`}
-                            width={400}
-                            height={400}
-                            className="rounded-lg object-cover w-full aspect-square"
-                            data-ai-hint={protocol.beforeImageHint}
-                          />
-                        </div>
-                        <div className="text-center">
-                          <h4 className="font-semibold mb-2">Después</h4>
-                          <Image
-                            src={protocol.afterImageUrl}
-                            alt={`Después - ${protocol.name}`}
-                            width={400}
-                            height={400}
-                            className="rounded-lg object-cover w-full aspect-square"
-                            data-ai-hint={protocol.afterImageHint}
-                          />
-                        </div>
-                      </div>
+                        <Carousel
+                          opts={{
+                            align: "start",
+                          }}
+                          className="w-full"
+                        >
+                          <CarouselContent>
+                            {protocol.steps.map((step, index) => (
+                              <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+                                <div className="p-1">
+                                  <Card>
+                                    <CardContent className="flex flex-col aspect-square items-center justify-center p-2">
+                                       <Image
+                                        src={step.imageUrl}
+                                        alt={step.title}
+                                        width={400}
+                                        height={400}
+                                        className="rounded-lg object-cover w-full h-40 mb-4"
+                                        data-ai-hint={step.imageHint}
+                                      />
+                                      <h4 className="font-headline text-md font-semibold text-center">{step.title}</h4>
+                                      <p className="text-xs text-muted-foreground text-center mt-1">{step.description}</p>
+                                    </CardContent>
+                                  </Card>
+                                </div>
+                              </CarouselItem>
+                            ))}
+                          </CarouselContent>
+                          <CarouselPrevious />
+                          <CarouselNext />
+                        </Carousel>
                     </DialogContent>
                   </Dialog>
                 ))}
@@ -329,37 +336,44 @@ export default function Home() {
                         </Card>
                       </div>
                     </DialogTrigger>
-                    <DialogContent className="max-w-3xl">
+                     <DialogContent className="max-w-4xl">
                       <DialogHeader>
                         <DialogTitle className="font-headline text-2xl">{protocol.name}</DialogTitle>
                          <DialogDescription className="text-muted-foreground pt-2">
                            {protocol.description}
                          </DialogDescription>
                       </DialogHeader>
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
-                        <div className="text-center">
-                          <h4 className="font-semibold mb-2">Antes</h4>
-                          <Image
-                            src={protocol.beforeImageUrl}
-                            alt={`Antes - ${protocol.name}`}
-                            width={400}
-                            height={400}
-                            className="rounded-lg object-cover w-full aspect-square"
-                            data-ai-hint={protocol.beforeImageHint}
-                          />
-                        </div>
-                        <div className="text-center">
-                          <h4 className="font-semibold mb-2">Después</h4>
-                          <Image
-                            src={protocol.afterImageUrl}
-                            alt={`Después - ${protocol.name}`}
-                            width={400}
-                            height={400}
-                            className="rounded-lg object-cover w-full aspect-square"
-                            data-ai-hint={protocol.afterImageHint}
-                          />
-                        </div>
-                      </div>
+                       <Carousel
+                          opts={{
+                            align: "start",
+                          }}
+                          className="w-full"
+                        >
+                          <CarouselContent>
+                            {protocol.steps.map((step, index) => (
+                              <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+                                <div className="p-1">
+                                  <Card>
+                                    <CardContent className="flex flex-col aspect-square items-center justify-center p-2">
+                                       <Image
+                                        src={step.imageUrl}
+                                        alt={step.title}
+                                        width={400}
+                                        height={400}
+                                        className="rounded-lg object-cover w-full h-40 mb-4"
+                                        data-ai-hint={step.imageHint}
+                                      />
+                                      <h4 className="font-headline text-md font-semibold text-center">{step.title}</h4>
+                                      <p className="text-xs text-muted-foreground text-center mt-1">{step.description}</p>
+                                    </CardContent>
+                                  </Card>
+                                </div>
+                              </CarouselItem>
+                            ))}
+                          </CarouselContent>
+                          <CarouselPrevious />
+                          <CarouselNext />
+                        </Carousel>
                     </DialogContent>
                   </Dialog>
                 ))}
@@ -393,7 +407,3 @@ export default function Home() {
     </div>
   );
 }
-
-    
-
-    

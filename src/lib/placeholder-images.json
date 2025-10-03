@@ -7,46 +7,70 @@
       "imageHint": "woman face"
     },
     {
-      "id": "before-1",
-      "description": "Side profile of a woman before the procedure.",
-      "imageUrl": "https://images.unsplash.com/photo-1736374143053-cb070a404533?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxwb3J0cmFpdCUyMHNpZGV8ZW58MHx8fHwxNzU5NDI1MTAyfDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "portrait side"
-    },
-    {
-      "id": "after-1",
-      "description": "Side profile of a woman after the procedure, looking rejuvenated.",
-      "imageUrl": "https://images.unsplash.com/photo-1684070006672-09792c2ea5af?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxwcm9maWxlJTIwYmVhdXRpZnVsfGVufDB8fHx8MTc1OTQyNTEwM3ww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "profile beautiful"
-    },
-    {
-      "id": "before-2",
-      "description": "Front view of a person with visible aging signs.",
-      "imageUrl": "https://images.unsplash.com/photo-1557053908-4793c484d06f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHx3b21hbiUyMHBvcnRyYWl0fGVufDB8fHx8MTc1OTM5NjU1MXww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "woman portrait"
-    },
-    {
-      "id": "after-2",
-      "description": "Front view of the same person, looking younger and refreshed.",
-      "imageUrl": "https://images.unsplash.com/photo-1719087358997-12957d0859e2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHx3b21hbiUyMHNtaWxpbmd8ZW58MHx8fHwxNzU5MzYxNDEzfDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "woman smiling"
-    },
-    {
-      "id": "before-3",
-      "description": "Person showing sagging jowls before treatment.",
-      "imageUrl": "https://images.unsplash.com/photo-1521252659862-eec69941b071?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHx3b21hbiUyMHByb2ZpbGV8ZW58MHx8fHwxNzU5MzUwOTIzfDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "woman profile"
-    },
-    {
-      "id": "after-3",
-      "description": "Same person with a more defined jawline after treatment.",
-      "imageUrl": "https://images.unsplash.com/photo-1642310290702-c232e4e8579a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxkZWZpbmVkJTIwamF3bGluZXxlbnwwfHx8fDE3NTk0MjUxMDJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "defined jawline"
-    },
-    {
       "id": "clinic-map",
       "description": "A map of a city to locate clinics.",
       "imageUrl": "https://images.unsplash.com/photo-1717343824623-06293a62a70d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxjaXR5JTIwbWFwfGVufDB8fHx8MTc1OTM3NDE5OHww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "city map"
+    },
+    {
+      "id": "step-1",
+      "description": "Paso 1: Consulta y Evaluación. El especialista evalúa al paciente.",
+      "imageUrl": "https://images.unsplash.com/photo-1581056771107-24ca5f033842?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxkb2N0b3IlMjBjb25zdWx0YXRpb258ZW58MHx8fHwxNzU5NDMxMTUwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "doctor consultation"
+    },
+    {
+      "id": "step-2",
+      "description": "Paso 2: Marcaje de la Zona. Se marcan los puntos de entrada y trayecto de los hilos.",
+      "imageUrl": "https://images.unsplash.com/photo-1565589511688-9dbd06d52a7b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxmYWNpYWwlMjBtYXJraW5nfGVufDB8fHx8MTc1OTQ2MzI3MXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "facial marking"
+    },
+    {
+      "id": "step-3",
+      "description": "Paso 3: Asepsia. Se limpia y desinfecta la zona a tratar.",
+      "imageUrl": "https://images.unsplash.com/photo-1731514908704-43ce3a5de4e9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxza2luJTIwY2xlYW5pbmd8ZW58MHx8fHwxNzU5NDYzMjcxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "skin cleaning"
+    },
+    {
+      "id": "step-4",
+      "description": "Paso 4: Anestesia Local. Se aplica anestesia en los puntos de entrada.",
+      "imageUrl": "https://images.unsplash.com/photo-1740953448394-86122e98c1be?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxsb2NhbCUyMGFuZXN0aGVzaWF8ZW58MHx8fHwxNzU5NDYzMjcxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "local anesthesia"
+    },
+    {
+      "id": "step-5",
+      "description": "Paso 5: Inserción de la Cánula. Se introduce la cánula con el hilo.",
+      "imageUrl": "https://images.unsplash.com/photo-1715111965620-c2b39250880f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8Y2FubnVsYSUyMGluc2VydGlvbnxlbnwwfHx8fDE3NTk0NjMyNzF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "cannula insertion"
+    },
+    {
+      "id": "step-6",
+      "description": "Paso 6: Posicionamiento del Hilo. El hilo se coloca en el tejido subdérmico.",
+      "imageUrl": "https://images.unsplash.com/photo-1556202812-647b7010dcc7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHx0aHJlYWQlMjBwbGFjZW1lbnR8ZW58MHx8fHwxNzU5NDYzMjcxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "thread placement"
+    },
+    {
+      "id": "step-7",
+      "description": "Paso 7: Anclaje y Tracción. Se ancla el hilo y se realiza la tracción.",
+      "imageUrl": "https://images.unsplash.com/photo-1665441644195-25d7eb2ba212?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxza2luJTIwdGVuc2lvbmluZ3xlbnwwfHx8fDE3NTk0NjMyNzF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "skin tensioning"
+    },
+    {
+      "id": "step-8",
+      "description": "Paso 8: Retiro de la Cánula. Se retira la cánula, dejando el hilo en su lugar.",
+      "imageUrl": "https://images.unsplash.com/photo-1623867821208-c4d8025f8194?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8Y2FubnVsYSUyMHJlbW92YWx8ZW58MHx8fHwxNzU5NDYzMjcxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "cannula removal"
+    },
+    {
+      "id": "step-9",
+      "description": "Paso 9: Ajuste Final. Se realizan los ajustes finales para un resultado óptimo.",
+      "imageUrl": "https://images.unsplash.com/photo-1742294621029-c0e617f5e7c1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxmaW5hbCUyMGFkanVzdG1lbnR8ZW58MHx8fHwxNzU5NDYzMjcxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "final adjustment"
+    },
+    {
+      "id": "step-10",
+      "description": "Paso 10: Resultado Inmediato. Se aprecia el efecto lifting inmediatamente después.",
+      "imageUrl": "https://images.unsplash.com/photo-1664499186549-3cf5e61cbaee?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxpbW1lZGlhdGUlMjByZXN1bHR8ZW58MHx8fHwxNzU5NDYzMjcxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "immediate result"
     }
   ]
 }
