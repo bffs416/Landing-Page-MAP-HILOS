@@ -111,14 +111,14 @@ export default function Home() {
                     <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
                       <div className="p-1 h-full">
                         <Card className="h-full flex flex-col items-center text-center">
-                          <CardHeader className="items-center">
-                            <div className="bg-muted p-3 rounded-full mb-2">
-                               <item.icon className="w-8 h-8 text-primary" />
+                          <CardHeader className="items-center p-4">
+                            <div className="bg-muted p-2 rounded-full mb-2">
+                               <item.icon className="w-6 h-6 text-primary" />
                             </div>
-                            <CardTitle className="font-headline text-xl">{item.title}</CardTitle>
+                            <CardTitle className="font-headline text-lg">{item.title}</CardTitle>
                           </CardHeader>
-                          <CardContent>
-                            <p className="text-muted-foreground">{item.description}</p>
+                          <CardContent className="p-4 pt-0">
+                            <p className="text-muted-foreground text-sm">{item.description}</p>
                           </CardContent>
                         </Card>
                       </div>
@@ -281,5 +281,3 @@ export default function Home() {
     </div>
   );
 }
-
-    
