@@ -130,26 +130,33 @@ export default function Home() {
         <div className="bg-card">
           <section id="filosofia" className="py-24">
             <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="text-center max-w-3xl mx-auto">
-                 <p className="text-lg text-muted-foreground animate-in fade-in slide-in-from-bottom-5 duration-700" style={{ animationDelay: '200ms' }}>
-                  El envejecimiento no es solo la caída del tejido. Es un cambio
-                  en la estructura y la calidad de la piel. Por eso, nuestro
-                  enfoque MINT® Architectural Lift™ no solo "levanta", sino que
-                  re-arquitecturiza tu belleza natural desde adentro hacia afuera,
-                  basado en 3 pilares fundamentales.
-                </p>
+              <div className="text-center max-w-3xl mx-auto mb-16">
+                 <h2 className="font-headline text-4xl md:text-5xl font-bold animate-in fade-in slide-in-from-bottom-5 duration-700">
+                    M.A.P.®
+                 </h2>
               </div>
-              <div className="mt-16 max-w-2xl mx-auto space-y-12">
+              <div className="max-w-2xl mx-auto space-y-12">
                 {mapPillars.map((pillar, index) => (
-                  <div key={pillar.name} className="flex items-center gap-6 md:gap-8 animate-in fade-in slide-in-from-bottom-5 duration-700"
+                  <div key={pillar.name} className="flex items-start gap-6 md:gap-8 animate-in fade-in slide-in-from-bottom-5 duration-700"
                     style={{ animationDelay: `${300 + index * 150}ms` }}>
-                    <div className="font-headline text-5xl md:text-7xl font-bold text-primary/50">
+                    <div className="font-headline text-5xl md:text-7xl font-bold text-primary/50 w-12 text-center">
                       {pillar.name.charAt(0)}
                     </div>
-                    <div>
-                      <h3 className="font-headline text-2xl md:text-3xl font-bold">{pillar.name}</h3>
+                    <div className="flex-1">
+                       {pillar.href ? (
+                        <a href={pillar.href} className="font-headline text-2xl md:text-3xl font-bold hover:text-primary transition-colors">
+                          {pillar.name}
+                        </a>
+                      ) : (
+                        <h3 className="font-headline text-2xl md:text-3xl font-bold">{pillar.name}</h3>
+                      )}
                       <p className="mt-2 text-muted-foreground">
                         {pillar.description}
+                         {pillar.creator && (
+                          <span className="block text-sm text-muted-foreground/80 mt-1">
+                           {pillar.creator}
+                          </span>
+                        )}
                       </p>
                     </div>
                   </div>
@@ -268,5 +275,3 @@ export default function Home() {
     </div>
   );
 }
-
-    

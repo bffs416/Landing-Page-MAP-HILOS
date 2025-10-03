@@ -59,7 +59,9 @@ export const mapPillars = [
   {
     name: 'Mapeo Preciso',
     description:
-      'Un diagnóstico 100% personalizado para un plan a tu medida.',
+      'Se apoya en nuestra herramienta de diagnóstico ICL-MINT® para un plan 100% personalizado.',
+    href: '#calculadora',
+    creator: 'Creado por Felipe Franco',
   },
   {
     name: 'Aplicación Experta',
