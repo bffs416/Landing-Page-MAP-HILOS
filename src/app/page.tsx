@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { Gem } from 'lucide-react';
+import { Gem, Route, Milestone, Lightbulb, UserCheck, Search, Award } from 'lucide-react';
 import Logo from '@/components/logo';
 import {
   facialProtocols,
@@ -14,6 +14,39 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 export default function Home() {
   const heroImage = PlaceHolderImages.find(img => img.id === 'hero-background');
+
+  const learningJourney = [
+    {
+      icon: Search,
+      title: 'Punto de Partida: Curiosidad Inicial',
+      description:
+        'Llegas buscando una solución para el envejecimiento, con preguntas sobre cómo funcionan los tratamientos modernos.',
+    },
+    {
+      icon: Route,
+      title: 'Aprendizaje Fundamental: La Filosofía M.A.P.®',
+      description:
+        'Descubres que el tratamiento MINT® no es genérico. Se basa en un Mapeo preciso, una Aplicación experta y una Potenciación sinérgica para un resultado natural y profesional.',
+    },
+    {
+      icon: Award,
+      title: 'Resultado 1: Confianza en el Método',
+      description:
+        'Pasas de la simple curiosidad a confiar en una metodología que es profesional, segura y, sobre todo, 100% personalizada para ti.',
+    },
+    {
+      icon: Lightbulb,
+      title: 'Aprendizaje Interactivo: La Calculadora ICL-MINT®',
+      description:
+        'Interactúas con la calculadora y entiendes los factores clave para el éxito del tratamiento: calidad de piel, grado de flacidez, volumen y expectativas realistas.',
+    },
+    {
+      icon: UserCheck,
+      title: 'Resultado 2: Claridad y Empoderamiento',
+      description:
+        'No solo obtienes una respuesta sobre tu candidatura, sino que entiendes el porqué. Te sientes empoderado/a con conocimiento para dar el siguiente paso.',
+    },
+  ];
 
   return (
     <div className="bg-gradient-to-br from-secondary/50 via-primary/50 to-accent/50 text-foreground min-h-screen font-body">
@@ -73,7 +106,7 @@ export default function Home() {
                 {mapPillars.map((pillar, index) => (
                   <div key={pillar.name} className="animate-in fade-in slide-in-from-bottom-5 duration-700"
                     style={{ animationDelay: `${300 + index * 150}ms`, animationFillMode: 'backwards' }}>
-                    <Card className="h-full bg-card/80 backdrop-blur-sm shadow-lg hover:shadow-accent/20 hover:-translate-y-2 transition-all duration-300">
+                    <Card className="h-full bg-background backdrop-blur-sm shadow-lg hover:shadow-accent/20 hover:-translate-y-2 transition-all duration-300">
                       <CardHeader>
                         <div className="mx-auto bg-muted text-foreground rounded-full p-4 mb-4 w-fit">
                           <Gem className="w-8 h-8 text-black" />
@@ -181,6 +214,63 @@ export default function Home() {
                         </p>
                       </CardContent>
                     </Card>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+         {/* Learning Journey Section */}
+         <section id="viaje-aprendizaje" className="py-24 bg-background">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center max-w-3xl mx-auto">
+              <h2 className="font-headline text-4xl md:text-5xl font-bold animate-in fade-in slide-in-from-bottom-5 duration-700">
+                Tu Viaje de Conocimiento
+              </h2>
+              <p className="mt-6 text-lg text-muted-foreground animate-in fade-in slide-in-from-bottom-5 duration-700" style={{ animationDelay: '200ms' }}>
+                Entender el proceso es el primer paso hacia un resultado
+                excepcional. Te guiamos en cada etapa.
+              </p>
+            </div>
+            <div className="relative mt-20">
+              <div
+                className="absolute left-1/2 -translate-x-1/2 h-full w-0.5 bg-border"
+                aria-hidden="true"
+              ></div>
+              <div className="space-y-12">
+                {learningJourney.map((item, index) => (
+                  <div
+                    key={index}
+                    className="relative flex items-center animate-in fade-in-5 slide-in-from-bottom-5 duration-700"
+                    style={{ animationDelay: `${300 + index * 150}ms`, animationFillMode: 'backwards' }}
+                  >
+                    <div
+                      className={`flex-1 ${
+                        index % 2 === 0 ? 'pr-8 text-right' : 'pl-8 text-left'
+                      }`}
+                    >
+                      <Card
+                        className={`w-full ${
+                          index % 2 === 0 ? 'text-right' : 'text-left'
+                        } hover:shadow-primary/10 hover:-translate-y-1 transition-all`}
+                      >
+                        <CardHeader>
+                          <CardTitle className="font-headline text-xl">
+                            {item.title}
+                          </CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                          <p className="text-muted-foreground">
+                            {item.description}
+                          </p>
+                        </CardContent>
+                      </Card>
+                    </div>
+                    <div className="absolute left-1/2 -translate-x-1/2 bg-background p-2 rounded-full border-2 border-primary">
+                      <item.icon className="w-6 h-6 text-primary" />
+                    </div>
+                    <div className="flex-1"></div>
                   </div>
                 ))}
               </div>
