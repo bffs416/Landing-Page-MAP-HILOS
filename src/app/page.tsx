@@ -17,6 +17,7 @@ import { useState, useRef, useEffect } from 'react';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
 import { Button } from '@/components/ui/button';
 import { ChevronDown } from 'lucide-react';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 
 
 export default function Home() {
@@ -236,26 +237,59 @@ export default function Home() {
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 {facialProtocols.map((protocol, index) => (
-                   <div key={protocol.name} className="animate-in fade-in slide-in-from-bottom-5 duration-500" style={{ animationDelay: `${400 + index * 100}ms`, animationFillMode: 'backwards' }}>
-                     <Card className="h-full bg-card/80 backdrop-blur-sm shadow-lg hover:shadow-primary/20 hover:-translate-y-2 transition-all duration-300 overflow-hidden text-left">
-                        <Image
-                          src={protocol.imageUrl}
-                          alt={protocol.name}
-                          width={400}
-                          height={300}
-                          className="w-full h-40 object-cover"
-                          data-ai-hint={protocol.imageHint}
-                        />
-                       <CardContent className="p-4">
-                         <h4 className="font-semibold text-lg text-foreground">
-                           {protocol.name}
-                         </h4>
-                         <p className="text-muted-foreground mt-1 text-sm">
-                           {protocol.description}
-                         </p>
-                       </CardContent>
-                     </Card>
-                   </div>
+                  <Dialog key={protocol.name}>
+                    <DialogTrigger asChild>
+                      <div className="animate-in fade-in slide-in-from-bottom-5 duration-500" style={{ animationDelay: `${400 + index * 100}ms`, animationFillMode: 'backwards' }}>
+                        <Card className="h-full bg-card/80 backdrop-blur-sm shadow-lg hover:shadow-primary/20 hover:-translate-y-2 transition-all duration-300 overflow-hidden text-left cursor-pointer">
+                          <Image
+                            src={protocol.imageUrl}
+                            alt={protocol.name}
+                            width={400}
+                            height={300}
+                            className="w-full h-40 object-cover"
+                            data-ai-hint={protocol.imageHint}
+                          />
+                          <CardContent className="p-4">
+                            <h4 className="font-semibold text-lg text-foreground">
+                              {protocol.name}
+                            </h4>
+                            <p className="text-muted-foreground mt-1 text-sm">
+                              {protocol.description}
+                            </p>
+                          </CardContent>
+                        </Card>
+                      </div>
+                    </DialogTrigger>
+                    <DialogContent className="max-w-3xl">
+                      <DialogHeader>
+                        <DialogTitle className="font-headline text-2xl">{protocol.name}</DialogTitle>
+                      </DialogHeader>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                        <div className="text-center">
+                          <h4 className="font-semibold mb-2">Antes</h4>
+                          <Image
+                            src={protocol.beforeImageUrl}
+                            alt={`Antes - ${protocol.name}`}
+                            width={400}
+                            height={400}
+                            className="rounded-lg object-cover w-full aspect-square"
+                            data-ai-hint={protocol.beforeImageHint}
+                          />
+                        </div>
+                        <div className="text-center">
+                          <h4 className="font-semibold mb-2">Después</h4>
+                          <Image
+                            src={protocol.afterImageUrl}
+                            alt={`Después - ${protocol.name}`}
+                            width={400}
+                            height={400}
+                            className="rounded-lg object-cover w-full aspect-square"
+                            data-ai-hint={protocol.afterImageHint}
+                          />
+                        </div>
+                      </div>
+                    </DialogContent>
+                  </Dialog>
                 ))}
               </div>
             </div>
@@ -265,26 +299,59 @@ export default function Home() {
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {corporalProtocols.map((protocol, index) => (
-                  <div key={protocol.name} className="animate-in fade-in slide-in-from-bottom-5 duration-500" style={{ animationDelay: `${500 + index * 100}ms`, animationFillMode: 'backwards' }}>
-                    <Card className="h-full bg-card/80 backdrop-blur-sm shadow-lg hover:shadow-primary/20 hover:-translate-y-2 transition-all duration-300 overflow-hidden text-left">
-                        <Image
-                          src={protocol.imageUrl}
-                          alt={protocol.name}
-                          width={400}
-                          height={300}
-                          className="w-full h-40 object-cover"
-                          data-ai-hint={protocol.imageHint}
-                        />
-                      <CardContent className="p-4">
-                        <h4 className="font-semibold text-lg text-foreground">
-                          {protocol.name}
-                        </h4>
-                        <p className="text-muted-foreground mt-1 text-sm">
-                          {protocol.description}
-                        </p>
-                      </CardContent>
-                    </Card>
-                  </div>
+                   <Dialog key={protocol.name}>
+                    <DialogTrigger asChild>
+                      <div className="animate-in fade-in slide-in-from-bottom-5 duration-500" style={{ animationDelay: `${500 + index * 100}ms`, animationFillMode: 'backwards' }}>
+                        <Card className="h-full bg-card/80 backdrop-blur-sm shadow-lg hover:shadow-primary/20 hover:-translate-y-2 transition-all duration-300 overflow-hidden text-left cursor-pointer">
+                            <Image
+                              src={protocol.imageUrl}
+                              alt={protocol.name}
+                              width={400}
+                              height={300}
+                              className="w-full h-40 object-cover"
+                              data-ai-hint={protocol.imageHint}
+                            />
+                          <CardContent className="p-4">
+                            <h4 className="font-semibold text-lg text-foreground">
+                              {protocol.name}
+                            </h4>
+                            <p className="text-muted-foreground mt-1 text-sm">
+                              {protocol.description}
+                            </p>
+                          </CardContent>
+                        </Card>
+                      </div>
+                    </DialogTrigger>
+                    <DialogContent className="max-w-3xl">
+                      <DialogHeader>
+                        <DialogTitle className="font-headline text-2xl">{protocol.name}</DialogTitle>
+                      </DialogHeader>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                        <div className="text-center">
+                          <h4 className="font-semibold mb-2">Antes</h4>
+                          <Image
+                            src={protocol.beforeImageUrl}
+                            alt={`Antes - ${protocol.name}`}
+                            width={400}
+                            height={400}
+                            className="rounded-lg object-cover w-full aspect-square"
+                            data-ai-hint={protocol.beforeImageHint}
+                          />
+                        </div>
+                        <div className="text-center">
+                          <h4 className="font-semibold mb-2">Después</h4>
+                          <Image
+                            src={protocol.afterImageUrl}
+                            alt={`Después - ${protocol.name}`}
+                            width={400}
+                            height={400}
+                            className="rounded-lg object-cover w-full aspect-square"
+                            data-ai-hint={protocol.afterImageHint}
+                          />
+                        </div>
+                      </div>
+                    </DialogContent>
+                  </Dialog>
                 ))}
               </div>
             </div>
@@ -316,3 +383,5 @@ export default function Home() {
     </div>
   );
 }
+
+    
