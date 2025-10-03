@@ -147,12 +147,12 @@ export default function Home() {
                       )}
                       <p className="mt-2 text-muted-foreground">
                         {pillar.description}
-                         {pillar.creator && (
-                          <span className="block text-sm text-muted-foreground">
-                           {pillar.creator}
-                          </span>
-                        )}
                       </p>
+                       {pillar.creator && (
+                        <span className="mt-3 inline-block bg-primary/10 text-primary-foreground px-3 py-1 rounded-full text-xs font-medium">
+                           {pillar.creator}
+                        </span>
+                      )}
                     </div>
                   </div>
                 ))}
@@ -168,9 +168,9 @@ export default function Home() {
               <h2 className="font-headline text-4xl md:text-5xl font-bold animate-in fade-in slide-in-from-bottom-5 duration-700">
                 ICL-MINT®
               </h2>
-              <p className="mt-4 text-sm text-muted-foreground animate-in fade-in slide-in-from-bottom-5 duration-700" style={{ animationDelay: '100ms' }}>
+              <div className="mt-4 inline-block bg-primary/10 text-primary-foreground px-3 py-1 rounded-full text-xs font-medium animate-in fade-in slide-in-from-bottom-5 duration-700" style={{ animationDelay: '100ms' }}>
                 Creado por Felipe Franco
-              </p>
+              </div>
               <p className="mt-6 text-lg text-muted-foreground animate-in fade-in slide-in-from-bottom-5 duration-700" style={{ animationDelay: '200ms' }}>
                 Tu belleza, basada en datos. Nuestro Índice de Candidatura para
                 Lifting (ICL) es una herramienta exclusiva que nos permite
