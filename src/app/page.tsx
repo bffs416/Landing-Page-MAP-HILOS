@@ -151,10 +151,14 @@ export default function Home() {
               <div className="max-w-2xl mx-auto">
                 <div className="space-y-12">
                   {mapPillars.map((pillar, index) => (
-                    <div key={pillar.name} className="flex items-start gap-6 md:gap-8 animate-in fade-in slide-in-from-bottom-5 duration-700"
+                    <div key={pillar.name} className="flex items-center gap-6 md:gap-8 animate-in fade-in slide-in-from-bottom-5 duration-700"
                       style={{ animationDelay: `${300 + index * 150}ms` }}>
-                      <div className="font-headline text-5xl md:text-7xl font-bold text-primary/50 w-12 text-center">
-                        {pillar.name.charAt(0)}
+                      <div className="flex-shrink-0">
+                        <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center shadow-inner">
+                          <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center shadow-md">
+                            <span className="font-headline text-3xl font-bold text-primary-foreground">{pillar.name.charAt(0)}</span>
+                          </div>
+                        </div>
                       </div>
                       <div className="flex-1">
                          <h3 className="font-headline text-2xl md:text-3xl font-bold">{pillar.name}</h3>
@@ -312,5 +316,3 @@ export default function Home() {
     </div>
   );
 }
-
-    
