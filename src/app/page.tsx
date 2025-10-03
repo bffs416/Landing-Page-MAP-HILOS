@@ -265,7 +265,7 @@ export default function Home() {
                         </Card>
                       </div>
                     </DialogTrigger>
-                     <DialogContent className="max-w-lg md:max-w-2xl">
+                     <DialogContent className="max-w-lg md:max-w-3xl">
                       <DialogHeader>
                         <DialogTitle className="font-headline text-2xl">{protocol.name}</DialogTitle>
                          <DialogDescription className="text-muted-foreground pt-2">
@@ -282,7 +282,7 @@ export default function Home() {
                           <CarouselContent>
                             {protocol.steps.map((step, index) => (
                               <CarouselItem key={index}>
-                                <div className="p-1">
+                                <div>
                                   <Card>
                                     <CardContent className="p-4 flex flex-col items-center text-center gap-4">
                                        <Image
@@ -342,7 +342,7 @@ export default function Home() {
                         </Card>
                       </div>
                     </DialogTrigger>
-                     <DialogContent className="max-w-lg md:max-w-2xl">
+                     <DialogContent className="max-w-lg md:max-w-3xl">
                       <DialogHeader>
                         <DialogTitle className="font-headline text-2xl">{protocol.name}</DialogTitle>
                          <DialogDescription className="text-muted-foreground pt-2">
@@ -359,7 +359,7 @@ export default function Home() {
                           <CarouselContent>
                             {protocol.steps.map((step, index) => (
                               <CarouselItem key={index}>
-                                <div className="p-1">
+                                <div>
                                   <Card>
                                     <CardContent className="p-4 flex flex-col items-center text-center gap-4">
                                        <Image
@@ -417,4 +417,5 @@ export default function Home() {
   );
 }
 
+    
     
