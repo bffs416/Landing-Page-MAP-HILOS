@@ -148,7 +148,7 @@ export default function Home() {
                       <p className="mt-2 text-muted-foreground">
                         {pillar.description}
                          {pillar.creator && (
-                          <span className="block text-sm text-muted-foreground/80 mt-1">
+                          <span className="block text-sm text-muted-foreground">
                            {pillar.creator}
                           </span>
                         )}
