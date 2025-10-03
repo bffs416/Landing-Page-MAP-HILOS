@@ -171,15 +171,14 @@ export default function Home() {
                   ))}
                 </div>
                  <div className="text-center mt-16 animate-in fade-in slide-in-from-bottom-5 duration-700" style={{ animationDelay: '900ms' }}>
-                   <div className="mb-4 inline-block bg-primary/10 text-primary-foreground px-3 py-1 rounded-full text-xs font-medium">
+                    <div className="mb-4 inline-block bg-primary/10 text-primary px-3 py-1 rounded-full text-xs font-medium">
                       Filosofía M.A.P.® y herramienta ICL-MINT® creadas por Felipe Franco
-                  </div>
+                    </div>
                    <CollapsibleTrigger asChild>
                      <Button
                        variant="default"
                        size="lg"
                        className="shadow-lg hover:shadow-primary/30 transform hover:-translate-y-1 transition-all duration-300"
-                       onClick={() => setIsCalculatorVisible((prev) => !prev)}
                      >
                        {isCalculatorVisible ? 'Ocultar herramienta' : 'Ver herramienta'}
                        <ChevronDown className={`ml-2 h-4 w-4 transition-transform duration-300 ${isCalculatorVisible ? 'rotate-180' : ''}`} />
@@ -198,7 +197,7 @@ export default function Home() {
                   <h2 className="font-headline text-4xl md:text-5xl font-bold animate-in fade-in slide-in-from-bottom-5 duration-700">
                     ICL-MINT®
                   </h2>
-                  <div className="mt-4 inline-block bg-primary/10 text-primary-foreground px-3 py-1 rounded-full text-xs font-medium animate-in fade-in slide-in-from-bottom-5 duration-700" style={{ animationDelay: '100ms' }}>
+                  <div className="mt-4 inline-block bg-primary/10 text-primary px-3 py-1 rounded-full text-xs font-medium animate-in fade-in slide-in-from-bottom-5 duration-700" style={{ animationDelay: '100ms' }}>
                     Creado por Felipe Franco
                   </div>
                   <p className="mt-6 text-lg text-muted-foreground animate-in fade-in slide-in-from-bottom-5 duration-700" style={{ animationDelay: '200ms' }}>
@@ -278,9 +277,9 @@ export default function Home() {
                           <CarouselContent>
                             {protocol.steps.map((step, index) => (
                               <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
-                                <div className="p-1">
-                                  <Card>
-                                    <CardContent className="flex flex-col items-center justify-center p-4">
+                                <div className="p-1 h-full">
+                                  <Card className="h-full flex flex-col">
+                                    <CardContent className="flex flex-col items-center justify-center p-4 flex-grow">
                                        <Image
                                         src={step.imageUrl}
                                         alt={step.title}
@@ -352,9 +351,9 @@ export default function Home() {
                           <CarouselContent>
                             {protocol.steps.map((step, index) => (
                               <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
-                                <div className="p-1">
-                                  <Card>
-                                    <CardContent className="flex flex-col items-center justify-center p-4">
+                                <div className="p-1 h-full">
+                                  <Card className="h-full flex flex-col">
+                                    <CardContent className="flex flex-col items-center justify-center p-4 flex-grow">
                                        <Image
                                         src={step.imageUrl}
                                         alt={step.title}
