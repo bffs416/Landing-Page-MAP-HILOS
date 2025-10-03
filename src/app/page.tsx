@@ -10,6 +10,7 @@ import {
 } from '@/lib/assets';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import ICLCalculator from '@/components/icl-calculator';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 export default function Home() {
   const heroImage = PlaceHolderImages.find(img => img.id === 'hero-background');
@@ -67,19 +68,23 @@ export default function Home() {
                 basado en 3 pilares fundamentales.
               </p>
             </div>
-            <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
+            <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
               {mapPillars.map((pillar, index) => (
-                <div key={pillar.name} className="flex flex-col items-center animate-in fade-in slide-in-from-bottom-5 duration-700"
+                <div key={pillar.name} className="animate-in fade-in slide-in-from-bottom-5 duration-700"
                   style={{ animationDelay: `${300 + index * 150}ms`, animationFillMode: 'backwards' }}>
-                  <div className="bg-muted text-foreground rounded-full p-3 mb-4">
-                    <Gem className="w-7 h-7 text-black" />
-                  </div>
-                  <h3 className="font-headline text-2xl font-semibold">
-                    {pillar.name}
-                  </h3>
-                  <p className="mt-2 text-muted-foreground max-w-xs mx-auto">
-                    {pillar.description}
-                  </p>
+                  <Card className="h-full bg-card/80 backdrop-blur-sm shadow-lg hover:shadow-primary/20 hover:-translate-y-2 transition-all duration-300">
+                    <CardHeader>
+                      <div className="mx-auto bg-muted text-foreground rounded-full p-4 mb-4 w-fit">
+                        <Gem className="w-8 h-8 text-black" />
+                      </div>
+                      <CardTitle className="font-headline text-2xl">{pillar.name}</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-muted-foreground">
+                        {pillar.description}
+                      </p>
+                    </CardContent>
+                  </Card>
                 </div>
               ))}
             </div>
@@ -119,65 +124,61 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="mt-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-12">
-            <div>
-              <h3 className="font-headline text-3xl font-bold mb-8 text-center md:text-left animate-in fade-in slide-in-from-bottom-5 duration-700" style={{ animationDelay: '300ms' }}>
+          <div className="mt-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="mb-16">
+              <h3 className="font-headline text-3xl font-bold mb-8 text-center animate-in fade-in slide-in-from-bottom-5 duration-700" style={{ animationDelay: '300ms' }}>
                 Arquitectura Facial
               </h3>
-              <div className="space-y-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 {facialProtocols.map((protocol, index) => (
-                  <div
-                    key={protocol.name}
-                    className="flex items-start gap-4 animate-in fade-in slide-in-from-bottom-5 duration-500"
-                    style={{ animationDelay: `${400 + index * 150}ms`, animationFillMode: 'backwards' }}
-                  >
-                    <Image
-                      src={protocol.imageUrl}
-                      alt={protocol.name}
-                      width={64}
-                      height={64}
-                      className="rounded-full object-cover w-16 h-16"
-                      data-ai-hint={protocol.imageHint}
-                    />
-                    <div>
-                      <h4 className="font-semibold text-lg text-foreground">
-                        {protocol.name}
-                      </h4>
-                      <p className="text-muted-foreground mt-1">
-                        {protocol.description}
-                      </p>
-                    </div>
-                  </div>
+                   <div key={protocol.name} className="animate-in fade-in slide-in-from-bottom-5 duration-500" style={{ animationDelay: `${400 + index * 100}ms`, animationFillMode: 'backwards' }}>
+                     <Card className="h-full bg-card/80 backdrop-blur-sm shadow-lg hover:shadow-primary/20 hover:-translate-y-2 transition-all duration-300 overflow-hidden text-left">
+                        <Image
+                          src={protocol.imageUrl}
+                          alt={protocol.name}
+                          width={400}
+                          height={300}
+                          className="w-full h-40 object-cover"
+                          data-ai-hint={protocol.imageHint}
+                        />
+                       <CardContent className="p-4">
+                         <h4 className="font-semibold text-lg text-foreground">
+                           {protocol.name}
+                         </h4>
+                         <p className="text-muted-foreground mt-1 text-sm">
+                           {protocol.description}
+                         </p>
+                       </CardContent>
+                     </Card>
+                   </div>
                 ))}
               </div>
             </div>
-            <div>
-              <h3 className="font-headline text-3xl font-bold mb-8 text-center md:text-left animate-in fade-in slide-in-from-bottom-5 duration-700" style={{ animationDelay: '400ms' }}>
+             <div>
+              <h3 className="font-headline text-3xl font-bold mb-8 text-center animate-in fade-in slide-in-from-bottom-5 duration-700" style={{ animationDelay: '400ms' }}>
                 Arquitectura Corporal
               </h3>
-              <div className="space-y-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {corporalProtocols.map((protocol, index) => (
-                  <div
-                    key={protocol.name}
-                    className="flex items-start gap-4 animate-in fade-in slide-in-from-bottom-5 duration-500"
-                    style={{ animationDelay: `${500 + index * 150}ms`, animationFillMode: 'backwards' }}
-                  >
-                     <Image
-                      src={protocol.imageUrl}
-                      alt={protocol.name}
-                      width={64}
-                      height={64}
-                      className="rounded-full object-cover w-16 h-16"
-                      data-ai-hint={protocol.imageHint}
-                    />
-                    <div>
-                      <h4 className="font-semibold text-lg text-foreground">
-                        {protocol.name}
-                      </h4>
-                      <p className="text-muted-foreground mt-1">
-                        {protocol.description}
-                      </p>
-                    </div>
+                  <div key={protocol.name} className="animate-in fade-in slide-in-from-bottom-5 duration-500" style={{ animationDelay: `${500 + index * 100}ms`, animationFillMode: 'backwards' }}>
+                    <Card className="h-full bg-card/80 backdrop-blur-sm shadow-lg hover:shadow-primary/20 hover:-translate-y-2 transition-all duration-300 overflow-hidden text-left">
+                        <Image
+                          src={protocol.imageUrl}
+                          alt={protocol.name}
+                          width={400}
+                          height={300}
+                          className="w-full h-40 object-cover"
+                          data-ai-hint={protocol.imageHint}
+                        />
+                      <CardContent className="p-4">
+                        <h4 className="font-semibold text-lg text-foreground">
+                          {protocol.name}
+                        </h4>
+                        <p className="text-muted-foreground mt-1 text-sm">
+                          {protocol.description}
+                        </p>
+                      </CardContent>
+                    </Card>
                   </div>
                 ))}
               </div>
