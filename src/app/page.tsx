@@ -161,16 +161,14 @@ export default function Home() {
                         <p className="mt-2 text-muted-foreground">
                           {pillar.description}
                         </p>
-                         {pillar.creator && (
-                          <span className="mt-3 inline-block bg-primary/10 text-primary-foreground px-3 py-1 rounded-full text-xs font-medium">
-                             {pillar.creator}
-                          </span>
-                        )}
                       </div>
                     </div>
                   ))}
                 </div>
                 <div className="text-center mt-12 animate-in fade-in slide-in-from-bottom-5 duration-700" style={{ animationDelay: '900ms' }}>
+                  <span className="mb-4 inline-block bg-primary/10 text-primary-foreground px-3 py-1 rounded-full text-xs font-medium">
+                      Filosofía M.A.P.® y herramienta ICL-MINT® creadas por Felipe Franco
+                  </span>
                   <CollapsibleTrigger asChild>
                      <Button
                        variant="default"
@@ -314,3 +312,5 @@ export default function Home() {
     </div>
   );
 }
+
+    
