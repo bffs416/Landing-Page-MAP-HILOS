@@ -2,7 +2,7 @@
 
 import { useState, useMemo } from 'react';
 import { Slider } from '@/components/ui/slider';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent } from '@/components/ui/card';
 import { CheckCircle, AlertTriangle, XCircle } from 'lucide-react';
 
 const factors = [
@@ -58,10 +58,8 @@ const getResult = (score: number) => {
       title: 'Candidato Ideal',
       description:
         'Presentas condiciones óptimas para un resultado excepcional y duradero. La estructura, piel y expectativas están perfectamente alineadas.',
-      color: 'text-accent-foreground',
-      bgColor: 'bg-accent/20',
-      borderColor: 'border-accent/30',
       icon: <CheckCircle className="w-12 h-12 text-accent" />,
+      titleColor: 'text-accent',
     };
   }
   if (score >= 11) {
@@ -69,20 +67,16 @@ const getResult = (score: number) => {
       title: 'Buen Candidato (con posible combinación)',
       description:
         'Obtendrás un resultado muy satisfactorio. Puede que uno de los factores no sea "óptimo", pero es totalmente corregible, a menudo combinando con otras técnicas.',
-      color: 'text-primary-foreground',
-      bgColor: 'bg-primary/20',
-      borderColor: 'border-primary/30',
       icon: <AlertTriangle className="w-12 h-12 text-primary" />,
+      titleColor: 'text-primary',
     };
   }
   return {
     title: 'No Apto / Derivar',
     description:
       'Los hilos tensores podrían no ser la solución más adecuada en este momento. Es crucial una valoración profesional para explorar alternativas que se ajusten mejor a tus necesidades.',
-    color: 'text-destructive-foreground',
-    bgColor: 'bg-destructive/10',
-    borderColor: 'border-destructive/20',
     icon: <XCircle className="w-12 h-12 text-destructive" />,
+    titleColor: 'text-destructive',
   };
 };
 
@@ -127,14 +121,14 @@ const ICLCalculator = () => {
           ))}
         </div>
         <div
-          className={`flex flex-col items-center justify-center p-8 text-center transition-colors duration-300 ${result.bgColor} border-l ${result.borderColor}`}
+          className={`flex flex-col items-center justify-center p-8 text-center bg-background/50 border-l`}
         >
           <div className="mb-4">{result.icon}</div>
           <p className="text-sm font-semibold uppercase tracking-wider text-muted-foreground">
             Tu resultado
           </p>
           <p className="font-headline text-3xl font-bold my-2 text-card-foreground">{totalScore} / 20</p>
-          <h3 className={`font-headline text-2xl font-bold ${result.color}`}>
+          <h3 className={`font-headline text-2xl font-bold ${result.titleColor}`}>
             {result.title}
           </h3>
           <p className="mt-4 text-muted-foreground">{result.description}</p>
