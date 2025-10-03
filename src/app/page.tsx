@@ -1,3 +1,4 @@
+
 'use client';
 
 import Image from 'next/image';
@@ -147,39 +148,41 @@ export default function Home() {
           {/* Philosophy Section */}
           <section id="filosofia" className="py-24">
             <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="max-w-2xl mx-auto space-y-12">
-                {mapPillars.map((pillar, index) => (
-                  <div key={pillar.name} className="flex items-start gap-6 md:gap-8 animate-in fade-in slide-in-from-bottom-5 duration-700"
-                    style={{ animationDelay: `${300 + index * 150}ms` }}>
-                    <div className="font-headline text-5xl md:text-7xl font-bold text-primary/50 w-12 text-center">
-                      {pillar.name.charAt(0)}
+              <div className="max-w-2xl mx-auto">
+                <div className="space-y-12">
+                  {mapPillars.map((pillar, index) => (
+                    <div key={pillar.name} className="flex items-start gap-6 md:gap-8 animate-in fade-in slide-in-from-bottom-5 duration-700"
+                      style={{ animationDelay: `${300 + index * 150}ms` }}>
+                      <div className="font-headline text-5xl md:text-7xl font-bold text-primary/50 w-12 text-center">
+                        {pillar.name.charAt(0)}
+                      </div>
+                      <div className="flex-1">
+                         <h3 className="font-headline text-2xl md:text-3xl font-bold">{pillar.name}</h3>
+                        <p className="mt-2 text-muted-foreground">
+                          {pillar.description}
+                        </p>
+                         {pillar.creator && (
+                          <span className="mt-3 inline-block bg-primary/10 text-primary-foreground px-3 py-1 rounded-full text-xs font-medium">
+                             {pillar.creator}
+                          </span>
+                        )}
+                      </div>
                     </div>
-                    <div className="flex-1">
-                       <h3 className="font-headline text-2xl md:text-3xl font-bold">{pillar.name}</h3>
-                      <p className="mt-2 text-muted-foreground">
-                        {pillar.description}
-                      </p>
-                       {pillar.creator && (
-                        <span className="mt-3 inline-block bg-primary/10 text-primary-foreground px-3 py-1 rounded-full text-xs font-medium">
-                           {pillar.creator}
-                        </span>
-                      )}
-                      {pillar.href === '#calculadora' && (
-                        <CollapsibleTrigger asChild>
-                           <Button
-                             variant="default"
-                             size="lg"
-                             className="mt-4 shadow-lg hover:shadow-primary/30 transform hover:-translate-y-1 transition-all duration-300"
-                             onClick={() => setIsCalculatorVisible((prev) => !prev)}
-                           >
-                             {isCalculatorVisible ? 'Ocultar herramienta' : 'Ver herramienta'}
-                             <ChevronDown className={`ml-2 h-4 w-4 transition-transform duration-300 ${isCalculatorVisible ? 'rotate-180' : ''}`} />
-                           </Button>
-                        </CollapsibleTrigger>
-                      )}
-                    </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
+                <div className="text-center mt-12 animate-in fade-in slide-in-from-bottom-5 duration-700" style={{ animationDelay: '900ms' }}>
+                  <CollapsibleTrigger asChild>
+                     <Button
+                       variant="default"
+                       size="lg"
+                       className="shadow-lg hover:shadow-primary/30 transform hover:-translate-y-1 transition-all duration-300"
+                       onClick={() => setIsCalculatorVisible((prev) => !prev)}
+                     >
+                       {isCalculatorVisible ? 'Ocultar herramienta' : 'Ver herramienta'}
+                       <ChevronDown className={`ml-2 h-4 w-4 transition-transform duration-300 ${isCalculatorVisible ? 'rotate-180' : ''}`} />
+                     </Button>
+                  </CollapsibleTrigger>
+                </div>
               </div>
             </div>
           </section>
