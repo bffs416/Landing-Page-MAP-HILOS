@@ -11,13 +11,13 @@ import {
 } from '@/lib/assets';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import ICLCalculator from '@/components/icl-calculator';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import { useState, useRef, useEffect } from 'react';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
 import { Button } from '@/components/ui/button';
 import { ChevronDown } from 'lucide-react';
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
+import { Dialog, DialogTrigger, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 
 
 export default function Home() {
@@ -170,7 +170,7 @@ export default function Home() {
                     </div>
                   ))}
                 </div>
-                <div className="text-center mt-12 animate-in fade-in slide-in-from-bottom-5 duration-700" style={{ animationDelay: '900ms' }}>
+                <div className="text-center mt-16 animate-in fade-in slide-in-from-bottom-5 duration-700" style={{ animationDelay: '900ms' }}>
                   <span className="mb-4 inline-block bg-primary/10 text-primary-foreground px-3 py-1 rounded-full text-xs font-medium">
                       Filosofía M.A.P.® y herramienta ICL-MINT® creadas por Felipe Franco
                   </span>
@@ -240,7 +240,7 @@ export default function Home() {
                   <Dialog key={protocol.name}>
                     <DialogTrigger asChild>
                       <div className="animate-in fade-in slide-in-from-bottom-5 duration-500" style={{ animationDelay: `${400 + index * 100}ms`, animationFillMode: 'backwards' }}>
-                        <Card className="h-full bg-card/80 backdrop-blur-sm shadow-lg hover:shadow-primary/20 hover:-translate-y-2 transition-all duration-300 overflow-hidden text-left cursor-pointer">
+                        <Card className="h-full bg-card/80 backdrop-blur-sm shadow-lg hover:shadow-primary/20 hover:-translate-y-2 transition-all duration-300 overflow-hidden text-left cursor-pointer flex flex-col">
                           <Image
                             src={protocol.imageUrl}
                             alt={protocol.name}
@@ -249,13 +249,15 @@ export default function Home() {
                             className="w-full h-40 object-cover"
                             data-ai-hint={protocol.imageHint}
                           />
-                          <CardContent className="p-4">
-                            <h4 className="font-semibold text-lg text-foreground">
+                          <CardHeader className="p-4 flex-grow">
+                             <CardTitle className="font-semibold text-lg text-foreground">
                               {protocol.name}
-                            </h4>
-                            <p className="text-muted-foreground mt-1 text-sm">
+                            </CardTitle>
+                          </CardHeader>
+                          <CardContent className="p-4 pt-0">
+                            <CardDescription className="text-muted-foreground mt-1 text-sm line-clamp-3">
                               {protocol.description}
-                            </p>
+                            </CardDescription>
                           </CardContent>
                         </Card>
                       </div>
@@ -263,6 +265,9 @@ export default function Home() {
                     <DialogContent className="max-w-3xl">
                       <DialogHeader>
                         <DialogTitle className="font-headline text-2xl">{protocol.name}</DialogTitle>
+                         <DialogDescription className="text-muted-foreground pt-2">
+                           {protocol.description}
+                         </DialogDescription>
                       </DialogHeader>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
                         <div className="text-center">
@@ -302,7 +307,7 @@ export default function Home() {
                    <Dialog key={protocol.name}>
                     <DialogTrigger asChild>
                       <div className="animate-in fade-in slide-in-from-bottom-5 duration-500" style={{ animationDelay: `${500 + index * 100}ms`, animationFillMode: 'backwards' }}>
-                        <Card className="h-full bg-card/80 backdrop-blur-sm shadow-lg hover:shadow-primary/20 hover:-translate-y-2 transition-all duration-300 overflow-hidden text-left cursor-pointer">
+                        <Card className="h-full bg-card/80 backdrop-blur-sm shadow-lg hover:shadow-primary/20 hover:-translate-y-2 transition-all duration-300 overflow-hidden text-left cursor-pointer flex flex-col">
                             <Image
                               src={protocol.imageUrl}
                               alt={protocol.name}
@@ -311,13 +316,15 @@ export default function Home() {
                               className="w-full h-40 object-cover"
                               data-ai-hint={protocol.imageHint}
                             />
-                          <CardContent className="p-4">
-                            <h4 className="font-semibold text-lg text-foreground">
+                          <CardHeader className="p-4 flex-grow">
+                             <CardTitle className="font-semibold text-lg text-foreground">
                               {protocol.name}
-                            </h4>
-                            <p className="text-muted-foreground mt-1 text-sm">
+                            </CardTitle>
+                          </CardHeader>
+                          <CardContent className="p-4 pt-0">
+                            <CardDescription className="text-muted-foreground mt-1 text-sm line-clamp-3">
                               {protocol.description}
-                            </p>
+                            </CardDescription>
                           </CardContent>
                         </Card>
                       </div>
@@ -325,6 +332,9 @@ export default function Home() {
                     <DialogContent className="max-w-3xl">
                       <DialogHeader>
                         <DialogTitle className="font-headline text-2xl">{protocol.name}</DialogTitle>
+                         <DialogDescription className="text-muted-foreground pt-2">
+                           {protocol.description}
+                         </DialogDescription>
                       </DialogHeader>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
                         <div className="text-center">
@@ -383,5 +393,7 @@ export default function Home() {
     </div>
   );
 }
+
+    
 
     
