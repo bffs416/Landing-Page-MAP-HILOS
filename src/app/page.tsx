@@ -171,9 +171,9 @@ export default function Home() {
                   ))}
                 </div>
                  <div className="text-center mt-16 animate-in fade-in slide-in-from-bottom-5 duration-700" style={{ animationDelay: '900ms' }}>
-                   <span className="mb-4 inline-block bg-primary/10 text-primary-foreground px-3 py-1 rounded-full text-xs font-medium">
+                   <div className="mb-4 inline-block bg-primary/10 text-primary-foreground px-3 py-1 rounded-full text-xs font-medium">
                       Filosofía M.A.P.® y herramienta ICL-MINT® creadas por Felipe Franco
-                  </span>
+                  </div>
                    <CollapsibleTrigger asChild>
                      <Button
                        variant="default"
@@ -262,7 +262,7 @@ export default function Home() {
                         </Card>
                       </div>
                     </DialogTrigger>
-                     <DialogContent className="max-w-4xl">
+                     <DialogContent className="max-w-3xl">
                       <DialogHeader>
                         <DialogTitle className="font-headline text-2xl">{protocol.name}</DialogTitle>
                          <DialogDescription className="text-muted-foreground pt-2">
@@ -280,13 +280,13 @@ export default function Home() {
                               <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
                                 <div className="p-1">
                                   <Card>
-                                    <CardContent className="flex flex-col aspect-square items-center justify-center p-2">
+                                    <CardContent className="flex flex-col items-center justify-center p-4">
                                        <Image
                                         src={step.imageUrl}
                                         alt={step.title}
-                                        width={400}
-                                        height={400}
-                                        className="rounded-lg object-cover w-full h-40 mb-4"
+                                        width={200}
+                                        height={200}
+                                        className="rounded-lg object-cover w-full aspect-square mb-4"
                                         data-ai-hint={step.imageHint}
                                       />
                                       <h4 className="font-headline text-md font-semibold text-center">{step.title}</h4>
@@ -336,7 +336,7 @@ export default function Home() {
                         </Card>
                       </div>
                     </DialogTrigger>
-                     <DialogContent className="max-w-4xl">
+                     <DialogContent className="max-w-3xl">
                       <DialogHeader>
                         <DialogTitle className="font-headline text-2xl">{protocol.name}</DialogTitle>
                          <DialogDescription className="text-muted-foreground pt-2">
@@ -354,13 +354,13 @@ export default function Home() {
                               <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
                                 <div className="p-1">
                                   <Card>
-                                    <CardContent className="flex flex-col aspect-square items-center justify-center p-2">
+                                    <CardContent className="flex flex-col items-center justify-center p-4">
                                        <Image
                                         src={step.imageUrl}
                                         alt={step.title}
-                                        width={400}
-                                        height={400}
-                                        className="rounded-lg object-cover w-full h-40 mb-4"
+                                        width={200}
+                                        height={200}
+                                        className="rounded-lg object-cover w-full aspect-square mb-4"
                                         data-ai-hint={step.imageHint}
                                       />
                                       <h4 className="font-headline text-md font-semibold text-center">{step.title}</h4>
@@ -407,3 +407,5 @@ export default function Home() {
     </div>
   );
 }
+
+    
