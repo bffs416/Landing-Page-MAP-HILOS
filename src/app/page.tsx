@@ -119,12 +119,12 @@ export default function Home() {
               </p>
             </div>
             <div className="relative mt-20 max-w-3xl mx-auto">
-              <div className="absolute left-4 md:left-1/2 -translate-x-1/2 top-0 h-full w-0.5 bg-border"></div>
+              <div className="absolute left-4 top-0 h-full w-0.5 bg-border md:left-1/2 md:-translate-x-1/2"></div>
               {learningJourney.map((item, index) => (
-                <div key={index} className="relative pl-12 md:pl-0 mb-12 animate-in fade-in slide-in-from-bottom-5 duration-700" style={{ animationDelay: `${300 + index * 150}ms` }}>
+                <div key={index} className="relative pl-12 mb-12 md:pl-0 animate-in fade-in slide-in-from-bottom-5 duration-700" style={{ animationDelay: `${300 + index * 150}ms` }}>
                   <div className={`flex items-center md:${index % 2 === 0 ? 'justify-start' : 'justify-end'}`}>
-                    <div className={`md:w-1/2 ${index % 2 === 0 ? 'md:pr-8' : 'md:pl-8'}`}>
-                       <div className={`absolute top-1/2 -translate-y-1/2 left-4 md:left-1/2 md:-translate-x-1/2`}>
+                    <div className={`w-full md:w-1/2 ${index % 2 === 0 ? 'md:pr-8' : 'md:pl-8'}`}>
+                       <div className="absolute top-1/2 -translate-y-1/2 left-4 md:left-1/2 md:-translate-x-1/2">
                           <div className="bg-primary rounded-full p-2 ring-8 ring-background">
                             <item.icon className="w-5 h-5 text-primary-foreground" />
                           </div>
@@ -265,7 +265,7 @@ export default function Home() {
                       <DialogHeader>
                         <DialogTitle className="font-headline text-2xl">{protocol.name}</DialogTitle>
                          <DialogDescription className="text-muted-foreground pt-2">
-                           {protocol.description}
+                           {protocol.fullDescription}
                          </DialogDescription>
                       </DialogHeader>
                         <Carousel
@@ -277,9 +277,9 @@ export default function Home() {
                           <CarouselContent>
                             {protocol.steps.map((step, index) => (
                               <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
-                                <div className="p-1">
+                                <div className="p-1 h-full">
                                   <Card className="flex flex-col h-full">
-                                    <CardContent className="p-4 flex flex-col items-center text-center">
+                                    <CardContent className="p-4 flex flex-col items-center text-center flex-grow">
                                        <Image
                                         src={step.imageUrl}
                                         alt={step.title}
@@ -339,7 +339,7 @@ export default function Home() {
                       <DialogHeader>
                         <DialogTitle className="font-headline text-2xl">{protocol.name}</DialogTitle>
                          <DialogDescription className="text-muted-foreground pt-2">
-                           {protocol.description}
+                           {protocol.fullDescription}
                          </DialogDescription>
                       </DialogHeader>
                        <Carousel
@@ -351,9 +351,9 @@ export default function Home() {
                           <CarouselContent>
                             {protocol.steps.map((step, index) => (
                               <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
-                                <div className="p-1">
+                                <div className="p-1 h-full">
                                   <Card className="flex flex-col h-full">
-                                    <CardContent className="p-4 flex flex-col items-center text-center">
+                                    <CardContent className="p-4 flex flex-col items-center text-center flex-grow">
                                        <Image
                                         src={step.imageUrl}
                                         alt={step.title}
@@ -406,3 +406,5 @@ export default function Home() {
     </div>
   );
 }
+
+    
