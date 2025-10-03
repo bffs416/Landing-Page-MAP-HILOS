@@ -87,6 +87,14 @@ export const corporalProtocols = [
     imageHint: 'woman glutes',
     steps: procedureSteps.map((step, i) => ({ ...step, title: `GluteCurve™ - Paso ${i + 1}` })),
   },
+  {
+    name: 'TOP BEAUTY UP',
+    description: 'Un protocolo integral para un lifting corporal completo. Combina diferentes técnicas para tratar la flacidez en múltiples zonas como abdomen, brazos y glúteos, logrando una silueta más estilizada y rejuvenecida.',
+    fullDescription: 'Descripción completa y detallada del TOP BEAUTY UP. Este es nuestro tratamiento corporal estrella, diseñado para quienes buscan un rejuvenecimiento corporal global sin cirugía. Se abordan las áreas clave de flacidez para un resultado armónico y espectacular.',
+    imageUrl: 'https://picsum.photos/seed/corporal4/800/600',
+    imageHint: 'full body silhouette',
+    steps: procedureSteps.map((step, i) => ({ ...step, title: `TOP BEAUTY UP - Paso ${i + 1}` })),
+  },
 ];
 
 export const mapPillars = [
