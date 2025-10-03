@@ -131,8 +131,10 @@ export default function Home() {
           <section id="filosofia" className="py-24">
             <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="text-center max-w-3xl mx-auto">
-                <h2 className="font-headline text-4xl md:text-5xl font-bold animate-in fade-in slide-in-from-bottom-5 duration-700">
-                  M.A.P.®
+                <h2 className="font-headline text-4xl md:text-5xl font-bold tracking-widest leading-none animate-in fade-in slide-in-from-bottom-5 duration-700">
+                  {'M.A.P.®'.split('').map((char, index) => (
+                    <span key={index} className="block">{char}</span>
+                  ))}
                 </h2>
                 <p className="mt-6 text-lg text-muted-foreground animate-in fade-in slide-in-from-bottom-5 duration-700" style={{ animationDelay: '200ms' }}>
                   El envejecimiento no es solo la caída del tejido. Es un cambio
