@@ -99,35 +99,29 @@ export default function Home() {
                 Una metodología diseñada para potenciar la práctica clínica y elevar los resultados en medicina estética.
               </p>
             </div>
-            <div className="mt-16 animate-in fade-in slide-in-from-bottom-5 duration-700" style={{ animationDelay: '300ms' }}>
-              <Carousel
-                opts={{
-                  align: "start",
-                }}
-                className="w-full"
-              >
-                <CarouselContent>
-                  {learningJourney.map((item, index) => (
-                    <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
-                      <div className="p-1 h-full">
-                        <Card className="h-full flex flex-col items-center text-center">
-                          <CardHeader className="items-center p-4">
-                            <div className="bg-muted p-2 rounded-full mb-2">
-                               <item.icon className="w-6 h-6 text-primary" />
-                            </div>
+            <div className="relative mt-20 max-w-3xl mx-auto">
+              <div className="absolute left-1/2 -translate-x-1/2 top-0 h-full w-0.5 bg-border"></div>
+              {learningJourney.map((item, index) => (
+                <div key={index} className="relative mb-12 animate-in fade-in slide-in-from-bottom-5 duration-700" style={{ animationDelay: `${300 + index * 150}ms` }}>
+                  <div className={`flex items-center ${index % 2 === 0 ? 'justify-start' : 'justify-end'}`}>
+                    <div className={`w-1/2 ${index % 2 === 0 ? 'pr-8 text-right' : 'pl-8 text-left'}`}>
+                       <div className={`absolute top-1/2 -translate-y-1/2 ${index % 2 === 0 ? 'right-1/2 translate-x-1/2' : 'left-1/2 -translate-x-1/2'}`}>
+                          <div className="bg-primary rounded-full p-2 ring-8 ring-background">
+                            <item.icon className="w-5 h-5 text-primary-foreground" />
+                          </div>
+                        </div>
+                        <Card className="shadow-lg hover:shadow-primary/20 transition-shadow duration-300">
+                          <CardHeader>
                             <CardTitle className="font-headline text-lg">{item.title}</CardTitle>
                           </CardHeader>
-                          <CardContent className="p-4 pt-0">
+                          <CardContent>
                             <p className="text-muted-foreground text-sm">{item.description}</p>
                           </CardContent>
                         </Card>
-                      </div>
-                    </CarouselItem>
-                  ))}
-                </CarouselContent>
-                <CarouselPrevious className="hidden sm:flex" />
-                <CarouselNext className="hidden sm:flex" />
-              </Carousel>
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </section>
