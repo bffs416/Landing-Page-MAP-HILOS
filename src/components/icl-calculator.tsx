@@ -79,10 +79,10 @@ const getResult = (score: number) => {
     title: 'No Apto / Derivar',
     description:
       'Los hilos tensores podrían no ser la solución más adecuada en este momento. Es crucial una valoración profesional para explorar alternativas que se ajusten mejor a tus necesidades.',
-    color: 'text-secondary-foreground',
-    bgColor: 'bg-secondary/20',
-    borderColor: 'border-secondary/30',
-    icon: <XCircle className="w-12 h-12 text-secondary" />,
+    color: 'text-destructive-foreground',
+    bgColor: 'bg-destructive/10',
+    borderColor: 'border-destructive/20',
+    icon: <XCircle className="w-12 h-12 text-destructive" />,
   };
 };
 
