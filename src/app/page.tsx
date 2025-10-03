@@ -173,6 +173,9 @@ export default function Home() {
               <h2 className="font-headline text-4xl md:text-5xl font-bold animate-in fade-in slide-in-from-bottom-5 duration-700">
                 ICL-MINT®
               </h2>
+              <p className="mt-4 text-sm text-muted-foreground animate-in fade-in slide-in-from-bottom-5 duration-700" style={{ animationDelay: '100ms' }}>
+                Creado por Felipe Franco
+              </p>
               <p className="mt-6 text-lg text-muted-foreground animate-in fade-in slide-in-from-bottom-5 duration-700" style={{ animationDelay: '200ms' }}>
                 Tu belleza, basada en datos. Nuestro Índice de Candidatura para
                 Lifting (ICL) es una herramienta exclusiva que nos permite

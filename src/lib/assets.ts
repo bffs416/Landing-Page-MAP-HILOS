@@ -61,7 +61,7 @@ export const mapPillars = [
     description:
       'Se apoya en nuestra herramienta de diagnóstico ICL-MINT® para un plan 100% personalizado.',
     href: '#calculadora',
-    creator: 'Creado por Felipe Franco',
+    creator: 'Filosofía M.A.P.® y herramienta ICL-MINT® creadas por Felipe Franco',
   },
   {
     name: 'Aplicación Experta',
