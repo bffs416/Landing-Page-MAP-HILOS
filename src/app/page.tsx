@@ -11,6 +11,8 @@ import {
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import ICLCalculator from '@/components/icl-calculator';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
+
 
 export default function Home() {
   const heroImage = PlaceHolderImages.find(img => img.id === 'hero-background');
@@ -18,33 +20,33 @@ export default function Home() {
   const learningJourney = [
     {
       icon: Search,
-      title: 'Punto de Partida: Curiosidad Inicial',
+      title: 'Punto de Partida: Búsqueda de Innovación',
       description:
-        'Llegas buscando una solución para el envejecimiento, con preguntas sobre cómo funcionan los tratamientos modernos.',
+        'El médico experto busca técnicas avanzadas que ofrezcan resultados superiores y seguros más allá de los métodos tradicionales.',
     },
     {
       icon: Route,
-      title: 'Aprendizaje Fundamental: La Filosofía M.A.P.®',
+      title: 'Conceptualización: La Filosofía M.A.P.®',
       description:
-        'Descubres que el tratamiento MINT® no es genérico. Se basa en un Mapeo preciso, una Aplicación experta y una Potenciación sinérgica para un resultado natural y profesional.',
+        'Descubre un sistema tridimensional (Mapeo, Aplicación, Potenciación) que redefine el lifting no quirúrgico, pasando de un simple tensado a una verdadera re-arquitectura facial.',
     },
     {
       icon: Award,
-      title: 'Resultado 1: Confianza en el Método',
+      title: 'Validación Clínica: Dominio del Método',
       description:
-        'Pasas de la simple curiosidad a confiar en una metodología que es profesional, segura y, sobre todo, 100% personalizada para ti.',
+        'El médico integra el M.A.P.® en su práctica, logrando resultados predecibles, naturales y reproducibles, lo que aumenta la confianza en la técnica.',
     },
     {
       icon: Lightbulb,
-      title: 'Aprendizaje Interactivo: La Calculadora ICL-MINT®',
+      title: 'Herramienta de Diagnóstico: El ICL-MINT®',
       description:
-        'Interactúas con la calculadora y entiendes los factores clave para el éxito del tratamiento: calidad de piel, grado de flacidez, volumen y expectativas realistas.',
+        'Utiliza la calculadora como una herramienta de screening para objetivizar la selección de pacientes, estandarizando criterios clave para el éxito del tratamiento.',
     },
     {
       icon: UserCheck,
-      title: 'Resultado 2: Claridad y Empoderamiento',
+      title: 'Precisión Diagnóstica: Selección Óptima del Paciente',
       description:
-        'No solo obtienes una respuesta sobre tu candidatura, sino que entiendes el porqué. Te sientes empoderado/a con conocimiento para dar el siguiente paso.',
+        'El médico se siente empoderado para identificar al candidato ideal, gestionar expectativas y diseñar planes de tratamiento con mayor precisión y seguridad.',
     },
   ];
 
@@ -83,6 +85,50 @@ export default function Home() {
               Protocolos de lifting no quirúrgico para rostro y cuerpo. Una nueva
               era en la medicina estética.
             </p>
+          </div>
+        </section>
+
+        {/* Learning Journey Section */}
+        <section id="viaje-aprendizaje" className="py-24 bg-background">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center max-w-3xl mx-auto">
+              <h2 className="font-headline text-4xl md:text-5xl font-bold animate-in fade-in slide-in-from-bottom-5 duration-700">
+                El Viaje del Experto con MINT®
+              </h2>
+              <p className="mt-6 text-lg text-muted-foreground animate-in fade-in slide-in-from-bottom-5 duration-700" style={{ animationDelay: '200ms' }}>
+                Una metodología diseñada para potenciar la práctica clínica y elevar los resultados en medicina estética.
+              </p>
+            </div>
+            <div className="mt-16 animate-in fade-in slide-in-from-bottom-5 duration-700" style={{ animationDelay: '300ms' }}>
+              <Carousel
+                opts={{
+                  align: "start",
+                }}
+                className="w-full"
+              >
+                <CarouselContent>
+                  {learningJourney.map((item, index) => (
+                    <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+                      <div className="p-1 h-full">
+                        <Card className="h-full flex flex-col items-center text-center">
+                          <CardHeader className="items-center">
+                            <div className="bg-muted p-3 rounded-full mb-2">
+                               <item.icon className="w-8 h-8 text-primary" />
+                            </div>
+                            <CardTitle className="font-headline text-xl">{item.title}</CardTitle>
+                          </CardHeader>
+                          <CardContent>
+                            <p className="text-muted-foreground">{item.description}</p>
+                          </CardContent>
+                        </Card>
+                      </div>
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+                <CarouselPrevious className="hidden sm:flex" />
+                <CarouselNext className="hidden sm:flex" />
+              </Carousel>
+            </div>
           </div>
         </section>
 
@@ -221,62 +267,6 @@ export default function Home() {
           </div>
         </section>
 
-         {/* Learning Journey Section */}
-         <section id="viaje-aprendizaje" className="py-24 bg-background">
-          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center max-w-3xl mx-auto">
-              <h2 className="font-headline text-4xl md:text-5xl font-bold animate-in fade-in slide-in-from-bottom-5 duration-700">
-                Tu Viaje de Conocimiento
-              </h2>
-              <p className="mt-6 text-lg text-muted-foreground animate-in fade-in slide-in-from-bottom-5 duration-700" style={{ animationDelay: '200ms' }}>
-                Entender el proceso es el primer paso hacia un resultado
-                excepcional. Te guiamos en cada etapa.
-              </p>
-            </div>
-            <div className="relative mt-20">
-              <div
-                className="absolute left-1/2 -translate-x-1/2 h-full w-0.5 bg-border"
-                aria-hidden="true"
-              ></div>
-              <div className="space-y-12">
-                {learningJourney.map((item, index) => (
-                  <div
-                    key={index}
-                    className="relative flex items-center animate-in fade-in-5 slide-in-from-bottom-5 duration-700"
-                    style={{ animationDelay: `${300 + index * 150}ms`, animationFillMode: 'backwards' }}
-                  >
-                    <div
-                      className={`flex-1 ${
-                        index % 2 === 0 ? 'pr-8 text-right' : 'pl-8 text-left'
-                      }`}
-                    >
-                      <Card
-                        className={`w-full ${
-                          index % 2 === 0 ? 'text-right' : 'text-left'
-                        } hover:shadow-primary/10 hover:-translate-y-1 transition-all`}
-                      >
-                        <CardHeader>
-                          <CardTitle className="font-headline text-xl">
-                            {item.title}
-                          </CardTitle>
-                        </CardHeader>
-                        <CardContent>
-                          <p className="text-muted-foreground">
-                            {item.description}
-                          </p>
-                        </CardContent>
-                      </Card>
-                    </div>
-                    <div className="absolute left-1/2 -translate-x-1/2 bg-background p-2 rounded-full border-2 border-primary">
-                      <item.icon className="w-6 h-6 text-primary" />
-                    </div>
-                    <div className="flex-1"></div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
       </main>
 
       <footer className="py-12 bg-background/80">
@@ -291,3 +281,5 @@ export default function Home() {
     </div>
   );
 }
+
+    
