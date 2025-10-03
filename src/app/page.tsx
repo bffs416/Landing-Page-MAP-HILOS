@@ -40,13 +40,13 @@ export default function Home() {
           )}
           <div className="absolute inset-0 bg-black/50 -z-10" />
           <div className="max-w-4xl">
-            <h1 className="font-headline text-5xl md:text-7xl font-bold text-white animate-in fade-in slide-in-from-bottom-5 duration-700">
+            <h1 className="font-headline text-5xl md:text-7xl font-bold text-white">
               MINT® Architectural Lift™
             </h1>
-            <p className="mt-4 text-lg md:text-xl max-w-3xl mx-auto text-white/90 animate-in fade-in slide-in-from-bottom-5 duration-700" style={{ animationDelay: '200ms' }}>
+            <p className="mt-4 text-lg md:text-xl max-w-3xl mx-auto text-white/90">
               Rediseña. Reposiciona. Rejuvenece.
             </p>
-            <p className="mt-2 text-md md:text-lg max-w-3xl mx-auto text-white/80 animate-in fade-in slide-in-from-bottom-5 duration-700" style={{ animationDelay: '300ms' }}>
+            <p className="mt-2 text-md md:text-lg max-w-3xl mx-auto text-white/80">
               Protocolos de lifting no quirúrgico para rostro y cuerpo. Una nueva
               era en la medicina estética.
             </p>
@@ -59,7 +59,7 @@ export default function Home() {
             <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="text-center max-w-3xl mx-auto">
                 <h2 className="font-headline text-4xl md:text-5xl font-bold animate-in fade-in slide-in-from-bottom-5 duration-700">
-                  Nuestra Filosofía M.A.P.®
+                  M.A.P.®
                 </h2>
                 <p className="mt-6 text-lg text-muted-foreground animate-in fade-in slide-in-from-bottom-5 duration-700" style={{ animationDelay: '200ms' }}>
                   El envejecimiento no es solo la caída del tejido. Es un cambio
@@ -98,7 +98,7 @@ export default function Home() {
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-3xl mx-auto">
               <h2 className="font-headline text-4xl md:text-5xl font-bold animate-in fade-in slide-in-from-bottom-5 duration-700">
-                Descubre tu Candidatura Ideal con ICL-MINT®
+                ICL-MINT®
               </h2>
               <p className="mt-6 text-lg text-muted-foreground animate-in fade-in slide-in-from-bottom-5 duration-700" style={{ animationDelay: '200ms' }}>
                 Tu belleza, basada en datos. Nuestro Índice de Candidatura para
