@@ -54,42 +54,44 @@ export default function Home() {
         </section>
 
         {/* Philosophy Section */}
-        <section id="filosofia" className="py-24">
-          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center max-w-3xl mx-auto">
-              <h2 className="font-headline text-4xl md:text-5xl font-bold animate-in fade-in slide-in-from-bottom-5 duration-700">
-                Nuestra Filosofía M.A.P.®
-              </h2>
-              <p className="mt-6 text-lg text-muted-foreground animate-in fade-in slide-in-from-bottom-5 duration-700" style={{ animationDelay: '200ms' }}>
-                El envejecimiento no es solo la caída del tejido. Es un cambio
-                en la estructura y la calidad de la piel. Por eso, nuestro
-                enfoque MINT® Architectural Lift™ no solo "levanta", sino que
-                re-arquitecturiza tu belleza natural desde adentro hacia afuera,
-                basado en 3 pilares fundamentales.
-              </p>
+        <div className="bg-card">
+          <section id="filosofia" className="py-24">
+            <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="text-center max-w-3xl mx-auto">
+                <h2 className="font-headline text-4xl md:text-5xl font-bold animate-in fade-in slide-in-from-bottom-5 duration-700">
+                  Nuestra Filosofía M.A.P.®
+                </h2>
+                <p className="mt-6 text-lg text-muted-foreground animate-in fade-in slide-in-from-bottom-5 duration-700" style={{ animationDelay: '200ms' }}>
+                  El envejecimiento no es solo la caída del tejido. Es un cambio
+                  en la estructura y la calidad de la piel. Por eso, nuestro
+                  enfoque MINT® Architectural Lift™ no solo "levanta", sino que
+                  re-arquitecturiza tu belleza natural desde adentro hacia afuera,
+                  basado en 3 pilares fundamentales.
+                </p>
+              </div>
+              <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                {mapPillars.map((pillar, index) => (
+                  <div key={pillar.name} className="animate-in fade-in slide-in-from-bottom-5 duration-700"
+                    style={{ animationDelay: `${300 + index * 150}ms`, animationFillMode: 'backwards' }}>
+                    <Card className="h-full bg-card/80 backdrop-blur-sm shadow-lg hover:shadow-accent/20 hover:-translate-y-2 transition-all duration-300">
+                      <CardHeader>
+                        <div className="mx-auto bg-muted text-foreground rounded-full p-4 mb-4 w-fit">
+                          <Gem className="w-8 h-8 text-black" />
+                        </div>
+                        <CardTitle className="font-headline text-2xl">{pillar.name}</CardTitle>
+                      </CardHeader>
+                      <CardContent>
+                        <p className="text-muted-foreground">
+                          {pillar.description}
+                        </p>
+                      </CardContent>
+                    </Card>
+                  </div>
+                ))}
+              </div>
             </div>
-            <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-              {mapPillars.map((pillar, index) => (
-                <div key={pillar.name} className="animate-in fade-in slide-in-from-bottom-5 duration-700"
-                  style={{ animationDelay: `${300 + index * 150}ms`, animationFillMode: 'backwards' }}>
-                  <Card className="h-full bg-card/80 backdrop-blur-sm shadow-lg hover:shadow-accent/20 hover:-translate-y-2 transition-all duration-300">
-                    <CardHeader>
-                      <div className="mx-auto bg-muted text-foreground rounded-full p-4 mb-4 w-fit">
-                        <Gem className="w-8 h-8 text-black" />
-                      </div>
-                      <CardTitle className="font-headline text-2xl">{pillar.name}</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-muted-foreground">
-                        {pillar.description}
-                      </p>
-                    </CardContent>
-                  </Card>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+          </section>
+        </div>
 
         {/* ICL Calculator Section */}
         <section id="calculadora" className="py-24 bg-background/70">
