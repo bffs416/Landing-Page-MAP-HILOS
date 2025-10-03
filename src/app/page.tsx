@@ -126,13 +126,13 @@ export default function Home() {
                   className="relative pl-12 mb-12 flex items-center md:pl-0 animate-in fade-in slide-in-from-bottom-5 duration-700"
                   style={{ animationDelay: `${300 + index * 150}ms` }}
                 >
-                  <div className={`flex items-start md:items-center w-full ${index % 2 === 0 ? 'md:justify-start' : 'md:justify-end'}`}>
+                  <div className={`flex items-start md:items-center w-full ${index % 2 === 0 ? 'md:flex-row md:justify-start' : 'md:flex-row-reverse md:justify-start'}`}>
                      <div className="absolute top-1/2 -translate-y-1/2 left-4 md:left-1/2 md:-translate-x-1/2">
                        <div className="bg-primary rounded-full p-2 ring-8 ring-background">
                         <item.icon className="w-5 h-5 text-primary-foreground" />
                       </div>
                     </div>
-                    <div className={`w-full md:w-1/2 ${index % 2 === 0 ? 'md:pr-8' : 'md:pl-8'}`}>
+                    <div className="w-full md:w-1/2 md:px-8">
                        <Card className="shadow-lg hover:shadow-primary/20 transition-shadow duration-300">
                         <CardHeader>
                           <CardTitle className="font-headline text-lg">{item.title}</CardTitle>
@@ -416,6 +416,3 @@ export default function Home() {
     </div>
   );
 }
-
-    
-    
