@@ -265,7 +265,7 @@ export default function Home() {
                         </Card>
                       </div>
                     </DialogTrigger>
-                     <DialogContent className="max-w-3xl">
+                     <DialogContent className="max-w-lg md:max-w-2xl">
                       <DialogHeader>
                         <DialogTitle className="font-headline text-2xl">{protocol.name}</DialogTitle>
                          <DialogDescription className="text-muted-foreground pt-2">
@@ -275,33 +275,36 @@ export default function Home() {
                         <Carousel
                           opts={{
                             align: "start",
+                            loop: true,
                           }}
-                          className="w-full"
+                          className="w-full mt-4"
                         >
                           <CarouselContent>
                             {protocol.steps.map((step, index) => (
-                              <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
-                                <div className="p-1 h-full">
-                                  <Card className="flex flex-col h-full">
-                                    <CardContent className="p-4 flex flex-col items-center text-center flex-grow">
+                              <CarouselItem key={index}>
+                                <div className="p-1">
+                                  <Card>
+                                    <CardContent className="p-4 flex flex-col items-center text-center gap-4">
                                        <Image
                                         src={step.imageUrl}
                                         alt={step.title}
-                                        width={200}
-                                        height={200}
-                                        className="rounded-lg object-cover w-full aspect-square mb-4"
+                                        width={400}
+                                        height={300}
+                                        className="rounded-lg object-cover w-full aspect-video"
                                         data-ai-hint={step.imageHint}
                                       />
-                                      <h4 className="font-headline text-md font-semibold">{step.title}</h4>
-                                      <p className="text-xs text-muted-foreground mt-1">{step.description}</p>
+                                      <div className="space-y-1">
+                                        <h4 className="font-headline text-md font-semibold">{step.title}</h4>
+                                        <p className="text-xs text-muted-foreground">{step.description}</p>
+                                      </div>
                                     </CardContent>
                                   </Card>
                                 </div>
                               </CarouselItem>
                             ))}
                           </CarouselContent>
-                          <CarouselPrevious />
-                          <CarouselNext />
+                          <CarouselPrevious className="hidden sm:flex" />
+                          <CarouselNext className="hidden sm:flex" />
                         </Carousel>
                     </DialogContent>
                   </Dialog>
@@ -339,7 +342,7 @@ export default function Home() {
                         </Card>
                       </div>
                     </DialogTrigger>
-                     <DialogContent className="max-w-3xl">
+                     <DialogContent className="max-w-lg md:max-w-2xl">
                       <DialogHeader>
                         <DialogTitle className="font-headline text-2xl">{protocol.name}</DialogTitle>
                          <DialogDescription className="text-muted-foreground pt-2">
@@ -349,33 +352,36 @@ export default function Home() {
                        <Carousel
                           opts={{
                             align: "start",
+                            loop: true,
                           }}
-                          className="w-full"
+                          className="w-full mt-4"
                         >
                           <CarouselContent>
                             {protocol.steps.map((step, index) => (
-                              <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
-                                <div className="p-1 h-full">
-                                  <Card className="flex flex-col h-full">
-                                    <CardContent className="p-4 flex flex-col items-center text-center flex-grow">
+                              <CarouselItem key={index}>
+                                <div className="p-1">
+                                  <Card>
+                                    <CardContent className="p-4 flex flex-col items-center text-center gap-4">
                                        <Image
                                         src={step.imageUrl}
                                         alt={step.title}
-                                        width={200}
-                                        height={200}
-                                        className="rounded-lg object-cover w-full aspect-square mb-4"
+                                        width={400}
+                                        height={300}
+                                        className="rounded-lg object-cover w-full aspect-video"
                                         data-ai-hint={step.imageHint}
                                       />
-                                      <h4 className="font-headline text-md font-semibold">{step.title}</h4>
-                                      <p className="text-xs text-muted-foreground mt-1">{step.description}</p>
+                                      <div className="space-y-1">
+                                        <h4 className="font-headline text-md font-semibold">{step.title}</h4>
+                                        <p className="text-xs text-muted-foreground">{step.description}</p>
+                                      </div>
                                     </CardContent>
                                   </Card>
                                 </div>
                               </CarouselItem>
                             ))}
                           </CarouselContent>
-                          <CarouselPrevious />
-                          <CarouselNext />
+                          <CarouselPrevious className="hidden sm:flex" />
+                          <CarouselNext className="hidden sm:flex" />
                         </Carousel>
                     </DialogContent>
                   </Dialog>
@@ -410,5 +416,3 @@ export default function Home() {
     </div>
   );
 }
-
-    
