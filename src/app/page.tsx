@@ -72,7 +72,7 @@ export default function Home() {
               {mapPillars.map((pillar, index) => (
                 <div key={pillar.name} className="animate-in fade-in slide-in-from-bottom-5 duration-700"
                   style={{ animationDelay: `${300 + index * 150}ms`, animationFillMode: 'backwards' }}>
-                  <Card className="h-full bg-card/80 backdrop-blur-sm shadow-lg hover:shadow-primary/20 hover:-translate-y-2 transition-all duration-300">
+                  <Card className="h-full bg-card/80 backdrop-blur-sm shadow-lg hover:shadow-accent/20 hover:-translate-y-2 transition-all duration-300">
                     <CardHeader>
                       <div className="mx-auto bg-muted text-foreground rounded-full p-4 mb-4 w-fit">
                         <Gem className="w-8 h-8 text-black" />
