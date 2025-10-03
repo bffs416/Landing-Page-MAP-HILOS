@@ -290,7 +290,7 @@ export default function Home() {
                                         alt={step.title}
                                         width={400}
                                         height={300}
-                                        className="rounded-lg object-cover w-full aspect-video"
+                                        className="rounded-lg object-cover w-full h-60"
                                         data-ai-hint={step.imageHint}
                                       />
                                       <div className="space-y-1">
@@ -367,7 +367,7 @@ export default function Home() {
                                         alt={step.title}
                                         width={400}
                                         height={300}
-                                        className="rounded-lg object-cover w-full aspect-video"
+                                        className="rounded-lg object-cover w-full h-60"
                                         data-ai-hint={step.imageHint}
                                       />
                                       <div className="space-y-1">
@@ -416,3 +416,5 @@ export default function Home() {
     </div>
   );
 }
+
+    
