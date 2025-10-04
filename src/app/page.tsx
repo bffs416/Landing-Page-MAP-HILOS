@@ -2,7 +2,7 @@
 'use client';
 
 import Image from 'next/image';
-import { Gem, Route, Milestone, Lightbulb, UserCheck, Search, Award, ChevronRight } from 'lucide-react';
+import { Gem, Route, Milestone, Lightbulb, UserCheck, Search, Award, ChevronRight, User, GraduationCap, Medal } from 'lucide-react';
 import Logo from '@/components/logo';
 import {
   facialProtocols,
@@ -20,6 +20,8 @@ import { ChevronDown } from 'lucide-react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogTrigger } from '@/components/ui/dialog';
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
+import { EffectCard } from '@/components/effect-card';
+import InteractiveGrid from '@/components/interactive-grid';
 
 const AnimatedTitle = ({ text }: { text: string }) => {
   return (
@@ -185,6 +187,50 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Creator Section */}
+        <section id="creator" className="py-24">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+              <div className="relative aspect-square max-w-md mx-auto">
+                <InteractiveGrid />
+                <div className="absolute inset-0 flex items-center justify-center p-8">
+                   <Image
+                    src="https://images.unsplash.com/photo-1580281657527-808a3e4b4523?q=80&w=1974&auto=format&fit=crop"
+                    alt="Dr. Felipe Franco"
+                    width={400}
+                    height={400}
+                    className="rounded-full object-cover aspect-square shadow-2xl"
+                    data-ai-hint="man portrait"
+                  />
+                </div>
+              </div>
+              <div className="text-center md:text-left">
+                <h2 className="font-headline text-4xl md:text-5xl font-bold">
+                  Conoce al Experto
+                </h2>
+                <p className="mt-4 text-2xl text-primary font-headline">Dr. Felipe Franco</p>
+                <p className="mt-6 text-lg text-muted-foreground">
+                  Líder de opinión y pionero en medicina estética, el Dr. Felipe Franco es el creador de la filosofía M.A.P.® y la herramienta ICL-MINT®, revolucionando el campo del lifting no quirúrgico. Su visión combina arte y ciencia para lograr resultados naturales y predecibles.
+                </p>
+                <div className="mt-8 flex gap-8 justify-center md:justify-start">
+                  <div className="flex items-center gap-3">
+                    <User className="w-6 h-6 text-primary"/>
+                    <span className="font-semibold">Speaker Internacional</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <GraduationCap className="w-6 h-6 text-primary"/>
+                    <span className="font-semibold">Educador</span>
+                  </div>
+                   <div className="flex items-center gap-3">
+                    <Medal className="w-6 h-6 text-primary"/>
+                    <span className="font-semibold">Innovador</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <Collapsible open={isCalculatorVisible} onOpenChange={setIsCalculatorVisible} className="bg-card transition-all duration-500">
           {/* Philosophy Section */}
           <section id="filosofia" className="py-24">
@@ -303,22 +349,11 @@ export default function Home() {
                             {activeFacialProtocol.steps.map((step, index) => (
                               <CarouselItem key={index}>
                                 <div className="p-1">
-                                  <Card>
-                                    <CardContent className="p-4 space-y-4">
-                                      <Image
-                                        src={step.imageUrl}
-                                        alt={step.title}
-                                        width={600}
-                                        height={400}
-                                        className="rounded-lg object-cover w-full h-60"
-                                        data-ai-hint={step.imageHint}
-                                      />
-                                      <div className="space-y-1 text-center">
-                                        <h4 className="font-headline text-md font-semibold">{step.title}</h4>
-                                        <p className="text-xs text-muted-foreground">{step.description}</p>
-                                      </div>
-                                    </CardContent>
-                                  </Card>
+                                    <EffectCard
+                                      icon={<Gem size={24}/>}
+                                      title={step.title}
+                                      description={step.description}
+                                    />
                                 </div>
                               </CarouselItem>
                             ))}
@@ -371,22 +406,11 @@ export default function Home() {
                             {activeCorporalProtocol.steps.map((step, index) => (
                               <CarouselItem key={index}>
                                 <div className="p-1">
-                                  <Card>
-                                    <CardContent className="p-4 space-y-4">
-                                      <Image
-                                        src={step.imageUrl}
-                                        alt={step.title}
-                                        width={600}
-                                        height={400}
-                                        className="rounded-lg object-cover w-full h-60"
-                                        data-ai-hint={step.imageHint}
-                                      />
-                                      <div className="space-y-1 text-center">
-                                        <h4 className="font-headline text-md font-semibold">{step.title}</h4>
-                                        <p className="text-xs text-muted-foreground">{step.description}</p>
-                                      </div>
-                                    </CardContent>
-                                  </Card>
+                                  <EffectCard
+                                      icon={<Gem size={24}/>}
+                                      title={step.title}
+                                      description={step.description}
+                                    />
                                 </div>
                               </CarouselItem>
                             ))}
