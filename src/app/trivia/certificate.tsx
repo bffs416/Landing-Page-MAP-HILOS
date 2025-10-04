@@ -1,7 +1,7 @@
 
 'use client';
 
-import { useRef } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
 import { Button } from '@/components/ui/button';
@@ -13,6 +13,11 @@ interface CertificateProps {
 
 export default function Certificate({ name, level }: CertificateProps) {
   const certificateRef = useRef<HTMLDivElement>(null);
+  const [currentDate, setCurrentDate] = useState('');
+
+  useEffect(() => {
+    setCurrentDate(new Date().toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric' }));
+  }, []);
 
   const handleDownloadPdf = async () => {
     const element = certificateRef.current;
@@ -49,6 +54,14 @@ export default function Certificate({ name, level }: CertificateProps) {
     pdf.save(`Certificado-${name.replace(/ /g, '_')}.pdf`);
   };
 
+  if (!currentDate) {
+    return (
+        <div className="bg-background text-foreground min-h-screen flex flex-col items-center justify-center p-4">
+            <p>Generando certificado...</p>
+        </div>
+    );
+  }
+
   return (
     <div className="bg-background text-foreground min-h-screen flex flex-col items-center justify-center p-4">
       {/* This is the element that will be rendered to PDF. We hide it visually but keep it in the DOM for html2canvas */}
@@ -82,7 +95,7 @@ export default function Certificate({ name, level }: CertificateProps) {
                 {level}
                 </p>
                 <div className="border-t-2 border-muted w-1/2 mx-auto pt-6 mt-6">
-                <p className="text-sm text-muted-foreground">Emitido el {new Date().toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric' })}</p>
+                <p className="text-sm text-muted-foreground">Emitido el {currentDate}</p>
                 <p className="mt-2 text-xs font-light tracking-widest uppercase">
                     Congreso AMWC
                 </p>
@@ -122,7 +135,7 @@ export default function Certificate({ name, level }: CertificateProps) {
               {level}
             </p>
             <div className="border-t-2 border-muted w-1/2 mx-auto pt-6 mt-6">
-               <p className="text-sm text-muted-foreground">Emitido el {new Date().toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric' })}</p>
+               <p className="text-sm text-muted-foreground">Emitido el {currentDate}</p>
               <p className="mt-2 text-xs font-light tracking-widest uppercase">
                 Congreso AMWC
               </p>
