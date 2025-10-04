@@ -21,6 +21,22 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, Di
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
 
+const AnimatedTitle = ({ text }: { text: string }) => {
+  return (
+    <h1 className="font-headline text-5xl md:text-7xl font-bold text-white">
+      {text.split('').map((letter, index) => (
+        <span
+          key={index}
+          className="animated-title-letter"
+          style={{ animationDelay: `${index * 0.05}s` }}
+        >
+          {letter === ' ' ? '\u00A0' : letter}
+        </span>
+      ))}
+    </h1>
+  );
+};
+
 
 export default function Home() {
   const heroImage = PlaceHolderImages.find(img => img.id === 'hero-background');
@@ -103,9 +119,7 @@ export default function Home() {
           )}
           <div className="absolute inset-0 bg-black/50 -z-10" />
           <div className="max-w-4xl">
-            <h1 className="font-headline text-5xl md:text-7xl font-bold text-white">
-              MINT® Architectural Lift™
-            </h1>
+            <AnimatedTitle text="MINT® Architectural Lift™" />
             <p className="mt-4 text-lg md:text-xl max-w-3xl mx-auto text-white/90">
               Rediseña. Reposiciona. Rejuvenece.
             </p>

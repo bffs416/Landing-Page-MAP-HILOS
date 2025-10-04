@@ -86,12 +86,22 @@ export default {
           from: { transform: 'translate(-20%, -20%) rotate(0deg)' },
           to: { transform: 'translate(-20%, -20%) rotate(-360deg)' },
         },
+        'revolveScale': {
+          '60%': {
+            transform: 'translate(20px, 20px) rotate(30deg) scale(.3)',
+          },
+          '100%': {
+            transform: 'translate(0) rotate(0) scale(1)',
+            opacity: '1',
+          },
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
         'rotate-fore': 'rotate-fore 40s linear infinite',
         'rotate-back': 'rotate-back 50s linear infinite',
+        'revolve-scale': 'revolveScale .4s forwards',
       },
     },
   },
