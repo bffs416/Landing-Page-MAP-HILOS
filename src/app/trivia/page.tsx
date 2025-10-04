@@ -167,7 +167,7 @@ export default function TriviaPage() {
                         <FormItem>
                           <FormLabel>Nombre Completo</FormLabel>
                           <FormControl>
-                            <Input placeholder="Dr. Juan Pérez" {...field} />
+                            <Input placeholder="Dra. o Dr. Nombre Apellido" {...field} />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -279,5 +279,3 @@ export default function TriviaPage() {
     </div>
   );
 }
-
-    

@@ -33,14 +33,16 @@ export default function Certificate({ name, level }: CertificateProps) {
         <div className="absolute -bottom-1/4 -right-1/4 w-96 h-96 bg-secondary/10 rounded-full filter blur-3xl opacity-50 animation-delay-4000 animate-pulse"></div>
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-accent/10 rounded-full filter blur-3xl opacity-40 animation-delay-2000 animate-pulse"></div>
         
-        <div className="relative z-10">
-          <div className="absolute top-0 left-0">
-            <Logo />
+        <div className="relative z-10 text-center">
+          <div className="mb-4">
+             <h1 className="text-5xl sm:text-6xl font-headline text-foreground">
+                MINT® Lift™
+              </h1>
           </div>
-          <div className="text-center space-y-6 mt-12 sm:mt-16">
-            <h1 className="text-4xl sm:text-5xl font-headline text-primary">
+          <div className="space-y-6">
+            <h2 className="text-3xl sm:text-4xl font-headline text-primary">
               Certificado de Finalización
-            </h1>
+            </h2>
             <p className="text-lg text-muted-foreground">
               Se otorga este certificado a
             </p>
