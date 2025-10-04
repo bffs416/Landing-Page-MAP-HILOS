@@ -55,5 +55,51 @@
   }
   body {
     @apply bg-background text-foreground;
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  body::before,
+  body::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-radius: 50%;
+    z-index: -1;
+  }
+
+  body::before {
+    width: 60vmax;
+    height: 60vmax;
+    background: linear-gradient(135deg, hsl(var(--primary) / 0.1), hsl(var(--secondary) / 0.1));
+    transform: translate(-80%, -80%);
+    animation: rotate-fore 40s linear infinite;
+  }
+
+  body::after {
+    width: 70vmax;
+    height: 70vmax;
+    background: linear-gradient(135deg, hsl(var(--accent) / 0.1), hsl(var(--background) / 0.1));
+    transform: translate(-20%, -20%);
+    animation: rotate-back 50s linear infinite;
+  }
+}
+
+@keyframes rotate-fore {
+  from {
+    transform: translate(-80%, -80%) rotate(0deg);
+  }
+  to {
+    transform: translate(-80%, -80%) rotate(360deg);
+  }
+}
+
+@keyframes rotate-back {
+  from {
+    transform: translate(-20%, -20%) rotate(0deg);
+  }
+  to {
+    transform: translate(-20%, -20%) rotate(-360deg);
   }
 }

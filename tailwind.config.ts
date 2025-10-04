@@ -78,10 +78,20 @@ export default {
             height: '0',
           },
         },
+        'rotate-fore': {
+          from: { transform: 'translate(-80%, -80%) rotate(0deg)' },
+          to: { transform: 'translate(-80%, -80%) rotate(360deg)' },
+        },
+        'rotate-back': {
+          from: { transform: 'translate(-20%, -20%) rotate(0deg)' },
+          to: { transform: 'translate(-20%, -20%) rotate(-360deg)' },
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
+        'rotate-fore': 'rotate-fore 40s linear infinite',
+        'rotate-back': 'rotate-back 50s linear infinite',
       },
     },
   },

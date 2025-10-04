@@ -76,7 +76,7 @@ export default function Home() {
   ];
 
   return (
-    <div className="bg-gradient-to-br from-secondary/50 via-primary/50 to-accent/50 text-foreground min-h-screen font-body">
+    <div className="bg-transparent text-foreground min-h-screen font-body">
       <header className="absolute top-0 left-0 w-full z-50 py-6">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
@@ -244,7 +244,7 @@ export default function Home() {
 
 
         {/* Protocols Section */}
-        <section id="protocolos" className="py-24">
+        <section id="protocolos" className="py-24 bg-background">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <h2 className="font-headline text-4xl md:text-5xl font-bold animate-in fade-in slide-in-from-bottom-5 duration-700">
