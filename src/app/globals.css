@@ -84,6 +84,11 @@
     transform: translate(-20%, -20%);
     animation: rotate-back 50s linear infinite;
   }
+
+  .printable-area {
+    width: 100%;
+    max-width: 100%;
+  }
 }
 
 @keyframes rotate-fore {
@@ -101,5 +106,26 @@
   }
   to {
     transform: translate(-20%, -20%) rotate(-360deg);
+  }
+}
+
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  .printable-area, .printable-area * {
+    visibility: visible;
+  }
+  .printable-area {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border: none !important;
+    box-shadow: none !important;
+  }
+  .no-print {
+    display: none !important;
   }
 }
