@@ -1,7 +1,7 @@
 
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
@@ -12,11 +12,9 @@ import { CheckCircle, XCircle, Award, ChevronsRight } from 'lucide-react';
 import { triviaLevels } from '@/lib/trivia-questions';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
-import { useFormState } from 'react-dom';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
-import { submitCertificateForm, type CertificateFormState } from '@/app/actions';
 import Certificate from './certificate';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 
@@ -30,6 +28,17 @@ const certificateSchema = z.object({
 
 type CertificateFormData = z.infer<typeof certificateSchema>;
 
+// Fisher-Yates shuffle algorithm
+const shuffleArray = (array: any[]) => {
+  const newArray = [...array];
+  for (let i = newArray.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+  }
+  return newArray;
+};
+
+
 export default function TriviaPage() {
   const [currentLevel, setCurrentLevel] = useState<LevelId | null>(null);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -37,9 +46,9 @@ export default function TriviaPage() {
   const [showResult, setShowResult] = useState(false);
   const [showCertificateForm, setShowCertificateForm] = useState(false);
   const [certificateData, setCertificateData] = useState<{name: string, level: string} | null>(null);
+  const [questions, setQuestions] = useState<any[]>([]);
 
   const levelData = currentLevel ? triviaLevels[currentLevel] : null;
-  const questions = levelData?.questions ?? [];
   const currentQuestion = questions[currentQuestionIndex];
   
   const form = useForm<CertificateFormData>({
@@ -53,6 +62,7 @@ export default function TriviaPage() {
 
   const handleSelectLevel = (levelId: LevelId) => {
     setCurrentLevel(levelId);
+    setQuestions(shuffleArray(triviaLevels[levelId].questions));
     setCurrentQuestionIndex(0);
     setUserAnswers({});
     setShowResult(false);
@@ -125,11 +135,11 @@ export default function TriviaPage() {
                         "text-sm",
                         userAnswers[index] === q.correctAnswer ? "text-green-600" : "text-destructive"
                       )}>
-                        Tu respuesta: {userAnswers[index] ? q.options.find(opt => opt.startsWith(userAnswers[index])) : 'No respondida'}
+                        Tu respuesta: {userAnswers[index] ? q.options.find((opt: string) => opt.startsWith(userAnswers[index])) : 'No respondida'}
                       </p>
                       {userAnswers[index] !== q.correctAnswer && (
                         <p className="text-sm text-green-700">
-                          Respuesta correcta: {q.options.find(opt => opt.startsWith(q.correctAnswer))}
+                          Respuesta correcta: {q.options.find((opt: string) => opt.startsWith(q.correctAnswer))}
                         </p>
                       )}
                     </div>
@@ -138,7 +148,7 @@ export default function TriviaPage() {
 
                 <div className="flex gap-4 justify-center">
                   <Button onClick={() => handleSelectLevel(currentLevel!)}>Intentar de Nuevo</Button>
-                  <Button variant="outline" onClick={() => setCurrentLevel(null)}>Elegir otro Nivel</Button>
+                  <Button variant="outline" onClick={() => { setCurrentLevel(null); setQuestions([]); }}>Elegir otro Nivel</Button>
                    <Button onClick={() => setShowCertificateForm(true)}>
                     Generar Certificado <ChevronsRight className="ml-2 h-4 w-4" />
                   </Button>
@@ -269,3 +279,5 @@ export default function TriviaPage() {
     </div>
   );
 }
+
+    
