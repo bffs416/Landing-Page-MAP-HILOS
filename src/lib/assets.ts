@@ -113,7 +113,7 @@ export const mapPillars = [
     name: 'Potenciación Sinérgica',
     description:
       'Combinamos lo mejor para potenciar y prolongar la belleza de tu piel.',
-  },
+  }
 ];
 
     
