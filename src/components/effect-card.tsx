@@ -42,6 +42,15 @@ export function EffectCard({ icon, title, description }: EffectCardProps) {
         <div className="line line-2" />
         <div className="line line-3" />
       </div>
+      <svg
+          className="effect-card__wave"
+          viewBox="0 0 1440 100"
+          preserveAspectRatio="none"
+        >
+          <path
+            d="M1440,100H0V64.2C120,42.8,240,21.3,360,21.3s240,21.5,360,21.5s240-21.5,360-21.5S1320,42.8,1440,64.2V100z"
+          />
+      </svg>
     </div>
   );
 }
