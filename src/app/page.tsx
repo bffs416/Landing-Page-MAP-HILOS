@@ -19,6 +19,7 @@ import { Button } from '@/components/ui/button';
 import { ChevronDown } from 'lucide-react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogTrigger } from '@/components/ui/dialog';
 import { cn } from '@/lib/utils';
+import Link from 'next/link';
 
 
 export default function Home() {
@@ -77,9 +78,12 @@ export default function Home() {
   return (
     <div className="bg-gradient-to-br from-secondary/50 via-primary/50 to-accent/50 text-foreground min-h-screen font-body">
       <header className="absolute top-0 left-0 w-full z-50 py-6">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between">
             <Logo />
+            <Button asChild variant="ghost" className="text-white hover:bg-white/10 hover:text-white">
+              <Link href="/trivia">Trivia PDO</Link>
+            </Button>
           </div>
         </div>
       </header>
@@ -415,3 +419,5 @@ export default function Home() {
     </div>
   );
 }
+
+    
