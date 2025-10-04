@@ -2,7 +2,7 @@
 'use client';
 
 import Image from 'next/image';
-import { Gem, Route, Milestone, Lightbulb, UserCheck, Search, Award, ChevronRight, User, GraduationCap, Medal } from 'lucide-react';
+import { Gem, Route, Milestone, Lightbulb, UserCheck, Search, Award, ChevronRight, User, GraduationCap, Medal, Briefcase, School } from 'lucide-react';
 import Logo from '@/components/logo';
 import {
   facialProtocols,
@@ -210,19 +210,19 @@ export default function Home() {
                 </h2>
                 <p className="mt-4 text-2xl text-primary font-headline">Dr. Felipe Franco</p>
                 <p className="mt-6 text-lg text-muted-foreground">
-                  Líder de opinión y pionero en medicina estética, el Dr. Felipe Franco es el creador de la filosofía M.A.P.® y la herramienta ICL-MINT®, revolucionando el campo del lifting no quirúrgico. Su visión combina arte y ciencia para lograr resultados naturales y predecibles.
+                  Director de Producto en Hansbiomed Colombia, el Dr. Franco es un apasionado por la academia y un referente clave en el desarrollo y la aplicación de los hilos tensores MINT®. Su visión combina innovación, ciencia y educación para elevar los estándares de la medicina estética.
                 </p>
                 <div className="mt-8 flex gap-8 justify-center md:justify-start">
                   <div className="flex items-center gap-3">
-                    <User className="w-6 h-6 text-primary"/>
-                    <span className="font-semibold">Speaker Internacional</span>
+                    <Briefcase className="w-6 h-6 text-primary"/>
+                    <span className="font-semibold">Dir. de Producto</span>
                   </div>
                   <div className="flex items-center gap-3">
-                    <GraduationCap className="w-6 h-6 text-primary"/>
-                    <span className="font-semibold">Educador</span>
+                    <School className="w-6 h-6 text-primary"/>
+                    <span className="font-semibold">Académico</span>
                   </div>
                    <div className="flex items-center gap-3">
-                    <Medal className="w-6 h-6 text-primary"/>
+                    <Lightbulb className="w-6 h-6 text-primary"/>
                     <span className="font-semibold">Innovador</span>
                   </div>
                 </div>
@@ -457,5 +457,3 @@ export default function Home() {
     </div>
   );
 }
-
-    
