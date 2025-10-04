@@ -441,7 +441,7 @@ export const triviaLevels = {
         correctAnswer: 'C',
       },
       {
-        question: 'En un estudio ex vivo que comparó la fuerza de fijación, se encontró que la combinación de hilos bidireccionales + multidireccionales (diseño híbrido) era ≈10% más fuerte que usar doble bidireccionales únicamente. ¿Cuál es la principal ventaja clínica de esta combinación de diseños sobre la técnica bidireccional simple?',
+        question: 'En un estudio ex vivo que comparó la fuerza de fijación, se encontró que la combinación de hilos bidireccionales + multidireccionales (diseño híbrido) era un 10% más fuerte que usar doble bidireccionales únicamente. ¿Cuál es la principal ventaja clínica de esta combinación de diseños sobre la técnica bidireccional simple?',
         options: [
           'A. El diseño bidireccional puro reduce el riesgo de extrusión a largo plazo',
           'B. El diseño multidireccional garantiza que el hilo se ancle al periostio automáticamente',
@@ -451,7 +451,7 @@ export const triviaLevels = {
         correctAnswer: 'C',
       },
       {
-        question: 'Se está tratando un surco nasogeniano (SNL) y un área malar con hilos PDO espiculados. El estudio cuantitativo 3D objetivó un desplazamiento horizontal medio de 2.80 mm en el tercio medio. Además, se observó un aumento paradójico en el volumen del SNL en 41.6% de los pacientes. ¿A qué se atribuyó más probablemente este aumento de volumen y cuál es la recomendación de manejo?',
+        question: 'Se está tratando un surco nasogeniano (SNL) y un área malar con hilos PDO espiculados. El estudio cuantitativo 3D objetivó un desplazamiento horizontal medio de 2.80 mm en el tercio medio. Además, se observó un aumento paradójico en el volumen del SNL en un 41.6% de los pacientes. ¿A qué se atribuyó más probablemente este aumento de volumen y cuál es la recomendación de manejo?',
         options: [
           'A. A la neocolagenogénesis prematura inducida por la fricción del hilo',
           'B. Al edema post-tratamiento debido a la proximidad a la arteria facial, y se recomienda mantener una distancia mínima de 0.5 cm del pliegue nasolabial',
@@ -485,7 +485,7 @@ export const triviaLevels = {
         options: [
           'A. El MFU debe realizarse inmediatamente, ya que el PDO tiene un punto de fusión bajo (110-115°C) y el MFU trabaja a 60-70°C',
           'B. El MFU debe realizarse a los 5-7 días, para aprovechar la inflamación temprana',
-          'C. Se deben esperar ≈15 días después de los hilos PDO, para permitir que se forme suficiente colágeno alrededor de las espículas, asegurando que el tejido sostenga la tracción contra el edema y la contracción inducida por el calor del MFU',
+          'C. Se deben esperar 15 días después de los hilos PDO, para permitir que se forme suficiente colágeno alrededor de las espículas, asegurando que el tejido sostenga la tracción contra el edema y la contracción inducida por el calor del MFU',
           'D. No hay que esperar, ya que el PDO, al estar en el plano subcutáneo, está más profundo que el MFU (1.5 - 4.5 mm)',
         ],
         correctAnswer: 'C',
@@ -605,11 +605,216 @@ export const triviaLevels = {
         options: [
           'A. Inyección profunda en el plano supraperióstico (4.18 mm)',
           'B. Inyección intramuscular, dentro del músculo Frontalis (3.24 mm)',
-          'C. Inserción en el plano subcutáneo, entre la dermis y el músculo Frontalis, apuntando a una profundidad promedio de ≈1.84 ± 0.4 mm desde la superficie de la piel',
+          'C. Inserción en el plano subcutáneo, entre la dermis y el músculo Frontalis, apuntando a una profundidad promedio de 1.84 ± 0.4 mm desde la superficie de la piel',
           'D. Inserción subdérmica superficial (menos de 1 mm) para el efecto de brillo',
         ],
         correctAnswer: 'C',
       },
+    ]
+  },
+  legendary: {
+    title: 'Experto Legendario',
+    questions: [
+      {
+        question: 'Una paciente de 45 años se somete a un lifting facial utilizando hilos tensores fijos anclados en la fascia temporal profunda. Para minimizar el riesgo de sangrado en la región temporal, el médico utiliza ultrasonido Doppler para trazar la FBrSTA. ¿Dónde debe hacerse la incisión para asegurar un anclaje firme evitando la arteria?',
+        options: [
+            'A. Anterior a la vía de la FBrSTA, en el plano subcutáneo',
+            'B. Directamente sobre la FBrSTA, pero en la fascia temporal profunda',
+            'C. Lateral a la línea vertical desde el reborde orbitario lateral, profundo al SMAS',
+            'D. Posterior a la vía de la FBrSTA, anclado a la fascia temporal profunda',
+        ],
+        correctAnswer: 'D',
+    },
+    {
+        question: 'Un médico elige hilos para el lifting de la línea mandibular en una paciente de 48 años con flacidez leve y busca el efecto clínico más prolongado. Sabiendo que el PDO proporciona sustento mecánico durante 6 meses, mientras que el PCL dura 18-24+ meses, ¿cuál afirmación sobre el efecto biológico a largo plazo (neocolagenogénesis) es más precisa según estudios in vivo?',
+        options: [
+            'A. El PDO produce más colágeno Tipo I total debido a su tasa de degradación más rápida',
+            'B. El PCL produce 50% más colágeno nuevo a las 8 semanas en comparación con los hilos PDO y PLLA en modelos animales',
+            'C. Los hilos PCL inducen una fuerte reacción inflamatoria temprana (antes de 4 semanas) que compromete la producción de colágeno a largo plazo',
+            'D. El PLLA es superior al PCL en la estimulación de colágeno porque dura más de 2 años',
+        ],
+        correctAnswer: 'B',
+    },
+    {
+        question: 'Una paciente de 50 años recibió tratamiento con láser fraccional ablativo (que induce edema moderado) en el tercio medio. Para potenciar el tensado, busca la colocación de hilos PDO Cog. Si el láser se realizó hace 2 días, ¿cuándo debe colocar los hilos?',
+        options: [
+            'A. Inmediatamente después del láser, ya que el PDO se derrite por encima de la temperatura del láser',
+            'B. 5-7 días después del láser, una vez que el edema inicial haya disminuido',
+            'C. Inmediatamente después del láser, ya que el edema ayuda a estirar los tejidos para un mejor anclaje',
+            'D. 15 días después del láser, para garantizar que el hilo PDO no interfiera con la cicatrización de la herida',
+        ],
+        correctAnswer: 'B',
+    },
+    {
+        question: 'Un paciente desarrolla pliegues (dimpling) persistentes superficiales al surco nasolabial después de la colocación de hilos Cog bidireccionales. ¿Cuál es la causa principal de esta complicación en esta zona específica?',
+        options: [
+            'A. Colocación de las espículas demasiado profundas, anclándose al SMAS subyacente',
+            'B. Inyección accidental en la arteria facial debido a la proximidad al pliegue nasolabial',
+            'C. Sobretensado de los hilos, causando que el SMAS Tipo II denso presione contra el SMAS Tipo I más laxo en la etapa de agarre del tejido',
+            'D. La migración de la espícula hacia la capa dérmica debido a un anclaje débil',
+        ],
+        correctAnswer: 'C',
+    },
+    {
+        question: '¿Cuál afirmación describe mejor la diferencia fundamental en el mecanismo de estabilidad entre los hilos APTOS bidireccionales flotantes de primera generación y los hilos fijos unidireccionales modernos?',
+        options: [
+            'A. Los hilos bidireccionales se anclan mecánicamente en ambos extremos, mientras que los unidireccionales se basan únicamente en la neocolagenogénesis',
+            'B. Los hilos bidireccionales son auto-anclables al juntar el tejido hacia el punto medio del hilo sin una fijación externa',
+            'C. Los hilos fijos son solo para áreas móviles, mientras que los hilos flotantes son para áreas laterales fijas',
+            'D. Los hilos bidireccionales utilizan espículas moldeadas, mientras que los unidireccionales utilizan espículas cortadas para una fuerza tensil superior',
+        ],
+        correctAnswer: 'B',
+    },
+    {
+        question: 'Una paciente de 55 años con flacidez facial severa (FLR Grado 8 en el tercio inferior) y antecedentes conocidos de relleno permanente con silicona hace 10 años solicita un lifting con hilos para un "levantamiento completo". ¿Cuál es la principal contraindicación que obliga a rechazar el procedimiento o a ajustar drásticamente las expectativas?',
+        options: [
+            'A. Edad superior a 55 años, ya que la respuesta inmunitaria y la neocolagenogénesis disminuyen',
+            'B. Flacidez severa/exceso de piel, ya que los hilos por sí solos no pueden resecar el exceso de piel',
+            'C. Antecedentes de biopolímeros (silicona), que pueden reactivar la inflamación crónica o la formación de granulomas',
+            'D. La naturaleza transitoria del efecto (menos de 1 año) es incompatible con la corrección de ptosis severa',
+        ],
+        correctAnswer: 'C',
+    },
+    {
+        question: 'Al colocar un hilo PDO Cog en el tercio medio con el objetivo de levantar el paquete graso medial profundo, ¿cuál es el plano de inserción ideal para la mayor parte del hilo, maximizando el levantamiento y minimizando el riesgo de irregularidades?',
+        options: [
+            'A. Plano subdérmico, por encima de la grasa superficial',
+            'B. Plano intramuscular (capa SMAS) para maximizar la tracción',
+            'C. Plano subcutáneo profundo (supra-SMAS) y capa grasa superficial, evitando la dermis',
+            'D. Plano subperióstico, anclando directamente al arco cigomático',
+        ],
+        correctAnswer: 'C',
+    },
+    {
+        question: 'Un paciente necesita un lifting cervical que involucre el anclaje a la fascia mastoidea y el paso a la línea media del cuello. Si el médico utiliza un trócar epidural Tuohy (14 cm) para la inserción, ¿cuál es una razón de seguridad clave para infiltrar 20 cc de solución tumescente antes de la inserción del trócar?',
+        options: [
+            'A. La solución tumescente actúa como un antibiótico local profiláctico',
+            'B. La vasoconstricción de la epinefrina es esencial para lograr el levantamiento mecánico inmediato',
+            'C. Facilita el paso del trócar en el plano subcutáneo, disminuyendo el riesgo de pinchar la dermis o el platisma',
+            'D. Reduce la concentración del hilo PDO en el tejido, lo que aumenta el tiempo de absorción a más de 12 meses',
+        ],
+        correctAnswer: 'C',
+    },
+    {
+        question: 'Un médico decide asociar hilos PDO con relleno de ácido hialurónico no reticulado para biorevitalización. Según estudios ultramicroscópicos, ¿cuál interacción química es la más probable que ocurra en el corto plazo?',
+        options: [
+            'A. El HA inhibe la respuesta inflamatoria inducida por el PDO, evitando la neocolagenogénesis',
+            'B. El HA no reticulado acelera la degradación hidrolítica del hilo PDO, comenzando casi de inmediato',
+            'C. El hilo PDO actúa como un escudo térmico, protegiendo el HA de la degradación inmediata por el calor corporal',
+            'D. El hilo PDO crea un andamio estable, protegiendo químicamente el HA de la acción de la hialuronidasa',
+        ],
+        correctAnswer: 'B',
+    },
+    {
+        question: 'Una paciente de 72 años desarrolla una infección localizada en el ángulo mandibular 1 mes después de la inserción de hilo PDO espiculado. El médico opta por un protocolo mínimamente invasivo. ¿Cuál de los siguientes cursos terapéuticos está respaldado por evidencia clínica reciente?',
+        options: [
+            'A. Aplicar inmediatamente láser fraccional de CO2 para vaporizar la zona infectada',
+            'B. Remoción quirúrgica del hilo, ya que la infección es la causa más frecuente de extracción de hilos',
+            'C. Drenaje local seguido de Terapia Fotodinámica Antimicrobiana (aPDT) con láser de baja potencia y azul de metileno',
+            'D. Inyección de relleno de HA para acelerar la degradación del hilo sPDO',
+        ],
+        correctAnswer: 'C',
+    },
+    {
+        question: 'Un paciente asiático con flacidez media leve solicita un lifting con hilos, pero desea evitar específicamente la acentuación de los pómulos. ¿Cuál técnica debería priorizar el médico para satisfacer esta expectativa, basándose en diferencias étnicas en la estética facial?',
+        options: [
+            'A. La técnica de lifting oblicuo convencional dirigida hacia la sien',
+            'B. Una técnica de vector horizontal utilizando hilos APTOS para el aumento de la mejilla',
+            'C. La técnica de lifting vertical utilizando hilos PDO cortos (6 cm) insertados hacia abajo en las zonas malar y submalar anterior, evitando la eminencia malar',
+            'D. Combinar el lift con una inyección de filler en el plano subperióstico para aumentar la proyección malar',
+        ],
+        correctAnswer: 'C',
+    },
+    {
+        question: 'Un estudio histológico de hilos PDO monofilamento en un modelo porcino mostró que el hilo fue completamente invisible a las 48 semanas, pero los efectos clínicos persisten hasta 1.5-2 años. ¿Cuál es el principal fenómeno histológico que respalda esta persistencia clínica a largo plazo?',
+        options: [
+            'A. La presencia continua de eosinófilos en la dermis suprimiendo la relajación muscular',
+            'B. La fuerte respuesta inflamatoria temprana (similar a PGLA) seguida de una curación tisular estable',
+            'C. La formación de "tejido fibroso de puente" obvio y el engrosamiento de la capa fascial superficial a lo largo del trayecto del hilo',
+            'D. La migración tardía de fragmentos de polímero no absorbidos hacia la dermis profunda',
+        ],
+        correctAnswer: 'C',
+    },
+    {
+        question: 'Un paciente solicita la corrección de la columela y la proyección de la punta nasal con hilos PDO y filler dérmico. ¿Qué estructura anatómica es particularmente vulnerable a la lesión durante la inyección de filler, con potencial riesgo de compromiso visual, en esta región?',
+        options: [
+            'A. La rama frontal de la Arteria Temporal Superficial (FBrSTA)',
+            'B. El nervio infraorbitario al salir del maxilar',
+            'C. La Arteria Angular (rama de la arteria facial), que es superficial y puede anastomosarse con la Arteria Nasal Dorsal',
+            'D. La rama bucal del nervio facial que discurre profunda al SMAS',
+        ],
+        correctAnswer: 'C',
+    },
+    {
+        question: 'Los hilos Silhouette Soft (filamento de PLLA con conos de PLGA) proporcionan reposicionamiento y estimulación de colágeno. ¿Cuál es el elemento crucial que proporciona anclaje a largo plazo, visible hasta 24 meses, según estudios histológicos?',
+        options: [
+            'A. La sutura permanente de PLLA que actúa como punto de suspensión fijo',
+            'B. El encapsulamiento de los conos por colágeno Tipo I y Tipo III, duplicando eficazmente el diámetro de la sutura',
+            'C. La migración de los conos al periostio temporal',
+            'D. La rápida absorción de los conos de PLGA que desencadena inmediatamente una respuesta inflamatoria máxima',
+        ],
+        correctAnswer: 'B',
+    },
+    {
+        question: 'Al evaluar a un paciente para el tratamiento mínimamente invasivo de un cuello sin definición, ¿cuál es el principio clave que debe guiar la secuencia del tratamiento combinado (ej. criolipólisis seguida de hilos)?',
+        options: [
+            'A. Aumentar el tamaño del músculo Platisma con fijación PDO',
+            'B. Priorizar la eliminación de grasa y la reposición ósea (rellenos) antes de usar los hilos para levantar la piel',
+            'C. Anclar el hilo a la fascia cervical profunda para prevenir la migración',
+            'D. Utilizar hilo no absorbible en la zona submental debido a la alta actividad muscular',
+        ],
+        correctAnswer: 'B',
+    },
+    {
+        question: 'Un médico teme la migración del hilo después de un lifting con Cog bidireccional. ¿Cuál es la maniobra técnica específica demostrada para prevenir significativamente la migración, incluso en hilos flotantes?',
+        options: [
+            'A. Colocar el hilo ligeramente superficial a la dermis para una fricción máxima',
+            'B. Cortar los extremos del hilo 1-2 mm de profundidad en la piel para permitir la retracción',
+            'C. Aplicar maniobras de masaje manual perpendicular al trayecto de inserción del hilo',
+            'D. Atar los extremos de los hilos en el mismo punto de entrada en un nudo antes de enterrarlos',
+        ],
+        correctAnswer: 'D',
+    },
+    {
+        question: 'Un ensayo clínico aleatorizado utilizó la técnica "1 Punto, 2 Objetivos, 12 Hilos" con hilos PDO bidireccionales y midió objetivamente la eficacia. ¿Cuál fue el valor promedio objetivo aproximado de la reducción de volumen en el surco nasolabial (SNL) inmediatamente después del procedimiento?',
+        options: [
+            'A. -0.09 cc',
+            'B. -0.36 cc',
+            'C. +1.34 cc',
+            'D. -1.17 mm',
+        ],
+        correctAnswer: 'B',
+    },
+    {
+        question: 'Si la prioridad es maximizar la producción de colágeno a las 12 semanas post-inserción, ¿qué material monofilamento demostró el mejor rendimiento en la generación de colágeno nuevo en estudios comparativos con modelos animales?',
+        options: [
+            'A. PDO monofilamento',
+            'B. PGLA monofilamento',
+            'C. PLA monofilamento (de una sola hebra)',
+            'D. PDO tipo spring',
+        ],
+        correctAnswer: 'B',
+    },
+    {
+        question: 'Al aplicar hilos en la línea mandibular para tratar los mofetes (jowls), el Nervio Marginal Mandibular (NMM) y la Arteria Facial (AF) son estructuras con riesgo de lesión. ¿Dónde se encuentra el NMM más vulnerable a la lesión durante la disección subcutánea en esta zona?',
+        options: [
+            'A. Cerca de la comisura oral, donde la AF es más superficial',
+            'B. Donde el NMM sale de la glándula parótida y cruza la AF, 3.1 mm superior al ángulo gonial',
+            'C. Profundo al SMAS, 9.7 ± 1.2 mm superior al Ligamento Osocutáneo Mandibular (MOCL)',
+            'D. En el borde anterior del masetero, donde perfora el compartimento graso bucal',
+        ],
+        correctAnswer: 'B',
+    },
+    {
+        question: 'Los hilos MINT PDO utilizan una tecnología patentada de espículas moldeadas a presión. ¿Qué beneficio principal confiere este método de fabricación al rendimiento del hilo en comparación con los hilos cortados?',
+        options: [
+            'A. El diámetro reducido hace que el hilo sea más fácil de insertar con menos dolor',
+            'B. El proceso de moldeo aumenta la flexibilidad y disminuye la memoria del hilo',
+            'C. La espícula es más gruesa y está integrada helicoidalmente a 360°, aumentando la fuerza de anclaje sin comprometer el núcleo del hilo',
+            'D. Asegura una absorción más rápida (menos de 4 meses) y minimiza el riesgo de infección',
+        ],
+        correctAnswer: 'C',
+    }
     ]
   }
 };
