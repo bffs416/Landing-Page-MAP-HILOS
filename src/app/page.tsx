@@ -196,7 +196,7 @@ export default function Home() {
                 <div className="absolute inset-0 flex items-center justify-center p-8">
                    <Image
                     src="https://images.unsplash.com/photo-1580281657527-808a3e4b4523?q=80&w=1974&auto=format&fit=crop"
-                    alt="Dr. Felipe Franco"
+                    alt="Felipe Franco"
                     width={400}
                     height={400}
                     className="rounded-full object-cover aspect-square shadow-2xl"
@@ -208,9 +208,9 @@ export default function Home() {
                 <h2 className="font-headline text-4xl md:text-5xl font-bold">
                   Conoce al Experto
                 </h2>
-                <p className="mt-4 text-2xl text-primary font-headline">Dr. Felipe Franco</p>
+                <p className="mt-4 text-2xl text-primary font-headline">Felipe Franco</p>
                 <p className="mt-6 text-lg text-muted-foreground">
-                  Director de Producto en Hansbiomed Colombia, el Dr. Franco es un apasionado por la academia y un referente clave en el desarrollo y la aplicación de los hilos tensores MINT®. Su visión combina innovación, ciencia y educación para elevar los estándares de la medicina estética.
+                  Director de Producto en Hansbiomed Colombia, Franco es un apasionado por la academia y un referente clave en el desarrollo y la aplicación de los hilos tensores MINT®. Su visión combina innovación, ciencia y educación para elevar los estándares de la medicina estética.
                 </p>
                 <div className="mt-8 flex gap-8 justify-center md:justify-start">
                   <div className="flex items-center gap-3">
