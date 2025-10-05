@@ -3,6 +3,7 @@ import { PlaceHolderImages } from './placeholder-images';
 import { GraduationCap, HeartPulse, Scissors, BrainCircuit, Stethoscope } from 'lucide-react';
 import VectorLiftContent from '@/components/vector-lift-content';
 import ApexLiftContent from '@/components/apex-lift-content';
+import RhinoStructureContent from '@/components/rhino-structure-content';
 
 const getImage = (id: string) => {
   const image = PlaceHolderImages.find((img) => img.id === id);
@@ -59,7 +60,7 @@ const vectorLiftSteps = [
     },
     {
         title: `Paso 8: Anclaje y Nudado (Fijación)`,
-        description: `Si el diseño de hilo lo permite, o si se usan hilos bidireccionales, anudar los cabos libres entre sí en el punto de entrada antes de cortarlos. Esta maniobra aumenta la sustentación y ayuda a prevenir la migración.`,
+        description: `Si el diseño de hilo lo permite, o si se usan hilos bidireccionales, anudar los cabos libres entre sí en el mismo punto de entrada antes de cortarlos. Esta maniobra aumenta la sustentación y ayuda a prevenir la migración.`,
         imageUrl: getImage(`step-8`),
         imageHint: getImageHint(`step-8`),
     },
@@ -194,6 +195,7 @@ export const facialProtocols = [
     name: 'RhinoStructure™ (Nariz)',
     description: 'Este protocolo no quirúrgico permite modelar la nariz de forma segura y reversible. Se utilizan hilos para elevar la punta nasal, rectificar el dorso y mejorar la definición general, corrigiendo pequeñas irregularidades sin necesidad de cirugía invasiva.',
     fullDescription: 'Descripción completa y detallada del RhinoStructure™ (Nariz). Aquí se explica el proceso en profundidad, los resultados esperados y los cuidados posteriores para el paciente. La alternativa perfecta a una rinoplastia quirúrgica para ajustes sutiles.',
+    contentComponent: RhinoStructureContent,
     imageUrl: 'https://picsum.photos/seed/facial3/800/600',
     imageHint: 'woman nose',
     steps: genericSteps,
