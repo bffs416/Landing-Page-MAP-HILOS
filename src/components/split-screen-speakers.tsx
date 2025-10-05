@@ -9,7 +9,7 @@ import { cn } from '@/lib/utils';
 import { Button } from './ui/button';
 import { Card, CardContent } from './ui/card';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
-import { GraduationCap, HeartPulse, Scissors, BrainCircuit, Stethoscope } from 'lucide-react';
+import { GraduationCap, HeartPulse, Scissors, BrainCircuit, Stethoscope, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const iconMap: { [key: string]: ElementType } = {
   GraduationCap,
@@ -38,14 +38,10 @@ export default function SplitScreenSpeakers() {
   const rightImage = PlaceHolderImages.find(img => img.id === 'speakers-right');
 
   const handlePane = (direction: 'left' | 'right') => {
-    if (direction === 'left' && paneState === 'right') {
-        setPaneState('center');
-    } else if (direction === 'left' && paneState === 'center') {
-        setPaneState('left');
-    } else if (direction === 'right' && paneState === 'left') {
-        setPaneState('center');
-    } else if (direction === 'right' && paneState === 'center') {
-        setPaneState('right');
+    if (paneState === 'center') {
+      setPaneState(direction);
+    } else {
+      setPaneState('center');
     }
   };
 
@@ -63,7 +59,7 @@ export default function SplitScreenSpeakers() {
   const filteredSpeakers = speakers.filter(s => s.specialty === activeSpecialty);
 
   return (
-    <div className="flex flex-col md:flex-row min-h-[80vh]">
+    <div className="flex flex-col md:flex-row min-h-[80vh] relative">
       {/* Left Pane */}
       <div className={cn("relative text-white text-center transition-all duration-700 ease-in-out", left)}>
         {leftImage && (
@@ -80,19 +76,29 @@ export default function SplitScreenSpeakers() {
             <h2 className="font-headline text-5xl md:text-7xl font-bold">Speakers</h2>
             <p className="mt-4 text-xl text-white/80">Nacionales</p>
         </div>
-        <div className="absolute inset-y-0 right-0 hidden md:flex items-center">
+      </div>
+      
+      {/* Divider and Controls */}
+      <div className="absolute z-20 inset-y-0 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center justify-center gap-2">
+          <div className="h-full w-0.5 bg-white/20"></div>
+          <div className="absolute top-1/2 -translate-y-1/2 flex flex-col gap-2">
             <Button
               onClick={() => handlePane('left')}
               size="icon"
               variant="secondary"
-              className={cn(
-                "h-24 w-12 rounded-l-full rounded-r-none transition-transform",
-                paneState === 'left' && 'translate-x-12'
-              )}
+              className="h-12 w-12 rounded-full"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6"><path d="m9 18 6-6-6-6"/></svg>
+              <ChevronLeft className="h-6 w-6" />
             </Button>
-        </div>
+             <Button
+              onClick={() => handlePane('right')}
+              size="icon"
+              variant="secondary"
+              className="h-12 w-12 rounded-full"
+            >
+              <ChevronRight className="h-6 w-6" />
+            </Button>
+          </div>
       </div>
       
       {/* Right Pane */}
@@ -162,19 +168,6 @@ export default function SplitScreenSpeakers() {
                 </Carousel>
                 
             </div>
-        </div>
-         <div className="absolute inset-y-0 left-0 hidden md:flex items-center">
-            <Button
-              onClick={() => handlePane('right')}
-              size="icon"
-              variant="secondary"
-               className={cn(
-                "h-24 w-12 rounded-r-full rounded-l-none transition-transform",
-                paneState === 'right' && '-translate-x-12'
-              )}
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6"><path d="m15 18-6-6 6-6"/></svg>
-            </Button>
         </div>
       </div>
     </div>
