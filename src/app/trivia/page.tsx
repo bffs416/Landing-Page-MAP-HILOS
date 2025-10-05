@@ -48,7 +48,7 @@ export default function TriviaPage() {
   const [userAnswers, setUserAnswers] = useState<Record<number, string>>({});
   const [showResult, setShowResult] = useState(false);
   const [showCertificateForm, setShowCertificateForm] = useState(false);
-  const [certificateData, setCertificateData] = useState<{name: string, level: string} | null>(null);
+  const [certificateData, setCertificateData] = useState<{fullName: string, nameOnly: string, level: string} | null>(null);
   const [questions, setQuestions] = useState<any[]>([]);
   const [isTestMode, setIsTestMode] = useState(false);
 
@@ -119,11 +119,11 @@ export default function TriviaPage() {
     const title = data.gender === 'male' ? 'Dr.' : 'Dra.';
     const fullName = `${title} ${data.name}`;
     const levelTitle = isTestMode ? triviaLevels.legendary.title : levelData!.title;
-    setCertificateData({ name: fullName, level: levelTitle });
+    setCertificateData({ fullName: fullName, nameOnly: data.name, level: levelTitle });
   };
   
   if (certificateData) {
-    return <Certificate name={certificateData.name} level={certificateData.level} />;
+    return <Certificate fullName={certificateData.fullName} nameOnly={certificateData.nameOnly} level={certificateData.level} />;
   }
 
   const effectiveLevelData = isTestMode ? triviaLevels.legendary : levelData;

@@ -37,11 +37,12 @@ const Confetti = () => {
 
 
 interface CertificateProps {
-  name: string;
+  fullName: string;
+  nameOnly: string;
   level: string;
 }
 
-export default function Certificate({ name, level }: CertificateProps) {
+export default function Certificate({ fullName, nameOnly, level }: CertificateProps) {
   const [currentDate, setCurrentDate] = useState('');
   const certificateRef = useRef<HTMLDivElement>(null);
 
@@ -63,7 +64,7 @@ export default function Certificate({ name, level }: CertificateProps) {
   
     const sourceCanvas = await html2canvas(element, {
       backgroundColor: null, // Transparent background
-      scale: 4, // Capture at higher resolution initially for better text quality
+      scale: 5, // Increased scale for better text quality
     });
   
     // Create a new canvas with A5 dimensions
@@ -80,7 +81,7 @@ export default function Certificate({ name, level }: CertificateProps) {
       const link = document.createElement('a');
   
       link.href = data;
-      link.download = 'certificado-mint-lift-A5.png';
+      link.download = `AMWC - ${nameOnly}.png`;
   
       document.body.appendChild(link);
       link.click();
@@ -120,7 +121,7 @@ export default function Certificate({ name, level }: CertificateProps) {
               Se otorga este certificado a
             </p>
             <p className="text-3xl sm:text-4xl font-bold font-headline text-foreground tracking-wider">
-              {name}
+              {fullName}
             </p>
             <p className="text-lg text-muted-foreground">
               por haber completado exitosamente la trivia de Hilos Tensores PDO en el nivel:
