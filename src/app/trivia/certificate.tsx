@@ -4,6 +4,37 @@
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 
+const confettiColors = ['#e6c3a5', '#d4a37b', '#a57d54', '#8c6b4a', '#e1ad83'];
+const confettiCount = 100;
+
+const Confetti = () => {
+  const [pieces, setPieces] = useState<any[]>([]);
+
+  useEffect(() => {
+    const newPieces = Array.from({ length: confettiCount }).map((_, i) => ({
+      id: i,
+      style: {
+        left: `${Math.random() * 100}%`,
+        backgroundColor: confettiColors[Math.floor(Math.random() * confettiColors.length)],
+        animationDelay: `${Math.random() * 3}s`,
+        transform: `rotate(${Math.random() * 360}deg)`,
+        width: `${Math.floor(Math.random() * 8) + 8}px`,
+        height: `${Math.floor(Math.random() * 15) + 8}px`,
+      },
+    }));
+    setPieces(newPieces);
+  }, []);
+
+  return (
+    <div className="absolute inset-0 w-full h-full pointer-events-none overflow-hidden z-20 no-print">
+      {pieces.map(p => (
+        <div key={p.id} className="confetti" style={p.style} />
+      ))}
+    </div>
+  );
+};
+
+
 interface CertificateProps {
   name: string;
   level: string;
@@ -29,7 +60,8 @@ export default function Certificate({ name, level }: CertificateProps) {
   }
 
   return (
-    <div className="bg-background text-foreground min-h-screen flex flex-col items-center justify-center p-4">
+    <div className="bg-background text-foreground min-h-screen flex flex-col items-center justify-center p-4 relative overflow-hidden">
+       <Confetti />
        <div id="certificate" className="printable-area w-full max-w-4xl mx-auto p-8 sm:p-12 border-4 border-primary rounded-lg bg-card shadow-2xl relative overflow-hidden">
         {/* Decorative background shapes */}
         <div className="absolute -top-1/4 -left-1/4 w-96 h-96 bg-primary/10 rounded-full filter blur-3xl opacity-50 animate-pulse"></div>
@@ -67,7 +99,7 @@ export default function Certificate({ name, level }: CertificateProps) {
           </div>
         </div>
       </div>
-       <div className="mt-8 text-center no-print">
+       <div className="mt-8 text-center no-print relative z-10">
         <Button onClick={handlePrint}>
           Imprimir Certificado
         </Button>

@@ -18,7 +18,7 @@ import { z } from 'zod';
 import Certificate from './certificate';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 
-type LevelId = 'beginner' | 'intermediate' | 'expert';
+type LevelId = 'beginner' | 'intermediate' | 'expert' | 'legendary';
 
 const certificateSchema = z.object({
   name: z.string().min(2, { message: "El nombre debe tener al menos 2 caracteres." }),
@@ -149,9 +149,11 @@ export default function TriviaPage() {
                 <div className="flex gap-4 justify-center">
                   <Button onClick={() => handleSelectLevel(currentLevel!)}>Intentar de Nuevo</Button>
                   <Button variant="outline" onClick={() => { setCurrentLevel(null); setQuestions([]); }}>Elegir otro Nivel</Button>
-                   <Button onClick={() => setShowCertificateForm(true)}>
-                    Generar Certificado <ChevronsRight className="ml-2 h-4 w-4" />
-                  </Button>
+                   {percentage >= 90 && (
+                    <Button onClick={() => setShowCertificateForm(true)}>
+                      Generar Certificado <ChevronsRight className="ml-2 h-4 w-4" />
+                    </Button>
+                  )}
                 </div>
               </>
             ) : (
