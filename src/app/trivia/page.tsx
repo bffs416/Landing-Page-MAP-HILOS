@@ -21,6 +21,9 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '
 type LevelId = 'beginner' | 'intermediate' | 'expert' | 'legendary';
 
 const certificateSchema = z.object({
+  gender: z.enum(["male", "female"], {
+    required_error: "Debes seleccionar un género.",
+  }),
   name: z.string().min(2, { message: "El nombre debe tener al menos 2 caracteres." }),
   phone: z.string().min(8, { message: "Ingresa un número de teléfono válido." }),
   city: z.string().min(3, { message: "La ciudad debe tener al menos 3 caracteres." }),
@@ -113,8 +116,10 @@ export default function TriviaPage() {
 
   const onSubmit = (data: CertificateFormData) => {
     console.log("Form submitted for certificate:", data);
+    const title = data.gender === 'male' ? 'Dr.' : 'Dra.';
+    const fullName = `${title} ${data.name}`;
     const levelTitle = isTestMode ? triviaLevels.legendary.title : levelData!.title;
-    setCertificateData({ name: data.name, level: levelTitle });
+    setCertificateData({ name: fullName, level: levelTitle });
   };
   
   if (certificateData) {
@@ -176,12 +181,46 @@ export default function TriviaPage() {
                   <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 text-left">
                      <FormField
                       control={form.control}
+                      name="gender"
+                      render={({ field }) => (
+                        <FormItem className="space-y-3">
+                          <FormLabel>Título Profesional</FormLabel>
+                          <FormControl>
+                            <RadioGroup
+                              onValueChange={field.onChange}
+                              defaultValue={field.value}
+                              className="flex flex-col space-y-1"
+                            >
+                              <FormItem className="flex items-center space-x-3 space-y-0">
+                                <FormControl>
+                                  <RadioGroupItem value="female" />
+                                </FormControl>
+                                <FormLabel className="font-normal">
+                                  Dra. (Femenino)
+                                </FormLabel>
+                              </FormItem>
+                              <FormItem className="flex items-center space-x-3 space-y-0">
+                                <FormControl>
+                                  <RadioGroupItem value="male" />
+                                </FormControl>
+                                <FormLabel className="font-normal">
+                                  Dr. (Masculino)
+                                </FormLabel>
+                              </FormItem>
+                            </RadioGroup>
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                     <FormField
+                      control={form.control}
                       name="name"
                       render={({ field }) => (
                         <FormItem>
                           <FormLabel>Nombre Completo</FormLabel>
                           <FormControl>
-                            <Input placeholder="Dra. o Dr. Nombre Apellido" {...field} />
+                            <Input placeholder="Nombre Apellido" {...field} />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -298,5 +337,3 @@ export default function TriviaPage() {
     </div>
   );
 }
-
-    
