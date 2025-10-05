@@ -233,10 +233,6 @@ export default function Home() {
           </div>
         </section>
         
-        {/* Speakers Section */}
-        <section id="speakers" className="relative bg-background overflow-hidden">
-          <SplitScreenSpeakers />
-        </section>
 
         <Collapsible open={isCalculatorVisible} onOpenChange={setIsCalculatorVisible} className="bg-background transition-all duration-500">
           {/* Philosophy Section */}
@@ -440,6 +436,11 @@ export default function Home() {
               </div>
             </div>
           </div>
+        </section>
+        
+        {/* Speakers Section */}
+        <section id="speakers" className="relative bg-background overflow-hidden">
+          <SplitScreenSpeakers />
         </section>
 
         {/* Gallery Section */}
