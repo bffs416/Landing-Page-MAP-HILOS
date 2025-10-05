@@ -1,13 +1,16 @@
 'use client';
 import { useRef, useEffect, type ReactNode } from 'react';
+import Image from 'next/image';
 
 type EffectCardProps = {
   icon: ReactNode;
   title: string;
   description: string;
+  imageUrl: string;
+  imageHint: string;
 };
 
-export function EffectCard({ icon, title, description }: EffectCardProps) {
+export function EffectCard({ icon, title, description, imageUrl, imageHint }: EffectCardProps) {
   const cardRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -28,6 +31,15 @@ export function EffectCard({ icon, title, description }: EffectCardProps) {
 
   return (
     <div ref={cardRef} className="effect-card h-full">
+       <div className="relative w-full h-40 mb-4 rounded-lg overflow-hidden">
+        <Image
+          src={imageUrl}
+          alt={title}
+          layout="fill"
+          objectFit="cover"
+          data-ai-hint={imageHint}
+        />
+      </div>
       <span className="icon">{icon}</span>
       <h4>{title}</h4>
       <p>{description}</p>

@@ -354,6 +354,8 @@ export default function Home() {
                                       icon={<Waves size={24}/>}
                                       title={step.title}
                                       description={step.description}
+                                      imageUrl={step.imageUrl}
+                                      imageHint={step.imageHint}
                                     />
                                 </div>
                               </CarouselItem>
@@ -411,6 +413,8 @@ export default function Home() {
                                       icon={<Waves size={24}/>}
                                       title={step.title}
                                       description={step.description}
+                                      imageUrl={step.imageUrl}
+                                      imageHint={step.imageHint}
                                     />
                                 </div>
                               </CarouselItem>
