@@ -22,6 +22,7 @@ import { cn } from '@/lib/utils';
 import Link from 'next/link';
 import { EffectCard } from '@/components/effect-card';
 import InteractiveGrid from '@/components/interactive-grid';
+import AnimatedGallery from '@/components/animated-gallery';
 
 const AnimatedTitle = ({ text }: { text: string }) => {
   return (
@@ -430,6 +431,20 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        {/* Gallery Section */}
+        <section id="gallery" className="py-24 bg-card overflow-hidden">
+          <div className="max-w-screen-xl 2xl:max-w-screen-3xl px-8 md:px-12 mx-auto">
+            <div className="text-center max-w-3xl mx-auto mb-16">
+                <h2 className="font-headline text-4xl md:text-5xl font-bold">Resultados que Hablan por Sí Mismos</h2>
+                <p className="mt-6 text-lg text-muted-foreground">
+                  Observa la transformación. Nuestra galería de antes y después demuestra la eficacia de los hilos tensores MINT® para un rejuvenecimiento natural y visible.
+                </p>
+            </div>
+            <AnimatedGallery />
+          </div>
+        </section>
+
       </main>
 
       <footer className="py-12 bg-background/80">
