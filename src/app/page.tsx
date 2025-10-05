@@ -23,6 +23,7 @@ import Link from 'next/link';
 import { EffectCard } from '@/components/effect-card';
 import InteractiveGrid from '@/components/interactive-grid';
 import AnimatedGallery from '@/components/animated-gallery';
+import SplitScreenSpeakers from '@/components/split-screen-speakers';
 
 const AnimatedTitle = ({ text }: { text: string }) => {
   return (
@@ -91,44 +92,6 @@ export default function Home() {
       title: 'Precisión Diagnóstica: Selección Óptima del Paciente',
       description:
         'El médico se siente empoderado para identificar al candidato ideal, gestionar expectativas y diseñar planes de tratamiento con mayor precisión y seguridad.',
-    },
-  ];
-  
-  const speakers = [
-    {
-      specialty: 'Oculoplástico',
-      icon: <GraduationCap />,
-      names: ['Dr. Jhon Bareño']
-    },
-    {
-      specialty: 'Ginecología',
-      icon: <HeartPulse />,
-      names: ['Dra. Mercy']
-    },
-    {
-      specialty: 'Cirugía Plástica',
-      icon: <Scissors />,
-      names: ['Dr. Carlos Tellez', 'Dr. Felipe Castro']
-    },
-    {
-      specialty: 'Dermatología',
-      icon: <BrainCircuit />,
-      names: ['Dr. Alfonso Carvajal']
-    },
-     {
-      specialty: 'Medicina Estética',
-      icon: <Stethoscope />,
-      names: [
-        'Dra. Monica Jaimes', 
-        'Dra. Liz Clavijo', 
-        'Dra. Lina Rincon', 
-        'Dra. Karen Chaves', 
-        'Dra. Karen Quevedo', 
-        'Dr. Alirio Pachon', 
-        'Dra. Virginia Escobar', 
-        'Dra. Claudia Garcia', 
-        'Dra. Candelaria Contreras'
-      ]
     },
   ];
 
@@ -271,34 +234,8 @@ export default function Home() {
         </section>
         
         {/* Speakers Section */}
-        <section id="speakers" className="py-24 bg-card">
-          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center max-w-3xl mx-auto">
-              <h2 className="font-headline text-4xl md:text-5xl font-bold">
-                Speakers Nacionales
-              </h2>
-              <p className="mt-6 text-lg text-muted-foreground">
-                Un equipo de profesionales líderes en sus campos, comprometidos con la excelencia y la innovación en medicina estética con MINT®.
-              </p>
-            </div>
-            <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-              {speakers.map((speaker, index) => (
-                <div key={index} className="bg-background/80 p-6 rounded-lg shadow-lg hover:shadow-primary/20 transition-shadow duration-300">
-                  <div className="flex items-center gap-4 mb-4">
-                    <div className="p-2 bg-primary/20 rounded-full text-primary">
-                      {speaker.icon}
-                    </div>
-                    <h3 className="font-headline text-xl font-bold">{speaker.specialty}</h3>
-                  </div>
-                  <ul className="space-y-2">
-                    {speaker.names.map(name => (
-                      <li key={name} className="text-muted-foreground">{name}</li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
-          </div>
+        <section id="speakers" className="relative bg-background overflow-hidden">
+          <SplitScreenSpeakers />
         </section>
 
         <Collapsible open={isCalculatorVisible} onOpenChange={setIsCalculatorVisible} className="bg-background transition-all duration-500">
@@ -545,5 +482,3 @@ export default function Home() {
     </div>
   );
 }
-
-    

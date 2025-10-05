@@ -95,6 +95,18 @@
       "description": "Profile of a woman with a youthful appearance.",
       "imageUrl": "https://images.unsplash.com/photo-1522775417749-29284fb89f43?q=80&w=800&auto=format&fit=crop",
       "imageHint": "woman profile"
+    },
+    {
+      "id": "speakers-left",
+      "description": "A confident woman with a strong profile.",
+      "imageUrl": "https://images.unsplash.com/photo-1557053910-d9eadeed1c58?q=80&w=800&auto=format&fit=crop",
+      "imageHint": "woman profile"
+    },
+    {
+      "id": "speakers-right",
+      "description": "Abstract pink and purple light trails.",
+      "imageUrl": "https://images.unsplash.com/photo-1531366936337-7c912a4589a7?q=80&w=800&auto=format&fit=crop",
+      "imageHint": "abstract light"
     }
   ]
 }
