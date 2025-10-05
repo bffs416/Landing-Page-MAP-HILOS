@@ -13,12 +13,22 @@ const getImageHint = (id: string) => {
     return image ? image.imageHint : 'placeholder';
 };
 
-const procedureSteps = Array.from({ length: 10 }, (_, i) => ({
-    title: `Paso ${i + 1}`,
-    description: `Descripción detallada para el paso número ${i + 1} del procedimiento.`,
-    imageUrl: getImage(`step-${i + 1}`),
-    imageHint: getImageHint(`step-${i + 1}`),
-}));
+const procedureSteps = Array.from({ length: 10 }, (_, i) => {
+    if (i === 0) {
+        return {
+            title: `Paso 1: Evaluación y Marcación Preoperatoria`,
+            description: `Evaluar la flacidez (ej. en sedestación) y marcar el punto de entrada (fijo) y los puntos de suspensión (móviles). El punto de entrada se sitúa en la región temporal/preauricular, cerca de la línea del cabello, 1 cm anterior y 1 cm superior al ápice del trago. Marcar vectores oblicuos hacia el SNL y la línea mandibular.`,
+            imageUrl: getImage(`step-${i + 1}`),
+            imageHint: getImageHint(`step-${i + 1}`),
+        }
+    }
+    return {
+        title: `Paso ${i + 1}`,
+        description: `Descripción detallada para el paso número ${i + 1} del procedimiento.`,
+        imageUrl: getImage(`step-${i + 1}`),
+        imageHint: getImageHint(`step-${i + 1}`),
+    }
+});
 
 
 export const heroVideo = '/images/hero-background.mp4';
@@ -32,7 +42,7 @@ export const facialProtocols = [
     contentComponent: VectorLiftContent,
     imageUrl: 'https://picsum.photos/seed/facial1/800/600',
     imageHint: 'woman jawline',
-    steps: procedureSteps.map((step, i) => ({ ...step, title: `VectorLift™ - Paso ${i + 1}` })),
+    steps: procedureSteps.map((step, i) => ({ ...step, title: `VectorLift™ - ${step.title.startsWith('Paso') ? 'Paso '+ (i+1) : 'Evaluación y Marcación Preoperatoria'}` })),
   },
   {
     name: 'ApexLift™ (Fox Eyes)',
