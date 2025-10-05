@@ -1,8 +1,9 @@
 
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
+import html2canvas from 'html2canvas';
 
 const confettiColors = ['#e6c3a5', '#d4a37b', '#a57d54', '#8c6b4a', '#e1ad83'];
 const confettiCount = 100;
@@ -42,6 +43,7 @@ interface CertificateProps {
 
 export default function Certificate({ name, level }: CertificateProps) {
   const [currentDate, setCurrentDate] = useState('');
+  const certificateRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     setCurrentDate(new Date().toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric' }));
@@ -50,6 +52,27 @@ export default function Certificate({ name, level }: CertificateProps) {
   const handlePrint = () => {
     window.print();
   };
+  
+  const handleDownloadImage = async () => {
+    const element = certificateRef.current;
+    if (!element) return;
+
+    const canvas = await html2canvas(element, {
+      backgroundColor: null, // This makes the background transparent
+      scale: 2, // Increase resolution
+    });
+
+    const data = canvas.toDataURL('image/png');
+    const link = document.createElement('a');
+
+    link.href = data;
+    link.download = 'certificado-mint-lift.png';
+
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
 
   if (!currentDate) {
     return (
@@ -62,7 +85,7 @@ export default function Certificate({ name, level }: CertificateProps) {
   return (
     <div className="bg-background text-foreground min-h-screen flex flex-col items-center justify-center p-4 relative overflow-hidden">
        <Confetti />
-       <div id="certificate" className="printable-area w-full max-w-4xl mx-auto p-8 sm:p-12 border-4 border-primary rounded-lg bg-card shadow-2xl relative overflow-hidden">
+       <div ref={certificateRef} id="certificate" className="printable-area w-full max-w-4xl mx-auto p-8 sm:p-12 border-4 border-primary rounded-lg bg-card shadow-2xl relative overflow-hidden">
         {/* Decorative background shapes */}
         <div className="absolute -top-1/4 -left-1/4 w-96 h-96 bg-primary/10 rounded-full filter blur-3xl opacity-50 animate-pulse"></div>
         <div className="absolute -bottom-1/4 -right-1/4 w-96 h-96 bg-secondary/10 rounded-full filter blur-3xl opacity-50 animation-delay-4000 animate-pulse"></div>
@@ -99,14 +122,17 @@ export default function Certificate({ name, level }: CertificateProps) {
           </div>
         </div>
       </div>
-       <div className="mt-8 text-center no-print relative z-10">
+       <div className="mt-8 text-center no-print relative z-10 flex gap-4">
         <Button onClick={handlePrint}>
           Imprimir Certificado
         </Button>
-        <p className="text-xs text-muted-foreground mt-2">
-            Puedes imprimirlo directamente o guardarlo como PDF.
-        </p>
+         <Button onClick={handleDownloadImage} variant="outline">
+          Descargar PNG
+        </Button>
       </div>
+      <p className="text-xs text-muted-foreground mt-2 text-center no-print relative z-10">
+          Puedes imprimirlo o guardarlo como PNG con fondo transparente.
+      </p>
     </div>
   );
 }
