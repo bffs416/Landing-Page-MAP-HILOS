@@ -409,26 +409,32 @@ export default function Home() {
                   {activeCorporalProtocol ? (
                     <Card className="shadow-xl bg-card/80 backdrop-blur-sm sticky top-24">
                       <CardContent className="p-6">
-                        <p className="text-base font-headline mb-4">{activeCorporalProtocol.fullDescription}</p>
-                        <Carousel opts={{ align: "start" }} className="w-full">
-                          <CarouselContent>
-                            {activeCorporalProtocol.steps.map((step, index) => (
-                              <CarouselItem key={index}>
-                                <div className="p-1">
-                                  <EffectCard
-                                      icon={<Waves size={24}/>}
-                                      title={step.title}
-                                      description={step.description}
-                                      imageUrl={step.imageUrl}
-                                      imageHint={step.imageHint}
-                                    />
-                                </div>
-                              </CarouselItem>
-                            ))}
-                          </CarouselContent>
-                          <CarouselPrevious className="hidden sm:flex" />
-                          <CarouselNext className="hidden sm:flex" />
-                        </Carousel>
+                        {activeCorporalProtocol.contentComponent ? (
+                          <activeCorporalProtocol.contentComponent />
+                        ) : (
+                          <p className="text-base font-headline mb-4">{activeCorporalProtocol.fullDescription}</p>
+                        )}
+                        {activeCorporalProtocol.steps.length > 0 && (
+                          <Carousel opts={{ align: "start" }} className="w-full mt-6">
+                            <CarouselContent>
+                              {activeCorporalProtocol.steps.map((step, index) => (
+                                <CarouselItem key={index}>
+                                  <div className="p-1">
+                                    <EffectCard
+                                        icon={<Waves size={24}/>}
+                                        title={step.title}
+                                        description={step.description}
+                                        imageUrl={step.imageUrl}
+                                        imageHint={step.imageHint}
+                                      />
+                                  </div>
+                                </CarouselItem>
+                              ))}
+                            </CarouselContent>
+                            <CarouselPrevious className="hidden sm:flex" />
+                            <CarouselNext className="hidden sm:flex" />
+                          </Carousel>
+                        )}
                       </CardContent>
                     </Card>
                   ) : (
