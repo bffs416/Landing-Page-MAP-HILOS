@@ -63,7 +63,7 @@ export default function Certificate({ name, level }: CertificateProps) {
   
     const sourceCanvas = await html2canvas(element, {
       backgroundColor: null, // Transparent background
-      scale: 2, // Capture at higher resolution initially
+      scale: 4, // Capture at higher resolution initially for better text quality
     });
   
     // Create a new canvas with A5 dimensions
