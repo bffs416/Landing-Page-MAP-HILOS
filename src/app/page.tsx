@@ -349,7 +349,7 @@ export default function Home() {
                         {activeFacialProtocol.contentComponent ? (
                           <activeFacialProtocol.contentComponent />
                         ) : (
-                          <p className="text-base font-headline mb-4">{activeFacialProtocol.fullDescription}</p>
+                          <p className="text-base font-headline mb-4">{activeFacialProtocol.description}</p>
                         )}
                         <Carousel opts={{ align: "start" }} className="w-full mt-6">
                           <CarouselContent>
