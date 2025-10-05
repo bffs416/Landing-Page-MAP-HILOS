@@ -1,6 +1,7 @@
 
 import { PlaceHolderImages } from './placeholder-images';
 import { GraduationCap, HeartPulse, Scissors, BrainCircuit, Stethoscope } from 'lucide-react';
+import VectorLiftContent from '@/components/vector-lift-content';
 
 const getImage = (id: string) => {
   const image = PlaceHolderImages.find((img) => img.id === id);
@@ -28,6 +29,7 @@ export const facialProtocols = [
     description:
       'Este protocolo está diseñado para tratar la flacidez del tercio inferior del rostro. A través de la inserción de hilos tensores MINT®, se crea un vector de tracción que redefine el contorno mandibular, eleva los tejidos caídos y restaura la definición del óvalo facial, logrando un efecto lifting natural y duradero.',
     fullDescription: 'Descripción completa y detallada del VectorLift™ (Óvalo Facial). Aquí se explica el proceso en profundidad, los resultados esperados y los cuidados posteriores para el paciente. Ideal para quienes buscan una solución efectiva a la flacidez sin cirugía.',
+    contentComponent: VectorLiftContent,
     imageUrl: 'https://picsum.photos/seed/facial1/800/600',
     imageHint: 'woman jawline',
     steps: procedureSteps.map((step, i) => ({ ...step, title: `VectorLift™ - Paso ${i + 1}` })),

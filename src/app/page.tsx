@@ -346,8 +346,12 @@ export default function Home() {
                   {activeFacialProtocol ? (
                     <Card className="shadow-xl bg-card/80 backdrop-blur-sm sticky top-24">
                       <CardContent className="p-6">
-                        <p className="text-base font-headline mb-4">{activeFacialProtocol.fullDescription}</p>
-                        <Carousel opts={{ align: "start" }} className="w-full">
+                        {activeFacialProtocol.contentComponent ? (
+                          <activeFacialProtocol.contentComponent />
+                        ) : (
+                          <p className="text-base font-headline mb-4">{activeFacialProtocol.fullDescription}</p>
+                        )}
+                        <Carousel opts={{ align: "start" }} className="w-full mt-6">
                           <CarouselContent>
                             {activeFacialProtocol.steps.map((step, index) => (
                               <CarouselItem key={index}>
