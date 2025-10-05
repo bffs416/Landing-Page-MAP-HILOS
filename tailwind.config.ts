@@ -86,7 +86,7 @@ export default {
           from: { transform: 'translate(-20%, -20%) rotate(0deg)' },
           to: { transform: 'translate(-20%, -20%) rotate(-360deg)' },
         },
-        'revolveScale': {
+        revolveScale: {
           '60%': {
             transform: 'translate(20px, 20px) rotate(30deg) scale(.3)',
           },

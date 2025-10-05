@@ -2,7 +2,7 @@
 'use client';
 
 import Image from 'next/image';
-import { Route, Milestone, Lightbulb, UserCheck, Search, Award, ChevronRight, User, GraduationCap, Medal, Briefcase, School, Wave } from 'lucide-react';
+import { Route, Milestone, Lightbulb, UserCheck, Search, Award, ChevronRight, User, GraduationCap, Medal, Briefcase, School, Waves } from 'lucide-react';
 import Logo from '@/components/logo';
 import {
   facialProtocols,
@@ -350,7 +350,7 @@ export default function Home() {
                               <CarouselItem key={index}>
                                 <div className="p-1">
                                     <EffectCard
-                                      icon={<Wave size={24}/>}
+                                      icon={<Waves size={24}/>}
                                       title={step.title}
                                       description={step.description}
                                     />
@@ -407,7 +407,7 @@ export default function Home() {
                               <CarouselItem key={index}>
                                 <div className="p-1">
                                   <EffectCard
-                                      icon={<Wave size={24}/>}
+                                      icon={<Waves size={24}/>}
                                       title={step.title}
                                       description={step.description}
                                     />
