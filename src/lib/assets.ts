@@ -13,22 +13,68 @@ const getImageHint = (id: string) => {
     return image ? image.imageHint : 'placeholder';
 };
 
-const procedureSteps = Array.from({ length: 10 }, (_, i) => {
-    if (i === 0) {
-        return {
-            title: `Paso 1: Evaluación y Marcación Preoperatoria`,
-            description: `Evaluar la flacidez (ej. en sedestación) y marcar el punto de entrada (fijo) y los puntos de suspensión (móviles). El punto de entrada se sitúa en la región temporal/preauricular, cerca de la línea del cabello, 1 cm anterior y 1 cm superior al ápice del trago. Marcar vectores oblicuos hacia el SNL y la línea mandibular.`,
-            imageUrl: getImage(`step-${i + 1}`),
-            imageHint: getImageHint(`step-${i + 1}`),
-        }
-    }
-    return {
-        title: `Paso ${i + 1}`,
-        description: `Descripción detallada para el paso número ${i + 1} del procedimiento.`,
-        imageUrl: getImage(`step-${i + 1}`),
-        imageHint: getImageHint(`step-${i + 1}`),
-    }
-});
+const procedureSteps = [
+    {
+        title: `Paso 1: Evaluación y Marcación Preoperatoria`,
+        description: `Evaluar la flacidez (ej. en sedestación) y marcar el punto de entrada (fijo) y los puntos de suspensión (móviles). El punto de entrada se sitúa en la región temporal/preauricular, cerca de la línea del cabello, 1 cm anterior y 1 cm superior al ápice del trago. Marcar vectores oblicuos hacia el SNL y la línea mandibular.`,
+        imageUrl: getImage(`step-1`),
+        imageHint: getImageHint(`step-1`),
+    },
+    {
+        title: `Paso 2: Anestesia Local`,
+        description: `Aplicar anestesia local (ej. Lidocaína 2% con epinefrina 1:100,000) mediante inyección en el punto de entrada y a lo largo del trayecto subcutáneo donde pasarán los hilos.`,
+        imageUrl: getImage(`step-2`),
+        imageHint: getImageHint(`step-2`),
+    },
+    {
+        title: `Paso 3: Creación del Puerto de Entrada`,
+        description: `Realizar una punción o pequeña incisión en el punto de entrada marcado, generalmente utilizando una aguja 18G.`,
+        imageUrl: getImage(`step-3`),
+        imageHint: getImageHint(`step-3`),
+    },
+    {
+        title: `Paso 4: Inserción de la Cánula/Aguja`,
+        description: `Introducir la cánula o aguja precargada (ej. 19G/21G) perpendicularmente a la piel y luego girarla inmediatamente para avanzar paralelamente en el plano subcutáneo (supra-SMAS).`,
+        imageUrl: getImage(`step-4`),
+        imageHint: getImageHint(`step-4`),
+    },
+    {
+        title: `Paso 5: Túnel y Dirección del Vector`,
+        description: `Deslizar la cánula a lo largo del vector pre-marcado, asegurando que se mantenga en el plano subcutáneo; la punta debe ser palpable bajo el tejido pero sin crear relieve visible. No cruzar el surco nasolabial, manteniendo el punto de salida al menos 0.5 cm lateralmente.`,
+        imageUrl: getImage(`step-5`),
+        imageHint: getImageHint(`step-5`),
+    },
+    {
+        title: `Paso 6: Despliegue del Hilo`,
+        description: `Una vez alcanzado el punto de suspensión (salida), detener la tracción para que las espículas del segmento distal del hilo se anclen en el tejido subcutáneo antes de retirar la cánula.`,
+        imageUrl: getImage(`step-6`),
+        imageHint: getImageHint(`step-6`),
+    },
+    {
+        title: `Paso 7: Tracción y Levantamiento Mecánico`,
+        description: `Aplicar una tracción manual suave en sentido póstero-superior (opuesto al vector de caída) a los cabos libres del hilo para enganchar las espículas MINT® en el tejido fibro-graso y reposicionar el tejido ptósico (efecto lifting inmediato).`,
+        imageUrl: getImage(`step-7`),
+        imageHint: getImageHint(`step-7`),
+    },
+    {
+        title: `Paso 8: Anclaje y Nudado (Fijación)`,
+        description: `Si el diseño de hilo lo permite, o si se usan hilos bidireccionales, anudar los cabos libres entre sí en el punto de entrada antes de cortarlos. Esta maniobra aumenta la sustentación y ayuda a prevenir la migración.`,
+        imageUrl: getImage(`step-8`),
+        imageHint: getImageHint(`step-8`),
+    },
+    {
+        title: `Paso 9: Corte y Enterramiento del Hilo`,
+        description: `Cortar el exceso de sutura a un nivel profundo (subcutáneo) para asegurar que el extremo del hilo y el nudo (si se realizó) queden completamente enterrados bajo la piel y no sean visibles o palpables.`,
+        imageUrl: getImage(`step-9`),
+        imageHint: getImageHint(`step-9`),
+    },
+    {
+        title: `Paso 10: Manejo Postoperatorio y Cuidados`,
+        description: `Instruir al paciente a evitar la gesticulación exagerada, la masticación de alimentos duros y el ejercicio físico durante al menos 1-3 semanas. Se recomienda dormir boca arriba y considerar el uso de una mentonera/collarín para evitar la tracción descendente.`,
+        imageUrl: getImage(`step-10`),
+        imageHint: getImageHint(`step-10`),
+    },
+];
 
 
 export const heroVideo = '/images/hero-background.mp4';
@@ -42,7 +88,7 @@ export const facialProtocols = [
     contentComponent: VectorLiftContent,
     imageUrl: 'https://picsum.photos/seed/facial1/800/600',
     imageHint: 'woman jawline',
-    steps: procedureSteps.map((step, i) => ({ ...step, title: `VectorLift™ - ${step.title.startsWith('Paso') ? 'Paso '+ (i+1) : 'Evaluación y Marcación Preoperatoria'}` })),
+    steps: procedureSteps.map((step, i) => ({ ...step, title: `VectorLift™ - Paso ${i + 1}` })),
   },
   {
     name: 'ApexLift™ (Fox Eyes)',
