@@ -2,7 +2,7 @@
 'use client';
 
 import Image from 'next/image';
-import { Route, Milestone, Lightbulb, UserCheck, Search, Award, ChevronRight, User, GraduationCap, Medal, Briefcase, School, Waves } from 'lucide-react';
+import { Route, Milestone, Lightbulb, UserCheck, Search, Award, ChevronRight, User, GraduationCap, Medal, Briefcase, School, Waves, Stethoscope, Scissors, HeartPulse, BrainCircuit } from 'lucide-react';
 import Logo from '@/components/logo';
 import {
   facialProtocols,
@@ -91,6 +91,44 @@ export default function Home() {
       title: 'Precisión Diagnóstica: Selección Óptima del Paciente',
       description:
         'El médico se siente empoderado para identificar al candidato ideal, gestionar expectativas y diseñar planes de tratamiento con mayor precisión y seguridad.',
+    },
+  ];
+  
+  const speakers = [
+    {
+      specialty: 'Oculoplástico',
+      icon: <GraduationCap />,
+      names: ['Dr. Jhon Bareño']
+    },
+    {
+      specialty: 'Ginecología',
+      icon: <HeartPulse />,
+      names: ['Dra. Mercy']
+    },
+    {
+      specialty: 'Cirugía Plástica',
+      icon: <Scissors />,
+      names: ['Dr. Carlos Tellez', 'Dr. Felipe Castro']
+    },
+    {
+      specialty: 'Dermatología',
+      icon: <BrainCircuit />,
+      names: ['Dr. Alfonso Carvajal']
+    },
+     {
+      specialty: 'Medicina Estética',
+      icon: <Stethoscope />,
+      names: [
+        'Dra. Monica Jaimes', 
+        'Dra. Liz Clavijo', 
+        'Dra. Lina Rincon', 
+        'Dra. Karen Chaves', 
+        'Dra. Karen Quevedo', 
+        'Dr. Alirio Pachon', 
+        'Dra. Virginia Escobar', 
+        'Dra. Claudia Garcia', 
+        'Dra. Candelaria Contreras'
+      ]
     },
   ];
 
@@ -231,8 +269,39 @@ export default function Home() {
             </div>
           </div>
         </section>
+        
+        {/* Speakers Section */}
+        <section id="speakers" className="py-24 bg-card">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center max-w-3xl mx-auto">
+              <h2 className="font-headline text-4xl md:text-5xl font-bold">
+                Speakers Nacionales
+              </h2>
+              <p className="mt-6 text-lg text-muted-foreground">
+                Un equipo de profesionales líderes en sus campos, comprometidos con la excelencia y la innovación en medicina estética con MINT®.
+              </p>
+            </div>
+            <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+              {speakers.map((speaker, index) => (
+                <div key={index} className="bg-background/80 p-6 rounded-lg shadow-lg hover:shadow-primary/20 transition-shadow duration-300">
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="p-2 bg-primary/20 rounded-full text-primary">
+                      {speaker.icon}
+                    </div>
+                    <h3 className="font-headline text-xl font-bold">{speaker.specialty}</h3>
+                  </div>
+                  <ul className="space-y-2">
+                    {speaker.names.map(name => (
+                      <li key={name} className="text-muted-foreground">{name}</li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
 
-        <Collapsible open={isCalculatorVisible} onOpenChange={setIsCalculatorVisible} className="bg-card transition-all duration-500">
+        <Collapsible open={isCalculatorVisible} onOpenChange={setIsCalculatorVisible} className="bg-background transition-all duration-500">
           {/* Philosophy Section */}
           <section id="filosofia" className="py-24">
             <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -278,7 +347,7 @@ export default function Home() {
           
           <CollapsibleContent className="transition-all duration-500 ease-in-out">
             {/* ICL Calculator Section */}
-            <section id="calculadora" ref={calculatorRef} className="py-24 bg-background/70">
+            <section id="calculadora" ref={calculatorRef} className="py-24 bg-card/70">
               <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center max-w-3xl mx-auto">
                   <h2 className="font-headline text-4xl md:text-5xl font-bold animate-in fade-in slide-in-from-bottom-5 duration-700">
@@ -476,3 +545,5 @@ export default function Home() {
     </div>
   );
 }
+
+    
