@@ -47,6 +47,7 @@ export default function TriviaPage() {
   const [showCertificateForm, setShowCertificateForm] = useState(false);
   const [certificateData, setCertificateData] = useState<{name: string, level: string} | null>(null);
   const [questions, setQuestions] = useState<any[]>([]);
+  const [isTestMode, setIsTestMode] = useState(false);
 
   const levelData = currentLevel ? triviaLevels[currentLevel] : null;
   const currentQuestion = questions[currentQuestionIndex];
@@ -69,6 +70,15 @@ export default function TriviaPage() {
     setShowCertificateForm(false);
     setCertificateData(null);
   };
+  
+  const handleTestCertificate = () => {
+    // Simulate completing the legendary level to get to the form
+    setCurrentLevel('legendary');
+    setShowResult(true);
+    setShowCertificateForm(true);
+    setIsTestMode(true);
+  };
+
 
   const handleAnswerChange = (questionIndex: number, answer: string) => {
     setUserAnswers(prev => ({ ...prev, [questionIndex]: answer }));
@@ -83,6 +93,7 @@ export default function TriviaPage() {
   };
   
   const calculateScore = () => {
+    if (isTestMode) return { correctCount: 1, total: 1, percentage: 100 };
     if (!levelData) return { correctCount: 0, total: 0, percentage: 0 };
     const correctCount = questions.reduce((acc, question, index) => {
       return userAnswers[index] === question.correctAnswer ? acc + 1 : acc;
@@ -102,22 +113,23 @@ export default function TriviaPage() {
 
   const onSubmit = (data: CertificateFormData) => {
     console.log("Form submitted for certificate:", data);
-    if(levelData) {
-      setCertificateData({ name: data.name, level: levelData.title });
-    }
+    const levelTitle = isTestMode ? triviaLevels.legendary.title : levelData!.title;
+    setCertificateData({ name: data.name, level: levelTitle });
   };
   
   if (certificateData) {
     return <Certificate name={certificateData.name} level={certificateData.level} />;
   }
 
-  if (showResult && levelData) {
+  const effectiveLevelData = isTestMode ? triviaLevels.legendary : levelData;
+
+  if (showResult && effectiveLevelData) {
     const { message, icon } = getResultMessage();
     return (
       <div className="min-h-screen bg-background flex items-center justify-center p-4">
         <Card className="w-full max-w-3xl text-center shadow-2xl">
           <CardHeader>
-            <CardTitle className="text-3xl font-headline">Resultado del Nivel: {levelData.title}</CardTitle>
+            <CardTitle className="text-3xl font-headline">Resultado del Nivel: {effectiveLevelData.title}</CardTitle>
           </CardHeader>
           <CardContent className="space-y-6">
             {!showCertificateForm ? (
@@ -202,7 +214,7 @@ export default function TriviaPage() {
                       )}
                     />
                     <div className="flex justify-end gap-2">
-                        <Button type="button" variant="ghost" onClick={() => setShowCertificateForm(false)}>
+                        <Button type="button" variant="ghost" onClick={() => {setShowCertificateForm(false); setIsTestMode(false); if (!isTestMode) {setShowResult(true)} else {setShowResult(false); setCurrentLevel(null)}}}>
                             Volver
                         </Button>
                         <Button type="submit">Generar mi Certificado</Button>
@@ -219,7 +231,7 @@ export default function TriviaPage() {
 
   if (!currentLevel || !levelData) {
     return (
-      <div className="min-h-screen bg-background flex items-center justify-center p-4">
+      <div className="min-h-screen bg-background flex flex-col items-center justify-center p-4">
         <Card className="w-full max-w-lg text-center shadow-2xl">
           <CardHeader>
             <CardTitle className="text-4xl font-headline">Trivia de Hilos Tensores PDO</CardTitle>
@@ -236,6 +248,11 @@ export default function TriviaPage() {
             </Button>
           </CardContent>
         </Card>
+        <div className="mt-4">
+            <Button variant="link" onClick={handleTestCertificate}>
+              Generar Certificado de Prueba (Admin)
+            </Button>
+        </div>
       </div>
     );
   }
@@ -281,3 +298,5 @@ export default function TriviaPage() {
     </div>
   );
 }
+
+    
