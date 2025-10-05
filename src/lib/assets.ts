@@ -184,7 +184,7 @@ const rhinoStructureSteps = [
     },
     {
         title: "Paso 7: Anclaje y Fijación de Hilos",
-        description: "Los hilos espiculados multidireccionales se auto-anclan en el tejido fibrograso por la acción de sus púas. Si se requiere un soporte más fuerte, se puede realizar un anclaje al periostio o anudar los extremos para evitar la migración.",
+        description: "Los hilos espiculados multidireccionales se auto-anclan en el tejido fibrograso por la acción de sus púas. Si se requiere un soporte más fuerte, se puede realizar un anclaje al periostio (en la rinoplastia profunda) o anudar los extremos para evitar la migración (aunque esto es más común en el lifting facial).",
         imageUrl: getImage("step-7"),
         imageHint: getImageHint("step-7")
     },
@@ -528,14 +528,6 @@ export const corporalProtocols = [
     contentComponent: GluteCurveContent,
     steps: gluteCurveSteps,
   },
-  {
-    name: 'TOP BEAUTY UP',
-    description: 'Un protocolo integral para un lifting corporal completo. Combina diferentes técnicas para tratar la flacidez en múltiples zonas como abdomen, brazos y glúteos, logrando una silueta más estilizada y rejuvenecida.',
-    fullDescription: 'Descripción completa y detallada del TOP BEAUTY UP. Este es nuestro tratamiento corporal estrella, diseñado para quienes buscan un rejuvenecimiento corporal global sin cirugía. Se abordan las áreas clave de flacidez para un resultado armónico y espectacular.',
-    imageUrl: 'https://picsum.photos/seed/corporal4/800/600',
-    imageHint: 'full body silhouette',
-    steps: [],
-  },
 ];
 
 export const mapPillars = [
@@ -573,4 +565,3 @@ export const speakers = [
   { name: 'Dra. Claudia Garcia', specialty: 'Medicina Estética', iconName: 'Stethoscope', imageUrl: getImage('speaker-garcia') },
   { name: 'Dra. Candelaria Contreras', specialty: 'Medicina Estética', iconName: 'Stethoscope', imageUrl: getImage('speaker-contreras') }
 ];
-
