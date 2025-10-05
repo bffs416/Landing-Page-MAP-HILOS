@@ -47,8 +47,8 @@ export default function Home() {
   const [isCalculatorVisible, setIsCalculatorVisible] = useState(false);
   const calculatorRef = useRef<HTMLDivElement>(null);
   
-  const [activeFacialProtocol, setActiveFacialProtocol] = useState(facialProtocols[0]);
-  const [activeCorporalProtocol, setActiveCorporalProtocol] = useState(corporalProtocols[0]);
+  const [activeFacialProtocol, setActiveFacialProtocol] = useState<typeof facialProtocols[0] | null>(null);
+  const [activeCorporalProtocol, setActiveCorporalProtocol] = useState<typeof corporalProtocols[0] | null>(null);
 
 
   useEffect(() => {
@@ -94,6 +94,22 @@ export default function Home() {
         'El médico se siente empoderado para identificar al candidato ideal, gestionar expectativas y diseñar planes de tratamiento con mayor precisión y seguridad.',
     },
   ];
+
+  const handleFacialProtocolSelect = (protocol: typeof facialProtocols[0]) => {
+    if (activeFacialProtocol?.name === protocol.name) {
+      setActiveFacialProtocol(null);
+    } else {
+      setActiveFacialProtocol(protocol);
+    }
+  };
+
+  const handleCorporalProtocolSelect = (protocol: typeof corporalProtocols[0]) => {
+    if (activeCorporalProtocol?.name === protocol.name) {
+      setActiveCorporalProtocol(null);
+    } else {
+      setActiveCorporalProtocol(protocol);
+    }
+  };
 
   return (
     <div className="bg-transparent text-foreground min-h-screen font-body">
@@ -328,7 +344,7 @@ export default function Home() {
                   {facialProtocols.map((protocol, index) => (
                     <button
                       key={protocol.name}
-                      onClick={() => setActiveFacialProtocol(protocol)}
+                      onClick={() => handleFacialProtocolSelect(protocol)}
                       className={cn(
                         "w-full text-left p-4 rounded-lg transition-all duration-300 flex items-center justify-between",
                         activeFacialProtocol?.name === protocol.name ? "bg-primary/20 shadow-lg" : "hover:bg-card/60"
@@ -391,7 +407,7 @@ export default function Home() {
                   {corporalProtocols.map((protocol, index) => (
                     <button
                       key={protocol.name}
-                      onClick={() => setActiveCorporalProtocol(protocol)}
+                      onClick={() => handleCorporalProtocolSelect(protocol)}
                       className={cn(
                         "w-full text-left p-4 rounded-lg transition-all duration-300 flex items-center justify-between",
                         activeCorporalProtocol?.name === protocol.name ? "bg-primary/20 shadow-lg" : "hover:bg-card/60"
