@@ -2,6 +2,7 @@
 import { PlaceHolderImages } from './placeholder-images';
 import { GraduationCap, HeartPulse, Scissors, BrainCircuit, Stethoscope } from 'lucide-react';
 import VectorLiftContent from '@/components/vector-lift-content';
+import ApexLiftContent from '@/components/apex-lift-content';
 
 const getImage = (id: string) => {
   const image = PlaceHolderImages.find((img) => img.id === id);
@@ -95,6 +96,7 @@ export const facialProtocols = [
     description:
       "Inspirado en la tendencia 'fox eyes', este tratamiento eleva la cola de la ceja para crear una mirada más abierta, rasgada y juvenil. Se utilizan hilos específicos para reposicionar sutilmente el tercio superior, aportando un efecto rejuvenecedor y sensual a los ojos.",
     fullDescription: 'Descripción completa y detallada del ApexLift™ (Fox Eyes). Aquí se explica el proceso en profundidad, los resultados esperados y los cuidados posteriores para el paciente. Ideal para quienes buscan una mirada más exótica y levantada.',
+    contentComponent: ApexLiftContent,
     imageUrl: 'https://picsum.photos/seed/facial2/800/600',
     imageHint: 'woman eyes',
     steps: procedureSteps.map((step, i) => ({ ...step, title: `ApexLift™ - Paso ${i + 1}` })),
@@ -188,3 +190,5 @@ export const speakers = [
   { name: 'Dra. Claudia Garcia', specialty: 'Medicina Estética', iconName: 'Stethoscope', imageUrl: getImage('speaker-garcia') },
   { name: 'Dra. Candelaria Contreras', specialty: 'Medicina Estética', iconName: 'Stethoscope', imageUrl: getImage('speaker-contreras') }
 ];
+
+    
