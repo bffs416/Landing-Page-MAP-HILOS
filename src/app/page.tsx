@@ -437,12 +437,12 @@ export default function Home() {
             </div>
           </div>
         </section>
-        
+
         {/* Speakers Section */}
         <section id="speakers" className="relative bg-background overflow-hidden">
           <SplitScreenSpeakers />
         </section>
-
+        
         {/* Gallery Section */}
         <section id="gallery" className="py-24 bg-card overflow-hidden">
           <div className="max-w-screen-xl 2xl:max-w-screen-3xl px-8 md:px-12 mx-auto">
@@ -483,3 +483,5 @@ export default function Home() {
     </div>
   );
 }
+
+    

@@ -1,53 +1,37 @@
 
 'use client';
 
-import { useState } from 'react';
+import { useState, type ElementType } from 'react';
 import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
-import { GraduationCap, HeartPulse, Scissors, BrainCircuit, Stethoscope, ChevronLeft, ChevronRight } from 'lucide-react';
+import { speakers } from '@/lib/assets';
 import { cn } from '@/lib/utils';
 import { Button } from './ui/button';
+import { Card, CardContent } from './ui/card';
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
+import { GraduationCap, HeartPulse, Scissors, BrainCircuit, Stethoscope } from 'lucide-react';
 
-const speakers = [
-  {
-    specialty: 'Oculoplástico',
-    icon: <GraduationCap />,
-    names: ['Dr. Jhon Bareño']
-  },
-  {
-    specialty: 'Ginecología',
-    icon: <HeartPulse />,
-    names: ['Dra. Mercy']
-  },
-  {
-    specialty: 'Cirugía Plástica',
-    icon: <Scissors />,
-    names: ['Dr. Carlos Tellez', 'Dr. Felipe Castro']
-  },
-  {
-    specialty: 'Dermatología',
-    icon: <BrainCircuit />,
-    names: ['Dr. Alfonso Carvajal']
-  },
-  {
-    specialty: 'Medicina Estética',
-    icon: <Stethoscope />,
-    names: [
-      'Dra. Monica Jaimes', 
-      'Dra. Liz Clavijo', 
-      'Dra. Lina Rincon', 
-      'Dra. Karen Chaves', 
-      'Dra. Karen Quevedo', 
-      'Dr. Alirio Pachon', 
-      'Dra. Virginia Escobar', 
-      'Dra. Claudia Garcia', 
-      'Dra. Candelaria Contreras'
-    ]
-  },
-];
+const iconMap: { [key: string]: ElementType } = {
+  GraduationCap,
+  HeartPulse,
+  Scissors,
+  BrainCircuit,
+  Stethoscope,
+};
+
+
+// Get unique specialties and their icons
+const specialties = Array.from(new Set(speakers.map(s => s.specialty)))
+  .map(specialty => {
+    const speaker = speakers.find(s => s.specialty === specialty);
+    return {
+      specialty: specialty,
+      iconName: speaker!.iconName
+    };
+  });
 
 export default function SplitScreenSpeakers() {
-  const [activeSpecialty, setActiveSpecialty] = useState(speakers[0].specialty);
+  const [activeSpecialty, setActiveSpecialty] = useState(specialties[0].specialty);
   const [paneState, setPaneState] = useState<'left' | 'right' | 'center'>('center');
   
   const leftImage = PlaceHolderImages.find(img => img.id === 'speakers-left');
@@ -76,6 +60,8 @@ export default function SplitScreenSpeakers() {
   
   const { left, right } = getWidths();
 
+  const filteredSpeakers = speakers.filter(s => s.specialty === activeSpecialty);
+
   return (
     <div className="flex flex-col md:flex-row min-h-[80vh]">
       {/* Left Pane */}
@@ -84,7 +70,7 @@ export default function SplitScreenSpeakers() {
           <Image 
             src={leftImage.imageUrl}
             alt={leftImage.description}
-            layout="fill"
+            fill
             className="object-cover"
             data-ai-hint={leftImage.imageHint}
           />
@@ -104,26 +90,28 @@ export default function SplitScreenSpeakers() {
                 paneState === 'left' && 'translate-x-12'
               )}
             >
-              <ChevronRight className="h-6 w-6"/>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6"><path d="m9 18 6-6-6-6"/></svg>
             </Button>
         </div>
       </div>
       
       {/* Right Pane */}
-      <div className={cn("relative text-foreground text-center transition-all duration-700 ease-in-out", right)}>
+      <div className={cn("relative text-foreground text-center transition-all duration-700 ease-in-out py-16", right)}>
          {rightImage && (
           <Image 
             src={rightImage.imageUrl}
             alt={rightImage.description}
-            layout="fill"
+            fill
             className="object-cover opacity-10"
              data-ai-hint={rightImage.imageHint}
           />
         )}
-        <div className="relative z-10 flex flex-col items-center justify-center h-full p-8 md:p-12">
-            <div className="w-full max-w-md">
-                <div className="flex justify-center mb-8 space-x-2">
-                    {speakers.map(s => (
+        <div className="relative z-10 flex flex-col items-center justify-center h-full px-4 md:px-8">
+            <div className="w-full max-w-lg mx-auto">
+                <div className="flex justify-center mb-10 space-x-2 flex-wrap gap-2">
+                    {specialties.map(s => {
+                      const Icon = iconMap[s.iconName];
+                      return (
                         <button
                             key={s.specialty}
                             onClick={() => setActiveSpecialty(s.specialty)}
@@ -131,23 +119,48 @@ export default function SplitScreenSpeakers() {
                                 "p-3 rounded-full transition-colors",
                                 activeSpecialty === s.specialty ? "bg-primary text-primary-foreground" : "bg-muted hover:bg-muted-foreground/20"
                             )}
+                            title={s.specialty}
                         >
-                            {s.icon}
+                            {Icon && <Icon />}
                         </button>
-                    ))}
+                      )
+                    })}
                 </div>
-                {speakers.map(s => (
-                    activeSpecialty === s.specialty && (
-                        <div key={s.specialty} className="text-center animate-in fade-in duration-500">
-                            <h3 className="font-headline text-2xl font-bold text-primary">{s.specialty}</h3>
-                            <ul className="mt-4 space-y-2">
-                                {s.names.map(name => (
-                                    <li key={name} className="text-lg text-muted-foreground">{name}</li>
-                                ))}
-                            </ul>
+
+                <Carousel
+                  opts={{
+                    align: "start",
+                    loop: filteredSpeakers.length > 1,
+                  }}
+                  className="w-full"
+                >
+                  <CarouselContent>
+                    {filteredSpeakers.map((speaker, index) => (
+                      <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/1">
+                        <div className="p-1">
+                          <Card className="overflow-hidden shadow-lg hover:shadow-primary/20 transition-shadow">
+                            <CardContent className="flex flex-col items-center justify-center p-6 text-center aspect-[3/4]">
+                               <div className="relative w-32 h-32 mb-4 rounded-full overflow-hidden ring-4 ring-primary/20">
+                                <Image
+                                  src={speaker.imageUrl}
+                                  alt={speaker.name}
+                                  fill
+                                  className="object-cover"
+                                  data-ai-hint="portrait person"
+                                />
+                               </div>
+                              <h4 className="font-headline text-xl font-bold">{speaker.name}</h4>
+                              <p className="text-sm text-primary">{speaker.specialty}</p>
+                            </CardContent>
+                          </Card>
                         </div>
-                    )
-                ))}
+                      </CarouselItem>
+                    ))}
+                  </CarouselContent>
+                  <CarouselPrevious className="absolute left-[-20px] top-1/2 -translate-y-1/2" />
+                  <CarouselNext className="absolute right-[-20px] top-1/2 -translate-y-1/2" />
+                </Carousel>
+                
             </div>
         </div>
          <div className="absolute inset-y-0 left-0 hidden md:flex items-center">
@@ -160,7 +173,7 @@ export default function SplitScreenSpeakers() {
                 paneState === 'right' && '-translate-x-12'
               )}
             >
-              <ChevronLeft className="h-6 w-6"/>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6"><path d="m15 18-6-6 6-6"/></svg>
             </Button>
         </div>
       </div>
