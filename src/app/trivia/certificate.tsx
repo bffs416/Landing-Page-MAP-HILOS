@@ -56,21 +56,36 @@ export default function Certificate({ name, level }: CertificateProps) {
   const handleDownloadImage = async () => {
     const element = certificateRef.current;
     if (!element) return;
-
-    const canvas = await html2canvas(element, {
-      backgroundColor: null, // This makes the background transparent
-      scale: 2, // Increase resolution
+  
+    // A5 dimensions in pixels at 300 DPI
+    const a5Width = 2480;
+    const a5Height = 1748;
+  
+    const sourceCanvas = await html2canvas(element, {
+      backgroundColor: null, // Transparent background
+      scale: 2, // Capture at higher resolution initially
     });
-
-    const data = canvas.toDataURL('image/png');
-    const link = document.createElement('a');
-
-    link.href = data;
-    link.download = 'certificado-mint-lift.png';
-
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+  
+    // Create a new canvas with A5 dimensions
+    const targetCanvas = document.createElement('canvas');
+    targetCanvas.width = a5Width;
+    targetCanvas.height = a5Height;
+    const ctx = targetCanvas.getContext('2d');
+  
+    if (ctx) {
+      // Draw the captured canvas onto the new canvas, scaling it to fit
+      ctx.drawImage(sourceCanvas, 0, 0, a5Width, a5Height);
+      
+      const data = targetCanvas.toDataURL('image/png');
+      const link = document.createElement('a');
+  
+      link.href = data;
+      link.download = 'certificado-mint-lift-A5.png';
+  
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
   };
 
 
