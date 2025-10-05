@@ -1,5 +1,6 @@
 
 import { Layers, ShieldCheck, GitMerge, AlertTriangle, UserCheck, Syringe, ClipboardList, CheckCircle, Activity, Droplets, Wind } from 'lucide-react';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 
 const Objectives = () => {
     const data = [
@@ -75,43 +76,52 @@ const StepsTable = () => {
 
 const ContourNeckContent = () => {
     return (
-        <div className="space-y-8 text-card-foreground">
+        <div className="space-y-4 text-card-foreground">
             <div>
                 <h3 className="font-headline text-2xl font-bold text-foreground">ContourNeck™: Redefinición de Cuello y Papada</h3>
                 <p className="mt-2 text-base text-muted-foreground">
                     Protocolo enfocado en corregir la flacidez, el exceso de grasa y la pérdida de definición del contorno mandibular y cervical.
                 </p>
             </div>
-
-             <div>
-                <h4 className="font-headline text-xl font-bold text-foreground mb-4">Objetivos Principales</h4>
-                <Objectives />
-            </div>
-
-            <div>
-                <h4 className="font-headline text-xl font-bold text-foreground mb-4">Los 10 Pasos Clave del Procedimiento</h4>
-                <StepsTable />
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="space-y-4">
-                    <h4 className="font-headline text-xl font-bold text-foreground">Mecanismo de Acción y Duración</h4>
-                    <ul className="space-y-2 list-disc list-inside text-muted-foreground pl-2 text-sm">
-                        <li><strong className="text-foreground">Doble Efecto:</strong> Lifting inmediato por tracción mecánica y rejuvenecimiento a largo plazo por neocolagenogénesis (colágeno tipo I y III).</li>
-                        <li><strong className="text-foreground">Duración:</strong> El hilo PDO se reabsorbe en 6 meses, pero el efecto de soporte y bioestimulación puede persistir de 12 a 18 meses.</li>
-                        <li><strong className="text-foreground">Refuerzo Estratégico:</strong> Se puede combinar con rellenos de AH o bioestimuladores para optimizar la calidad de la piel y el volumen.</li>
-                    </ul>
-                </div>
-                 <div className="bg-primary/10 p-6 rounded-lg border border-primary/30">
-                    <h4 className="font-headline text-xl font-bold text-foreground flex items-center gap-2">
-                        <AlertTriangle className="w-6 h-6 text-primary" />
-                        Sugerencia Estratégica
-                    </h4>
-                    <p className="mt-2 text-sm text-primary-foreground/80">
-                        El principal desafío es la durabilidad. Para gestionar expectativas y maximizar resultados, se debe planificar un protocolo de mantenimiento anual que combine hilos (cada 12-18 meses) con sesiones intermedias de HIFU o radiofrecuencia (cada 6-9 meses).
-                    </p>
-                </div>
-            </div>
+            
+            <Accordion type="single" collapsible className="w-full" defaultValue="item-1">
+                <AccordionItem value="item-1">
+                    <AccordionTrigger className="font-headline text-xl">Objetivos Principales</AccordionTrigger>
+                    <AccordionContent className="pt-4">
+                        <Objectives />
+                    </AccordionContent>
+                </AccordionItem>
+                <AccordionItem value="item-2">
+                    <AccordionTrigger className="font-headline text-xl">Los 10 Pasos Clave del Procedimiento</AccordionTrigger>
+                    <AccordionContent className="pt-4">
+                        <StepsTable />
+                    </AccordionContent>
+                </AccordionItem>
+                <AccordionItem value="item-3">
+                    <AccordionTrigger className="font-headline text-xl">Mecanismo y Sugerencias</AccordionTrigger>
+                    <AccordionContent className="pt-4">
+                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div className="space-y-4">
+                                <h4 className="font-semibold text-foreground">Mecanismo de Acción y Duración</h4>
+                                <ul className="space-y-2 list-disc list-inside text-muted-foreground pl-2 text-sm">
+                                    <li><strong className="text-foreground">Doble Efecto:</strong> Lifting inmediato por tracción mecánica y rejuvenecimiento a largo plazo por neocolagenogénesis (colágeno tipo I y III).</li>
+                                    <li><strong className="text-foreground">Duración:</strong> El hilo PDO se reabsorbe en 6 meses, pero el efecto de soporte y bioestimulación puede persistir de 12 a 18 meses.</li>
+                                    <li><strong className="text-foreground">Refuerzo Estratégico:</strong> Se puede combinar con rellenos de AH o bioestimuladores para optimizar la calidad de la piel y el volumen.</li>
+                                </ul>
+                            </div>
+                            <div className="bg-primary/10 p-6 rounded-lg border border-primary/30">
+                                <h4 className="font-semibold text-foreground flex items-center gap-2">
+                                    <AlertTriangle className="w-6 h-6 text-primary" />
+                                    Sugerencia Estratégica
+                                </h4>
+                                <p className="mt-2 text-sm text-primary-foreground/80">
+                                    El principal desafío es la durabilidad. Para gestionar expectativas y maximizar resultados, se debe planificar un protocolo de mantenimiento anual que combine hilos (cada 12-18 meses) con sesiones intermedias de HIFU o radiofrecuencia (cada 6-9 meses).
+                                </p>
+                            </div>
+                        </div>
+                    </AccordionContent>
+                </AccordionItem>
+            </Accordion>
         </div>
     );
 };

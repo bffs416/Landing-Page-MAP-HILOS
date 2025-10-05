@@ -1,5 +1,7 @@
 
 import { Check, Shield, Activity, Target, AlertTriangle, Layers } from 'lucide-react';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+
 
 const Objectives = () => {
     const data = [
@@ -75,7 +77,7 @@ const StepsTable = () => {
 
 const ArmContourContent = () => {
     return (
-        <div className="space-y-8 text-card-foreground">
+        <div className="space-y-4 text-card-foreground">
             <div>
                 <h3 className="font-headline text-2xl font-bold text-foreground">ArmContour™: Contorno de Brazos</h3>
                 <p className="mt-2 text-base text-muted-foreground">
@@ -83,35 +85,44 @@ const ArmContourContent = () => {
                 </p>
             </div>
 
-            <div>
-                <h4 className="font-headline text-xl font-bold text-foreground mb-4">Objetivos Principales</h4>
-                <Objectives />
-            </div>
-
-            <div>
-                <h4 className="font-headline text-xl font-bold text-foreground mb-4">Los 10 Pasos de la Técnica ArmContour™</h4>
-                <StepsTable />
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="space-y-4">
-                    <h4 className="font-headline text-xl font-bold text-foreground">Cuidados Post-Procedimiento</h4>
-                    <ul className="space-y-2 list-disc list-inside text-muted-foreground pl-2 text-sm">
-                        <li><strong className="text-foreground">Actividad:</strong> Evitar actividad física extenuante durante 3 días.</li>
-                        <li><strong className="text-foreground">Manipulación:</strong> No aplicar cosméticos en la zona tratada durante 48 horas.</li>
-                        <li><strong className="text-foreground">Movimiento:</strong> Evitar movimientos excesivos que puedan comprometer el anclaje de los hilos.</li>
-                    </ul>
-                </div>
-                 <div className="bg-primary/10 p-6 rounded-lg border border-primary/30">
-                    <h4 className="font-headline text-xl font-bold text-foreground flex items-center gap-2">
-                        <AlertTriangle className="w-6 h-6 text-primary" />
-                        Sugerencia Estratégica
-                    </h4>
-                    <p className="mt-2 text-sm text-primary-foreground/80">
-                        La clave del éxito en brazos es la redensificación. Una alta densidad de hilos monofilamento en patrón de malla maximiza la bioestimulación. El mantenimiento con sesiones de refuerzo es crucial para prolongar los resultados.
-                    </p>
-                </div>
-            </div>
+            <Accordion type="single" collapsible className="w-full" defaultValue="item-1">
+                <AccordionItem value="item-1">
+                    <AccordionTrigger className="font-headline text-xl">Objetivos Principales</AccordionTrigger>
+                    <AccordionContent className="pt-4">
+                        <Objectives />
+                    </AccordionContent>
+                </AccordionItem>
+                <AccordionItem value="item-2">
+                    <AccordionTrigger className="font-headline text-xl">Los 10 Pasos de la Técnica</AccordionTrigger>
+                    <AccordionContent className="pt-4">
+                        <StepsTable />
+                    </AccordionContent>
+                </AccordionItem>
+                <AccordionItem value="item-3">
+                    <AccordionTrigger className="font-headline text-xl">Cuidados y Sugerencias</AccordionTrigger>
+                    <AccordionContent className="pt-4">
+                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div className="space-y-4">
+                                <h4 className="font-semibold text-foreground">Cuidados Post-Procedimiento</h4>
+                                <ul className="space-y-2 list-disc list-inside text-muted-foreground pl-2 text-sm">
+                                    <li><strong className="text-foreground">Actividad:</strong> Evitar actividad física extenuante durante 3 días.</li>
+                                    <li><strong className="text-foreground">Manipulación:</strong> No aplicar cosméticos en la zona tratada durante 48 horas.</li>
+                                    <li><strong className="text-foreground">Movimiento:</strong> Evitar movimientos excesivos que puedan comprometer el anclaje de los hilos.</li>
+                                </ul>
+                            </div>
+                            <div className="bg-primary/10 p-6 rounded-lg border border-primary/30">
+                                <h4 className="font-semibold text-foreground flex items-center gap-2">
+                                    <AlertTriangle className="w-6 h-6 text-primary" />
+                                    Sugerencia Estratégica
+                                </h4>
+                                <p className="mt-2 text-sm text-primary-foreground/80">
+                                    La clave del éxito en brazos es la redensificación. Una alta densidad de hilos monofilamento en patrón de malla maximiza la bioestimulación. El mantenimiento con sesiones de refuerzo es crucial para prolongar los resultados.
+                                </p>
+                            </div>
+                        </div>
+                    </AccordionContent>
+                </AccordionItem>
+            </Accordion>
         </div>
     );
 };
