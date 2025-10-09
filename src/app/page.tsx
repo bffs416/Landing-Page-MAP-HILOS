@@ -1,4 +1,3 @@
-
 'use client';
 
 import Image from 'next/image';
@@ -297,20 +296,17 @@ export default function Home() {
                     <div className="w-full mt-12">
                       {/* Conditionally render M.A.P. pillars */}
                       {index === 1 && activeJourneyStep >= 1 && (
-                         <div className="max-w-3xl mx-auto animate-in fade-in slide-in-from-bottom-5 duration-500">
-                           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                            {mapPillars.map((pillar, pillarIndex) => (
-                              <Card key={pillar.name} className="bg-card/50 shadow-sm">
-                                <CardContent className="p-4">
-                                  <div className="flex flex-col items-center text-center">
-                                    <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mb-3">
-                                      <span className="font-headline text-2xl font-bold text-primary">{pillar.name.charAt(0)}</span>
-                                    </div>
-                                    <h3 className="font-headline text-md font-bold">{pillar.name}</h3>
-                                    <p className="text-xs text-muted-foreground mt-1">{pillar.description}</p>
-                                  </div>
-                                </CardContent>
-                              </Card>
+                         <div className="max-w-4xl mx-auto animate-in fade-in slide-in-from-bottom-5 duration-500">
+                           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                            {mapPillars.map((pillar) => (
+                              <EffectCard
+                                key={pillar.name}
+                                icon={<div className="font-headline text-3xl font-bold text-primary">{pillar.name.charAt(0)}</div>}
+                                title={pillar.name}
+                                description={pillar.description}
+                                imageUrl={pillar.imageUrl}
+                                imageHint={pillar.imageHint}
+                              />
                             ))}
                           </div>
                         </div>

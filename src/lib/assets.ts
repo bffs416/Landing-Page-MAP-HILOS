@@ -537,16 +537,22 @@ export const mapPillars = [
     description:
       'Se apoya en nuestra herramienta de diagnóstico ICL-MINT® para un plan 100% personalizado.',
     href: '#calculadora',
+    imageUrl: 'https://picsum.photos/seed/map1/800/600',
+    imageHint: 'precision map',
   },
   {
     name: 'Aplicación Experta',
     description:
       'Una técnica segura y depurada para un resultado natural y armónico.',
+    imageUrl: 'https://picsum.photos/seed/map2/800/600',
+    imageHint: 'expert hands',
   },
   {
     name: 'Potenciación Sinérgica',
     description:
       'Combinamos lo mejor para potenciar y prolongar la belleza de tu piel.',
+    imageUrl: 'https://picsum.photos/seed/map3/800/600',
+    imageHint: 'synergy molecules',
   }
 ];
 
