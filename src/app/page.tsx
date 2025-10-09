@@ -320,9 +320,9 @@ export default function Home() {
                             </CardHeader>
                             <CardContent>
                                 <p className="text-muted-foreground text-base">{item.description}</p>
-                                {index !== learningJourney.length - 2 && item.buttonText && (
+                                {item.buttonText && (
                                 <Button
-                                    className="mt-4"
+                                    className="mt-4 glowing-button"
                                     onClick={() => setActiveJourneyStep(step => step + 1)}
                                 >
                                     {item.buttonText}
@@ -426,7 +426,7 @@ export default function Home() {
                   </div>
                 </div>
                  <div className="text-center mt-16 animate-in fade-in slide-in-from-bottom-5 duration-700" style={{ animationDelay: '900ms' }}>
-                    <div className="mb-4 inline-block bg-primary/20 text-primary px-3 py-1 rounded-full text-sm font-semibold">
+                    <div className="mb-4 inline-block bg-primary/20 text-primary px-4 py-2 rounded-full text-sm font-semibold">
                       Filosofía M.A.P.® y herramienta ICL-MINT® creadas por Felipe Franco
                     </div>
                 </div>
