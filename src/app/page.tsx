@@ -43,6 +43,17 @@ const AnimatedTitle = ({ text }: { text: string }) => {
 };
 
 const ProtocolsSection = () => {
+    const [activeFacialTab, setActiveFacialTab] = useState<string | undefined>(undefined);
+    const [activeCorporalTab, setActiveCorporalTab] = useState<string | undefined>(undefined);
+
+    const handleFacialTabChange = (value: string) => {
+        setActiveFacialTab(prev => (prev === value ? undefined : value));
+    };
+
+    const handleCorporalTabChange = (value: string) => {
+        setActiveCorporalTab(prev => (prev === value ? undefined : value));
+    };
+
   return (
       <div id="protocolos" className="py-16">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -60,7 +71,11 @@ const ProtocolsSection = () => {
                   <h3 className="font-headline text-3xl font-bold mb-8 text-center animate-in fade-in slide-in-from-bottom-5 duration-700" style={{ animationDelay: '300ms' }}>
                       Arquitectura Facial
                   </h3>
-                   <Tabs className="w-full">
+                   <Tabs 
+                        value={activeFacialTab}
+                        onValueChange={handleFacialTabChange}
+                        className="w-full"
+                    >
                       <TabsList className="grid w-full grid-cols-2 md:grid-cols-4 h-auto gap-4 bg-transparent p-0">
                          {facialProtocols.map((protocol) => (
                             <TabsTrigger key={protocol.name} value={protocol.name} className="protocol-trigger whitespace-normal text-xs md:text-sm">
@@ -77,25 +92,6 @@ const ProtocolsSection = () => {
                                   ) : (
                                       <p className="text-base font-headline mb-4">{protocol.description}</p>
                                   )}
-                                  <Carousel opts={{ align: "start" }} className="w-full mt-6">
-                                      <CarouselContent>
-                                          {protocol.steps.map((step, index) => (
-                                              <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
-                                                  <div className="p-1 h-full">
-                                                      <EffectCard
-                                                          icon={<Waves size={24} />}
-                                                          title={step.title}
-                                                          description={step.description}
-                                                          imageUrl={step.imageUrl}
-                                                          imageHint={step.imageHint}
-                                                      />
-                                                  </div>
-                                              </CarouselItem>
-                                          ))}
-                                      </CarouselContent>
-                                      <CarouselPrevious className="hidden sm:flex" />
-                                      <CarouselNext className="hidden sm:flex" />
-                                  </Carousel>
                                 </CardContent>
                             </Card>
                           </TabsContent>
@@ -108,7 +104,11 @@ const ProtocolsSection = () => {
                   <h3 className="font-headline text-3xl font-bold mb-8 text-center animate-in fade-in slide-in-from-bottom-5 duration-700" style={{ animationDelay: '400ms' }}>
                       Arquitectura Corporal
                   </h3>
-                    <Tabs className="w-full">
+                    <Tabs 
+                        value={activeCorporalTab}
+                        onValueChange={handleCorporalTabChange}
+                        className="w-full"
+                    >
                       <TabsList className="grid w-full grid-cols-3 h-auto gap-4 bg-transparent p-0">
                          {corporalProtocols.map((protocol) => (
                             <TabsTrigger key={protocol.name} value={protocol.name} className="protocol-trigger whitespace-normal text-xs md:text-sm">
@@ -124,27 +124,6 @@ const ProtocolsSection = () => {
                                       <protocol.contentComponent />
                                   ) : (
                                       <p className="text-base font-headline mb-4">{protocol.fullDescription}</p>
-                                  )}
-                                  {protocol.steps.length > 0 && (
-                                      <Carousel opts={{ align: "start" }} className="w-full mt-6">
-                                          <CarouselContent>
-                                              {protocol.steps.map((step, index) => (
-                                                  <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
-                                                      <div className="p-1 h-full">
-                                                          <EffectCard
-                                                              icon={<Waves size={24} />}
-                                                              title={step.title}
-                                                              description={step.description}
-                                                              imageUrl={step.imageUrl}
-                                                              imageHint={step.imageHint}
-                                                          />
-                                                      </div>
-                                                  </CarouselItem>
-                                              ))}
-                                          </CarouselContent>
-                                          <CarouselPrevious className="hidden sm:flex" />
-                                          <CarouselNext className="hidden sm:flex" />
-                                      </Carousel>
                                   )}
                                 </CardContent>
                             </Card>
