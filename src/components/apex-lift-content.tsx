@@ -11,7 +11,7 @@ const ApexLiftContent = () => {
                 </p>
             </div>
 
-            <Accordion type="single" collapsible className="w-full" defaultValue="item-1">
+            <Accordion type="single" collapsible className="w-full">
                 <AccordionItem value="item-1">
                     <AccordionTrigger className="font-headline text-xl">
                         <div className="flex items-center gap-2">

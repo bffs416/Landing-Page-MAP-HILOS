@@ -85,15 +85,17 @@ const ProtocolsSection = () => {
                       </TabsList>
                       {facialProtocols.map((protocol) => (
                           <TabsContent key={protocol.name} value={protocol.name} className="mt-8">
-                            <Card className="bg-card/80 backdrop-blur-sm border-border/50 rounded-lg shadow-lg">
-                                <CardContent className="p-6">
-                                  {protocol.contentComponent ? (
-                                      <protocol.contentComponent />
-                                  ) : (
-                                      <p className="text-base font-headline mb-4">{protocol.description}</p>
-                                  )}
-                                </CardContent>
-                            </Card>
+                             {activeFacialTab === protocol.name && (
+                                <Card className="bg-card/80 backdrop-blur-sm border-border/50 rounded-lg shadow-lg">
+                                    <CardContent className="p-6">
+                                      {protocol.contentComponent ? (
+                                          <protocol.contentComponent />
+                                      ) : (
+                                          <p className="text-base font-headline mb-4">{protocol.description}</p>
+                                      )}
+                                    </CardContent>
+                                </Card>
+                            )}
                           </TabsContent>
                       ))}
                   </Tabs>
@@ -118,15 +120,17 @@ const ProtocolsSection = () => {
                       </TabsList>
                       {corporalProtocols.map((protocol) => (
                           <TabsContent key={protocol.name} value={protocol.name} className="mt-8">
-                            <Card className="bg-card/80 backdrop-blur-sm border-border/50 rounded-lg shadow-lg">
-                                <CardContent className="p-6">
-                                  {protocol.contentComponent ? (
-                                      <protocol.contentComponent />
-                                  ) : (
-                                      <p className="text-base font-headline mb-4">{protocol.fullDescription}</p>
-                                  )}
-                                </CardContent>
-                            </Card>
+                            {activeCorporalTab === protocol.name && (
+                                <Card className="bg-card/80 backdrop-blur-sm border-border/50 rounded-lg shadow-lg">
+                                    <CardContent className="p-6">
+                                      {protocol.contentComponent ? (
+                                          <protocol.contentComponent />
+                                      ) : (
+                                          <p className="text-base font-headline mb-4">{protocol.fullDescription}</p>
+                                      )}
+                                    </CardContent>
+                                </Card>
+                            )}
                           </TabsContent>
                       ))}
                   </Tabs>
@@ -413,4 +417,5 @@ export default function Home() {
     </div>
   );
 }
+
 
