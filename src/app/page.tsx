@@ -390,7 +390,7 @@ export default function Home() {
               </div>
               <div className="text-center md:text-left">
                 <h2 className="font-headline text-4xl md:text-5xl font-bold">
-                  Conoce al Maestro
+                  Conoce al Arquitecto
                 </h2>
                 <p className="mt-4 text-2xl text-primary font-headline">Felipe Franco</p>
                 <p className="mt-6 text-lg text-muted-foreground">
@@ -477,5 +477,3 @@ export default function Home() {
     </div>
   );
 }
-
-    
