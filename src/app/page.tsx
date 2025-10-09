@@ -134,6 +134,8 @@ export default function Home() {
               fill
               className="object-cover object-center absolute -z-10"
               priority
+              placeholder="blur"
+              blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg=="
               data-ai-hint={heroImage.imageHint}
             />
           )}
