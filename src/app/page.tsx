@@ -217,10 +217,10 @@ export default function Home() {
           <div className="absolute inset-0 bg-black/50 -z-10" />
           <div className="max-w-4xl">
             <AnimatedTitle text="MINT® Architectural Lift™" />
-            <p className="mt-4 text-lg md:text-xl max-w-3xl mx-auto text-white/90">
+            <p className="mt-4 text-xl md:text-xl max-w-3xl mx-auto text-white/90">
               Rediseña. Reposiciona. Rejuvenece.
             </p>
-            <p className="mt-2 text-md md:text-lg max-w-3xl mx-auto text-white/80">
+            <p className="mt-2 text-lg md:text-lg max-w-3xl mx-auto text-white/80">
               Protocolos de lifting no quirúrgico para rostro y cuerpo. Una nueva
               era en la medicina estética.
             </p>
@@ -405,32 +405,29 @@ export default function Home() {
           </div>
         </section>
 
+        <footer className="py-12 bg-background/80">
+            <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-muted-foreground animate-in fade-in-25 duration-700">
+                <div className="flex justify-center">
+                    <Logo />
+                </div>
+                <p className="mt-4 text-sm">
+                    MINT® Architectural Lift™ &copy; {new Date().getFullYear()}. Todos
+                    los derechos reservados.
+                </p>
+                <p className="mt-2 text-xs">
+                    Diseñado por{" "}
+                    <a
+                    href="https://www.nyvaragroup.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-primary transition-colors"
+                    >
+                    Nyvara Group
+                    </a>
+                </p>
+            </div>
+        </footer>
       </main>
-
-      <footer className="py-12 bg-background/80">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-muted-foreground animate-in fade-in-25 duration-700">
-          <div className="flex justify-center">
-            <Logo />
-          </div>
-          <p className="mt-4 text-sm">
-            MINT® Architectural Lift™ &copy; {new Date().getFullYear()}. Todos
-            los derechos reservados.
-          </p>
-          <p className="mt-2 text-xs">
-            Diseñado por{" "}
-            <a
-              href="https://www.nyvaragroup.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-primary transition-colors"
-            >
-              Nyvara Group
-            </a>
-          </p>
-        </div>
-      </footer>
     </div>
   );
 }
-
-    
