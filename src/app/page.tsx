@@ -1,3 +1,4 @@
+
 'use client';
 
 import Image from 'next/image';
@@ -410,7 +411,7 @@ export default function Home() {
                   </div>
                 </div>
                  <div className="text-center mt-16 animate-in fade-in slide-in-from-bottom-5 duration-700" style={{ animationDelay: '900ms' }}>
-                    <div className="mb-4 inline-block bg-primary/10 text-primary-foreground px-3 py-1 rounded-full text-xs font-medium">
+                    <div className="mb-4 inline-block bg-primary/10 text-primary px-3 py-1 rounded-full text-xs font-medium">
                       Filosofía M.A.P.® y herramienta ICL-MINT® creadas por Felipe Franco
                     </div>
                 </div>
