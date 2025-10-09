@@ -61,16 +61,17 @@ const ProtocolsSection = () => {
                       Arquitectura Facial
                   </h3>
                    <Tabs defaultValue={facialProtocols[0].name} className="w-full">
-                      <TabsList className="grid w-full grid-cols-2 md:grid-cols-4 h-auto">
+                      <TabsList className="grid w-full grid-cols-2 md:grid-cols-4 h-auto gap-4 bg-transparent p-0">
                          {facialProtocols.map((protocol) => (
-                            <TabsTrigger key={protocol.name} value={protocol.name} className="whitespace-normal text-xs md:text-sm">
+                            <TabsTrigger key={protocol.name} value={protocol.name} className="protocol-trigger whitespace-normal text-xs md:text-sm">
                                {protocol.name}
                             </TabsTrigger>
                          ))}
                       </TabsList>
                       {facialProtocols.map((protocol) => (
-                          <TabsContent key={protocol.name} value={protocol.name} className="mt-6">
-                            <Card className="bg-card/80 backdrop-blur-sm border-border/50 rounded-lg shadow-lg p-6">
+                          <TabsContent key={protocol.name} value={protocol.name} className="mt-8">
+                            <Card className="bg-card/80 backdrop-blur-sm border-border/50 rounded-lg shadow-lg">
+                                <CardContent className="p-6">
                                   {protocol.contentComponent ? (
                                       <protocol.contentComponent />
                                   ) : (
@@ -95,6 +96,7 @@ const ProtocolsSection = () => {
                                       <CarouselPrevious className="hidden sm:flex" />
                                       <CarouselNext className="hidden sm:flex" />
                                   </Carousel>
+                                </CardContent>
                             </Card>
                           </TabsContent>
                       ))}
@@ -107,16 +109,17 @@ const ProtocolsSection = () => {
                       Arquitectura Corporal
                   </h3>
                     <Tabs defaultValue={corporalProtocols[0].name} className="w-full">
-                      <TabsList className="grid w-full grid-cols-3 h-auto">
+                      <TabsList className="grid w-full grid-cols-3 h-auto gap-4 bg-transparent p-0">
                          {corporalProtocols.map((protocol) => (
-                            <TabsTrigger key={protocol.name} value={protocol.name} className="whitespace-normal text-xs md:text-sm">
+                            <TabsTrigger key={protocol.name} value={protocol.name} className="protocol-trigger whitespace-normal text-xs md:text-sm">
                                {protocol.name}
                             </TabsTrigger>
                          ))}
                       </TabsList>
                       {corporalProtocols.map((protocol) => (
-                          <TabsContent key={protocol.name} value={protocol.name} className="mt-6">
-                            <Card className="bg-card/80 backdrop-blur-sm border-border/50 rounded-lg shadow-lg p-6">
+                          <TabsContent key={protocol.name} value={protocol.name} className="mt-8">
+                            <Card className="bg-card/80 backdrop-blur-sm border-border/50 rounded-lg shadow-lg">
+                                <CardContent className="p-6">
                                   {protocol.contentComponent ? (
                                       <protocol.contentComponent />
                                   ) : (
@@ -143,6 +146,7 @@ const ProtocolsSection = () => {
                                           <CarouselNext className="hidden sm:flex" />
                                       </Carousel>
                                   )}
+                                </CardContent>
                             </Card>
                           </TabsContent>
                       ))}

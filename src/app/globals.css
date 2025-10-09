@@ -299,6 +299,24 @@
 	}
 }
 
+@layer components {
+  .protocol-trigger {
+    @apply inline-flex items-center justify-center whitespace-nowrap rounded-lg text-sm font-semibold ring-offset-background transition-all duration-300 ease-in-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50;
+    @apply bg-primary/80 text-primary-foreground shadow-md;
+    @apply px-4 py-2 h-auto;
+  }
+
+  .protocol-trigger:hover {
+    @apply bg-primary/100 shadow-lg;
+    transform: scale(1.05);
+  }
+
+  .protocol-trigger[data-state="active"] {
+    @apply bg-primary text-primary-foreground shadow-xl;
+    transform: scale(1.1);
+  }
+}
+
 @media print {
   body * {
     visibility: hidden;
