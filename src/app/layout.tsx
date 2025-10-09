@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Toaster } from "@/components/ui/toaster"
 import './globals.css';
+import AnimatedBackground from '@/components/animated-background';
 
 export const metadata: Metadata = {
   title: 'MINT® Architectural Lift™',
@@ -20,11 +21,12 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=PT+Sans:wght@400;700&display=swap" rel="stylesheet" />
       </head>
       <body className="font-body antialiased">
-        {children}
+        <AnimatedBackground />
+        <div className="relative z-10">
+          {children}
+        </div>
         <Toaster />
       </body>
     </html>
   );
 }
-
-    
