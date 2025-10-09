@@ -419,6 +419,19 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Felipe's Challenge Section */}
+        <section className="py-12 animate-in fade-in slide-in-from-bottom-10 duration-700">
+            <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <DynamicCard className="text-center">
+                    <h3 className="font-headline text-3xl font-bold">¿Crees que puedes completar la trivia y certificarte?</h3>
+                    <p className="mt-2 text-lg text-muted-foreground">Reto de Felipe.</p>
+                    <Button asChild size="lg" className="mt-6">
+                        <Link href="/trivia">Acepto el Reto</Link>
+                    </Button>
+                </DynamicCard>
+            </div>
+        </section>
+
         {/* Speakers Section */}
         <section id="speakers" className="relative bg-background overflow-hidden">
           <SplitScreenSpeakers />
@@ -463,5 +476,3 @@ export default function Home() {
     </div>
   );
 }
-
-
