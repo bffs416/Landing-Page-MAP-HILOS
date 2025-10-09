@@ -107,9 +107,11 @@ const ProtocolsSection = () => {
 
               {/* Facial Protocols */}
               <div className="mb-24">
-                  <h3 className="font-headline text-3xl font-bold mb-8 text-center animate-in fade-in slide-in-from-bottom-5 duration-700" style={{ animationDelay: '300ms' }}>
-                      Arquitectura Facial
-                  </h3>
+                  <DynamicCard className="mb-8">
+                    <h3 className="font-headline text-3xl font-bold text-center">
+                        Arquitectura Facial
+                    </h3>
+                  </DynamicCard>
                    <Tabs
                         value={activeFacialTab}
                         onValueChange={handleFacialTabChange}
@@ -142,9 +144,11 @@ const ProtocolsSection = () => {
 
               {/* Corporal Protocols */}
               <div>
-                  <h3 className="font-headline text-3xl font-bold mb-8 text-center animate-in fade-in slide-in-from-bottom-5 duration-700" style={{ animationDelay: '400ms' }}>
-                      Arquitectura Corporal
-                  </h3>
+                  <DynamicCard className="mb-8">
+                    <h3 className="font-headline text-3xl font-bold text-center">
+                        Arquitectura Corporal
+                    </h3>
+                  </DynamicCard>
                     <Tabs
                         value={activeCorporalTab}
                         onValueChange={handleCorporalTabChange}
@@ -206,7 +210,6 @@ export default function Home() {
       icon: UserCheck,
       title: 'Decisión Clínica: Selección Óptima del Paciente',
       description: 'Si el ICL-MINT® indica que el paciente es candidato ideal, estás listo para elegir la técnica. Si no, diseña un plan con complementos (bioestimuladores, energía) para prepararlo. Así aseguras el éxito futuro y gestionas expectativas.',
-      buttonText: 'Comprendo la estrategia',
     },
     {
       icon: Award,
@@ -460,4 +463,5 @@ export default function Home() {
     </div>
   );
 }
+
 
