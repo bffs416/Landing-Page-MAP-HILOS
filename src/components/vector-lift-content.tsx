@@ -1,113 +1,73 @@
-import { Target, Move, GitMerge, Puzzle, CheckCircle } from 'lucide-react';
+import { Target, Move, GitMerge, Puzzle, CheckCircle, AlertTriangle } from 'lucide-react';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
-
-const AdjuvantTable = () => {
-    const data = [
-      {
-        problem: 'Flacidez Muscular (Dinámica)',
-        solution: 'Toxina Botulínica: Aplicar 15-20 días antes en músculos depresores para optimizar el vector de levantamiento.',
-      },
-      {
-        problem: 'Pérdida de Volumen (Estructural)',
-        solution: 'Rellenos / Bioestimuladores: Aplicar primero para restaurar el soporte óseo y reducir la carga del hilo.',
-      },
-      {
-        problem: 'Calidad de la Piel / Laxitud',
-        solution: 'Tecnologías de Energía (MFU/RF): Realizar antes para maximizar la retracción tisular sin interferir con el anclaje del hilo.',
-      },
-      {
-        problem: 'Cuidados Post-Tratamiento',
-        solution: 'Inmovilización Relativa: Evitar movimientos faciales bruscos durante 2-4 semanas para asegurar el anclaje inicial de las espículas.',
-      },
-    ];
-  
-    return (
-      <div className="overflow-x-auto rounded-lg border bg-card/50">
-        <table className="min-w-full divide-y divide-border text-sm">
-          <thead className="bg-muted/50">
-            <tr>
-              <th scope="col" className="px-6 py-3 text-left font-semibold text-foreground tracking-wide">
-                Problema a Optimizar
-              </th>
-              <th scope="col" className="px-6 py-3 text-left font-semibold text-foreground tracking-wide">
-                Solución Sinergica (Timing)
-              </th>
-            </tr>
-          </thead>
-          <tbody className="bg-card divide-y divide-border">
-            {data.map((item) => (
-              <tr key={item.problem}>
-                <td className="px-6 py-4 font-medium text-foreground">{item.problem}</td>
-                <td className="px-6 py-4 text-muted-foreground">{item.solution}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-    );
-};
 
 const VectorLiftContent = () => {
     return (
         <div className="space-y-4 text-card-foreground">
             <div>
-                <h3 className="font-headline text-2xl font-bold text-foreground">VectorLift™: La Arquitectura del Óvalo Facial</h3>
+                <h3 className="font-headline text-3xl font-bold text-primary">VectorLift™: Arquitectura Facial</h3>
                 <p className="mt-2 text-base text-muted-foreground">
-                    Un enfoque de ingeniería tisular para redefinir el contorno mandibular y revertir la ptosis del tercio inferior y medio.
+                    Un enfoque de ingeniería tisular para redefinir el contorno mandibular.
                 </p>
             </div>
 
             <Accordion type="single" collapsible className="w-full" defaultValue="item-1">
                  <AccordionItem value="item-1">
-                    <AccordionTrigger className="font-headline text-xl">Fundamentos</AccordionTrigger>
-                    <AccordionContent className="pt-4">
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                            <div className="bg-muted/30 p-4 rounded-lg border border-border">
-                                <Target className="w-6 h-6 text-primary mb-2" />
-                                <h4 className="font-semibold text-foreground">Objetivo Principal</h4>
-                                <p className="text-sm text-muted-foreground">Reposicionar los tejidos ptósicos, corregir los *jowls* y restaurar el "triángulo de la juventud".</p>
-                            </div>
-                            <div className="bg-muted/30 p-4 rounded-lg border border-border">
-                                <GitMerge className="w-6 h-6 text-primary mb-2" />
-                                <h4 className="font-semibold text-foreground">Mecanismo Dual</h4>
-                                <p className="text-sm text-muted-foreground">Efecto lifting inmediato por tracción mecánica y rejuvenecimiento a largo plazo por neocolagenogénesis.</p>
-                            </div>
-                            <div className="bg-muted/30 p-4 rounded-lg border border-border">
-                                <Puzzle className="w-6 h-6 text-primary mb-2" />
-                                <h4 className="font-semibold text-foreground">Herramienta Clave</h4>
-                                <p className="text-sm text-muted-foreground">Hilos MINT® espiculados y moldeados en 360° para máxima fuerza de anclaje.</p>
-                            </div>
+                    <AccordionTrigger className="font-headline text-xl">
+                         <div className="flex items-center gap-2">
+                           <Target className="w-5 h-5 text-primary" />
+                           Fundamentos
                         </div>
+                    </AccordionTrigger>
+                    <AccordionContent className="pt-2">
+                        <ul className="space-y-1.5 list-disc list-inside text-muted-foreground pl-2 text-sm">
+                            <li><strong className="text-foreground">Objetivo:</strong> Reposicionar tejidos, corregir *jowls* y restaurar el "triángulo de la juventud".</li>
+                            <li><strong className="text-foreground">Mecanismo:</strong> Efecto lifting inmediato (tracción) y rejuvenecimiento a largo plazo (colágeno).</li>
+                            <li><strong className="text-foreground">Herramienta:</strong> Hilos MINT® espiculados para máxima fuerza de anclaje.</li>
+                        </ul>
                     </AccordionContent>
                 </AccordionItem>
                 <AccordionItem value="item-2">
-                    <AccordionTrigger className="font-headline text-xl">Vectores de Tracción y Anclaje</AccordionTrigger>
-                    <AccordionContent className="pt-4">
-                        <div className="space-y-4">
-                            <div className="bg-card/80 p-4 rounded-lg border">
-                                <p className="font-semibold text-foreground flex items-center gap-2"><Move className="w-5 h-5 text-primary" />Técnica Retrograda: Inserción distal y tracción póstero-superior para contrarrestar la gravedad.</p>
-                            </div>
-                            <div className="bg-card/80 p-4 rounded-lg border">
-                                <p className="font-semibold text-foreground flex items-center gap-2"><CheckCircle className="w-5 h-5 text-primary" />Punto de Anclaje: Zona fija en la región temporal/preauricular, anclando a la fascia temporal profunda para máxima estabilidad.</p>
-                            </div>
+                    <AccordionTrigger className="font-headline text-xl">
+                        <div className="flex items-center gap-2">
+                           <Move className="w-5 h-5 text-primary" />
+                           Vectores y Anclaje
                         </div>
+                    </AccordionTrigger>
+                    <AccordionContent className="pt-2">
+                        <ul className="space-y-1.5 list-disc list-inside text-muted-foreground pl-2 text-sm">
+                            <li><strong className="text-foreground">Técnica:</strong> Inserción distal y tracción póstero-superior para contrarrestar la gravedad.</li>
+                            <li><strong className="text-foreground">Anclaje:</strong> Punto fijo en la región preauricular, anclando a la fascia temporal para máxima estabilidad.</li>
+                        </ul>
                     </AccordionContent>
                 </AccordionItem>
                  <AccordionItem value="item-3">
-                    <AccordionTrigger className="font-headline text-xl">Consideraciones para la Excelencia Clínica</AccordionTrigger>
-                    <AccordionContent className="pt-4">
-                        <p className="text-muted-foreground mb-4 text-sm">Un enfoque integral maximiza y prolonga los resultados. El timing es clave.</p>
-                        <AdjuvantTable />
+                    <AccordionTrigger className="font-headline text-xl">
+                        <div className="flex items-center gap-2">
+                           <Puzzle className="w-5 h-5 text-primary" />
+                           Sinergia y Timing
+                        </div>
+                    </AccordionTrigger>
+                    <AccordionContent className="pt-2">
+                        <p className="text-muted-foreground mb-2 text-sm">Un enfoque integral maximiza los resultados. El timing es clave:</p>
+                        <ul className="space-y-1.5 list-disc list-inside text-muted-foreground pl-2 text-sm">
+                            <li><strong className="text-foreground">Toxina Botulínica:</strong> Aplicar 15-20 días antes para relajar músculos.</li>
+                            <li><strong className="text-foreground">Rellenos / Bioestimuladores:</strong> Aplicar primero para restaurar soporte óseo.</li>
+                            <li><strong className="text-foreground">Tecnologías de Energía:</strong> Realizar antes para maximizar la retracción de la piel.</li>
+                        </ul>
                     </AccordionContent>
                 </AccordionItem>
                  <AccordionItem value="item-4">
-                    <AccordionTrigger className="font-headline text-xl">Longevidad y Próximos Pasos</AccordionTrigger>
-                    <AccordionContent className="pt-4">
-                        <ul className="mt-2 space-y-2 text-muted-foreground list-disc list-inside">
-                            <li className="text-sm"><strong className="text-foreground">Efecto Inmediato:</strong> El lifting es visible al momento, pero disminuye parcialmente a los 60 días.</li>
-                            <li className="text-sm"><strong className="text-foreground">Efecto a Largo Plazo:</strong> La neocolagenogénesis mantiene resultados hasta por 2 años.</li>
-                            <li className="text-sm"><strong className="text-foreground">Recomendación:</strong> Planificar un mantenimiento proactivo (reaplicación) a los 12-18 meses para correlacionar la durabilidad objetiva con la satisfacción del paciente.</li>
-                        </ul>
+                     <AccordionTrigger className="font-headline text-xl text-primary">
+                        <div className="flex items-center gap-2">
+                            <AlertTriangle className="w-5 h-5" />
+                            Punto Clave
+                        </div>
+                    </AccordionTrigger>
+                    <AccordionContent className="pt-2">
+                       <p className="text-sm text-muted-foreground">
+                            El lifting es visible al momento, pero el efecto a largo plazo del colágeno mantiene resultados hasta por 2 años. Se recomienda planificar un mantenimiento a los 12-18 meses.
+                       </p>
                     </AccordionContent>
                 </AccordionItem>
             </Accordion>
