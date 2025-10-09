@@ -180,16 +180,11 @@ export default function Home() {
                     </div>
                     <div
                       className={cn(
-                        "w-full flex pl-12 md:pl-0",
-                        index % 2 === 0 ? "md:justify-start" : "md:justify-end"
+                        "w-full flex flex-col pl-12 md:pl-0",
+                        index % 2 === 0 ? "md:items-start" : "md:items-end"
                       )}
                     >
-                      <div
-                        className={cn(
-                          "w-full md:w-1/2",
-                          index % 2 === 0 ? "md:pr-8" : "md:pl-8"
-                        )}
-                      >
+                      <div className="w-full md:w-1/2">
                         <Card className="shadow-lg hover:shadow-primary/20 transition-shadow duration-300">
                           <CardHeader>
                             <CardTitle className="font-headline text-lg">{item.title}</CardTitle>
@@ -207,6 +202,31 @@ export default function Home() {
                           </CardContent>
                         </Card>
                       </div>
+
+                      {/* Conditionally render M.A.P. pillars */}
+                      {index === 1 && (
+                         <div className="w-full md:w-1/2 mt-4 md:mt-0 md:pt-4 animate-in fade-in slide-in-from-bottom-5 duration-500">
+                           <div className={cn("space-y-4", index % 2 === 0 ? "md:pr-8" : "md:pl-8")}>
+                            {mapPillars.map((pillar, pillarIndex) => (
+                              <Card key={pillar.name} className="bg-card/50 shadow-sm">
+                                <CardContent className="p-4">
+                                  <div className="flex items-center gap-4">
+                                    <div className="flex-shrink-0">
+                                      <div className="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center">
+                                        <span className="font-headline text-xl font-bold text-primary">{pillar.name.charAt(0)}</span>
+                                      </div>
+                                    </div>
+                                    <div>
+                                      <h3 className="font-headline text-md font-bold">{pillar.name}</h3>
+                                      <p className="text-xs text-muted-foreground">{pillar.description}</p>
+                                    </div>
+                                  </div>
+                                </CardContent>
+                              </Card>
+                            ))}
+                          </div>
+                        </div>
+                      )}
                     </div>
                   </div>
                 )
@@ -519,3 +539,5 @@ export default function Home() {
     </div>
   );
 }
+
+    
