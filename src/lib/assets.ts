@@ -465,7 +465,7 @@ export const heroVideo = '/images/hero-background.mp4';
 
 export const facialProtocols = [
   {
-    name: 'VectorLift™ (Óvalo Facial)',
+    name: 'VectorLift™',
     description:
       'Este protocolo está diseñado para tratar la flacidez del tercio inferior del rostro. A través de la inserción de hilos tensores MINT®, se crea un vector de tracción que redefine el contorno mandibular, eleva los tejidos caídos y restaura la definición del óvalo facial, logrando un efecto lifting natural y duradero.',
     contentComponent: VectorLiftContent,
@@ -474,7 +474,7 @@ export const facialProtocols = [
     steps: vectorLiftSteps,
   },
   {
-    name: 'ApexLift™ (Fox Eyes)',
+    name: 'ApexLift™',
     description:
       "Inspirado en la tendencia 'fox eyes', este tratamiento eleva la cola de la ceja para crear una mirada más abierta, rasgada y juvenil. Se utilizan hilos específicos para reposicionar sutilmente el tercio superior, aportando un efecto rejuvenecedor y sensual a los ojos.",
     contentComponent: ApexLiftContent,
@@ -483,7 +483,7 @@ export const facialProtocols = [
     steps: apexLiftSteps,
   },
   {
-    name: 'RhinoStructure™ (Nariz)',
+    name: 'RhinoStructure™',
     description: 'Este protocolo no quirúrgico permite modelar la nariz de forma segura y reversible. Se utilizan hilos para elevar la punta nasal, rectificar el dorso y mejorar la definición general, corrigiendo pequeñas irregularidades sin necesidad de cirugía invasiva.',
     contentComponent: RhinoStructureContent,
     imageUrl: 'https://picsum.photos/seed/facial3/800/600',
@@ -491,7 +491,7 @@ export const facialProtocols = [
     steps: rhinoStructureSteps,
   },
   {
-    name: 'ContourNeck™ (Cuello y Papada)',
+    name: 'ContourNeck™',
     description: 'Diseñado para combatir la flacidez en la zona del cuello y la papada, este tratamiento utiliza hilos para crear una malla de soporte subdérmica. Esto tensa la piel, define el ángulo cervicofacial y reduce la apariencia de la papada, devolviendo un cuello más estilizado y joven.',
     contentComponent: ContourNeckContent,
     imageUrl: 'https://picsum.photos/seed/facial4/800/600',
@@ -502,7 +502,7 @@ export const facialProtocols = [
 
 export const corporalProtocols = [
   {
-    name: 'CoreDefine™ (Abdomen)',
+    name: 'CoreDefine™',
     description: 'Este protocolo se enfoca en la flacidez abdominal postparto o por pérdida de peso. Los hilos MINT® se insertan para generar una tensión en la piel y estimular la producción de colágeno, mejorando la firmeza, tonificando el área y corrigiendo el "ombligo triste".',
     fullDescription: 'Descripción completa y detallada del CoreDefine™ (Abdomen). Aquí se explica el proceso en profundidad, los resultados esperados y los cuidados posteriores para el paciente. Ideal para recuperar la firmeza abdominal sin pasar por el quirófano.',
     imageUrl: 'https://picsum.photos/seed/corporal1/800/600',
@@ -511,7 +511,7 @@ export const corporalProtocols = [
     steps: coreDefineSteps,
   },
   {
-    name: 'ArmContour™ (Brazos)',
+    name: 'ArmContour™',
     description:
       'Ideal para tratar la piel laxa en la cara interna de los brazos, comúnmente conocida como "alas de murciélago". El protocolo crea una estructura de soporte con los hilos, tensando la piel y devolviendo un contorno más firme y definido a los brazos.',
     fullDescription: 'Descripción completa y detallada del ArmContour™ (Brazos). Aquí se explica el proceso en profundidad, los resultados esperados y los cuidados posteriores para el paciente. Despídete de la flacidez en los brazos.',
@@ -521,7 +521,7 @@ export const corporalProtocols = [
     steps: armContourSteps,
   },
   {
-    name: 'GluteCurve™ (Glúteos)',
+    name: 'GluteCurve™',
     description: 'Este tratamiento está diseñado para elevar y remodelar los glúteos caídos. Se insertan hilos tensores para crear un efecto de "lifting" que reposiciona el tejido, mejora la forma y proporciona una apariencia más redondeada y tonificada, sin añadir volumen artificial.',
     fullDescription: 'Descripción completa y detallada del GluteCurve™ (Glúteos). Aquí se explica el proceso en profundidad, los resultados esperados y los cuidados posteriores para el paciente. Consigue unos glúteos más elevados y firmes de forma natural.',
     imageUrl: 'https://picsum.photos/seed/corporal3/800/600',

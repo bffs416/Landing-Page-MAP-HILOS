@@ -9,7 +9,7 @@ const GluteCurveContent = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
             <div className="space-y-4 text-card-foreground">
                 <div>
-                    <h3 className="font-headline text-3xl font-bold text-primary">GluteCurve™: Levantamiento de Glúteos</h3>
+                    <h3 className="font-headline text-3xl font-bold text-primary">GluteCurve™</h3>
                     <p className="mt-2 text-base text-muted-foreground">
                         Protocolo para reposicionar, definir y dar contorno a los glúteos sin cirugía.
                     </p>

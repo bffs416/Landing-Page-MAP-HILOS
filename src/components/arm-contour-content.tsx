@@ -9,7 +9,7 @@ const ArmContourContent = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
             <div className="space-y-4 text-card-foreground">
                 <div>
-                    <h3 className="font-headline text-3xl font-bold text-primary">ArmContour™: Brazos Firmes</h3>
+                    <h3 className="font-headline text-3xl font-bold text-primary">ArmContour™</h3>
                     <p className="mt-2 text-base text-muted-foreground">
                         Manejo de la laxitud en la parte superior de los brazos (braquioplastia no quirúrgica).
                     </p>

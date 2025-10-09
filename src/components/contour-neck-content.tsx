@@ -9,7 +9,7 @@ const ContourNeckContent = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
             <div className="space-y-4 text-card-foreground">
                 <div>
-                    <h3 className="font-headline text-3xl font-bold text-primary">ContourNeck™: Cuello y Papada</h3>
+                    <h3 className="font-headline text-3xl font-bold text-primary">ContourNeck™</h3>
                     <p className="mt-2 text-base text-muted-foreground">
                         Protocolo para corregir flacidez y redefinir el contorno mandibular y cervical.
                     </p>

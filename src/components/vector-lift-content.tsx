@@ -9,7 +9,7 @@ const VectorLiftContent = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
             <div className="space-y-4 text-card-foreground">
                 <div>
-                    <h3 className="font-headline text-3xl font-bold text-primary">VectorLift™: Arquitectura Facial</h3>
+                    <h3 className="font-headline text-3xl font-bold text-primary">VectorLift™</h3>
                     <p className="mt-2 text-base text-muted-foreground">
                         Un enfoque de ingeniería tisular para redefinir el contorno mandibular y el tercio medio facial.
                     </p>
