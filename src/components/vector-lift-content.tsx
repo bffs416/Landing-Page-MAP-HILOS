@@ -1,4 +1,4 @@
-import { Target, Move, GitMerge, Puzzle, CheckCircle, AlertTriangle } from 'lucide-react';
+import { Target, Move, GitMerge, Puzzle, CheckCircle, AlertTriangle, Users, HeartPulse, ShieldCheck, Milestone, Info, ToyBrick } from 'lucide-react';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import Image from 'next/image';
@@ -11,67 +11,89 @@ const VectorLiftContent = () => {
                 <div>
                     <h3 className="font-headline text-3xl font-bold text-primary">VectorLift™: Arquitectura Facial</h3>
                     <p className="mt-2 text-base text-muted-foreground">
-                        Un enfoque de ingeniería tisular para redefinir el contorno mandibular.
+                        Un enfoque de ingeniería tisular para redefinir el contorno mandibular y el tercio medio facial.
                     </p>
                 </div>
 
                 <Accordion type="single" collapsible className="w-full">
                     <AccordionItem value="item-1">
-                        <AccordionTrigger className="font-headline text-xl">
-                            <div className="flex items-center gap-2">
-                            <Target className="w-5 h-5 text-primary" />
-                            Fundamentos
-                            </div>
-                        </AccordionTrigger>
-                        <AccordionContent className="pt-2">
-                            <ul className="space-y-1.5 list-disc list-inside text-muted-foreground pl-2 text-sm">
-                                <li><strong className="text-foreground">Objetivo:</strong> Reposicionar tejidos, corregir *jowls* y restaurar el "triángulo de la juventud".</li>
-                                <li><strong className="text-foreground">Mecanismo:</strong> Efecto lifting inmediato (tracción) y rejuvenecimiento a largo plazo (colágeno).</li>
-                                <li><strong className="text-foreground">Herramienta:</strong> Hilos MINT® espiculados para máxima fuerza de anclaje.</li>
-                            </ul>
+                        <AccordionTrigger className="font-headline text-lg"><div className="flex items-center gap-2"><Info className="w-5 h-5 text-primary" />Fundamentos</div></AccordionTrigger>
+                        <AccordionContent className="pt-2 text-sm text-muted-foreground">
+                            Este protocolo utiliza la tracción mecánica de los hilos espiculados para reposicionar el tejido blando facial (SMAS y grasa subcutánea) en un vector antigravitatorio, y estimula la producción de colágeno para un soporte a largo plazo.
                         </AccordionContent>
                     </AccordionItem>
                     <AccordionItem value="item-2">
-                        <AccordionTrigger className="font-headline text-xl">
-                            <div className="flex items-center gap-2">
-                            <Move className="w-5 h-5 text-primary" />
-                            Vectores y Anclaje
-                            </div>
-                        </AccordionTrigger>
+                        <AccordionTrigger className="font-headline text-lg"><div className="flex items-center gap-2"><Target className="w-5 h-5 text-primary" />Objetivos</div></AccordionTrigger>
                         <AccordionContent className="pt-2">
-                            <ul className="space-y-1.5 list-disc list-inside text-muted-foreground pl-2 text-sm">
-                                <li><strong className="text-foreground">Técnica:</strong> Inserción distal y tracción póstero-superior para contrarrestar la gravedad.</li>
-                                <li><strong className="text-foreground">Anclaje:</strong> Punto fijo en la región preauricular, anclando a la fascia temporal para máxima estabilidad.</li>
+                             <ul className="space-y-1.5 list-disc list-inside text-muted-foreground pl-2 text-sm">
+                                <li>Corregir la ptosis del tercio medio e inferior (jowls).</li>
+                                <li>Redefinir y acentuar la línea mandibular.</li>
+                                <li>Restaurar el "triángulo de la juventud".</li>
                             </ul>
                         </AccordionContent>
                     </AccordionItem>
                     <AccordionItem value="item-3">
-                        <AccordionTrigger className="font-headline text-xl">
-                            <div className="flex items-center gap-2">
-                            <Puzzle className="w-5 h-5 text-primary" />
-                            Sinergia y Timing
-                            </div>
-                        </AccordionTrigger>
+                        <AccordionTrigger className="font-headline text-lg"><div className="flex items-center gap-2"><Users className="w-5 h-5 text-primary" />Candidato Ideal</div></AccordionTrigger>
                         <AccordionContent className="pt-2">
-                            <p className="text-muted-foreground mb-2 text-sm">Un enfoque integral maximiza los resultados. El timing es clave:</p>
                             <ul className="space-y-1.5 list-disc list-inside text-muted-foreground pl-2 text-sm">
-                                <li><strong className="text-foreground">Toxina Botulínica:</strong> Aplicar 15-20 días antes para relajar músculos.</li>
-                                <li><strong className="text-foreground">Rellenos / Bioestimuladores:</strong> Aplicar primero para restaurar soporte óseo.</li>
-                                <li><strong className="text-foreground">Tecnologías de Energía:</strong> Realizar antes para maximizar la retracción de la piel.</li>
+                                <li>Pacientes con flacidez leve a moderada.</li>
+                                <li>Buena calidad de piel (grosor y elasticidad adecuados).</li>
+                                <li>Estructura ósea de soporte adecuada (pómulos y mandíbula definidos).</li>
+                                <li>Expectativas realistas sobre un resultado natural.</li>
                             </ul>
                         </AccordionContent>
                     </AccordionItem>
                     <AccordionItem value="item-4">
-                        <AccordionTrigger className="font-headline text-xl text-primary">
-                            <div className="flex items-center gap-2">
-                                <AlertTriangle className="w-5 h-5" />
-                                Punto Clave
-                            </div>
-                        </AccordionTrigger>
+                        <AccordionTrigger className="font-headline text-lg"><div className="flex items-center gap-2"><GitMerge className="w-5 h-5 text-primary" />Procedimiento y Técnica de Inserción</div></AccordionTrigger>
                         <AccordionContent className="pt-2">
-                        <p className="text-sm text-muted-foreground">
-                                El lifting es visible al momento, pero el efecto a largo plazo del colágeno mantiene resultados hasta por 2 años. Se recomienda planificar un mantenimiento a los 12-18 meses.
-                        </p>
+                            <ol className="space-y-1.5 list-decimal list-inside text-muted-foreground pl-2 text-sm">
+                                <li><strong className="text-foreground">Marcaje:</strong> Se diseña un vector póstero-superior desde el tejido móvil (jowl, surco nasogeniano) hacia un punto de anclaje fijo en la región preauricular/temporal.</li>
+                                <li><strong className="text-foreground">Inserción:</strong> A través de un único puerto de entrada, se introduce una cánula en el plano subcutáneo (supra-SMAS).</li>
+                                <li><strong className="text-foreground">Anclaje:</strong> Se avanza la cánula hasta el final del vector, se retira y se aplica tracción manual para enganchar las espículas y elevar el tejido. El anclaje se realiza en la fascia temporal o tejido fibroso denso.</li>
+                            </ol>
+                        </AccordionContent>
+                    </AccordionItem>
+                     <AccordionItem value="item-5">
+                        <AccordionTrigger className="font-headline text-lg"><div className="flex items-center gap-2"><ToyBrick className="w-5 h-5 text-primary" />Tipo de Hilos</div></AccordionTrigger>
+                        <AccordionContent className="pt-2 text-sm text-muted-foreground">
+                            Se utilizan principalmente hilos MINT® espiculados (Cog) de PDO, como MINT® 17 o MINT® 43, que ofrecen una alta fuerza de tracción y anclaje gracias a sus espículas moldeadas en 360°.
+                        </AccordionContent>
+                    </AccordionItem>
+                    <AccordionItem value="item-6">
+                        <AccordionTrigger className="font-headline text-lg"><div className="flex items-center gap-2"><Puzzle className="w-5 h-5 text-primary" />Sinergia y Timing</div></AccordionTrigger>
+                        <AccordionContent className="pt-2">
+                            <ul className="space-y-1.5 list-disc list-inside text-muted-foreground pl-2 text-sm">
+                                <li><strong className="text-foreground">Toxina Botulínica:</strong> 15-20 días ANTES para relajar músculos depresores (platisma, DAO).</li>
+                                <li><strong className="text-foreground">Rellenos de Soporte (Radiesse®, etc.):</strong> ANTES o en la misma sesión para restaurar volumen óseo en pómulos y mentón.</li>
+                                <li><strong className="text-foreground">Tecnologías (HIFU, RF):</strong> 1-3 meses ANTES para tensar la piel y optimizar el tejido para el anclaje.</li>
+                            </ul>
+                        </AccordionContent>
+                    </AccordionItem>
+                    <AccordionItem value="item-7">
+                        <AccordionTrigger className="font-headline text-lg"><div className="flex items-center gap-2"><Milestone className="w-5 h-5 text-primary" />Resultados</div></AccordionTrigger>
+                        <AccordionContent className="pt-2">
+                             <ul className="space-y-1.5 list-disc list-inside text-muted-foreground pl-2 text-sm">
+                                <li><strong className="text-foreground">Corto Plazo:</strong> Efecto lifting mecánico visible inmediatamente. Puede haber inflamación y hematomas leves.</li>
+                                <li><strong className="text-foreground">Mediano Plazo (1-3 meses):</strong> El resultado se asienta y se inicia la producción de colágeno. Máxima definición.</li>
+                                <li><strong className="text-foreground">Largo Plazo (hasta 24 meses):</strong> El hilo se reabsorbe (6-8 meses), pero la estructura de colágeno formada mantiene el soporte y la firmeza.</li>
+                            </ul>
+                        </AccordionContent>
+                    </AccordionItem>
+                     <AccordionItem value="item-8">
+                        <AccordionTrigger className="font-headline text-lg"><div className="flex items-center gap-2"><ShieldCheck className="w-5 h-5 text-primary" />Cuidados Post-Tratamiento</div></AccordionTrigger>
+                        <AccordionContent className="pt-2">
+                            <ul className="space-y-1.5 list-disc list-inside text-muted-foreground pl-2 text-sm">
+                                <li>Evitar gesticulación exagerada y alimentos duros (2-3 semanas).</li>
+                                <li>Dormir boca arriba con la cabeza elevada.</li>
+                                <li>No realizar masajes faciales ni tratamientos dentales (1 mes).</li>
+                                <li>Evitar ejercicio de alto impacto (2 semanas).</li>
+                            </ul>
+                        </AccordionContent>
+                    </AccordionItem>
+                    <AccordionItem value="item-9">
+                        <AccordionTrigger className="font-headline text-xl text-primary"><div className="flex items-center gap-2"><AlertTriangle className="w-5 h-5" />Punto Clave</div></AccordionTrigger>
+                        <AccordionContent className="pt-2 text-sm text-muted-foreground">
+                            El éxito depende de un diagnóstico preciso (ICL-MINT®), un anclaje sólido en tejido fijo y una correcta selección del paciente. El mantenimiento a los 12-18 meses prolonga los resultados.
                         </AccordionContent>
                     </AccordionItem>
                 </Accordion>

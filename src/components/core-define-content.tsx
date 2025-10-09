@@ -1,4 +1,4 @@
-import { Check, Shield, Activity, Target, AlertTriangle, Layers } from 'lucide-react';
+import { Check, Shield, Activity, Target, AlertTriangle, Layers, Info, Users, GitMerge, ToyBrick, Puzzle, Milestone, ShieldCheck } from 'lucide-react';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import Image from 'next/image';
@@ -17,62 +17,80 @@ const CoreDefineContent = () => {
 
                 <Accordion type="single" collapsible className="w-full">
                     <AccordionItem value="item-1">
-                        <AccordionTrigger className="font-headline text-xl">
-                            <div className="flex items-center gap-2">
-                                <Target className="w-5 h-5 text-primary" />
-                                Objetivos
-                            </div>
-                        </AccordionTrigger>
-                        <AccordionContent className="pt-2">
-                            <ul className="space-y-1.5 list-disc list-inside text-muted-foreground pl-2 text-sm">
-                                <li>Eleva y orienta verticalmente el ombligo ("ombligo triste").</li>
-                                <li>Tensa la piel del abdomen bajo.</li>
-                                <li>Mejora la definición de los rectos abdominales.</li>
-                            </ul>
+                        <AccordionTrigger className="font-headline text-lg"><div className="flex items-center gap-2"><Info className="w-5 h-5 text-primary" />Fundamentos</div></AccordionTrigger>
+                        <AccordionContent className="pt-2 text-sm text-muted-foreground">
+                            Utiliza una combinación de hilos de tracción para crear un efecto de "ceñido" (cinching) y hilos de bioestimulación para mejorar la calidad y firmeza de la piel abdominal.
                         </AccordionContent>
                     </AccordionItem>
                     <AccordionItem value="item-2">
-                        <AccordionTrigger className="font-headline text-xl">
-                            <div className="flex items-center gap-2">
-                            <Layers className="w-5 h-5 text-primary" />
-                            Técnica
-                            </div>
-                        </AccordionTrigger>
+                        <AccordionTrigger className="font-headline text-lg"><div className="flex items-center gap-2"><Target className="w-5 h-5 text-primary" />Objetivos</div></AccordionTrigger>
                         <AccordionContent className="pt-2">
-                        <ul className="space-y-1.5 list-disc list-inside text-muted-foreground pl-2 text-sm">
-                                <li>Se evalúa la flacidez y se marcan los vectores de tracción.</li>
-                                <li>Se insertan hilos espiculados para tracción en el plano subcutáneo.</li>
-                                <li>Se puede usar un patrón en "U" para un efecto de "cinching" (ceñido).</li>
-                                <li>Se añaden hilos monofilamento en malla para bioestimulación.</li>
+                             <ul className="space-y-1.5 list-disc list-inside text-muted-foreground pl-2 text-sm">
+                                <li>Elevar el ombligo caído ("ombligo triste").</li>
+                                <li>Tensar la piel del abdomen bajo y supraumbilical.</li>
+                                <li>Mejorar la definición de la línea alba y los rectos abdominales.</li>
                             </ul>
                         </AccordionContent>
                     </AccordionItem>
                     <AccordionItem value="item-3">
-                        <AccordionTrigger className="font-headline text-xl">
-                            <div className="flex items-center gap-2">
-                            <Shield className="w-5 h-5 text-primary" />
-                            Cuidados
-                            </div>
-                        </AccordionTrigger>
+                        <AccordionTrigger className="font-headline text-lg"><div className="flex items-center gap-2"><Users className="w-5 h-5 text-primary" />Candidato Ideal</div></AccordionTrigger>
                         <AccordionContent className="pt-2">
                             <ul className="space-y-1.5 list-disc list-inside text-muted-foreground pl-2 text-sm">
-                                <li>Uso de faja compresiva.</li>
-                                <li>Evitar ejercicio extenuante por al menos 8 días.</li>
-                                <li>Evitar saunas y jacuzzis por 8 a 15 días.</li>
+                                <li>Pacientes con flacidez de piel leve a moderada.</li>
+                                <li>Mínima cantidad de grasa abdominal.</li>
+                                <li>Ideal para postparto o después de una pérdida de peso moderada.</li>
                             </ul>
                         </AccordionContent>
                     </AccordionItem>
                     <AccordionItem value="item-4">
-                        <AccordionTrigger className="font-headline text-xl text-primary">
-                            <div className="flex items-center gap-2">
-                                <AlertTriangle className="w-5 h-5" />
-                                Punto Clave
-                            </div>
-                        </AccordionTrigger>
+                        <AccordionTrigger className="font-headline text-lg"><div className="flex items-center gap-2"><GitMerge className="w-5 h-5 text-primary" />Procedimiento y Técnica de Inserción</div></AccordionTrigger>
                         <AccordionContent className="pt-2">
-                            <p className="text-sm text-muted-foreground">
-                                La combinación de hilos espiculados (tracción) y monofilamento (redensificación) es crucial. Un mantenimiento anual asegura la longevidad de los resultados.
-                            </p>
+                        <ol className="space-y-1.5 list-decimal list-inside text-muted-foreground pl-2 text-sm">
+                            <li><strong className="text-foreground">Tracción (Cinching):</strong> Se insertan hilos espiculados largos en un patrón en "U" o radial desde los flancos hacia la línea media para tensar el tejido horizontalmente.</li>
+                            <li><strong className="text-foreground">Elevación del Ombligo:</strong> Se colocan vectores de tracción desde la parte superior del abdomen hacia el ombligo para elevarlo.</li>
+                            <li><strong className="text-foreground">Bioestimulación:</strong> Se crea una malla densa de hilos monofilamento en toda el área para redensificar la piel.</li>
+                            </ol>
+                        </AccordionContent>
+                    </AccordionItem>
+                     <AccordionItem value="item-5">
+                        <AccordionTrigger className="font-headline text-lg"><div className="flex items-center gap-2"><ToyBrick className="w-5 h-5 text-primary" />Tipo de Hilos</div></AccordionTrigger>
+                        <AccordionContent className="pt-2 text-sm text-muted-foreground">
+                            Combinación de hilos espiculados (Cog) para tracción y hilos monofilamento o screw (Fine) para redensificación.
+                        </AccordionContent>
+                    </AccordionItem>
+                    <AccordionItem value="item-6">
+                        <AccordionTrigger className="font-headline text-lg"><div className="flex items-center gap-2"><Puzzle className="w-5 h-5 text-primary" />Sinergia y Timing</div></AccordionTrigger>
+                        <AccordionContent className="pt-2">
+                            <ul className="space-y-1.5 list-disc list-inside text-muted-foreground pl-2 text-sm">
+                                <li><strong className="text-foreground">Tecnologías (HIFU, RF):</strong> 1-2 meses ANTES para preparar la piel y mejorar la retracción.</li>
+                                <li><strong className="text-foreground">Bioestimuladores (Radiesse®, Sculptra®):</strong> Pueden aplicarse DESPUÉS (1-2 meses) para potenciar la calidad de la piel.</li>
+                            </ul>
+                        </AccordionContent>
+                    </AccordionItem>
+                    <AccordionItem value="item-7">
+                        <AccordionTrigger className="font-headline text-lg"><div className="flex items-center gap-2"><Milestone className="w-5 h-5 text-primary" />Resultados</div></AccordionTrigger>
+                        <AccordionContent className="pt-2">
+                             <ul className="space-y-1.5 list-disc list-inside text-muted-foreground pl-2 text-sm">
+                                <li><strong className="text-foreground">Corto Plazo:</strong> Efecto de tensado y elevación del ombligo visible inmediatamente.</li>
+                                <li><strong className="text-foreground">Mediano Plazo (3-6 meses):</strong> Máxima firmeza de la piel gracias a la formación de colágeno.</li>
+                                <li><strong className="text-foreground">Largo Plazo (hasta 18 meses):</strong> El colágeno inducido mantiene la firmeza.</li>
+                            </ul>
+                        </AccordionContent>
+                    </AccordionItem>
+                     <AccordionItem value="item-8">
+                        <AccordionTrigger className="font-headline text-lg"><div className="flex items-center gap-2"><ShieldCheck className="w-5 h-5 text-primary" />Cuidados Post-Tratamiento</div></AccordionTrigger>
+                        <AccordionContent className="pt-2">
+                            <ul className="space-y-1.5 list-disc list-inside text-muted-foreground pl-2 text-sm">
+                                <li>Uso de faja compresiva durante 1-2 semanas.</li>
+                                <li>Evitar ejercicio extenuante (especialmente abdominal) por 2-3 semanas.</li>
+                                <li>Evitar saunas y jacuzzis por 8 a 15 días.</li>
+                            </ul>
+                        </AccordionContent>
+                    </AccordionItem>
+                    <AccordionItem value="item-9">
+                        <AccordionTrigger className="font-headline text-xl text-primary"><div className="flex items-center gap-2"><AlertTriangle className="w-5 h-5" />Punto Clave</div></AccordionTrigger>
+                        <AccordionContent className="pt-2 text-sm text-muted-foreground">
+                            No es un tratamiento para perder peso. La selección del paciente es crucial: funciona mejor en pieles con flacidez pero sin un panículo adiposo grueso. La combinación de hilos de tracción y de bioestimulación es esencial.
                         </AccordionContent>
                     </AccordionItem>
                 </Accordion>

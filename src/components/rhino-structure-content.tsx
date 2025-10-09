@@ -1,4 +1,4 @@
-import { Layers, ShieldCheck, GitMerge, AlertTriangle, UserCheck, Syringe, ClipboardList, CheckCircle } from 'lucide-react';
+import { Layers, ShieldCheck, GitMerge, AlertTriangle, UserCheck, Syringe, ClipboardList, CheckCircle, Info, Target, Users, ToyBrick, Puzzle, Milestone } from 'lucide-react';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import Image from 'next/image';
@@ -16,62 +16,82 @@ const RhinoStructureContent = () => {
                 </div>
 
                 <Accordion type="single" collapsible className="w-full">
-                    <AccordionItem value="item-1">
-                        <AccordionTrigger className="font-headline text-xl">
-                            <div className="flex items-center gap-2">
-                            <UserCheck className="w-5 h-5 text-primary" />
-                            Fundamentos
-                            </div>
-                        </AccordionTrigger>
-                        <AccordionContent className="pt-2">
-                            <ul className="space-y-1.5 list-disc list-inside text-muted-foreground pl-2 text-sm">
-                                <li><strong className="text-foreground">Objetivo:</strong> Corregir punta caída, definir el dorso y mejorar la rotación de la punta.</li>
-                                <li><strong className="text-foreground">Candidato Ideal:</strong> Pacientes que buscan cambios menores y no tienen cirugía previa.</li>
-                                <li><strong className="text-foreground">Mecanismo:</strong> Soporte estructural inmediato (hilos) y bioestimulación a largo plazo (colágeno).</li>
-                            </ul>
+                     <AccordionItem value="item-1">
+                        <AccordionTrigger className="font-headline text-lg"><div className="flex items-center gap-2"><Info className="w-5 h-5 text-primary" />Fundamentos</div></AccordionTrigger>
+                        <AccordionContent className="pt-2 text-sm text-muted-foreground">
+                            Crea un andamio estructural interno con hilos PDO para dar soporte, definición y elevación a la punta y el dorso nasal. Combina el soporte mecánico inmediato con la bioestimulación de colágeno a largo plazo.
                         </AccordionContent>
                     </AccordionItem>
                     <AccordionItem value="item-2">
-                        <AccordionTrigger className="font-headline text-xl">
-                            <div className="flex items-center gap-2">
-                            <GitMerge className="w-5 h-5 text-primary" />
-                            Técnica de Inserción
-                            </div>
-                        </AccordionTrigger>
+                        <AccordionTrigger className="font-headline text-lg"><div className="flex items-center gap-2"><Target className="w-5 h-5 text-primary" />Objetivos</div></AccordionTrigger>
                         <AccordionContent className="pt-2">
-                            <ul className="space-y-1.5 list-disc list-inside text-muted-foreground pl-2 text-sm">
-                            <li><strong className="text-foreground">Columela y Punta:</strong> Se usan hilos espiculados fuertes para proyectar y rotar la punta, actuando como una "viga" de soporte.</li>
-                            <li><strong className="text-foreground">Dorso Nasal:</strong> Se usan hilos más finos para rectificar y definir el dorso, creando un andamiaje.</li>
-                            <li><strong className="text-foreground">Punto de Entrada Único:</strong> Se crea un solo punto de acceso en la punta nasal para todos los hilos.</li>
+                             <ul className="space-y-1.5 list-disc list-inside text-muted-foreground pl-2 text-sm">
+                                <li>Elevar y rotar la punta nasal caída.</li>
+                                <li>Rectificar y definir el dorso nasal.</li>
+                                <li>Aumentar la proyección de la punta.</li>
+                                <li>Corregir pequeñas asimetrías.</li>
                             </ul>
                         </AccordionContent>
                     </AccordionItem>
                     <AccordionItem value="item-3">
-                        <AccordionTrigger className="font-headline text-xl">
-                            <div className="flex items-center gap-2">
-                            <ShieldCheck className="w-5 h-5 text-primary" />
-                            Seguridad y Sinergia
-                            </div>
-                        </AccordionTrigger>
+                        <AccordionTrigger className="font-headline text-lg"><div className="flex items-center gap-2"><Users className="w-5 h-5 text-primary" />Candidato Ideal</div></AccordionTrigger>
                         <AccordionContent className="pt-2">
-                            <p className="text-sm text-muted-foreground">
-                            La rinomodelación con hilos tiene un <strong className="text-foreground">menor riesgo vascular</strong> que los rellenos solos. La mejor estrategia combina hilos para el <strong className="text-foreground">soporte estructural</strong> y rellenos para el <strong className="text-foreground">volumen sutil</strong>.
-                            </p>
+                            <ul className="space-y-1.5 list-disc list-inside text-muted-foreground pl-2 text-sm">
+                                <li>Pacientes que buscan correcciones sutiles y no desean cirugía.</li>
+                                <li>Narices sin cirugía previa o con resultados post-quirúrgicos que necesiten refinamiento.</li>
+                                <li>Piel de grosor adecuado (ni muy fina ni muy gruesa).</li>
+                            </ul>
                         </AccordionContent>
                     </AccordionItem>
                     <AccordionItem value="item-4">
-                        <AccordionTrigger className="font-headline text-xl">
-                            <div className="flex items-center gap-2">
-                            <ClipboardList className="w-5 h-5 text-primary" />
-                            Cuidados y Resultados
-                            </div>
-                        </AccordionTrigger>
+                        <AccordionTrigger className="font-headline text-lg"><div className="flex items-center gap-2"><GitMerge className="w-5 h-5 text-primary" />Procedimiento y Técnica de Inserción</div></AccordionTrigger>
+                        <AccordionContent className="pt-2">
+                            <ol className="space-y-1.5 list-decimal list-inside text-muted-foreground pl-2 text-sm">
+                                <li><strong className="text-foreground">Punto de Entrada Único:</strong> Se crea un solo punto de acceso en la punta nasal para minimizar el trauma.</li>
+                                <li><strong className="text-foreground">Soporte de la Columela:</strong> Se insertan hilos espiculados fuertes desde la punta hacia la base (subnasale) para actuar como una "viga" que proyecta y rota la punta.</li>
+                                <li><strong className="text-foreground">Definición del Dorso:</strong> Se insertan hilos desde la punta hacia el radix (puente nasal) en el plano subcutáneo para crear un andamio que rectifica el dorso.</li>
+                            </ol>
+                        </AccordionContent>
+                    </AccordionItem>
+                     <AccordionItem value="item-5">
+                        <AccordionTrigger className="font-headline text-lg"><div className="flex items-center gap-2"><ToyBrick className="w-5 h-5 text-primary" />Tipo de Hilos</div></AccordionTrigger>
+                        <AccordionContent className="pt-2 text-sm text-muted-foreground">
+                            Se usan hilos espiculados de alta densidad para la columela (ej. MINT® TIP) y hilos más finos para el dorso (ej. MINT® UP) para combinar soporte y definición.
+                        </AccordionContent>
+                    </AccordionItem>
+                    <AccordionItem value="item-6">
+                        <AccordionTrigger className="font-headline text-lg"><div className="flex items-center gap-2"><Puzzle className="w-5 h-5 text-primary" />Sinergia y Timing</div></AccordionTrigger>
+                        <AccordionContent className="pt-2">
+                             <p className="text-sm text-muted-foreground">
+                                La mejor estrategia combina hilos y rellenos. Los hilos se usan para el <strong className="text-foreground">soporte estructural</strong>, mientras que el Ácido Hialurónico (aplicado con mucho cuidado en el dorso, nunca en la punta) se usa para añadir <strong className="text-foreground">volumen sutil</strong>. Esto reduce el riesgo vascular comparado con usar solo rellenos.
+                            </p>
+                        </AccordionContent>
+                    </AccordionItem>
+                    <AccordionItem value="item-7">
+                        <AccordionTrigger className="font-headline text-lg"><div className="flex items-center gap-2"><Milestone className="w-5 h-5 text-primary" />Resultados</div></AccordionTrigger>
+                        <AccordionContent className="pt-2">
+                             <ul className="space-y-1.5 list-disc list-inside text-muted-foreground pl-2 text-sm">
+                                <li><strong className="text-foreground">Corto Plazo:</strong> Mejora estructural visible al instante. Hinchazón y hematomas leves son comunes.</li>
+                                <li><strong className="text-foreground">Mediano Plazo (1-3 meses):</strong> El resultado se define a medida que baja la inflamación.</li>
+                                <li><strong className="text-foreground">Largo Plazo (hasta 18 meses):</strong> El colágeno formado alrededor de los hilos mantiene el soporte estructural.</li>
+                            </ul>
+                        </AccordionContent>
+                    </AccordionItem>
+                     <AccordionItem value="item-8">
+                        <AccordionTrigger className="font-headline text-lg"><div className="flex items-center gap-2"><ShieldCheck className="w-5 h-5 text-primary" />Cuidados Post-Tratamiento</div></AccordionTrigger>
                         <AccordionContent className="pt-2">
                             <ul className="space-y-1.5 list-disc list-inside text-muted-foreground pl-2 text-sm">
-                                <li>Hematomas e hinchazón leves son transitorios (1-2 semanas).</li>
+                                <li>No manipular ni presionar la zona tratada.</li>
+                                <li>Evitar el uso de gafas pesadas durante 2 semanas.</li>
+                                <li>Dormir boca arriba para no aplicar presión sobre la nariz.</li>
                                 <li>Se recomienda un masaje de autoestiramiento suave en la punta nasal.</li>
-                                <li>Resultados satisfactorios a los 6 meses, con beneficios a más largo plazo por el colágeno.</li>
                             </ul>
+                        </AccordionContent>
+                    </AccordionItem>
+                    <AccordionItem value="item-9">
+                        <AccordionTrigger className="font-headline text-xl text-primary"><div className="flex items-center gap-2"><AlertTriangle className="w-5 h-5" />Punto Clave</div></AccordionTrigger>
+                        <AccordionContent className="pt-2 text-sm text-muted-foreground">
+                            La rinomodelación con hilos es más segura que con rellenos en términos de riesgo vascular, especialmente en la punta. La técnica ofrece una mejora estructural, no un cambio radical.
                         </AccordionContent>
                     </AccordionItem>
                 </Accordion>
