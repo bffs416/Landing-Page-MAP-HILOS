@@ -209,8 +209,14 @@ export default function Home() {
     },
      {
       icon: UserCheck,
-      title: 'Decisión Clínica: Selección Óptima del Paciente',
-      description: 'Si el ICL-MINT® indica que el paciente es candidato ideal, estás listo para elegir la técnica. Si no, diseña un plan con complementos (bioestimuladores, energía) para prepararlo. Así aseguras el éxito futuro y gestionas expectativas.',
+      title: 'Decisión Clínica: Paciente Ideal',
+      description: 'Si el ICL-MINT® indica que el paciente es candidato ideal, estás listo para elegir y aplicar la técnica de lifting con hilos MINT® más adecuada para sus necesidades.',
+      buttonText: 'Paciente ideal, ¡procedamos!',
+    },
+    {
+      icon: Milestone,
+      title: 'Decisión Clínica: Plan B Estratégico',
+      description: 'Si el ICL-MINT® sugiere que el paciente no es el candidato ideal, ¡no es un \'no\', es un \'todavía no\'! Este es el momento de brillar como estratega. Diseña un plan de preparación con bioestimuladores, tecnologías basadas en energía o enzimas para optimizar la piel y el tejido. Esto no solo gestiona las expectativas, sino que construye una relación de confianza y asegura el éxito futuro del tratamiento con hilos MINT®.',
     },
     {
       icon: Award,
