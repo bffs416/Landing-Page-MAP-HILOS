@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -10,19 +11,19 @@
     --card-foreground: 263 15% 25%;
     --popover: 210 20% 96%;
     --popover-foreground: 263 15% 25%;
-    --primary: 275 55% 75%;
-    --primary-foreground: 263 15% 15%;
-    --secondary: 340 80% 85%;
-    --secondary-foreground: 340 15% 25%;
+    --primary: 265 80% 65%;
+    --primary-foreground: 210 20% 98%;
+    --secondary: 330 85% 70%;
+    --secondary-foreground: 330 15% 15%;
     --muted: 210 20% 90%;
     --muted-foreground: 263 15% 45%;
-    --accent: 160 60% 80%;
-    --accent-foreground: 160 15% 25%;
+    --accent: 180 70% 55%;
+    --accent-foreground: 180 15% 15%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
     --border: 210 20% 88%;
     --input: 210 20% 92%;
-    --ring: 275 55% 65%;
+    --ring: 265 80% 55%;
     --radius: 0.5rem;
   }
 
@@ -33,19 +34,19 @@
     --card-foreground: 210 20% 94%;
     --popover: 263 15% 10%;
     --popover-foreground: 210 20% 94%;
-    --primary: 275 55% 75%;
-    --primary-foreground: 263 15% 15%;
-    --secondary: 340 50% 30%;
-    --secondary-foreground: 340 30% 90%;
+    --primary: 265 80% 65%;
+    --primary-foreground: 210 20% 98%;
+    --secondary: 330 60% 40%;
+    --secondary-foreground: 330 30% 90%;
     --muted: 263 15% 20%;
     --muted-foreground: 263 15% 60%;
-    --accent: 160 40% 40%;
-    --accent-foreground: 160 30% 90%;
+    --accent: 180 60% 50%;
+    --accent-foreground: 180 30% 90%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
     --border: 263 15% 20%;
     --input: 263 15% 20%;
-    --ring: 275 55% 65%;
+    --ring: 265 80% 55%;
   }
 }
 
