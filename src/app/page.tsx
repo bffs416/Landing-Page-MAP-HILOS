@@ -2,7 +2,7 @@
 'use client';
 
 import Image from 'next/image';
-import { Route, Milestone, Lightbulb, UserCheck, Search, Award, ChevronRight, User, GraduationCap, Medal, Briefcase, School, Waves, Stethoscope, Scissors, HeartPulse, BrainCircuit } from 'lucide-react';
+import { Route, Milestone, Lightbulb, UserCheck, Search, Award, ChevronRight, User, GraduationCap, Medal, Briefcase, School, Waves, Stethoscope, Scissors, HeartPulse, BrainCircuit, Github } from 'lucide-react';
 import Logo from '@/components/logo';
 import {
   facialProtocols,
@@ -189,9 +189,17 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
             <Logo />
-            <Button asChild variant="ghost" className="text-white hover:bg-white/10 hover:text-white">
-              <Link href="/trivia">Trivia PDO</Link>
-            </Button>
+            <div className="flex items-center gap-2">
+              <Button asChild variant="ghost" className="text-white hover:bg-white/10 hover:text-white">
+                <Link href="/trivia">Trivia PDO</Link>
+              </Button>
+              <Button asChild variant="ghost" className="text-white hover:bg-white/10 hover:text-white">
+                <Link href="/github">
+                  <Github className="mr-2 h-4 w-4" />
+                  GitHub
+                </Link>
+              </Button>
+            </div>
           </div>
         </div>
       </header>
@@ -424,3 +432,5 @@ export default function Home() {
     </div>
   );
 }
+
+    
