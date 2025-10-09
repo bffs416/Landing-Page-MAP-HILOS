@@ -3,8 +3,14 @@
     {
       "id": "hero-background",
       "description": "A beautiful woman's face with clean skin, in a calm setting.",
-      "imageUrl": "https://postimg.cc/FYTM7DNM",
+      "imageUrl": "https://i.postimg.cc/fbsDqrFR/neocolagenesis.jpg",
       "imageHint": "woman face"
+    },
+    {
+      "id": "creator-felipe-franco",
+      "description": "Portrait of the creator, Felipe Franco.",
+      "imageUrl": "https://images.unsplash.com/photo-1580281657527-808a3e4b4523?q=80&w=1974&auto=format&fit=crop",
+      "imageHint": "man portrait"
     },
     {
       "id": "clinic-map",
