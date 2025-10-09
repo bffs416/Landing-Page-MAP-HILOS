@@ -49,6 +49,7 @@ export default function Home() {
   
   const [activeFacialProtocol, setActiveFacialProtocol] = useState<typeof facialProtocols[0] | null>(null);
   const [activeCorporalProtocol, setActiveCorporalProtocol] = useState<typeof corporalProtocols[0] | null>(null);
+  const [activeJourneyStep, setActiveJourneyStep] = useState(0);
 
 
   useEffect(() => {
@@ -66,32 +67,31 @@ export default function Home() {
     {
       icon: Search,
       title: 'Punto de Partida: Búsqueda de Innovación',
-      description:
-        'El médico experto busca técnicas avanzadas que ofrezcan resultados superiores y seguros más allá de los métodos tradicionales.',
+      description: 'Estás buscando nuevas técnicas y una academia que te proporcione conocimiento y seguridad para ofrecer resultados superiores.',
+      buttonText: 'Sí, ese soy yo',
     },
     {
       icon: Route,
       title: 'Conceptualización: La Filosofía M.A.P.®',
-      description:
-        'Descubre un sistema tridimensional (Mapeo, Aplicación, Potenciación) que redefine el lifting no quirúrgico, pasando de un simple tensado a una verdadera re-arquitectura facial.',
-    },
-    {
-      icon: Award,
-      title: 'Validación Clínica: Dominio del Método',
-      description:
-        'El médico integra el M.A.P.® en su práctica, logrando resultados predecibles, naturales y reproducibles, lo que aumenta la confianza en la técnica.',
+      description: 'Perfecto. Ahora aplica esta filosofía en tu consulta: Mapeo, Aplicación y Potenciación. Un sistema que redefine el lifting, pasando del simple tensado a una verdadera re-arquitectura facial.',
+      buttonText: 'Entendido, ¿qué sigue?',
     },
     {
       icon: Lightbulb,
-      title: 'Herramienta de Diagnóstico: El ICL-MINT®',
-      description:
-        'Utiliza la calculadora como una herramienta de screening para objetivizar la selección de pacientes, estandarizando criterios clave para el éxito del tratamiento.',
+      title: 'Implementación: Herramienta de Diagnóstico ICL-MINT®',
+      description: 'Ahora, cuando un paciente considere los hilos, implementa la herramienta ICL-MINT®. Te ayudará a objetivizar la selección del paciente y estandarizar tus criterios para el éxito.',
+      buttonText: 'Lo usaré, ¿y después?',
+    },
+     {
+      icon: UserCheck,
+      title: 'Decisión Clínica: Selección Óptima del Paciente',
+      description: 'Si el ICL-MINT® indica que el paciente no es candidato ideal, ¡no pongas los hilos! En su lugar, diseña un plan con complementos (bioestimuladores, energía) para prepararlo. Así aseguras el éxito futuro y gestionas expectativas.',
+      buttonText: 'Comprendo la estrategia',
     },
     {
-      icon: UserCheck,
-      title: 'Precisión Diagnóstica: Selección Óptima del Paciente',
-      description:
-        'El médico se siente empoderado para identificar al candidato ideal, gestionar expectativas y diseñar planes de tratamiento con mayor precisión y seguridad.',
+      icon: Award,
+      title: 'Maestría: Dominio del Método',
+      description: '¡Felicidades! Al integrar este viaje, logras resultados predecibles, naturales y reproducibles. Has elevado tu práctica, aumentando tu confianza y la de tus pacientes en la técnica MINT®.',
     },
   ];
 
@@ -164,42 +164,52 @@ export default function Home() {
             <div className="relative mt-20 max-w-lg mx-auto md:max-w-none lg:max-w-3xl">
               <div className="absolute top-0 h-full w-0.5 bg-border left-4 md:left-1/2 md:-translate-x-1/2"></div>
               {learningJourney.map((item, index) => (
-                <div
-                  key={index}
-                  className={cn(
-                    "relative mb-12 flex items-start",
-                    "animate-in fade-in slide-in-from-bottom-5 duration-700 md:items-center"
-                  )}
-                  style={{ animationDelay: `${300 + index * 150}ms` }}
-                >
-                  <div className="absolute top-1/2 -translate-y-1/2 left-4 md:left-1/2 md:-translate-x-1/2 -ml-0.5">
-                    <div className="bg-primary rounded-full p-2 ring-8 ring-background">
-                      <item.icon className="w-5 h-5 text-primary-foreground" />
-                    </div>
-                  </div>
+                index <= activeJourneyStep && (
                   <div
+                    key={index}
                     className={cn(
-                      "w-full flex pl-12 md:pl-0",
-                      index % 2 === 0 ? "md:justify-start" : "md:justify-end"
+                      "relative mb-12 flex items-start",
+                      "animate-in fade-in slide-in-from-bottom-5 duration-700 md:items-center"
                     )}
+                    style={{ animationDelay: `${100 * index}ms` }}
                   >
+                    <div className="absolute top-1/2 -translate-y-1/2 left-4 md:left-1/2 md:-translate-x-1/2 -ml-0.5">
+                      <div className="bg-primary rounded-full p-2 ring-8 ring-background">
+                        <item.icon className="w-5 h-5 text-primary-foreground" />
+                      </div>
+                    </div>
                     <div
                       className={cn(
-                        "w-full md:w-1/2",
-                        index % 2 === 0 ? "md:pr-8" : "md:pl-8"
+                        "w-full flex pl-12 md:pl-0",
+                        index % 2 === 0 ? "md:justify-start" : "md:justify-end"
                       )}
                     >
-                      <Card className="shadow-lg hover:shadow-primary/20 transition-shadow duration-300">
-                        <CardHeader>
-                          <CardTitle className="font-headline text-lg">{item.title}</CardTitle>
-                        </CardHeader>
-                        <CardContent>
-                          <p className="text-muted-foreground text-sm">{item.description}</p>
-                        </CardContent>
-                      </Card>
+                      <div
+                        className={cn(
+                          "w-full md:w-1/2",
+                          index % 2 === 0 ? "md:pr-8" : "md:pl-8"
+                        )}
+                      >
+                        <Card className="shadow-lg hover:shadow-primary/20 transition-shadow duration-300">
+                          <CardHeader>
+                            <CardTitle className="font-headline text-lg">{item.title}</CardTitle>
+                          </CardHeader>
+                          <CardContent>
+                            <p className="text-muted-foreground text-sm">{item.description}</p>
+                            {index === activeJourneyStep && item.buttonText && (
+                              <Button 
+                                className="mt-4"
+                                onClick={() => setActiveJourneyStep(step => step + 1)}
+                              >
+                                {item.buttonText}
+                              </Button>
+                            )}
+                          </CardContent>
+                        </Card>
+                      </div>
                     </div>
                   </div>
-                </div>
+                )
               ))}
             </div>
           </div>
