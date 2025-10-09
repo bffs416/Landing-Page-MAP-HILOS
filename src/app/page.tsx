@@ -41,7 +41,7 @@ const AnimatedTitle = ({ text }: { text: string }) => {
           className="animated-title-letter"
           style={{ animationDelay: `${index * 0.05}s` }}
         >
-          {letter === ' ' ? '\u00A0' : letter}
+          {letter === ' ' ? ' ' : letter}
         </span>
       ))}
     </h1>
@@ -243,12 +243,6 @@ export default function Home() {
             <div className="flex items-center gap-2">
               <Button asChild variant="ghost" className="text-white hover:bg-white/10 hover:text-white">
                 <Link href="/trivia">Trivia PDO</Link>
-              </Button>
-              <Button asChild variant="ghost" className="text-white hover:bg-white/10 hover:text-white">
-                <Link href="/github">
-                  <Github className="mr-2 h-4 w-4" />
-                  GitHub
-                </Link>
               </Button>
             </div>
           </div>
@@ -487,3 +481,5 @@ export default function Home() {
     </div>
   );
 }
+
+    
