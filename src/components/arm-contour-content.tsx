@@ -17,13 +17,19 @@ const ArmContourContent = () => {
 
                 <Accordion type="single" collapsible className="w-full">
                     <AccordionItem value="item-1">
-                        <AccordionTrigger className="font-headline text-lg"><div className="flex items-center gap-2"><Info className="w-5 h-5 text-primary" />Fundamentos</div></AccordionTrigger>
+                        <AccordionTrigger className="font-headline text-lg flex items-center gap-2">
+                           <Info className="w-5 h-5 text-primary flex-shrink-0" />
+                           <span className="text-left">Fundamentos</span>
+                        </AccordionTrigger>
                         <AccordionContent className="pt-2 text-sm text-muted-foreground">
                            El protocolo se basa en la creación de una malla densa de hilos monofilamento para inducir una fibrosis controlada y una producción masiva de colágeno, lo que resulta en la redensificación y tensado de la piel laxa.
                         </AccordionContent>
                     </AccordionItem>
                     <AccordionItem value="item-2">
-                        <AccordionTrigger className="font-headline text-lg"><div className="flex items-center gap-2"><Target className="w-5 h-5 text-primary" />Objetivos</div></AccordionTrigger>
+                        <AccordionTrigger className="font-headline text-lg flex items-center gap-2">
+                           <Target className="w-5 h-5 text-primary flex-shrink-0" />
+                           <span className="text-left">Objetivos</span>
+                        </AccordionTrigger>
                         <AccordionContent className="pt-2">
                              <ul className="space-y-1.5 list-disc list-inside text-muted-foreground pl-2 text-sm">
                                 <li>Mejorar la textura y firmeza de la piel.</li>
@@ -33,7 +39,10 @@ const ArmContourContent = () => {
                         </AccordionContent>
                     </AccordionItem>
                     <AccordionItem value="item-3">
-                        <AccordionTrigger className="font-headline text-lg"><div className="flex items-center gap-2"><Users className="w-5 h-5 text-primary" />Candidato Ideal</div></AccordionTrigger>
+                        <AccordionTrigger className="font-headline text-lg flex items-center gap-2">
+                           <Users className="w-5 h-5 text-primary flex-shrink-0" />
+                           <span className="text-left">Candidato Ideal</span>
+                        </AccordionTrigger>
                         <AccordionContent className="pt-2">
                             <ul className="space-y-1.5 list-disc list-inside text-muted-foreground pl-2 text-sm">
                                 <li>Pacientes con laxitud de piel leve a moderada.</li>
@@ -43,7 +52,10 @@ const ArmContourContent = () => {
                         </AccordionContent>
                     </AccordionItem>
                     <AccordionItem value="item-4">
-                        <AccordionTrigger className="font-headline text-lg"><div className="flex items-center gap-2"><GitMerge className="w-5 h-5 text-primary" />Procedimiento y Técnica de Inserción</div></AccordionTrigger>
+                        <AccordionTrigger className="font-headline text-lg flex items-center gap-2">
+                           <GitMerge className="w-5 h-5 text-primary flex-shrink-0" />
+                           <span className="text-left">Procedimiento y Técnica de Inserción</span>
+                        </AccordionTrigger>
                         <AccordionContent className="pt-2">
                         <ol className="space-y-1.5 list-decimal list-inside text-muted-foreground pl-2 text-sm">
                             <li><strong className="text-foreground">Diseño en Malla:</strong> Se marca el área a tratar y se diseña una cuadrícula.</li>
@@ -53,13 +65,19 @@ const ArmContourContent = () => {
                         </AccordionContent>
                     </AccordionItem>
                      <AccordionItem value="item-5">
-                        <AccordionTrigger className="font-headline text-lg"><div className="flex items-center gap-2"><ToyBrick className="w-5 h-5 text-primary" />Tipo de Hilos</div></AccordionTrigger>
+                        <AccordionTrigger className="font-headline text-lg flex items-center gap-2">
+                           <ToyBrick className="w-5 h-5 text-primary flex-shrink-0" />
+                           <span className="text-left">Tipo de Hilos</span>
+                        </AccordionTrigger>
                         <AccordionContent className="pt-2 text-sm text-muted-foreground">
                             Principalmente hilos monofilamento (Fine) o screw para bioestimulación. Opcionalmente, hilos espiculados (Cog) para un componente de tracción.
                         </AccordionContent>
                     </AccordionItem>
                     <AccordionItem value="item-6">
-                        <AccordionTrigger className="font-headline text-lg"><div className="flex items-center gap-2"><Puzzle className="w-5 h-5 text-primary" />Sinergia y Timing</div></AccordionTrigger>
+                        <AccordionTrigger className="font-headline text-lg flex items-center gap-2">
+                           <Puzzle className="w-5 h-5 text-primary flex-shrink-0" />
+                           <span className="text-left">Sinergia y Timing</span>
+                        </AccordionTrigger>
                         <AccordionContent className="pt-2">
                             <ul className="space-y-1.5 list-disc list-inside text-muted-foreground pl-2 text-sm">
                                 <li><strong className="text-foreground">Bioestimuladores (Radiesse®, Sculptra®):</strong> Aplicar 1-2 meses ANTES o DESPUÉS para potenciar la producción de colágeno.</li>
@@ -68,7 +86,10 @@ const ArmContourContent = () => {
                         </AccordionContent>
                     </AccordionItem>
                     <AccordionItem value="item-7">
-                        <AccordionTrigger className="font-headline text-lg"><div className="flex items-center gap-2"><Milestone className="w-5 h-5 text-primary" />Resultados</div></AccordionTrigger>
+                        <AccordionTrigger className="font-headline text-lg flex items-center gap-2">
+                           <Milestone className="w-5 h-5 text-primary flex-shrink-0" />
+                           <span className="text-left">Resultados</span>
+                        </AccordionTrigger>
                         <AccordionContent className="pt-2">
                              <ul className="space-y-1.5 list-disc list-inside text-muted-foreground pl-2 text-sm">
                                 <li><strong className="text-foreground">Corto Plazo:</strong> Ligera mejoría por el edema inicial y el soporte de la malla.</li>
@@ -78,7 +99,10 @@ const ArmContourContent = () => {
                         </AccordionContent>
                     </AccordionItem>
                      <AccordionItem value="item-8">
-                        <AccordionTrigger className="font-headline text-lg"><div className="flex items-center gap-2"><ShieldCheck className="w-5 h-5 text-primary" />Cuidados Post-Tratamiento</div></AccordionTrigger>
+                        <AccordionTrigger className="font-headline text-lg flex items-center gap-2">
+                           <ShieldCheck className="w-5 h-5 text-primary flex-shrink-0" />
+                           <span className="text-left">Cuidados Post-Tratamiento</span>
+                        </AccordionTrigger>
                         <AccordionContent className="pt-2">
                             <ul className="space-y-1.5 list-disc list-inside text-muted-foreground pl-2 text-sm">
                                 <li>Evitar actividad física extenuante (especialmente de brazos) durante 1-2 semanas.</li>
@@ -88,7 +112,10 @@ const ArmContourContent = () => {
                         </AccordionContent>
                     </AccordionItem>
                     <AccordionItem value="item-9">
-                        <AccordionTrigger className="font-headline text-xl text-primary"><div className="flex items-center gap-2"><AlertTriangle className="w-5 h-5" />Punto Clave</div></AccordionTrigger>
+                        <AccordionTrigger className="font-headline text-xl text-primary flex items-center gap-2">
+                           <AlertTriangle className="w-5 h-5 flex-shrink-0" />
+                           <span className="text-left">Punto Clave</span>
+                        </AccordionTrigger>
                         <AccordionContent className="pt-2 text-sm text-muted-foreground">
                             La clave del éxito es la redensificación. Una alta densidad de hilos monofilamento en patrón de malla maximiza la bioestimulación. El mantenimiento con refuerzos y otras tecnologías es crucial para resultados duraderos.
                         </AccordionContent>

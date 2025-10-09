@@ -17,13 +17,19 @@ const CoreDefineContent = () => {
 
                 <Accordion type="single" collapsible className="w-full">
                     <AccordionItem value="item-1">
-                        <AccordionTrigger className="font-headline text-lg"><div className="flex items-center gap-2"><Info className="w-5 h-5 text-primary" />Fundamentos</div></AccordionTrigger>
+                        <AccordionTrigger className="font-headline text-lg flex items-center gap-2">
+                           <Info className="w-5 h-5 text-primary flex-shrink-0" />
+                           <span className="text-left">Fundamentos</span>
+                        </AccordionTrigger>
                         <AccordionContent className="pt-2 text-sm text-muted-foreground">
                             Utiliza una combinación de hilos de tracción para crear un efecto de "ceñido" (cinching) y hilos de bioestimulación para mejorar la calidad y firmeza de la piel abdominal.
                         </AccordionContent>
                     </AccordionItem>
                     <AccordionItem value="item-2">
-                        <AccordionTrigger className="font-headline text-lg"><div className="flex items-center gap-2"><Target className="w-5 h-5 text-primary" />Objetivos</div></AccordionTrigger>
+                        <AccordionTrigger className="font-headline text-lg flex items-center gap-2">
+                           <Target className="w-5 h-5 text-primary flex-shrink-0" />
+                           <span className="text-left">Objetivos</span>
+                        </AccordionTrigger>
                         <AccordionContent className="pt-2">
                              <ul className="space-y-1.5 list-disc list-inside text-muted-foreground pl-2 text-sm">
                                 <li>Elevar el ombligo caído ("ombligo triste").</li>
@@ -33,7 +39,10 @@ const CoreDefineContent = () => {
                         </AccordionContent>
                     </AccordionItem>
                     <AccordionItem value="item-3">
-                        <AccordionTrigger className="font-headline text-lg"><div className="flex items-center gap-2"><Users className="w-5 h-5 text-primary" />Candidato Ideal</div></AccordionTrigger>
+                        <AccordionTrigger className="font-headline text-lg flex items-center gap-2">
+                           <Users className="w-5 h-5 text-primary flex-shrink-0" />
+                           <span className="text-left">Candidato Ideal</span>
+                        </AccordionTrigger>
                         <AccordionContent className="pt-2">
                             <ul className="space-y-1.5 list-disc list-inside text-muted-foreground pl-2 text-sm">
                                 <li>Pacientes con flacidez de piel leve a moderada.</li>
@@ -43,7 +52,10 @@ const CoreDefineContent = () => {
                         </AccordionContent>
                     </AccordionItem>
                     <AccordionItem value="item-4">
-                        <AccordionTrigger className="font-headline text-lg"><div className="flex items-center gap-2"><GitMerge className="w-5 h-5 text-primary" />Procedimiento y Técnica de Inserción</div></AccordionTrigger>
+                        <AccordionTrigger className="font-headline text-lg flex items-center gap-2">
+                           <GitMerge className="w-5 h-5 text-primary flex-shrink-0" />
+                           <span className="text-left">Procedimiento y Técnica de Inserción</span>
+                        </AccordionTrigger>
                         <AccordionContent className="pt-2">
                         <ol className="space-y-1.5 list-decimal list-inside text-muted-foreground pl-2 text-sm">
                             <li><strong className="text-foreground">Tracción (Cinching):</strong> Se insertan hilos espiculados largos en un patrón en "U" o radial desde los flancos hacia la línea media para tensar el tejido horizontalmente.</li>
@@ -53,13 +65,19 @@ const CoreDefineContent = () => {
                         </AccordionContent>
                     </AccordionItem>
                      <AccordionItem value="item-5">
-                        <AccordionTrigger className="font-headline text-lg"><div className="flex items-center gap-2"><ToyBrick className="w-5 h-5 text-primary" />Tipo de Hilos</div></AccordionTrigger>
+                        <AccordionTrigger className="font-headline text-lg flex items-center gap-2">
+                           <ToyBrick className="w-5 h-5 text-primary flex-shrink-0" />
+                           <span className="text-left">Tipo de Hilos</span>
+                        </AccordionTrigger>
                         <AccordionContent className="pt-2 text-sm text-muted-foreground">
                             Combinación de hilos espiculados (Cog) para tracción y hilos monofilamento o screw (Fine) para redensificación.
                         </AccordionContent>
                     </AccordionItem>
                     <AccordionItem value="item-6">
-                        <AccordionTrigger className="font-headline text-lg"><div className="flex items-center gap-2"><Puzzle className="w-5 h-5 text-primary" />Sinergia y Timing</div></AccordionTrigger>
+                        <AccordionTrigger className="font-headline text-lg flex items-center gap-2">
+                           <Puzzle className="w-5 h-5 text-primary flex-shrink-0" />
+                           <span className="text-left">Sinergia y Timing</span>
+                        </AccordionTrigger>
                         <AccordionContent className="pt-2">
                             <ul className="space-y-1.5 list-disc list-inside text-muted-foreground pl-2 text-sm">
                                 <li><strong className="text-foreground">Tecnologías (HIFU, RF):</strong> 1-2 meses ANTES para preparar la piel y mejorar la retracción.</li>
@@ -68,7 +86,10 @@ const CoreDefineContent = () => {
                         </AccordionContent>
                     </AccordionItem>
                     <AccordionItem value="item-7">
-                        <AccordionTrigger className="font-headline text-lg"><div className="flex items-center gap-2"><Milestone className="w-5 h-5 text-primary" />Resultados</div></AccordionTrigger>
+                        <AccordionTrigger className="font-headline text-lg flex items-center gap-2">
+                           <Milestone className="w-5 h-5 text-primary flex-shrink-0" />
+                           <span className="text-left">Resultados</span>
+                        </AccordionTrigger>
                         <AccordionContent className="pt-2">
                              <ul className="space-y-1.5 list-disc list-inside text-muted-foreground pl-2 text-sm">
                                 <li><strong className="text-foreground">Corto Plazo:</strong> Efecto de tensado y elevación del ombligo visible inmediatamente.</li>
@@ -78,7 +99,10 @@ const CoreDefineContent = () => {
                         </AccordionContent>
                     </AccordionItem>
                      <AccordionItem value="item-8">
-                        <AccordionTrigger className="font-headline text-lg"><div className="flex items-center gap-2"><ShieldCheck className="w-5 h-5 text-primary" />Cuidados Post-Tratamiento</div></AccordionTrigger>
+                        <AccordionTrigger className="font-headline text-lg flex items-center gap-2">
+                           <ShieldCheck className="w-5 h-5 text-primary flex-shrink-0" />
+                           <span className="text-left">Cuidados Post-Tratamiento</span>
+                        </AccordionTrigger>
                         <AccordionContent className="pt-2">
                             <ul className="space-y-1.5 list-disc list-inside text-muted-foreground pl-2 text-sm">
                                 <li>Uso de faja compresiva durante 1-2 semanas.</li>
@@ -88,7 +112,10 @@ const CoreDefineContent = () => {
                         </AccordionContent>
                     </AccordionItem>
                     <AccordionItem value="item-9">
-                        <AccordionTrigger className="font-headline text-xl text-primary"><div className="flex items-center gap-2"><AlertTriangle className="w-5 h-5" />Punto Clave</div></AccordionTrigger>
+                        <AccordionTrigger className="font-headline text-xl text-primary flex items-center gap-2">
+                           <AlertTriangle className="w-5 h-5 flex-shrink-0" />
+                           <span className="text-left">Punto Clave</span>
+                        </AccordionTrigger>
                         <AccordionContent className="pt-2 text-sm text-muted-foreground">
                             No es un tratamiento para perder peso. La selección del paciente es crucial: funciona mejor en pieles con flacidez pero sin un panículo adiposo grueso. La combinación de hilos de tracción y de bioestimulación es esencial.
                         </AccordionContent>
