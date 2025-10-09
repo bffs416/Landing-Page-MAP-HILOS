@@ -1,4 +1,5 @@
 
+
 import { PlaceHolderImages } from './placeholder-images';
 import { GraduationCap, HeartPulse, Scissors, BrainCircuit, Stethoscope } from 'lucide-react';
 import VectorLiftContent from '@/components/vector-lift-content';
@@ -19,7 +20,7 @@ const getImageHint = (id: string) => {
     return image ? image.imageHint : 'placeholder';
 };
 
-const vectorLiftSteps = [
+export const vectorLiftSteps = [
     {
         title: `Paso 1: Evaluación y Marcación Preoperatoria`,
         description: `Evaluar la flacidez (ej. en sedestación) y marcar el punto de entrada (fijo) y los puntos de suspensión (móviles). El punto de entrada se sitúa en la región temporal/preauricular, cerca de la línea del cabello, 1 cm anterior y 1 cm superior al ápice del trago. Marcar vectores oblicuos hacia el SNL y la línea mandibular.`,
@@ -82,7 +83,7 @@ const vectorLiftSteps = [
     },
 ];
 
-const apexLiftSteps = [
+export const apexLiftSteps = [
     {
         title: "Paso 1: Evaluación y Consenso de Expectativas",
         description: "Determinar si el paciente es el candidato ideal, que generalmente presenta ptosis de ceja leve a moderada y busca una apariencia más juvenil. Es crucial establecer expectativas realistas, ya que los efectos son temporales.",
@@ -145,7 +146,7 @@ const apexLiftSteps = [
     }
 ];
 
-const rhinoStructureSteps = [
+export const rhinoStructureSteps = [
     {
         title: "Paso 1: Evaluación del Paciente y Objetivos",
         description: "Evaluar la estructura nasal, la calidad de la piel (espesor), y establecer expectativas realistas. Este procedimiento busca mejoras menores, como la elevación de la punta (rotación) y la rectificación del dorso, y no es un sustituto de la rinoplastia quirúrgica.",
@@ -208,7 +209,7 @@ const rhinoStructureSteps = [
     }
 ];
 
-const contourNeckSteps = [
+export const contourNeckSteps = [
     {
         title: `Paso 1: Evaluación y Selección del Candidato`,
         description: `Determinar si el paciente presenta ptosis leve a moderada y si tiene exceso de grasa submentoniana (papada). Pacientes con exceso de piel no son buenos candidatos para hilos solos.`,
@@ -271,7 +272,7 @@ const contourNeckSteps = [
     },
 ];
 
-const coreDefineSteps = [
+export const coreDefineSteps = [
     {
         title: "Paso 1: Evaluación y Planificación",
         description: "Confirmar flacidez leve a moderada y, si es necesario, tratar la diástasis o realizar liposucción previa. Marcar los vectores de tracción deseados, generalmente desde la parte lateral superior del abdomen hacia el ombligo/línea media.",
@@ -334,7 +335,7 @@ const coreDefineSteps = [
     },
 ];
 
-const armContourSteps = [
+export const armContourSteps = [
     {
         title: "Paso 1: Evaluación y Marcaje",
         description: "Evaluar la laxitud (idealmente Etapa 1). Marcar el área (inferior al surco bicipital, aspecto inferior-medial). Dividir el área en una malla o patrón de cuadrícula.",
@@ -397,7 +398,7 @@ const armContourSteps = [
     },
 ];
 
-const gluteCurveSteps = [
+export const gluteCurveSteps = [
     {
         title: "Paso 1: Evaluación y Marcaje Fijo",
         description: "Determinar el marco glúteo (A, B, C) y el grado de ptosis. Marcar puntos de anclaje fijos (e.g., sobre el sacro, cerca del triángulo anatómico, y puntos trocantéricos).",
