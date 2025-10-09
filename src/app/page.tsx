@@ -191,6 +191,11 @@ export default function Home() {
                           </CardHeader>
                           <CardContent>
                             <p className="text-muted-foreground text-sm">{item.description}</p>
+                            {index === 3 && activeJourneyStep >= 3 && (
+                               <Button asChild className="mt-4">
+                                <Link href="#protocolos">Ver Protocolos</Link>
+                              </Button>
+                            )}
                             {index === activeJourneyStep && item.buttonText && (
                               <Button 
                                 className="mt-4"
@@ -480,6 +485,8 @@ export default function Home() {
     </div>
   );
 }
+
+    
 
     
 
