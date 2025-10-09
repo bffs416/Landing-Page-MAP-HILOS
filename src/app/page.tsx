@@ -60,7 +60,7 @@ const ProtocolsSection = () => {
                   <h3 className="font-headline text-3xl font-bold mb-8 text-center animate-in fade-in slide-in-from-bottom-5 duration-700" style={{ animationDelay: '300ms' }}>
                       Arquitectura Facial
                   </h3>
-                   <Tabs defaultValue={facialProtocols[0].name} className="w-full">
+                   <Tabs className="w-full">
                       <TabsList className="grid w-full grid-cols-2 md:grid-cols-4 h-auto gap-4 bg-transparent p-0">
                          {facialProtocols.map((protocol) => (
                             <TabsTrigger key={protocol.name} value={protocol.name} className="protocol-trigger whitespace-normal text-xs md:text-sm">
@@ -108,7 +108,7 @@ const ProtocolsSection = () => {
                   <h3 className="font-headline text-3xl font-bold mb-8 text-center animate-in fade-in slide-in-from-bottom-5 duration-700" style={{ animationDelay: '400ms' }}>
                       Arquitectura Corporal
                   </h3>
-                    <Tabs defaultValue={corporalProtocols[0].name} className="w-full">
+                    <Tabs className="w-full">
                       <TabsList className="grid w-full grid-cols-3 h-auto gap-4 bg-transparent p-0">
                          {corporalProtocols.map((protocol) => (
                             <TabsTrigger key={protocol.name} value={protocol.name} className="protocol-trigger whitespace-normal text-xs md:text-sm">
