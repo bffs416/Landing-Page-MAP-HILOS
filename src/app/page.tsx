@@ -23,7 +23,6 @@ import Link from 'next/link';
 import { EffectCard } from '@/components/effect-card';
 import InteractiveGrid from '@/components/interactive-grid';
 import AnimatedGallery from '@/components/animated-gallery';
-import SplitScreenSpeakers from '@/components/split-screen-speakers';
 import { Separator } from '@/components/ui/separator';
 import VectorLiftContent from '@/components/vector-lift-content';
 import ApexLiftContent from '@/components/apex-lift-content';
@@ -321,7 +320,7 @@ export default function Home() {
                             </CardHeader>
                             <CardContent>
                                 <p className="text-muted-foreground text-base">{item.description}</p>
-                                {index === activeJourneyStep && item.buttonText && (
+                                {index !== learningJourney.length - 2 && item.buttonText && (
                                 <Button
                                     className="mt-4"
                                     onClick={() => setActiveJourneyStep(step => step + 1)}
@@ -447,11 +446,6 @@ export default function Home() {
                     </Button>
                 </DynamicCard>
             </div>
-        </section>
-
-        {/* Speakers Section */}
-        <section id="speakers" className="relative bg-background overflow-hidden">
-          <SplitScreenSpeakers />
         </section>
 
         {/* Gallery Section */}
