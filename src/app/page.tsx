@@ -15,6 +15,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/com
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import { useState, useRef, useEffect } from 'react';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogTrigger } from '@/components/ui/dialog';
 import { cn } from '@/lib/utils';
@@ -59,16 +60,17 @@ const ProtocolsSection = () => {
                   <h3 className="font-headline text-3xl font-bold mb-8 text-center animate-in fade-in slide-in-from-bottom-5 duration-700" style={{ animationDelay: '300ms' }}>
                       Arquitectura Facial
                   </h3>
-                  <Accordion type="single" collapsible className="w-full space-y-4">
+                   <Tabs defaultValue={facialProtocols[0].name} className="w-full">
+                      <TabsList className="grid w-full grid-cols-2 md:grid-cols-4 h-auto">
+                         {facialProtocols.map((protocol) => (
+                            <TabsTrigger key={protocol.name} value={protocol.name} className="whitespace-normal text-xs md:text-sm">
+                               {protocol.name}
+                            </TabsTrigger>
+                         ))}
+                      </TabsList>
                       {facialProtocols.map((protocol) => (
-                          <AccordionItem key={protocol.name} value={protocol.name} className="bg-card/80 backdrop-blur-sm border border-border/50 rounded-lg shadow-lg">
-                              <AccordionTrigger className="p-6 text-left hover:no-underline">
-                                  <div>
-                                      <h4 className="font-semibold text-lg text-foreground">{protocol.name}</h4>
-                                      <p className="text-sm text-muted-foreground mt-1">{protocol.description}</p>
-                                  </div>
-                              </AccordionTrigger>
-                              <AccordionContent className="p-6 pt-0">
+                          <TabsContent key={protocol.name} value={protocol.name} className="mt-6">
+                            <Card className="bg-card/80 backdrop-blur-sm border-border/50 rounded-lg shadow-lg p-6">
                                   {protocol.contentComponent ? (
                                       <protocol.contentComponent />
                                   ) : (
@@ -93,10 +95,10 @@ const ProtocolsSection = () => {
                                       <CarouselPrevious className="hidden sm:flex" />
                                       <CarouselNext className="hidden sm:flex" />
                                   </Carousel>
-                              </AccordionContent>
-                          </AccordionItem>
+                            </Card>
+                          </TabsContent>
                       ))}
-                  </Accordion>
+                  </Tabs>
               </div>
 
               {/* Corporal Protocols */}
@@ -104,16 +106,17 @@ const ProtocolsSection = () => {
                   <h3 className="font-headline text-3xl font-bold mb-8 text-center animate-in fade-in slide-in-from-bottom-5 duration-700" style={{ animationDelay: '400ms' }}>
                       Arquitectura Corporal
                   </h3>
-                   <Accordion type="single" collapsible className="w-full space-y-4">
+                    <Tabs defaultValue={corporalProtocols[0].name} className="w-full">
+                      <TabsList className="grid w-full grid-cols-3 h-auto">
+                         {corporalProtocols.map((protocol) => (
+                            <TabsTrigger key={protocol.name} value={protocol.name} className="whitespace-normal text-xs md:text-sm">
+                               {protocol.name}
+                            </TabsTrigger>
+                         ))}
+                      </TabsList>
                       {corporalProtocols.map((protocol) => (
-                          <AccordionItem key={protocol.name} value={protocol.name} className="bg-card/80 backdrop-blur-sm border border-border/50 rounded-lg shadow-lg">
-                              <AccordionTrigger className="p-6 text-left hover:no-underline">
-                                  <div>
-                                      <h4 className="font-semibold text-lg text-foreground">{protocol.name}</h4>
-                                      <p className="text-sm text-muted-foreground mt-1">{protocol.description}</p>
-                                  </div>
-                              </AccordionTrigger>
-                              <AccordionContent className="p-6 pt-0">
+                          <TabsContent key={protocol.name} value={protocol.name} className="mt-6">
+                            <Card className="bg-card/80 backdrop-blur-sm border-border/50 rounded-lg shadow-lg p-6">
                                   {protocol.contentComponent ? (
                                       <protocol.contentComponent />
                                   ) : (
@@ -140,10 +143,10 @@ const ProtocolsSection = () => {
                                           <CarouselNext className="hidden sm:flex" />
                                       </Carousel>
                                   )}
-                              </AccordionContent>
-                          </AccordionItem>
+                            </Card>
+                          </TabsContent>
                       ))}
-                  </Accordion>
+                  </Tabs>
               </div>
           </div>
       </div>
@@ -427,3 +430,5 @@ export default function Home() {
     </div>
   );
 }
+
+    
