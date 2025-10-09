@@ -161,27 +161,27 @@ export default function Home() {
                 Una metodología diseñada para potenciar la práctica clínica y elevar los resultados en medicina estética.
               </p>
             </div>
-            <div className="relative mt-20 max-w-lg mx-auto md:max-w-none lg:max-w-3xl">
+            <div className="relative mt-20 max-w-3xl mx-auto lg:max-w-none">
               <div className="absolute top-0 h-full w-0.5 bg-border left-4 md:left-1/2 md:-translate-x-1/2"></div>
               {learningJourney.map((item, index) => (
                 index <= activeJourneyStep && (
                   <div
                     key={index}
                     className={cn(
-                      "relative mb-12 flex items-start",
-                      "animate-in fade-in slide-in-from-bottom-5 duration-700 md:items-center"
+                      "relative mb-12 flex flex-col items-start",
+                      "animate-in fade-in slide-in-from-bottom-5 duration-700 md:flex-row md:items-center"
                     )}
                     style={{ animationDelay: `${100 * index}ms` }}
                   >
-                    <div className="absolute top-1/2 -translate-y-1/2 left-4 md:left-1/2 md:-translate-x-1/2 -ml-0.5">
+                    <div className="absolute top-0 md:top-1/2 md:-translate-y-1/2 left-4 md:left-1/2 md:-translate-x-1/2 -ml-0.5">
                       <div className="bg-primary rounded-full p-2 ring-8 ring-background">
                         <item.icon className="w-5 h-5 text-primary-foreground" />
                       </div>
                     </div>
                     <div
                       className={cn(
-                        "w-full flex flex-col pl-12 md:pl-0",
-                        index % 2 === 0 ? "md:items-start" : "md:items-end"
+                        "w-full flex flex-col ml-12 md:ml-0",
+                         index % 2 === 0 ? "md:items-start md:pr-8" : "md:items-end md:pl-8"
                       )}
                     >
                       <div className="w-full md:w-1/2">
@@ -205,8 +205,8 @@ export default function Home() {
 
                       {/* Conditionally render M.A.P. pillars */}
                       {index === 1 && (
-                         <div className="w-full md:w-1/2 mt-4 md:mt-0 md:pt-4 animate-in fade-in slide-in-from-bottom-5 duration-500">
-                           <div className={cn("space-y-4", index % 2 === 0 ? "md:pr-8" : "md:pl-8")}>
+                         <div className="w-full md:w-3/4 lg:w-1/2 mt-4 md:mt-0 animate-in fade-in slide-in-from-bottom-5 duration-500">
+                           <div className="space-y-4">
                             {mapPillars.map((pillar, pillarIndex) => (
                               <Card key={pillar.name} className="bg-card/50 shadow-sm">
                                 <CardContent className="p-4">
@@ -227,6 +227,14 @@ export default function Home() {
                           </div>
                         </div>
                       )}
+                      
+                      {/* Conditionally render ICL Calculator */}
+                      {index === 2 && (
+                        <div className="w-full mt-8 animate-in fade-in slide-in-from-bottom-5 duration-500">
+                          <ICLCalculator />
+                        </div>
+                      )}
+
                     </div>
                   </div>
                 )
@@ -234,6 +242,7 @@ export default function Home() {
             </div>
           </div>
         </section>
+
 
         {/* Creator Section */}
         <section id="creator" className="py-24">
@@ -274,84 +283,16 @@ export default function Home() {
                     <span className="font-semibold">Innovador</span>
                   </div>
                 </div>
+                 <div className="text-center mt-16 animate-in fade-in slide-in-from-bottom-5 duration-700" style={{ animationDelay: '900ms' }}>
+                    <div className="mb-4 inline-block bg-primary/10 text-primary-foreground px-3 py-1 rounded-full text-xs font-medium">
+                      Filosofía M.A.P.® y herramienta ICL-MINT® creadas por Felipe Franco
+                    </div>
+                </div>
               </div>
             </div>
           </div>
         </section>
         
-
-        <Collapsible open={isCalculatorVisible} onOpenChange={setIsCalculatorVisible} className="bg-background transition-all duration-500">
-          {/* Philosophy Section */}
-          <section id="filosofia" className="py-24">
-            <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="max-w-2xl mx-auto">
-                <div className="space-y-12">
-                  {mapPillars.map((pillar, index) => (
-                    <div key={pillar.name} className="flex items-center gap-6 md:gap-8 animate-in fade-in slide-in-from-bottom-5 duration-700"
-                      style={{ animationDelay: `${300 + index * 150}ms` }}>
-                      <div className="flex-shrink-0">
-                        <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center shadow-inner">
-                          <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center shadow-md">
-                            <span className="font-headline text-3xl font-bold text-primary-foreground">{pillar.name.charAt(0)}</span>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="flex-1">
-                         <h3 className="font-headline text-2xl md:text-3xl font-bold">{pillar.name}</h3>
-                        <p className="mt-2 text-muted-foreground">
-                          {pillar.description}
-                        </p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-                 <div className="text-center mt-16 animate-in fade-in slide-in-from-bottom-5 duration-700" style={{ animationDelay: '900ms' }}>
-                    <div className="mb-4 inline-block bg-primary/10 text-primary-foreground px-3 py-1 rounded-full text-xs font-medium">
-                      Filosofía M.A.P.® y herramienta ICL-MINT® creadas por Felipe Franco
-                    </div>
-                   <CollapsibleTrigger asChild>
-                     <Button
-                       variant="default"
-                       size="lg"
-                       className="shadow-lg hover:shadow-primary/30 transform hover:-translate-y-1 transition-all duration-300"
-                     >
-                       {isCalculatorVisible ? 'Ocultar herramienta' : 'Ver herramienta'}
-                       <ChevronDown className={`ml-2 h-4 w-4 transition-transform duration-300 ${isCalculatorVisible ? 'rotate-180' : ''}`} />
-                     </Button>
-                  </CollapsibleTrigger>
-                </div>
-              </div>
-            </div>
-          </section>
-          
-          <CollapsibleContent className="transition-all duration-500 ease-in-out">
-            {/* ICL Calculator Section */}
-            <section id="calculadora" ref={calculatorRef} className="py-24 bg-card/70">
-              <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="text-center max-w-3xl mx-auto">
-                  <h2 className="font-headline text-4xl md:text-5xl font-bold animate-in fade-in slide-in-from-bottom-5 duration-700">
-                    ICL-MINT®
-                  </h2>
-                  <div className="mt-4 inline-block bg-primary/10 text-primary px-3 py-1 rounded-full text-xs font-medium animate-in fade-in slide-in-from-bottom-5 duration-700" style={{ animationDelay: '100ms' }}>
-                    Creado por Felipe Franco
-                  </div>
-                  <p className="mt-6 text-lg text-muted-foreground animate-in fade-in slide-in-from-bottom-5 duration-700" style={{ animationDelay: '200ms' }}>
-                    Tu belleza, basada en datos. Nuestro Índice de Candidatura para
-                    Lifting (ICL) es una herramienta exclusiva que nos permite
-                    realizar un diagnóstico preciso y 100% personalizado. Evalúa los
-                    factores clave para asegurar que el tratamiento con hilos
-                    tensores MINT® sea la mejor opción para ti.
-                  </p>
-                </div>
-                <div className="mt-16 animate-in fade-in slide-in-from-bottom-5 duration-700" style={{ animationDelay: '300ms' }}>
-                  <ICLCalculator />
-                </div>
-              </div>
-            </section>
-          </CollapsibleContent>
-        </Collapsible>
-
-
         {/* Protocols Section */}
         <section id="protocolos" className="py-24 bg-background">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -539,5 +480,7 @@ export default function Home() {
     </div>
   );
 }
+
+    
 
     
