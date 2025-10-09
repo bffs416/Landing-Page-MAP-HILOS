@@ -6,6 +6,8 @@ import { GitCommit, Github, AlertTriangle } from 'lucide-react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 
+export const dynamic = 'force-dynamic';
+
 interface GitHubCommit {
   sha: string;
   commit: {
@@ -22,10 +24,7 @@ interface GitHubCommit {
 
 async function getCommits(): Promise<GitHubCommit[] | null> {
   try {
-    const res = await fetch('https://api.github.com/repos/bffs416/MINT-Architectural-Lift/commits', {
-      // Revalidate every hour
-      next: { revalidate: 3600 },
-    });
+    const res = await fetch('https://api.github.com/repos/bffs416/MINT-Architectural-Lift/commits');
 
     if (!res.ok) {
       console.error('Failed to fetch commits:', res.statusText);
