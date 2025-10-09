@@ -9,14 +9,13 @@ import {
   corporalProtocols,
   mapPillars,
 } from '@/lib/assets';
-import { PlaceHolderImages } from '@/lib/placeholder-images';
+import { heroVideo } from '@/lib/assets';
 import ICLCalculator from '@/components/icl-calculator';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import { useState, useRef, useEffect } from 'react';
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Button } from '@/components/ui/button';
-import { ChevronDown } from 'lucide-react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogTrigger } from '@/components/ui/dialog';
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
@@ -43,171 +42,116 @@ const AnimatedTitle = ({ text }: { text: string }) => {
 };
 
 const ProtocolsSection = () => {
-    const [activeFacialProtocol, setActiveFacialProtocol] = useState<typeof facialProtocols[0] | null>(null);
-    const [activeCorporalProtocol, setActiveCorporalProtocol] = useState<typeof corporalProtocols[0] | null>(null);
+  return (
+      <div id="protocolos" className="py-16">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="text-center mb-16">
+                  <h2 className="font-headline text-4xl md:text-5xl font-bold animate-in fade-in slide-in-from-bottom-5 duration-700">
+                      Descubre tu Protocolo Ideal
+                  </h2>
+                  <p className="mt-6 max-w-3xl mx-auto text-lg text-muted-foreground animate-in fade-in slide-in-from-bottom-5 duration-700" style={{ animationDelay: '200ms' }}>
+                      Cada zona de tu rostro y cuerpo merece una solución diseñada a la perfección. Selecciona un protocolo para ver los detalles.
+                  </p>
+              </div>
 
-    const handleFacialProtocolSelect = (protocol: typeof facialProtocols[0]) => {
-        if (activeFacialProtocol?.name === protocol.name) {
-        setActiveFacialProtocol(null);
-        } else {
-        setActiveFacialProtocol(protocol);
-        }
-    };
+              {/* Facial Protocols */}
+              <div className="mb-24">
+                  <h3 className="font-headline text-3xl font-bold mb-8 text-center animate-in fade-in slide-in-from-bottom-5 duration-700" style={{ animationDelay: '300ms' }}>
+                      Arquitectura Facial
+                  </h3>
+                  <Accordion type="single" collapsible className="w-full space-y-4">
+                      {facialProtocols.map((protocol) => (
+                          <AccordionItem key={protocol.name} value={protocol.name} className="bg-card/80 backdrop-blur-sm border border-border/50 rounded-lg shadow-lg">
+                              <AccordionTrigger className="p-6 text-left hover:no-underline">
+                                  <div>
+                                      <h4 className="font-semibold text-lg text-foreground">{protocol.name}</h4>
+                                      <p className="text-sm text-muted-foreground mt-1">{protocol.description}</p>
+                                  </div>
+                              </AccordionTrigger>
+                              <AccordionContent className="p-6 pt-0">
+                                  {protocol.contentComponent ? (
+                                      <protocol.contentComponent />
+                                  ) : (
+                                      <p className="text-base font-headline mb-4">{protocol.description}</p>
+                                  )}
+                                  <Carousel opts={{ align: "start" }} className="w-full mt-6">
+                                      <CarouselContent>
+                                          {protocol.steps.map((step, index) => (
+                                              <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+                                                  <div className="p-1 h-full">
+                                                      <EffectCard
+                                                          icon={<Waves size={24} />}
+                                                          title={step.title}
+                                                          description={step.description}
+                                                          imageUrl={step.imageUrl}
+                                                          imageHint={step.imageHint}
+                                                      />
+                                                  </div>
+                                              </CarouselItem>
+                                          ))}
+                                      </CarouselContent>
+                                      <CarouselPrevious className="hidden sm:flex" />
+                                      <CarouselNext className="hidden sm:flex" />
+                                  </Carousel>
+                              </AccordionContent>
+                          </AccordionItem>
+                      ))}
+                  </Accordion>
+              </div>
 
-    const handleCorporalProtocolSelect = (protocol: typeof corporalProtocols[0]) => {
-        if (activeCorporalProtocol?.name === protocol.name) {
-        setActiveCorporalProtocol(null);
-        } else {
-        setActiveCorporalProtocol(protocol);
-        }
-    };
-
-    return (
-        <div id="protocolos" className="py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-            <h2 className="font-headline text-4xl md:text-5xl font-bold animate-in fade-in slide-in-from-bottom-5 duration-700">
-                Descubre tu Protocolo Ideal
-            </h2>
-            <p className="mt-6 max-w-3xl mx-auto text-lg text-muted-foreground animate-in fade-in slide-in-from-bottom-5 duration-700" style={{ animationDelay: '200ms' }}>
-                Cada zona de tu rostro y cuerpo merece una solución diseñada a la perfección. Selecciona un protocolo para ver los detalles.
-            </p>
-            </div>
-
-            {/* Facial Protocols */}
-            <div className="mb-24">
-            <h3 className="font-headline text-3xl font-bold mb-8 text-center animate-in fade-in slide-in-from-bottom-5 duration-700" style={{ animationDelay: '300ms' }}>
-                Arquitectura Facial
-            </h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
-                <div className="md:col-span-1 space-y-4">
-                {facialProtocols.map((protocol, index) => (
-                    <button
-                    key={protocol.name}
-                    onClick={() => handleFacialProtocolSelect(protocol)}
-                    className={cn(
-                        "w-full text-left p-4 rounded-lg transition-all duration-300 flex items-center justify-between",
-                        activeFacialProtocol?.name === protocol.name ? "bg-primary/20 shadow-lg" : "hover:bg-card/60"
-                    )}
-                    >
-                    <div>
-                        <h4 className="font-semibold text-lg text-foreground">{protocol.name}</h4>
-                        <p className="text-sm text-muted-foreground mt-1">{protocol.description}</p>
-                    </div>
-                    <ChevronRight className={cn("w-5 h-5 text-primary transition-transform", activeFacialProtocol?.name === protocol.name ? "translate-x-1" : "")}/>
-                    </button>
-                ))}
-                </div>
-                <div className="md:col-span-2">
-                {activeFacialProtocol ? (
-                    <Card className="shadow-xl bg-card/80 backdrop-blur-sm sticky top-24">
-                    <CardContent className="p-6">
-                        {activeFacialProtocol.contentComponent ? (
-                        <activeFacialProtocol.contentComponent />
-                        ) : (
-                        <p className="text-base font-headline mb-4">{activeFacialProtocol.description}</p>
-                        )}
-                        <Carousel opts={{ align: "start" }} className="w-full mt-6">
-                        <CarouselContent>
-                            {activeFacialProtocol.steps.map((step, index) => (
-                            <CarouselItem key={index}>
-                                <div className="p-1">
-                                    <EffectCard
-                                    icon={<Waves size={24}/>}
-                                    title={step.title}
-                                    description={step.description}
-                                    imageUrl={step.imageUrl}
-                                    imageHint={step.imageHint}
-                                    />
-                                </div>
-                            </CarouselItem>
-                            ))}
-                        </CarouselContent>
-                        <CarouselPrevious className="hidden sm:flex" />
-                        <CarouselNext className="hidden sm:flex" />
-                        </Carousel>
-                    </CardContent>
-                    </Card>
-                ) : (
-                    <div className="flex items-center justify-center h-full min-h-[300px] bg-card/50 rounded-lg">
-                    <p className="text-muted-foreground">Selecciona un protocolo para ver los detalles.</p>
-                    </div>
-                )}
-                </div>
-            </div>
-            </div>
-            
-            {/* Corporal Protocols */}
-            <div>
-            <h3 className="font-headline text-3xl font-bold mb-8 text-center animate-in fade-in slide-in-from-bottom-5 duration-700" style={{ animationDelay: '400ms' }}>
-                Arquitectura Corporal
-            </h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
-                <div className="md:col-span-1 space-y-4">
-                {corporalProtocols.map((protocol, index) => (
-                    <button
-                    key={protocol.name}
-                    onClick={() => handleCorporalProtocolSelect(protocol)}
-                    className={cn(
-                        "w-full text-left p-4 rounded-lg transition-all duration-300 flex items-center justify-between",
-                        activeCorporalProtocol?.name === protocol.name ? "bg-primary/20 shadow-lg" : "hover:bg-card/60"
-                    )}
-                    >
-                    <div>
-                        <h4 className="font-semibold text-lg text-foreground">{protocol.name}</h4>
-                        <p className="text-sm text-muted-foreground mt-1">{protocol.description}</p>
-                    </div>
-                    <ChevronRight className={cn("w-5 h-5 text-primary transition-transform", activeCorporalProtocol?.name === protocol.name ? "translate-x-1" : "")}/>
-                    </button>
-                ))}
-                </div>
-                <div className="md:col-span-2">
-                {activeCorporalProtocol ? (
-                    <Card className="shadow-xl bg-card/80 backdrop-blur-sm sticky top-24">
-                    <CardContent className="p-6">
-                        {activeCorporalProtocol.contentComponent ? (
-                        <activeCorporalProtocol.contentComponent />
-                        ) : (
-                        <p className="text-base font-headline mb-4">{activeCorporalProtocol.fullDescription}</p>
-                        )}
-                        {activeCorporalProtocol.steps.length > 0 && (
-                        <Carousel opts={{ align: "start" }} className="w-full mt-6">
-                            <CarouselContent>
-                            {activeCorporalProtocol.steps.map((step, index) => (
-                                <CarouselItem key={index}>
-                                <div className="p-1">
-                                    <EffectCard
-                                        icon={<Waves size={24}/>}
-                                        title={step.title}
-                                        description={step.description}
-                                        imageUrl={step.imageUrl}
-                                        imageHint={step.imageHint}
-                                    />
-                                </div>
-                                </CarouselItem>
-                            ))}
-                            </CarouselContent>
-                            <CarouselPrevious className="hidden sm:flex" />
-                            <CarouselNext className="hidden sm:flex" />
-                        </Carousel>
-                        )}
-                    </CardContent>
-                    </Card>
-                ) : (
-                    <div className="flex items-center justify-center h-full min-h-[300px] bg-card/50 rounded-lg">
-                    <p className="text-muted-foreground">Selecciona un protocolo para ver los detalles.</p>
-                    </div>
-                )}
-                </div>
-            </div>
-            </div>
-        </div>
-        </div>
-    );
+              {/* Corporal Protocols */}
+              <div>
+                  <h3 className="font-headline text-3xl font-bold mb-8 text-center animate-in fade-in slide-in-from-bottom-5 duration-700" style={{ animationDelay: '400ms' }}>
+                      Arquitectura Corporal
+                  </h3>
+                   <Accordion type="single" collapsible className="w-full space-y-4">
+                      {corporalProtocols.map((protocol) => (
+                          <AccordionItem key={protocol.name} value={protocol.name} className="bg-card/80 backdrop-blur-sm border border-border/50 rounded-lg shadow-lg">
+                              <AccordionTrigger className="p-6 text-left hover:no-underline">
+                                  <div>
+                                      <h4 className="font-semibold text-lg text-foreground">{protocol.name}</h4>
+                                      <p className="text-sm text-muted-foreground mt-1">{protocol.description}</p>
+                                  </div>
+                              </AccordionTrigger>
+                              <AccordionContent className="p-6 pt-0">
+                                  {protocol.contentComponent ? (
+                                      <protocol.contentComponent />
+                                  ) : (
+                                      <p className="text-base font-headline mb-4">{protocol.fullDescription}</p>
+                                  )}
+                                  {protocol.steps.length > 0 && (
+                                      <Carousel opts={{ align: "start" }} className="w-full mt-6">
+                                          <CarouselContent>
+                                              {protocol.steps.map((step, index) => (
+                                                  <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+                                                      <div className="p-1 h-full">
+                                                          <EffectCard
+                                                              icon={<Waves size={24} />}
+                                                              title={step.title}
+                                                              description={step.description}
+                                                              imageUrl={step.imageUrl}
+                                                              imageHint={step.imageHint}
+                                                          />
+                                                      </div>
+                                                  </CarouselItem>
+                                              ))}
+                                          </CarouselContent>
+                                          <CarouselPrevious className="hidden sm:flex" />
+                                          <CarouselNext className="hidden sm:flex" />
+                                      </Carousel>
+                                  )}
+                              </AccordionContent>
+                          </AccordionItem>
+                      ))}
+                  </Accordion>
+              </div>
+          </div>
+      </div>
+  );
 }
 
+
 export default function Home() {
-  const heroImage = PlaceHolderImages.find(img => img.id === 'hero-background');
   const [activeJourneyStep, setActiveJourneyStep] = useState(0);
 
   const learningJourney = [
@@ -258,16 +202,13 @@ export default function Home() {
       <main className="overflow-x-hidden">
         {/* Hero Section */}
         <section className="relative h-[60vh] flex items-center justify-center text-center px-4 pt-20">
-          {heroImage && (
-            <Image
-              src={heroImage.imageUrl}
-              alt={heroImage.description}
-              fill
-              className="object-cover object-center absolute -z-10"
-              priority
-              data-ai-hint={heroImage.imageHint}
-            />
-          )}
+          <video
+            src={heroVideo}
+            autoPlay
+            loop
+            muted
+            className="absolute -z-10 w-full h-full object-cover"
+          />
           <div className="absolute inset-0 bg-black/50 -z-10" />
           <div className="max-w-4xl">
             <AnimatedTitle text="MINT® Architectural Lift™" />
@@ -486,5 +427,3 @@ export default function Home() {
     </div>
   );
 }
-
-    
