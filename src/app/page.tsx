@@ -24,6 +24,7 @@ import { EffectCard } from '@/components/effect-card';
 import InteractiveGrid from '@/components/interactive-grid';
 import AnimatedGallery from '@/components/animated-gallery';
 import SplitScreenSpeakers from '@/components/split-screen-speakers';
+import { Separator } from '@/components/ui/separator';
 
 const AnimatedTitle = ({ text }: { text: string }) => {
   return (
@@ -298,7 +299,7 @@ export default function Home() {
                   <div
                     key={index}
                     className={cn(
-                      "relative mb-12 flex flex-col items-center",
+                      "relative mb-24 flex flex-col items-center",
                       "animate-in fade-in slide-in-from-bottom-5 duration-700"
                     )}
                     style={{ animationDelay: `${100 * index}ms` }}
@@ -336,7 +337,18 @@ export default function Home() {
                         </div>
                     </div>
 
-                    <div className="w-full mt-8">
+                    {(index < activeJourneyStep || index === learningJourney.length -1) && (
+                       <div className="w-full mt-12">
+                        {(index === 1 && activeJourneyStep >= 1) ||
+                         (index === 2 && activeJourneyStep >= 2) ||
+                         (index === 3 && activeJourneyStep >= 3) ? (
+                          <Separator className="w-1/2 mx-auto" />
+                        ) : null}
+                      </div>
+                    )}
+
+
+                    <div className="w-full mt-12">
                       {/* Conditionally render M.A.P. pillars */}
                       {index === 1 && activeJourneyStep >= 1 && (
                          <div className="max-w-3xl mx-auto animate-in fade-in slide-in-from-bottom-5 duration-500">
@@ -474,3 +486,5 @@ export default function Home() {
     </div>
   );
 }
+
+    
