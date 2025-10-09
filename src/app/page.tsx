@@ -48,6 +48,39 @@ const AnimatedTitle = ({ text }: { text: string }) => {
   );
 };
 
+const DynamicCard = ({ children, className }: { children: React.ReactNode, className?: string }) => {
+    const cardRef = useRef<HTMLDivElement>(null);
+  
+    useEffect(() => {
+      const card = cardRef.current;
+      if (!card) return;
+  
+      const handleMouseMove = (e: MouseEvent) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        card.style.setProperty('--x', `${x}px`);
+        card.style.setProperty('--y', `${y}px`);
+      };
+  
+      card.addEventListener('mousemove', handleMouseMove);
+      return () => card.removeEventListener('mousemove', handleMouseMove);
+    }, []);
+  
+    return (
+      <div ref={cardRef} className={cn("dynamic-card", className)}>
+        {children}
+        <div className="shine" />
+        <div className="background">
+          <div className="tiles" />
+          <div className="line line-1" />
+          <div className="line line-2" />
+          <div className="line line-3" />
+        </div>
+      </div>
+    );
+  };
+
 const ProtocolsSection = () => {
     const [activeFacialTab, setActiveFacialTab] = useState<string | undefined>(undefined);
     const [activeCorporalTab, setActiveCorporalTab] = useState<string | undefined>(undefined);
@@ -63,14 +96,14 @@ const ProtocolsSection = () => {
   return (
       <div id="protocolos" className="py-16">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="text-center mb-16">
-                  <h2 className="font-headline text-4xl md:text-5xl font-bold animate-in fade-in slide-in-from-bottom-5 duration-700">
+              <DynamicCard className="mb-16 text-center">
+                  <h2 className="font-headline text-4xl md:text-5xl font-bold">
                       Descubre tu Protocolo Ideal
                   </h2>
-                  <p className="mt-6 max-w-3xl mx-auto text-lg text-muted-foreground animate-in fade-in slide-in-from-bottom-5 duration-700" style={{ animationDelay: '200ms' }}>
+                  <p className="mt-6 max-w-3xl mx-auto text-lg text-muted-foreground">
                       Cada zona de tu rostro y cuerpo merece una solución diseñada a la perfección. Selecciona un protocolo para ver los detalles.
                   </p>
-              </div>
+              </DynamicCard>
 
               {/* Facial Protocols */}
               <div className="mb-24">
@@ -203,7 +236,7 @@ export default function Home() {
         </div>
       </header>
 
-      <main className="overflow-x-hidden">
+      <main>
         {/* Hero Section */}
         <section className="relative h-[60vh] flex items-center justify-center text-center px-4 pt-20">
           <video
@@ -427,3 +460,4 @@ export default function Home() {
     </div>
   );
 }
+

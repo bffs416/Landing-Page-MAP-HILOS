@@ -117,7 +117,7 @@
     background-color: hsl(var(--background));
   }
 
-  .effect-card .shine {
+  .effect-card .shine, .dynamic-card .shine {
     position: absolute;
     inset: 0;
     background: radial-gradient(400px circle at var(--x, 0) var(--y, 0), hsl(var(--primary) / 0.1), transparent 40%);
@@ -125,18 +125,18 @@
     pointer-events: none;
     z-index: 1;
   }
-  .effect-card:hover .shine {
+  .effect-card:hover .shine, .dynamic-card:hover .shine {
     opacity: 1;
   }
 
-  .effect-card .background {
+  .effect-card .background, .dynamic-card .background {
     position: absolute;
     inset: 0;
     pointer-events: none;
     z-index: 0;
   }
 
-  .effect-card .tiles {
+  .effect-card .tiles, .dynamic-card .tiles {
     position: absolute;
     inset: -5%;
     display: grid;
@@ -145,14 +145,14 @@
     opacity: 0;
     transition: opacity 300ms;
   }
-  .effect-card:hover .tiles {
+  .effect-card:hover .tiles, .dynamic-card:hover .tiles {
     opacity: 0.2;
   }
 
-  .effect-card .tile {
+  .effect-card .tile, .dynamic-card .tile {
     position: relative;
   }
-  .effect-card .tile::before {
+  .effect-card .tile::before, .dynamic-card .tile::before {
     content: '';
     position: absolute;
     inset: 0.5px;
@@ -160,30 +160,30 @@
     opacity: 0.1;
   }
 
-  .effect-card .line {
+  .effect-card .line, .dynamic-card .line {
     position: absolute;
     background-color: hsl(var(--primary));
     opacity: 0.3;
   }
-  .effect-card:hover .line {
+  .effect-card:hover .line, .dynamic-card:hover .line {
     opacity: 0.5;
   }
   
-  .effect-card .line-1 {
+  .effect-card .line-1, .dynamic-card .line-1 {
     width: 1px;
     height: 100%;
     left: var(--x, -100%);
     animation: move-line-1 5s linear infinite;
   }
 
-  .effect-card .line-2 {
+  .effect-card .line-2, .dynamic-card .line-2 {
     height: 1px;
     width: 100%;
     top: var(--y, -100%);
     animation: move-line-2 6s linear infinite;
   }
   
-  .effect-card .line-3 {
+  .effect-card .line-3, .dynamic-card .line-3 {
     width: 1px;
     height: 100%;
     left: calc(var(--x, -100%) + 20%);
@@ -227,11 +227,11 @@
     line-height: 1.5;
   }
 
-  .effect-card > * {
+  .effect-card > *, .dynamic-card > * {
     z-index: 2;
   }
 
-  .effect-card__wave {
+  .effect-card__wave, .dynamic-card__wave {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -243,10 +243,25 @@
     stroke-width: 2;
     transition: all 300ms;
   }
-  .effect-card:hover .effect-card__wave {
+  .effect-card:hover .effect-card__wave, .dynamic-card:hover .dynamic-card__wave {
     fill: hsl(var(--primary) / 0.25);
     transform: scaleY(1.1) translateY(5px);
   }
+
+  .dynamic-card {
+    position: relative;
+    overflow: hidden;
+    color: hsl(var(--card-foreground));
+    background-color: hsl(var(--card));
+    border: 1px solid hsl(var(--border));
+    padding: 2rem;
+    border-radius: var(--radius);
+    transition: background-color 300ms;
+  }
+  .dynamic-card:hover {
+    background-color: hsl(var(--background));
+  }
+
 
   .confetti {
     position: absolute;
@@ -338,3 +353,4 @@
     display: none !important;
   }
 }
+
