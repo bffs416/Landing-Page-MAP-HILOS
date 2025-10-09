@@ -1,4 +1,16 @@
-export const triviaLevels = {
+
+export type Question = {
+  question: string;
+  options: string[];
+  correctAnswer: string;
+};
+
+export type TriviaLevel = {
+  title: string;
+  questions: Question[];
+};
+
+export const triviaLevels: Record<string, TriviaLevel> = {
   beginner: {
     title: 'Principiante',
     questions: [
@@ -551,7 +563,7 @@ export const triviaLevels = {
         correctAnswer: 'C',
       },
       {
-        question: 'Se está planeando un tratamiento de lifting abdominal después de una liposucción de alta definición, utilizando hilos PDO. ¿Cuál es el principal mecanismo de acción a largo plazo post-absorción de los hilos para el tensado y la elevación permanente del ombligo, especialmente en pacientes con paridad?',
+        question: 'Se está planificando un tratamiento de lifting abdominal después de una liposucción de alta definición, utilizando hilos PDO. ¿Cuál es el principal mecanismo de acción a largo plazo post-absorción de los hilos para el tensado y la elevación permanente del ombligo, especialmente en pacientes con paridad?',
         options: [
           'A. La contracción del músculo recto abdominal inducida por las espículas',
           'B. El hilo facilita la curación de los tejidos elevados en la nueva posición y la posterior encapsulación fibrosa (cicatricial) mantiene el efecto de la tracción inicial (efecto restauración)',

@@ -9,7 +9,7 @@ import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
 import { Progress } from '@/components/ui/progress';
 import { CheckCircle, XCircle, Award, ChevronsRight } from 'lucide-react';
-import { triviaLevels } from '@/lib/trivia-questions';
+import { triviaLevels, type Question } from '@/lib/trivia-questions';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
 import { useForm } from 'react-hook-form';
@@ -49,7 +49,7 @@ export default function TriviaPage() {
   const [showResult, setShowResult] = useState(false);
   const [showCertificateForm, setShowCertificateForm] = useState(false);
   const [certificateData, setCertificateData] = useState<{fullName: string, nameOnly: string, level: string} | null>(null);
-  const [questions, setQuestions] = useState<any[]>([]);
+  const [questions, setQuestions] = useState<Question[]>([]);
   const [isTestMode, setIsTestMode] = useState(false);
 
   const levelData = currentLevel ? triviaLevels[currentLevel] : null;
@@ -316,7 +316,7 @@ export default function TriviaPage() {
               onValueChange={(value) => handleAnswerChange(currentQuestionIndex, value)}
               className="space-y-3"
             >
-              {currentQuestion.options.map((option, index) => (
+              {currentQuestion.options.map((option: string, index: number) => (
                 <Label
                   key={index}
                   className="flex items-center gap-4 p-4 border rounded-lg cursor-pointer hover:bg-muted/50 has-[input:checked]:bg-primary/10 has-[input:checked]:border-primary"
