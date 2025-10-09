@@ -3,193 +3,193 @@
     {
       "id": "hero-background",
       "description": "A beautiful woman's face with clean skin, in a calm setting.",
-      "imageUrl": "https://images.unsplash.com/photo-1579463148228-138296ac3b98?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHx3b21hbiUyMGZhY2V8ZW58MHx8fHwxNzU5MzMxMTYwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/hero/1920/1080",
       "imageHint": "woman face"
     },
     {
       "id": "clinic-map",
       "description": "A map of a city to locate clinics.",
-      "imageUrl": "https://images.unsplash.com/photo-1717343824623-06293a62a70d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxjaXR5JTIwbWFwfGVufDB8fHx8MTc1OTM3NDE5OHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/map/800/600",
       "imageHint": "city map"
     },
     {
       "id": "step-1",
       "description": "Paso 1: Consulta y Evaluación. El especialista evalúa al paciente.",
-      "imageUrl": "https://images.unsplash.com/photo-1581056771107-24ca5f033842?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxkb2N0b3IlMjBjb25zdWx0YXRpb258ZW58MHx8fHwxNzU5NDMxMTUwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/consultation/800/600",
       "imageHint": "doctor consultation"
     },
     {
       "id": "step-2",
       "description": "Paso 2: Marcaje de la Zona. Se marcan los puntos de entrada y trayecto de los hilos.",
-      "imageUrl": "https://images.unsplash.com/photo-1565589511688-9dbd06d52a7b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxmYWNpYWwlMjBtYXJraW5nfGVufDB8fHx8MTc1OTQ2MzI3MXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/marking/800/600",
       "imageHint": "facial marking"
     },
     {
       "id": "step-3",
       "description": "Paso 3: Asepsia. Se limpia y desinfecta la zona a tratar.",
-      "imageUrl": "https://images.unsplash.com/photo-1731514908704-43ce3a5de4e9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxza2luJTIwY2xlYW5pbmd8ZW58MHx8fHwxNzU5NDYzMjcxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/cleaning/800/600",
       "imageHint": "skin cleaning"
     },
     {
       "id": "step-4",
       "description": "Paso 4: Anestesia Local. Se aplica anestesia en los puntos de entrada.",
-      "imageUrl": "https://images.unsplash.com/photo-1740953448394-86122e98c1be?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxsb2NhbCUyMGFuZXN0aGVzaWF8ZW58MHx8fHwxNzU5NDYzMjcxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/anesthesia/800/600",
       "imageHint": "local anesthesia"
     },
     {
       "id": "step-5",
       "description": "Paso 5: Inserción de la Cánula. Se introduce la cánula con el hilo.",
-      "imageUrl": "https://images.unsplash.com/photo-1715111965620-c2b39250880f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8Y2FubnVsYSUyMGluc2VydGlvbnxlbnwwfHx8fDE3NTk0NjMyNzF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/cannula/800/600",
       "imageHint": "cannula insertion"
     },
     {
       "id": "step-6",
       "description": "Paso 6: Posicionamiento del Hilo. El hilo se coloca en el tejido subdérmico.",
-      "imageUrl": "https://images.unsplash.com/photo-1556202812-647b7010dcc7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHx0aHJlYWQlMjBwbGFjZW1lbnR8ZW58MHx8fHwxNzU5NDYzMjcxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/thread/800/600",
       "imageHint": "thread placement"
     },
     {
       "id": "step-7",
       "description": "Paso 7: Anclaje y Tracción. Se ancla el hilo y se realiza la tracción.",
-      "imageUrl": "https://images.unsplash.com/photo-1665441644195-25d7eb2ba212?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxza2luJTIwdGVuc2lvbmluZ3xlbnwwfHx8fDE3NTk0NjMyNzF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/tensioning/800/600",
       "imageHint": "skin tensioning"
     },
     {
       "id": "step-8",
       "description": "Paso 8: Retiro de la Cánula. Se retira la cánula, dejando el hilo en su lugar.",
-      "imageUrl": "https://images.unsplash.com/photo-1623867821208-c4d8025f8194?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8Y2FubnVsYSUyMHJlbW92YWx8ZW58MHx8fHwxNzU5NDYzMjcxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/removal/800/600",
       "imageHint": "cannula removal"
     },
     {
       "id": "step-9",
       "description": "Paso 9: Ajuste Final. Se realizan los ajustes finales para un resultado óptimo.",
-      "imageUrl": "https://images.unsplash.com/photo-1742294621029-c0e617f5e7c1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxmaW5hbCUyMGFkanVzdG1lbnR8ZW58MHx8fHwxNzU5NDYzMjcxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/adjustment/800/600",
       "imageHint": "final adjustment"
     },
     {
       "id": "step-10",
       "description": "Paso 10: Resultado Inmediato. Se aprecia el efecto lifting inmediatamente después.",
-      "imageUrl": "https://images.unsplash.com/photo-1664499186549-3cf5e61cbaee?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxpbW1lZGlhdGUlMjByZXN1bHR8ZW58MHx8fHwxNzU5NDYzMjcxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/result/800/600",
       "imageHint": "immediate result"
     },
     {
       "id": "gallery-1",
       "description": "Woman after a facial procedure, showing lifted skin.",
-      "imageUrl": "https://images.unsplash.com/photo-1530035415911-95194de4ebcc?q=80&w=800&auto=format&fit=crop",
+      "imageUrl": "https://picsum.photos/seed/gallery1/400/600",
       "imageHint": "woman portrait"
     },
     {
       "id": "gallery-2",
       "description": "Woman with a defined jawline after a procedure.",
-      "imageUrl": "https://images.unsplash.com/photo-1487180144351-b8472da7d491?q=80&w=800&auto=format&fit=crop",
+      "imageUrl": "https://picsum.photos/seed/gallery2/400/600",
       "imageHint": "woman jawline"
     },
     {
       "id": "gallery-3",
       "description": "Close up of a woman's face showing smooth skin.",
-      "imageUrl": "https://images.unsplash.com/photo-1586996292898-71f4036c4e07?q=80&w=800&auto=format&fit=crop",
+      "imageUrl": "https://picsum.photos/seed/gallery3/400/600",
       "imageHint": "smooth skin"
     },
     {
       "id": "gallery-4",
       "description": "Profile of a woman with a youthful appearance.",
-      "imageUrl": "https://images.unsplash.com/photo-1522775417749-29284fb89f43?q=80&w=800&auto=format&fit=crop",
+      "imageUrl": "https://picsum.photos/seed/gallery4/400/600",
       "imageHint": "woman profile"
     },
     {
       "id": "speakers-left",
       "description": "A confident woman with a strong profile.",
-      "imageUrl": "https://images.unsplash.com/photo-1557053910-d9eadeed1c58?q=80&w=800&auto=format&fit=crop",
+      "imageUrl": "https://picsum.photos/seed/speakerleft/800/1200",
       "imageHint": "woman profile"
     },
     {
       "id": "speakers-right",
       "description": "Abstract pink and purple light trails.",
-      "imageUrl": "https://images.unsplash.com/photo-1531366936337-7c912a4589a7?q=80&w=800&auto=format&fit=crop",
+      "imageUrl": "https://picsum.photos/seed/abstract/800/1200",
       "imageHint": "abstract light"
     },
     {
       "id": "speaker-bareno",
       "description": "Portrait of Dr. Jhon Bareño",
-      "imageUrl": "https://images.unsplash.com/photo-1522556189639-b150ed9c4330?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxtYW4lMjBwb3J0cmFpdHxlbnwwfHx8fDE3NTk1ODAxMjN8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/bareno/400/400",
       "imageHint": "man portrait"
     },
     {
       "id": "speaker-mercy",
       "description": "Portrait of Dra. Mercy",
-      "imageUrl": "https://images.unsplash.com/photo-1593351799227-75df2026356b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHx3b21hbiUyMHBvcnRyYWl0fGVufDB8fHx8MTc1OTUyMDY3NXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/mercy/400/400",
       "imageHint": "woman portrait"
     },
     {
       "id": "speaker-tellez",
       "description": "Portrait of Dr. Carlos Tellez",
-      "imageUrl": "https://images.unsplash.com/photo-1607031542107-f6f46b5d54e9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxtYW4lMjBwb3J0cmFpdHxlbnwwfHx8fDE3NTk1ODAxMjN8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/tellez/400/400",
       "imageHint": "man portrait"
     },
     {
       "id": "speaker-castro",
       "description": "Portrait of Dr. Felipe Castro",
-      "imageUrl": "https://images.unsplash.com/photo-1636377985931-898218afd306?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxtYW4lMjBwb3J0cmFpdHxlbnwwfHx8fDE3NTk1ODAxMjN8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/castro/400/400",
       "imageHint": "man portrait"
     },
     {
       "id": "speaker-carvajal",
       "description": "Portrait of Dr. Alfonso Carvajal",
-      "imageUrl": "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxtYW4lMjBwb3J0cmFpdHxlbnwwfHx8fDE3NTk1ODAxMjN8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/carvajal/400/400",
       "imageHint": "man portrait"
     },
     {
       "id": "speaker-jaimes",
       "description": "Portrait of Dra. Monica Jaimes",
-      "imageUrl": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8d29tYW4lMjBwb3J0cmFpdHxlbnwwfHx8fDE3NTk1MjA2NzV8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/jaimes/400/400",
       "imageHint": "woman portrait"
     },
     {
       "id": "speaker-clavijo",
       "description": "Portrait of Dra. Liz Clavijo",
-      "imageUrl": "https://images.unsplash.com/photo-1580489944761-15a19d654956?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHx3b21hbiUyMHBvcnRyYWl0fGVufDB8fHx8MTc1OTUyMDY3NXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/clavijo/400/400",
       "imageHint": "woman portrait"
     },
     {
       "id": "speaker-rincon",
       "description": "Portrait of Dra. Lina Rincon",
-      "imageUrl": "https://images.unsplash.com/photo-1614283233556-f35b0c801ef1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHx3b21hbiUyMHBvcnRyYWl0fGVufDB8fHx8MTc1OTUyMDY3NXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/rincon/400/400",
       "imageHint": "woman portrait"
     },
     {
       "id": "speaker-chaves",
       "description": "Portrait of Dra. Karen Chaves",
-      "imageUrl": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8d29tYW4lMjBwb3J0cmFpdHxlbnwwfHx8fDE3NTk1MjA2NzV8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/chaves/400/400",
       "imageHint": "woman portrait"
     },
     {
       "id": "speaker-quevedo",
       "description": "Portrait of Dra. Karen Quevedo",
-      "imageUrl": "https://images.unsplash.com/photo-1580489944761-15a19d654956?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHx3b21hbiUyMHBvcnRyYWl0fGVufDB8fHx8MTc1OTUyMDY3NXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/quevedo/400/400",
       "imageHint": "woman portrait"
     },
     {
       "id": "speaker-pachon",
       "description": "Portrait of Dr. Alirio Pachon",
-      "imageUrl": "https://images.unsplash.com/photo-1522556189639-b150ed9c4330?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxtYW4lMjBwb3J0cmFpdHxlbnwwfHx8fDE3NTk1ODAxMjN8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/pachon/400/400",
       "imageHint": "man portrait"
     },
     {
       "id": "speaker-escobar",
       "description": "Portrait of Dra. Virginia Escobar",
-      "imageUrl": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8d29tYW4lMjBwb3J0cmFpdHxlbnwwfHx8fDE3NTk1MjA2NzV8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/escobar/400/400",
       "imageHint": "woman portrait"
     },
     {
       "id": "speaker-garcia",
       "description": "Portrait of Dra. Claudia Garcia",
-      "imageUrl": "https://images.unsplash.com/photo-1609505848912-b7c3b8b4beda?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHx3b21hbiUyMHBvcnRyYWl0fGVufDB8fHx8MTc1OTUyMDY3NXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/garcia/400/400",
       "imageHint": "woman portrait"
     },
     {
       "id": "speaker-contreras",
       "description": "Portrait of Dra. Candelaria Contreras",
-      "imageUrl": "https://images.unsplash.com/photo-1614283233556-f35b0c801ef1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHx3b21hbiUyMHBvcnRyYWl0fGVufDB8fHx8MTc1OTUyMDY3NXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/contreras/400/400",
       "imageHint": "woman portrait"
     }
   ]
