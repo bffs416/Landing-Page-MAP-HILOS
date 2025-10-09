@@ -216,7 +216,17 @@ export default function Home() {
     {
       icon: Milestone,
       title: 'Decisión Clínica: Plan B Estratégico',
-      description: 'Si el ICL-MINT® sugiere que el paciente no es el candidato ideal, ¡no es un \'no\', es un \'todavía no\'! Este es el momento de brillar como estratega. Diseña un plan de preparación con bioestimuladores, tecnologías basadas en energía o enzimas para optimizar la piel y el tejido. Esto no solo gestiona las expectativas, sino que construye una relación de confianza y asegura el éxito futuro del tratamiento con hilos MINT®.',
+      description: (
+        <span>
+          Si el ICL-MINT® sugiere que el paciente no es el candidato ideal,{' '}
+          <strong>¡no es un 'no', es un 'todavía no'!</strong> Este es el momento
+          de <strong>brillar como estratega</strong>. Diseña un plan de
+          preparación con bioestimuladores, tecnologías basadas en energía o
+          enzimas para optimizar la piel y el tejido. Esto no solo gestiona las
+          expectativas, sino que <strong>construye una relación de confianza y
+          asegura el éxito futuro</strong> del tratamiento con hilos MINT®.
+        </span>
+      ),
     },
     {
       icon: Award,
