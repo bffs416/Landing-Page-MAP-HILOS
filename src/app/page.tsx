@@ -25,6 +25,13 @@ import InteractiveGrid from '@/components/interactive-grid';
 import AnimatedGallery from '@/components/animated-gallery';
 import SplitScreenSpeakers from '@/components/split-screen-speakers';
 import { Separator } from '@/components/ui/separator';
+import VectorLiftContent from '@/components/vector-lift-content';
+import ApexLiftContent from '@/components/apex-lift-content';
+import RhinoStructureContent from '@/components/rhino-structure-content';
+import ContourNeckContent from '@/components/contour-neck-content';
+import CoreDefineContent from '@/components/core-define-content';
+import ArmContourContent from '@/components/arm-contour-content';
+import GluteCurveContent from '@/components/glute-curve-content';
 
 const AnimatedTitle = ({ text }: { text: string }) => {
   return (
@@ -71,7 +78,7 @@ const ProtocolsSection = () => {
                   <h3 className="font-headline text-3xl font-bold mb-8 text-center animate-in fade-in slide-in-from-bottom-5 duration-700" style={{ animationDelay: '300ms' }}>
                       Arquitectura Facial
                   </h3>
-                   <Tabs 
+                   <Tabs
                         value={activeFacialTab}
                         onValueChange={handleFacialTabChange}
                         className="w-full"
@@ -106,7 +113,7 @@ const ProtocolsSection = () => {
                   <h3 className="font-headline text-3xl font-bold mb-8 text-center animate-in fade-in slide-in-from-bottom-5 duration-700" style={{ animationDelay: '400ms' }}>
                       Arquitectura Corporal
                   </h3>
-                    <Tabs 
+                    <Tabs
                         value={activeCorporalTab}
                         onValueChange={handleCorporalTabChange}
                         className="w-full"
@@ -253,9 +260,9 @@ export default function Home() {
                                 <CardTitle className="font-headline text-lg">{item.title}</CardTitle>
                             </CardHeader>
                             <CardContent>
-                                <p className="text-muted-foreground text-sm">{item.description}</p>
+                                <p className="text-muted-foreground text-base">{item.description}</p>
                                 {index === activeJourneyStep && item.buttonText && (
-                                <Button 
+                                <Button
                                     className="mt-4"
                                     onClick={() => setActiveJourneyStep(step => step + 1)}
                                 >
@@ -300,14 +307,14 @@ export default function Home() {
                           </div>
                         </div>
                       )}
-                      
+
                       {/* Conditionally render ICL Calculator */}
                       {index === 2 && activeJourneyStep >= 2 && (
                         <div className="animate-in fade-in slide-in-from-bottom-5 duration-500">
                           <ICLCalculator />
                         </div>
                       )}
-                      
+
                       {/* Conditionally render Protocols Section */}
                       {index === 3 && activeJourneyStep >= 3 && (
                         <div className="animate-in fade-in slide-in-from-bottom-5 duration-500">
@@ -371,12 +378,12 @@ export default function Home() {
             </div>
           </div>
         </section>
-        
+
         {/* Speakers Section */}
         <section id="speakers" className="relative bg-background overflow-hidden">
           <SplitScreenSpeakers />
         </section>
-        
+
         {/* Gallery Section */}
         <section id="gallery" className="py-24 bg-card overflow-hidden">
           <div className="max-w-screen-xl 2xl:max-w-screen-3xl px-8 md:px-12 mx-auto">
@@ -417,5 +424,3 @@ export default function Home() {
     </div>
   );
 }
-
-
