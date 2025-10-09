@@ -131,7 +131,7 @@ export default function TriviaPage() {
   if (showResult && effectiveLevelData) {
     const { message, icon } = getResultMessage();
     return (
-      <div className="min-h-screen bg-background flex items-center justify-center p-4">
+      <div className="min-h-screen flex items-center justify-center p-4">
         <Card className="w-full max-w-3xl text-center shadow-2xl">
           <CardHeader>
             <CardTitle className="text-3xl font-headline">Resultado del Nivel: {effectiveLevelData.title}</CardTitle>
@@ -270,7 +270,7 @@ export default function TriviaPage() {
 
   if (!currentLevel || !levelData) {
     return (
-      <div className="min-h-screen bg-background flex flex-col items-center justify-center p-4">
+      <div className="min-h-screen flex flex-col items-center justify-center p-4">
         <Card className="w-full max-w-lg text-center shadow-2xl">
           <CardHeader>
             <CardTitle className="text-4xl font-headline">Trivia de Hilos Tensores PDO</CardTitle>
@@ -297,7 +297,7 @@ export default function TriviaPage() {
   }
 
   return (
-    <div className="min-h-screen bg-background flex items-center justify-center p-4">
+    <div className="min-h-screen flex items-center justify-center p-4">
       <Card className="w-full max-w-3xl shadow-2xl">
         <CardHeader>
           <CardTitle className="text-2xl font-headline text-center mb-4">
