@@ -87,8 +87,8 @@ export default function TriviaPage() {
   const [showCertificateForm, setShowCertificateForm] = useState(false);
   const [showArticleSubmission, setShowArticleSubmission] = useState(false);
   const [certificateData, setCertificateData] = useState<{fullName: string, nameOnly: string, level: string} | null>(null);
+  const [legendaryPreSubmissionData, setLegendaryPreSubmissionData] = useState<Partial<CertificateFormData> | null>(null);
   const [questions, setQuestions] = useState<Question[]>([]);
-  const [isTestMode, setIsTestMode] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const levelData = currentLevel ? triviaLevels[currentLevel] : null;
@@ -106,25 +106,31 @@ export default function TriviaPage() {
   });
 
   const handleSelectLevel = (levelId: LevelId) => {
+    if (levelId === 'legendary' && !legendaryPreSubmissionData) {
+        setShowArticleSubmission(true);
+        return;
+    }
     setCurrentLevel(levelId);
     setQuestions(shuffleArray(triviaLevels[levelId].questions));
     setCurrentQuestionIndex(0);
     setUserAnswers({});
     setShowResult(false);
     setShowCertificateForm(false);
-    setShowArticleSubmission(false);
     setCertificateData(null);
   };
   
-  const handleTestCertificate = () => {
-    // Simulate completing the legendary level to get to the form
-    setCurrentLevel('legendary');
-    setShowResult(true);
-    // Directly to the article submission form for testing
-    setShowArticleSubmission(true);
-    setIsTestMode(true);
+  const handleLegendaryPreSubmit = (data: CertificateFormData) => {
+    setLegendaryPreSubmissionData(data);
+    setShowArticleSubmission(false);
+    handleSelectLevel('legendary');
   };
 
+  const handleBackToLevelSelect = () => {
+    setCurrentLevel(null);
+    setQuestions([]);
+    setShowArticleSubmission(false);
+    setLegendaryPreSubmissionData(null);
+  }
 
   const handleAnswerChange = (questionIndex: number, answer: string) => {
     setUserAnswers(prev => ({ ...prev, [questionIndex]: answer }));
@@ -139,7 +145,6 @@ export default function TriviaPage() {
   };
   
   const calculateScore = () => {
-    if (isTestMode) return { correctCount: 1, total: 1, percentage: 100 };
     if (!levelData) return { correctCount: 0, total: 0, percentage: 0 };
     const correctCount = questions.reduce((acc, question, index) => {
       return userAnswers[index] === question.correctAnswer ? acc + 1 : acc;
@@ -161,29 +166,30 @@ export default function TriviaPage() {
 
   const onSubmit = async (data: CertificateFormData) => {
     setIsSubmitting(true);
-    const levelTitle = isTestMode ? triviaLevels.legendary.title : levelData!.title;
-    const fullPhoneNumber = `${data.countryCode}${data.phone}`;
+    const finalData = currentLevel === 'legendary' ? { ...legendaryPreSubmissionData, ...data } : data;
+    const levelTitle = levelData!.title;
+    const fullPhoneNumber = `${finalData.countryCode}${finalData.phone}`;
 
     try {
         const { error } = await supabase
             .from('certificates')
             .insert({ 
-                name: data.name, 
+                name: finalData.name, 
                 phone: fullPhoneNumber,
-                city: data.city,
+                city: finalData.city,
                 level: levelTitle,
                 score: percentage,
-                articles: data.articles, // Save articles
+                articles: finalData.articles,
             });
 
         if (error) {
             throw error;
         }
 
-        console.log("Form submitted successfully to Supabase:", data);
-        const title = data.gender === 'male' ? 'Dr.' : 'Dra.';
-        const fullName = `${title} ${data.name}`;
-        setCertificateData({ fullName: fullName, nameOnly: data.name, level: levelTitle });
+        console.log("Form submitted successfully to Supabase:", finalData);
+        const title = finalData.gender === 'male' ? 'Dr.' : 'Dra.';
+        const fullName = `${title} ${finalData.name}`;
+        setCertificateData({ fullName: fullName, nameOnly: finalData.name!, level: levelTitle });
 
     } catch (error) {
         console.error("Error submitting to Supabase:", error);
@@ -201,18 +207,16 @@ export default function TriviaPage() {
     return <Certificate fullName={certificateData.fullName} nameOnly={certificateData.nameOnly} level={certificateData.level} />;
   }
 
-  const effectiveLevelData = isTestMode ? triviaLevels.legendary : levelData;
-
-  if (showResult && effectiveLevelData) {
+  if (showResult && levelData) {
     const { message, icon } = getResultMessage();
     return (
       <div className="min-h-screen flex items-center justify-center p-4">
         <Card className="w-full max-w-3xl text-center shadow-2xl">
           <CardHeader>
-            <CardTitle className="text-3xl font-headline">Resultado del Nivel: {effectiveLevelData.title}</CardTitle>
+            <CardTitle className="text-3xl font-headline">Resultado del Nivel: {levelData.title}</CardTitle>
           </CardHeader>
           <CardContent className="space-y-6">
-            {!showArticleSubmission && !showCertificateForm ? (
+            {!showCertificateForm ? (
               <>
                 <div className="flex justify-center">{icon}</div>
                 <p className="text-xl font-semibold">{message}</p>
@@ -244,156 +248,128 @@ export default function TriviaPage() {
 
                 <div className="flex gap-4 justify-center">
                   <Button onClick={() => handleSelectLevel(currentLevel!)}>Intentar de Nuevo</Button>
-                  <Button variant="outline" onClick={() => { setCurrentLevel(null); setQuestions([]); }}>Elegir otro Nivel</Button>
-                   {hasPassed && currentLevel !== 'legendary' && (
+                  <Button variant="outline" onClick={handleBackToLevelSelect}>Elegir otro Nivel</Button>
+                   {hasPassed && (
                     <Button onClick={() => setShowCertificateForm(true)}>
                       Generar Certificado <ChevronsRight className="ml-2 h-4 w-4" />
                     </Button>
                   )}
-                  {hasPassed && currentLevel === 'legendary' && (
-                    <Button onClick={() => setShowArticleSubmission(true)}>
-                      Continuar a la Certificación <ChevronsRight className="ml-2 h-4 w-4" />
-                    </Button>
-                  )}
                 </div>
               </>
-            ) : showArticleSubmission ? (
-                <>
-                  <CardTitle className="text-2xl font-headline">Certificación de Experto Legendario</CardTitle>
-                  <CardDescription>Para obtener tu certificado, por favor, adjunta enlaces o resúmenes de artículos relevantes que respalden tu experiencia.</CardDescription>
-                  <Form {...form}>
-                    <form onSubmit={() => {setShowArticleSubmission(false); setShowCertificateForm(true);}} className="space-y-4 text-left">
-                       <FormField
-                        control={form.control}
-                        name="articles"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel>Artículos o Evidencia</FormLabel>
-                            <FormControl>
-                              <Textarea
-                                placeholder="Pega aquí los enlaces a tus artículos, publicaciones o un resumen de tu experiencia..."
-                                className="resize-y min-h-[150px]"
-                                {...field}
-                              />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-                      <div className="flex justify-end gap-2">
-                          <Button type="button" variant="ghost" onClick={() => {setShowArticleSubmission(false); setIsTestMode(false);}} disabled={isSubmitting}>
-                              Volver
-                          </Button>
-                          <Button type="submit" disabled={isSubmitting}>
-                            Enviar y Continuar
-                          </Button>
-                      </div>
-                    </form>
-                  </Form>
-                </>
             ) : ( // showCertificateForm
                <>
                 <CardTitle className="text-2xl font-headline">Datos para el Certificado</CardTitle>
                 <CardDescription>Completa el formulario para generar tu certificado de participación.</CardDescription>
                 <Form {...form}>
                   <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 text-left">
-                     <FormField
-                      control={form.control}
-                      name="gender"
-                      render={({ field }) => (
-                        <FormItem className="space-y-3">
-                          <FormLabel>Título Profesional</FormLabel>
-                          <FormControl>
-                            <RadioGroup
-                              onValueChange={field.onChange}
-                              defaultValue={field.value}
-                              className="flex flex-col space-y-1"
-                            >
-                              <FormItem className="flex items-center space-x-3 space-y-0">
-                                <FormControl>
-                                  <RadioGroupItem value="female" />
-                                </FormControl>
-                                <FormLabel className="font-normal">
-                                  Dra. (Femenino)
-                                </FormLabel>
-                              </FormItem>
-                              <FormItem className="flex items-center space-x-3 space-y-0">
-                                <FormControl>
-                                  <RadioGroupItem value="male" />
-                                </FormControl>
-                                <FormLabel className="font-normal">
-                                  Dr. (Masculino)
-                                </FormLabel>
-                              </FormItem>
-                            </RadioGroup>
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                     <FormField
-                      control={form.control}
-                      name="name"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Nombre Completo</FormLabel>
-                          <FormControl>
-                            <Input placeholder="Nombre Apellido" {...field} />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                    <FormItem>
-                      <FormLabel>Teléfono</FormLabel>
-                      <div className="flex gap-2">
-                        <FormField
+                     {currentLevel !== 'legendary' && (
+                        <>
+                         <FormField
                           control={form.control}
-                          name="countryCode"
+                          name="gender"
                           render={({ field }) => (
-                            <Select onValueChange={field.onChange} defaultValue={field.value}>
+                            <FormItem className="space-y-3">
+                              <FormLabel>Título Profesional</FormLabel>
                               <FormControl>
-                                <SelectTrigger className="w-[120px]">
-                                  <SelectValue placeholder="Prefijo" />
-                                </SelectTrigger>
+                                <RadioGroup
+                                  onValueChange={field.onChange}
+                                  defaultValue={field.value}
+                                  className="flex flex-col space-y-1"
+                                >
+                                  <FormItem className="flex items-center space-x-3 space-y-0">
+                                    <FormControl>
+                                      <RadioGroupItem value="female" />
+                                    </FormControl>
+                                    <FormLabel className="font-normal">
+                                      Dra. (Femenino)
+                                    </FormLabel>
+                                  </FormItem>
+                                  <FormItem className="flex items-center space-x-3 space-y-0">
+                                    <FormControl>
+                                      <RadioGroupItem value="male" />
+                                    </FormControl>
+                                    <FormLabel className="font-normal">
+                                      Dr. (Masculino)
+                                    </FormLabel>
+                                  </FormItem>
+                                </RadioGroup>
                               </FormControl>
-                              <SelectContent>
-                                {countryCodes.map(c => (
-                                  <SelectItem key={c.code} value={c.code}>
-                                    {c.name} ({c.code})
-                                  </SelectItem>
-                                ))}
-                              </SelectContent>
-                            </Select>
+                              <FormMessage />
+                            </FormItem>
                           )}
                         />
-                        <FormField
+                         <FormField
                           control={form.control}
-                          name="phone"
+                          name="name"
                           render={({ field }) => (
-                            <FormControl>
-                              <Input type="tel" placeholder="Tu número" {...field} />
-                            </FormControl>
+                            <FormItem>
+                              <FormLabel>Nombre Completo</FormLabel>
+                              <FormControl>
+                                <Input placeholder="Nombre Apellido" {...field} />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
                           )}
                         />
-                      </div>
-                      <FormMessage>{form.formState.errors.phone?.message}</FormMessage>
-                    </FormItem>
-                     <FormField
-                      control={form.control}
-                      name="city"
-                      render={({ field }) => (
                         <FormItem>
-                          <FormLabel>Ciudad</FormLabel>
-                          <FormControl>
-                            <Input placeholder="Ciudad de residencia" {...field} />
-                          </FormControl>
-                          <FormMessage />
+                          <FormLabel>Teléfono</FormLabel>
+                          <div className="flex gap-2">
+                            <FormField
+                              control={form.control}
+                              name="countryCode"
+                              render={({ field }) => (
+                                <Select onValueChange={field.onChange} defaultValue={field.value}>
+                                  <FormControl>
+                                    <SelectTrigger className="w-[120px]">
+                                      <SelectValue placeholder="Prefijo" />
+                                    </SelectTrigger>
+                                  </FormControl>
+                                  <SelectContent>
+                                    {countryCodes.map(c => (
+                                      <SelectItem key={c.code} value={c.code}>
+                                        {c.name} ({c.code})
+                                      </SelectItem>
+                                    ))}
+                                  </SelectContent>
+                                </Select>
+                              )}
+                            />
+                            <FormField
+                              control={form.control}
+                              name="phone"
+                              render={({ field }) => (
+                                <FormControl>
+                                  <Input type="tel" placeholder="Tu número" {...field} />
+                                </FormControl>
+                              )}
+                            />
+                          </div>
+                          <FormMessage>{form.formState.errors.phone?.message}</FormMessage>
                         </FormItem>
-                      )}
-                    />
+                         <FormField
+                          control={form.control}
+                          name="city"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel>Ciudad</FormLabel>
+                              <FormControl>
+                                <Input placeholder="Ciudad de residencia" {...field} />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+                        </>
+                     )}
+                     {currentLevel === 'legendary' && (
+                        <div className='text-center p-4 border rounded-md bg-muted/50'>
+                            <p>Se usarán los datos que proporcionaste para iniciar la trivia.</p>
+                            <p className='font-bold'>{legendaryPreSubmissionData?.name}</p>
+                        </div>
+                     )}
+
                     <div className="flex justify-end gap-2">
-                        <Button type="button" variant="ghost" onClick={() => {setShowCertificateForm(false); setIsTestMode(false); if (!isTestMode) {setShowResult(true)} else {setShowResult(false); setCurrentLevel(null)}}} disabled={isSubmitting}>
+                        <Button type="button" variant="ghost" onClick={() => setShowCertificateForm(false)} disabled={isSubmitting}>
                             Volver
                         </Button>
                         <Button type="submit" disabled={isSubmitting}>
@@ -408,6 +384,119 @@ export default function TriviaPage() {
           </CardContent>
         </Card>
       </div>
+    );
+  }
+
+  if (showArticleSubmission) {
+    return (
+         <div className="min-h-screen flex items-center justify-center p-4">
+            <Card className="w-full max-w-3xl text-center shadow-2xl">
+                <CardHeader>
+                    <CardTitle className="text-2xl font-headline">Certificación de Experto Legendario</CardTitle>
+                    <CardDescription>Para acceder a la trivia de este nivel, por favor, completa tus datos y adjunta enlaces o resúmenes de artículos relevantes que respalden tu experiencia.</CardDescription>
+                </CardHeader>
+                <CardContent>
+                    <Form {...form}>
+                        <form onSubmit={form.handleSubmit(handleLegendaryPreSubmit)} className="space-y-4 text-left">
+                            <FormField
+                                control={form.control}
+                                name="gender"
+                                render={({ field }) => (
+                                <FormItem className="space-y-3">
+                                    <FormLabel>Título Profesional</FormLabel>
+                                    <FormControl>
+                                    <RadioGroup onValueChange={field.onChange} defaultValue={field.value} className="flex flex-col space-y-1">
+                                        <FormItem className="flex items-center space-x-3 space-y-0">
+                                        <FormControl><RadioGroupItem value="female" /></FormControl>
+                                        <FormLabel className="font-normal">Dra. (Femenino)</FormLabel>
+                                        </FormItem>
+                                        <FormItem className="flex items-center space-x-3 space-y-0">
+                                        <FormControl><RadioGroupItem value="male" /></FormControl>
+                                        <FormLabel className="font-normal">Dr. (Masculino)</FormLabel>
+                                        </FormItem>
+                                    </RadioGroup>
+                                    </FormControl>
+                                    <FormMessage />
+                                </FormItem>
+                                )}
+                            />
+                            <FormField
+                                control={form.control}
+                                name="name"
+                                render={({ field }) => (
+                                <FormItem>
+                                    <FormLabel>Nombre Completo</FormLabel>
+                                    <FormControl><Input placeholder="Nombre Apellido" {...field} /></FormControl>
+                                    <FormMessage />
+                                </FormItem>
+                                )}
+                            />
+                            <FormItem>
+                                <FormLabel>Teléfono</FormLabel>
+                                <div className="flex gap-2">
+                                <FormField
+                                    control={form.control}
+                                    name="countryCode"
+                                    render={({ field }) => (
+                                    <Select onValueChange={field.onChange} defaultValue={field.value}>
+                                        <FormControl>
+                                        <SelectTrigger className="w-[120px]"><SelectValue placeholder="Prefijo" /></SelectTrigger>
+                                        </FormControl>
+                                        <SelectContent>
+                                        {countryCodes.map(c => (<SelectItem key={c.code} value={c.code}>{c.name} ({c.code})</SelectItem>))}
+                                        </SelectContent>
+                                    </Select>
+                                    )}
+                                />
+                                <FormField
+                                    control={form.control}
+                                    name="phone"
+                                    render={({ field }) => (<FormControl><Input type="tel" placeholder="Tu número" {...field} /></FormControl>)}
+                                />
+                                </div>
+                                <FormMessage>{form.formState.errors.phone?.message}</FormMessage>
+                            </FormItem>
+                            <FormField
+                                control={form.control}
+                                name="city"
+                                render={({ field }) => (
+                                <FormItem>
+                                    <FormLabel>Ciudad</FormLabel>
+                                    <FormControl><Input placeholder="Ciudad de residencia" {...field} /></FormControl>
+                                    <FormMessage />
+                                </FormItem>
+                                )}
+                            />
+                            <FormField
+                                control={form.control}
+                                name="articles"
+                                render={({ field }) => (
+                                    <FormItem>
+                                        <FormLabel>Artículos o Evidencia</FormLabel>
+                                        <FormControl>
+                                            <Textarea
+                                                placeholder="Pega aquí los enlaces a tus artículos, publicaciones o un resumen de tu experiencia..."
+                                                className="resize-y min-h-[150px]"
+                                                {...field}
+                                            />
+                                        </FormControl>
+                                        <FormMessage />
+                                    </FormItem>
+                                )}
+                            />
+                            <div className="flex justify-end gap-2">
+                                <Button type="button" variant="ghost" onClick={handleBackToLevelSelect}>
+                                    Volver
+                                </Button>
+                                <Button type="submit">
+                                    Enviar y Comenzar Trivia
+                                </Button>
+                            </div>
+                        </form>
+                    </Form>
+                </CardContent>
+            </Card>
+        </div>
     );
   }
 
@@ -430,11 +519,6 @@ export default function TriviaPage() {
             </Button>
           </CardContent>
         </Card>
-        <div className="mt-4">
-            <Button variant="link" onClick={handleTestCertificate}>
-              Generar Certificado de Prueba (Admin)
-            </Button>
-        </div>
       </div>
     );
   }
@@ -480,4 +564,3 @@ export default function TriviaPage() {
     </div>
   );
 }
-
