@@ -31,7 +31,6 @@ import ContourNeckContent from '@/components/contour-neck-content';
 import CoreDefineContent from '@/components/core-define-content';
 import ArmContourContent from '@/components/arm-contour-content';
 import GluteCurveContent from '@/components/glute-curve-content';
-import creatorImage from '../../public/creator.png';
 
 const InteractiveArc = dynamic(() => import('@/components/interactive-arc'), {
   ssr: false,
@@ -393,7 +392,7 @@ export default function Home() {
               <div className="relative aspect-square max-w-md mx-auto flex items-center justify-center">
                 <InteractiveArc />
                 <Image
-                  src={creatorImage}
+                  src="/creator.png"
                   alt="Felipe Franco"
                   width={320}
                   height={320}
@@ -485,5 +484,3 @@ export default function Home() {
     </div>
   );
 }
-
-    
