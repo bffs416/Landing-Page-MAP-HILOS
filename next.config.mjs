@@ -1,3 +1,4 @@
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
@@ -8,7 +9,13 @@ const nextConfig = {
         port: '',
         pathname: '/**',
       },
-       {
+      {
+        protocol: 'https',
+        hostname: 'images.unsplash.com',
+        port: '',
+        pathname: '/**',
+      },
+      {
         protocol: 'https',
         hostname: 'picsum.photos',
         port: '',
@@ -16,10 +23,10 @@ const nextConfig = {
       },
       {
         protocol: 'https',
-        hostname: 'images.unsplash.com',
+        hostname: 'placehold.co',
         port: '',
         pathname: '/**',
-      },
+      }
     ],
   },
 };
