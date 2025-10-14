@@ -392,7 +392,7 @@ export default function Home() {
               <div className="relative aspect-square max-w-md mx-auto flex items-center justify-center">
                 <InteractiveArc />
                 <Image
-                  src="/joven_relajado_sonriente.png"
+                  src="/Felipe.png"
                   alt="Felipe Franco"
                   width={320}
                   height={320}
@@ -483,3 +483,5 @@ export default function Home() {
       </main>
     </div>
   );
+
+    
