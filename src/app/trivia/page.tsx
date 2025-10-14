@@ -8,7 +8,7 @@ import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
 import { Progress } from '@/components/ui/progress';
-import { CheckCircle, XCircle, Award, ChevronsRight, Info, Loader2, BookCopy } from 'lucide-react';
+import { CheckCircle, XCircle, Award, ChevronsRight, Info, Loader2, BookCopy, MessageSquare } from 'lucide-react';
 import { triviaLevels, type Question } from '@/lib/trivia-questions';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
@@ -55,7 +55,6 @@ const certificateSchema = z.object({
   countryCode: z.string({ required_error: "Selecciona un prefijo." }),
   phone: z.string().min(7, { message: "Ingresa un número de teléfono válido." }),
   city: z.string().min(3, { message: "La ciudad debe tener al menos 3 caracteres." }),
-  articles: z.string().optional(),
 });
 
 type CertificateFormData = z.infer<typeof certificateSchema>;
@@ -101,7 +100,6 @@ export default function TriviaPage() {
       phone: "",
       city: "",
       countryCode: "+57",
-      articles: "",
     },
   });
 
@@ -180,7 +178,6 @@ export default function TriviaPage() {
                 city: finalData.city,
                 level: levelTitle,
                 score: percentage,
-                articles: finalData.articles,
             });
 
         if (error) {
@@ -389,12 +386,15 @@ export default function TriviaPage() {
   }
 
   if (showArticleSubmission) {
+    const whatsappLink = `https://wa.me/3004570442?text=${encodeURIComponent("Hola Felipe, me gustaría solicitar los artículos para la trivia de Experto Legendario.")}`;
     return (
          <div className="min-h-screen flex items-center justify-center p-4">
             <Card className="w-full max-w-3xl text-center shadow-2xl">
                 <CardHeader>
                     <CardTitle className="text-2xl font-headline">Certificación de Experto Legendario</CardTitle>
-                    <CardDescription>Para acceder a la trivia de este nivel, por favor, completa tus datos y adjunta enlaces o resúmenes de artículos relevantes que respalden tu experiencia.</CardDescription>
+                    <CardDescription>
+                      Para realizar esta trivia, necesitarás el material de estudio basado en artículos científicos. Por favor, solicítalos directamente al Director de Producto, Felipe Franco.
+                    </CardDescription>
                 </CardHeader>
                 <CardContent>
                     <Form {...form}>
@@ -468,30 +468,23 @@ export default function TriviaPage() {
                                 </FormItem>
                                 )}
                             />
-                            <FormField
-                                control={form.control}
-                                name="articles"
-                                render={({ field }) => (
-                                    <FormItem>
-                                        <FormLabel>Artículos o Evidencia</FormLabel>
-                                        <FormControl>
-                                            <Textarea
-                                                placeholder="Pega aquí los enlaces a tus artículos, publicaciones o un resumen de tu experiencia..."
-                                                className="resize-y min-h-[150px]"
-                                                {...field}
-                                            />
-                                        </FormControl>
-                                        <FormMessage />
-                                    </FormItem>
-                                )}
-                            />
-                            <div className="flex justify-end gap-2">
-                                <Button type="button" variant="ghost" onClick={handleBackToLevelSelect}>
-                                    Volver
-                                </Button>
-                                <Button type="submit">
-                                    Enviar y Comenzar Trivia
-                                </Button>
+                            
+                            <div className="!mt-6 space-y-4">
+                              <Button asChild className="w-full bg-green-500 hover:bg-green-600 text-white">
+                                <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
+                                  <MessageSquare className="mr-2 h-4 w-4" />
+                                  Solicitar Artículos por WhatsApp
+                                </a>
+                              </Button>
+
+                              <div className="flex justify-end gap-2">
+                                  <Button type="button" variant="ghost" onClick={handleBackToLevelSelect}>
+                                      Volver
+                                  </Button>
+                                  <Button type="submit">
+                                      Enviar Datos y Comenzar Trivia
+                                  </Button>
+                              </div>
                             </div>
                         </form>
                     </Form>
