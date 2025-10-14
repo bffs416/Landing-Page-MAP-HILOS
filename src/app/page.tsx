@@ -247,7 +247,7 @@ export default function Home() {
             <Logo />
             <div className="flex items-center gap-2">
               <Button asChild variant="ghost" className="text-white hover:bg-white/10 hover:text-white">
-                <Link href="/trivia">Trivia PDO</Link>
+                <Link href="/trivia">RETO DE FELIPE, ¿te atreves?</Link>
               </Button>
             </div>
           </div>
