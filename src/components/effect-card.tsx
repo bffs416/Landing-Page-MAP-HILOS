@@ -6,7 +6,7 @@ type EffectCardProps = {
   icon: ReactNode;
   title: string;
   description: string;
-  imageUrl: string; // Changed from StaticImageData
+  imageUrl: string; 
   imageHint: string;
 };
 
@@ -35,8 +35,9 @@ export function EffectCard({ icon, title, description, imageUrl, imageHint }: Ef
         <Image
           src={imageUrl}
           alt={title}
-          layout="fill"
-          objectFit="cover"
+          width={400}
+          height={400}
+          className="w-full h-full object-cover"
           data-ai-hint={imageHint}
         />
       </div>

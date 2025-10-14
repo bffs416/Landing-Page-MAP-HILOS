@@ -10,7 +10,7 @@ import GluteCurveContent from '@/components/glute-curve-content';
 type Step = {
     title: string;
     description: string;
-    imageUrl: string; // Changed from StaticImageData to string
+    imageUrl: string; 
     imageHint: string;
 }
 
@@ -455,13 +455,13 @@ export const gluteCurveSteps: Step[] = [
     },
 ];
 
-export const heroVideo = '/hero-background.mp4';
+export const heroVideo = '/Arquitectura-1..mp4';
 
 type Protocol = {
     name: string;
     description: string;
     contentComponent: React.ComponentType;
-    imageUrl: string; // Changed
+    imageUrl: string; 
     imageHint: string;
     steps: Step[];
 };
