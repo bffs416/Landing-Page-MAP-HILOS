@@ -133,11 +133,13 @@ const ApexLiftContent = () => {
                                             src={step.imageUrl}
                                             alt={step.title}
                                             fill
+                                            placeholder="blur"
                                             className="object-cover"
                                             data-ai-hint={step.imageHint}
                                         />
                                     </div>
                                     <p className="text-xs text-muted-foreground mt-2 text-center">{step.description}</p>
+
                                 </div>
                             </CarouselItem>
                         ))}

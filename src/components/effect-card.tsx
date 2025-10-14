@@ -1,12 +1,12 @@
 'use client';
 import { useRef, useEffect, type ReactNode } from 'react';
-import Image from 'next/image';
+import Image, { type StaticImageData } from 'next/image';
 
 type EffectCardProps = {
   icon: ReactNode;
   title: string;
   description: string;
-  imageUrl: string;
+  imageUrl: StaticImageData;
   imageHint: string;
 };
 
@@ -35,6 +35,7 @@ export function EffectCard({ icon, title, description, imageUrl, imageHint }: Ef
         <Image
           src={imageUrl}
           alt={title}
+          placeholder="blur"
           layout="fill"
           objectFit="cover"
           data-ai-hint={imageHint}

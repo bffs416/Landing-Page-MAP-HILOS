@@ -134,6 +134,7 @@ const CoreDefineContent = () => {
                                             src={step.imageUrl}
                                             alt={step.title}
                                             fill
+                                            placeholder="blur"
                                             className="object-cover"
                                             data-ai-hint={step.imageHint}
                                         />
