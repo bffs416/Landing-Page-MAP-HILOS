@@ -1,5 +1,3 @@
-
-
 import { PlaceHolderImages } from './placeholder-images';
 import VectorLiftContent from '@/components/vector-lift-content';
 import ApexLiftContent from '@/components/apex-lift-content';
@@ -9,7 +7,7 @@ import CoreDefineContent from '@/components/core-define-content';
 import ArmContourContent from '@/components/arm-contour-content';
 import GluteCurveContent from '@/components/glute-curve-content';
 
-const getImage = (id: string) => {
+export const getImage = (id: string) => {
   const image = PlaceHolderImages.find((img) => img.id === id);
   return image ? image.imageUrl : '/images/placeholder.jpg';
 };

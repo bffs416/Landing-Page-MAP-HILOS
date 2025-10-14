@@ -8,8 +8,9 @@ import {
   facialProtocols,
   corporalProtocols,
   mapPillars,
+  heroVideo,
+  getImage,
 } from '@/lib/assets';
-import { heroVideo } from '@/lib/assets';
 import ICLCalculator from '@/components/icl-calculator';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
@@ -388,7 +389,7 @@ export default function Home() {
                 <InteractiveGrid />
                 <div className="absolute inset-0 flex items-center justify-center p-8">
                    <Image
-                    src="/images/creator-felipe-franco.jpg"
+                    src={getImage('creator-felipe-franco')}
                     alt="Felipe Franco"
                     width={400}
                     height={400}
@@ -481,5 +482,3 @@ export default function Home() {
     </div>
   );
 }
-
-    
