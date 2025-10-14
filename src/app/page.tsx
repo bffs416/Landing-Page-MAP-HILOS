@@ -282,10 +282,10 @@ export default function Home() {
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-3xl mx-auto">
               <h2 className="font-headline text-4xl md:text-5xl font-bold animate-in fade-in slide-in-from-bottom-5 duration-700">
-                El Viaje del Maestro con MINT®
+                ¿Sabes cómo elegir al candidato perfecto para hilos tensores?
               </h2>
               <p className="mt-6 text-lg text-muted-foreground animate-in fade-in slide-in-from-bottom-5 duration-700" style={{ animationDelay: '200ms' }}>
-                Una metodología diseñada para potenciar la práctica clínica y elevar los resultados en medicina estética.
+                Descubre el método que transforma la duda en certeza y garantiza resultados excepcionales.
               </p>
             </div>
             <div className="relative mt-20 max-w-5xl mx-auto">
@@ -486,3 +486,5 @@ export default function Home() {
       </main>
     </div>
   );
+
+    
