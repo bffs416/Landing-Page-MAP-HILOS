@@ -3,157 +3,157 @@
     {
       "id": "hero-background-video",
       "description": "A video showing the elegance of the MINT Lift procedure.",
-      "imageUrl": "/images/hero-background.mp4",
+      "imageUrl": "/hero-background.mp4",
       "imageHint": "background video"
     },
     {
       "id": "creator-felipe-franco",
       "description": "Portrait of the creator, Felipe Franco.",
-      "imageUrl": "/images/joven_relajado_sonriente.png",
+      "imageUrl": "/creator.png",
       "imageHint": "man portrait"
     },
     {
       "id": "map-pillar-1",
       "description": "Image for the 'Mapeo Preciso' pillar.",
-      "imageUrl": "/images/map-pillar-1.jpg",
+      "imageUrl": "/map-pillar-1.jpg",
       "imageHint": "precision map"
     },
     {
       "id": "map-pillar-2",
       "description": "Image for the 'Aplicación Experta' pillar.",
-      "imageUrl": "/images/map-pillar-2.jpg",
+      "imageUrl": "/map-pillar-2.jpg",
       "imageHint": "expert hands"
     },
     {
       "id": "map-pillar-3",
       "description": "Image for the 'Potenciación Sinérgica' pillar.",
-      "imageUrl": "/images/map-pillar-3.jpg",
+      "imageUrl": "/map-pillar-3.jpg",
       "imageHint": "synergy molecules"
     },
     {
       "id": "facial-vectorlift",
       "description": "Image for the VectorLift protocol.",
-      "imageUrl": "/images/facial-vectorlift.jpg",
+      "imageUrl": "/facial-vectorlift.jpg",
       "imageHint": "woman jawline"
     },
     {
       "id": "facial-apexlift",
       "description": "Image for the ApexLift protocol.",
-      "imageUrl": "/images/facial-apexlift.jpg",
+      "imageUrl": "/facial-apexlift.jpg",
       "imageHint": "woman eyes"
     },
     {
       "id": "facial-rhinostructure",
       "description": "Image for the RhinoStructure protocol.",
-      "imageUrl": "/images/facial-rhinostructure.jpg",
+      "imageUrl": "/facial-rhinostructure.jpg",
       "imageHint": "woman nose"
     },
     {
       "id": "facial-contourneck",
       "description": "Image for the ContourNeck protocol.",
-      "imageUrl": "/images/facial-contourneck.jpg",
+      "imageUrl": "/facial-contourneck.jpg",
       "imageHint": "woman neck"
     },
     {
       "id": "corporal-coredefine",
       "description": "Image for the CoreDefine protocol.",
-      "imageUrl": "/images/corporal-coredefine.jpg",
+      "imageUrl": "/corporal-coredefine.jpg",
       "imageHint": "woman abdomen"
     },
     {
       "id": "corporal-armcontour",
       "description": "Image for the ArmContour protocol.",
-      "imageUrl": "/images/corporal-armcontour.jpg",
+      "imageUrl": "/corporal-armcontour.jpg",
       "imageHint": "woman arms"
     },
     {
       "id": "corporal-glutecurve",
       "description": "Image for the GluteCurve protocol.",
-      "imageUrl": "/images/corporal-glutecurve.jpg",
+      "imageUrl": "/corporal-glutecurve.jpg",
       "imageHint": "woman glutes"
     },
     {
       "id": "step-1",
       "description": "Paso 1: Consulta y Evaluación. El especialista evalúa al paciente.",
-      "imageUrl": "/images/step-1.jpg",
+      "imageUrl": "/step-1.jpg",
       "imageHint": "doctor consultation"
     },
     {
       "id": "step-2",
       "description": "Paso 2: Marcaje de la Zona. Se marcan los puntos de entrada y trayecto de los hilos.",
-      "imageUrl": "/images/step-2.jpg",
+      "imageUrl": "/step-2.jpg",
       "imageHint": "facial marking"
     },
     {
       "id": "step-3",
       "description": "Paso 3: Asepsia. Se limpia y desinfecta la zona a tratar.",
-      "imageUrl": "/images/step-3.jpg",
+      "imageUrl": "/step-3.jpg",
       "imageHint": "skin cleaning"
     },
     {
       "id": "step-4",
       "description": "Paso 4: Anestesia Local. Se aplica anestesia en los puntos de entrada.",
-      "imageUrl": "/images/step-4.jpg",
+      "imageUrl": "/step-4.jpg",
       "imageHint": "local anesthesia"
     },
     {
       "id": "step-5",
       "description": "Paso 5: Inserción de la Cánula. Se introduce la cánula con el hilo.",
-      "imageUrl": "/images/step-5.jpg",
+      "imageUrl": "/step-5.jpg",
       "imageHint": "cannula insertion"
     },
     {
       "id": "step-6",
       "description": "Paso 6: Posicionamiento del Hilo. El hilo se coloca en el tejido subdérmico.",
-      "imageUrl": "/images/step-6.jpg",
+      "imageUrl": "/step-6.jpg",
       "imageHint": "thread placement"
     },
     {
       "id": "step-7",
       "description": "Paso 7: Anclaje y Tracción. Se ancla el hilo y se realiza la tracción.",
-      "imageUrl": "/images/step-7.jpg",
+      "imageUrl": "/step-7.jpg",
       "imageHint": "skin tensioning"
     },
     {
       "id": "step-8",
       "description": "Paso 8: Retiro de la Cánula. Se retira la cánula, dejando el hilo en su lugar.",
-      "imageUrl": "/images/step-8.jpg",
+      "imageUrl": "/step-8.jpg",
       "imageHint": "cannula removal"
     },
     {
       "id": "step-9",
       "description": "Paso 9: Ajuste Final. Se realizan los ajustes finales para un resultado óptimo.",
-      "imageUrl": "/images/step-9.jpg",
+      "imageUrl": "/step-9.jpg",
       "imageHint": "final adjustment"
     },
     {
       "id": "step-10",
       "description": "Paso 10: Resultado Inmediato. Se aprecia el efecto lifting inmediatamente después.",
-      "imageUrl": "/images/step-10.jpg",
+      "imageUrl": "/step-10.jpg",
       "imageHint": "immediate result"
     },
     {
       "id": "gallery-1",
       "description": "Woman after a facial procedure, showing lifted skin.",
-      "imageUrl": "/images/gallery-1.jpg",
+      "imageUrl": "/gallery-1.jpg",
       "imageHint": "woman portrait"
     },
     {
       "id": "gallery-2",
       "description": "Woman with a defined jawline after a procedure.",
-      "imageUrl": "/images/gallery-2.jpg",
+      "imageUrl": "/gallery-2.jpg",
       "imageHint": "woman jawline"
     },
     {
       "id": "gallery-3",
       "description": "Close up of a woman's face showing smooth skin.",
-      "imageUrl": "/images/gallery-3.jpg",
+      "imageUrl": "/gallery-3.jpg",
       "imageHint": "smooth skin"
     },
     {
       "id": "gallery-4",
       "description": "Profile of a woman with a youthful appearance.",
-      "imageUrl": "/images/gallery-4.jpg",
+      "imageUrl": "/gallery-4.jpg",
       "imageHint": "woman profile"
     }
   ]

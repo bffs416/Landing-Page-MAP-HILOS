@@ -9,7 +9,7 @@ import GluteCurveContent from '@/components/glute-curve-content';
 
 export const getImage = (id: string) => {
   const image = PlaceHolderImages.find((img) => img.id === id);
-  return image ? image.imageUrl : '/images/placeholder.jpg';
+  return image ? image.imageUrl : '/placeholder.jpg';
 };
 
 export const getImageHint = (id: string) => {
@@ -458,7 +458,7 @@ export const gluteCurveSteps = [
     },
 ];
 
-export const heroVideo = '/images/hero-background.mp4';
+export const heroVideo = '/hero-background.mp4';
 
 export const facialProtocols = [
   {
