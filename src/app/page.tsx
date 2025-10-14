@@ -467,22 +467,22 @@ export default function Home() {
                     MINT® Architectural Lift™ &copy; {new Date().getFullYear()}. Todos
                     los derechos reservados.
                 </p>
-                <p className="mt-2 text-xs">
-                    Diseñado por{" "}
-                    <a
-                    href="https://www.nyvaragroup.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hover:text-primary transition-colors"
-                    >
-                    Nyvara Group
-                    </a>
-                </p>
+                <div className="mt-2 text-xs flex gap-4 justify-center">
+                    <p>
+                        Diseñado por{" "}
+                        <a
+                        href="https://www.nyvaragroup.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="hover:text-primary transition-colors"
+                        >
+                        Nyvara Group
+                        </a>
+                    </p>
+                    <Link href="/registrations" className="hover:text-primary transition-colors">Ver Registros</Link>
+                </div>
             </div>
         </footer>
       </main>
     </div>
   );
-
-    
-
