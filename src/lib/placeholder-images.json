@@ -3,13 +3,13 @@
     {
       "id": "hero-background-video",
       "description": "A video showing the elegance of the MINT Lift procedure.",
-      "imageUrl": "/images/hero-background.mp4",
+      "imageUrl": "/images/Arquitectura-1..mp4",
       "imageHint": "background video"
     },
     {
       "id": "creator-felipe-franco",
       "description": "Portrait of the creator, Felipe Franco.",
-      "imageUrl": "/images/creator-felipe-franco.jpg",
+      "imageUrl": "/images/Logo.jpg",
       "imageHint": "man portrait"
     },
     {

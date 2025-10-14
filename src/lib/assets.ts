@@ -12,7 +12,7 @@ export const getImage = (id: string) => {
   return image ? image.imageUrl : '/images/placeholder.jpg';
 };
 
-const getImageHint = (id: string) => {
+export const getImageHint = (id: string) => {
     const image = PlaceHolderImages.find((img) => img.id === id);
     return image ? image.imageHint : 'placeholder';
 };

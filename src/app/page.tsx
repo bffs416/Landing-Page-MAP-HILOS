@@ -10,6 +10,7 @@ import {
   mapPillars,
   heroVideo,
   getImage,
+  getImageHint,
 } from '@/lib/assets';
 import ICLCalculator from '@/components/icl-calculator';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
@@ -394,7 +395,7 @@ export default function Home() {
                     width={400}
                     height={400}
                     className="rounded-full object-cover aspect-square shadow-2xl"
-                    data-ai-hint="man portrait"
+                    data-ai-hint={getImageHint('creator-felipe-franco')}
                   />
                 </div>
               </div>
