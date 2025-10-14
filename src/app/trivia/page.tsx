@@ -18,7 +18,7 @@ import { z } from 'zod';
 import Certificate from './certificate';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { supabase } from '@/lib/supabase';
+import { getSupabaseClient } from '@/lib/supabase';
 import { useToast } from '@/hooks/use-toast';
 import { Textarea } from '@/components/ui/textarea';
 
@@ -171,6 +171,7 @@ export default function TriviaPage() {
     const fullPhoneNumber = `${finalData.countryCode}${finalData.phone}`;
 
     try {
+        const supabase = getSupabaseClient();
         const { error } = await supabase
             .from('certificates')
             .insert({ 
