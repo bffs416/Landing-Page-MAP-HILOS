@@ -46,7 +46,7 @@ const AnimatedTitle = ({ text }: { text: string }) => {
           className="animated-title-letter"
           style={{ animationDelay: `${index * 0.05}s` }}
         >
-          {letter === ' ' ? ' ' : letter}
+          {letter === ' ' ? ' ' : letter}
         </span>
       ))}
     </h1>
@@ -479,12 +479,10 @@ export default function Home() {
                         Nyvara Group
                         </a>
                     </p>
-                    <Link href="/registrations" className="hover:text-primary transition-colors">Ver Registros</Link>
                 </div>
             </div>
         </footer>
       </main>
     </div>
   );
-
-    
+}
