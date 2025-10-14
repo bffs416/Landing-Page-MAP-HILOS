@@ -118,13 +118,13 @@ export default function Certificate({ fullName, nameOnly, level }: CertificatePr
               Certificado de Finalización
             </h2>
             <p className="text-lg text-muted-foreground">
-              Se otorga este certificado a
+              Se otorga este certificado a:
             </p>
             <p className="text-3xl sm:text-4xl font-bold font-headline text-foreground tracking-wider">
               {fullName}
             </p>
             <p className="text-lg text-muted-foreground">
-              por haber completado exitosamente la trivia de Hilos Tensores PDO en el nivel:
+              Por haber completado exitosamente la trivia de Hilos Tensores PDO en el nivel:
             </p>
             <p className="text-2xl sm:text-3xl font-semibold text-primary">
               {level}

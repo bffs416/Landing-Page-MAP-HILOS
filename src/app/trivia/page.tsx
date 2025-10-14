@@ -8,7 +8,7 @@ import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
 import { Progress } from '@/components/ui/progress';
-import { CheckCircle, XCircle, Award, ChevronsRight } from 'lucide-react';
+import { CheckCircle, XCircle, Award, ChevronsRight, Info } from 'lucide-react';
 import { triviaLevels, type Question } from '@/lib/trivia-questions';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
@@ -30,6 +30,13 @@ const certificateSchema = z.object({
 });
 
 type CertificateFormData = z.infer<typeof certificateSchema>;
+
+const passingScores: Record<LevelId, number> = {
+  beginner: 90,
+  intermediate: 75,
+  expert: 60,
+  legendary: 40,
+};
 
 // Fisher-Yates shuffle algorithm
 const shuffleArray = (array: any[]) => {
@@ -107,10 +114,12 @@ export default function TriviaPage() {
   };
   
   const { correctCount, total, percentage } = showResult ? calculateScore() : { correctCount: 0, total: 0, percentage: 0 };
+  const passingScore = currentLevel ? passingScores[currentLevel] : 100;
+  const hasPassed = percentage >= passingScore;
 
   const getResultMessage = () => {
-    if (percentage >= 90) return { message: "¡Excelente! Eres un experto en hilos PDO.", icon: <Award className="w-16 h-16 text-yellow-500" /> };
-    if (percentage >= 70) return { message: "¡Muy bien! Tienes un sólido conocimiento.", icon: <CheckCircle className="w-16 h-16 text-green-500" /> };
+    if (hasPassed) return { message: "¡Excelente! Has aprobado el nivel.", icon: <Award className="w-16 h-16 text-yellow-500" /> };
+    if (percentage >= passingScore - 20) return { message: "¡Casi lo logras! Tienes un sólido conocimiento.", icon: <CheckCircle className="w-16 h-16 text-green-500" /> };
     return { message: "Sigue estudiando para mejorar tus conocimientos.", icon: <XCircle className="w-16 h-16 text-destructive" /> };
   };
 
@@ -142,7 +151,7 @@ export default function TriviaPage() {
                 <div className="flex justify-center">{icon}</div>
                 <p className="text-xl font-semibold">{message}</p>
                 <p className="text-5xl font-bold">{percentage.toFixed(0)}%</p>
-                <p className="text-muted-foreground">Respondiste correctamente {correctCount} de {total} preguntas.</p>
+                <p className="text-muted-foreground">Respondiste correctamente {correctCount} de {total} preguntas. (Necesitas {passingScore}% para aprobar)</p>
 
                 <div className="text-left space-y-4 max-h-60 overflow-y-auto p-4 border rounded-lg">
                   {questions.map((q, index) => (
@@ -159,6 +168,10 @@ export default function TriviaPage() {
                           Respuesta correcta: {q.options.find((opt: string) => opt.startsWith(q.correctAnswer))}
                         </p>
                       )}
+                       <div className="mt-2 text-xs p-2 bg-muted/50 rounded-md flex items-start gap-2">
+                          <Info className="w-4 h-4 mt-0.5 text-muted-foreground flex-shrink-0" />
+                          <span className="text-muted-foreground">{q.explanation}</span>
+                       </div>
                     </div>
                   ))}
                 </div>
@@ -166,7 +179,7 @@ export default function TriviaPage() {
                 <div className="flex gap-4 justify-center">
                   <Button onClick={() => handleSelectLevel(currentLevel!)}>Intentar de Nuevo</Button>
                   <Button variant="outline" onClick={() => { setCurrentLevel(null); setQuestions([]); }}>Elegir otro Nivel</Button>
-                   {percentage >= 90 && (
+                   {hasPassed && (
                     <Button onClick={() => setShowCertificateForm(true)}>
                       Generar Certificado <ChevronsRight className="ml-2 h-4 w-4" />
                     </Button>
