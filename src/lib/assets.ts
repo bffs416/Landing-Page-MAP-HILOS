@@ -1,3 +1,4 @@
+
 import type { StaticImageData } from 'next/image';
 import VectorLiftContent from '@/components/vector-lift-content';
 import ApexLiftContent from '@/components/apex-lift-content';
