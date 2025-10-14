@@ -8,7 +8,7 @@ import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
 import { Progress } from '@/components/ui/progress';
-import { CheckCircle, XCircle, Award, ChevronsRight, Info } from 'lucide-react';
+import { CheckCircle, XCircle, Award, ChevronsRight, Info, Loader2 } from 'lucide-react';
 import { triviaLevels, type Question } from '@/lib/trivia-questions';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
@@ -17,15 +17,42 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import Certificate from './certificate';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { supabase } from '@/lib/supabase';
+import { useToast } from '@/hooks/use-toast';
 
 type LevelId = 'beginner' | 'intermediate' | 'expert' | 'legendary';
+
+const countryCodes = [
+  { code: "+1", name: "USA/Canadá" },
+  { code: "+52", name: "México" },
+  { code: "+55", name: "Brasil" },
+  { code: "+57", name: "Colombia" },
+  { code: "+54", name: "Argentina" },
+  { code: "+34", name: "España" },
+  { code: "+51", name: "Perú" },
+  { code: "+56", name: "Chile" },
+  { code: "+593", name: "Ecuador" },
+  { code: "+44", name: "Reino Unido" },
+  { code: "+49", name: "Alemania" },
+  { code: "+33", name: "Francia" },
+  { code: "+39", name: "Italia" },
+  { code: "+91", name: "India" },
+  { code: "+86", name: "China" },
+  { code: "+81", name: "Japón" },
+  { code: "+7", name: "Rusia" },
+  { code: "+61", name: "Australia" },
+  { code: "+27", name: "Sudáfrica" },
+  { code: "+82", name: "Corea del Sur" },
+];
 
 const certificateSchema = z.object({
   gender: z.enum(["male", "female"], {
     required_error: "Debes seleccionar un género.",
   }),
   name: z.string().min(2, { message: "El nombre debe tener al menos 2 caracteres." }),
-  phone: z.string().min(8, { message: "Ingresa un número de teléfono válido." }),
+  countryCode: z.string({ required_error: "Selecciona un prefijo." }),
+  phone: z.string().min(7, { message: "Ingresa un número de teléfono válido." }),
   city: z.string().min(3, { message: "La ciudad debe tener al menos 3 caracteres." }),
 });
 
@@ -50,6 +77,7 @@ const shuffleArray = (array: any[]) => {
 
 
 export default function TriviaPage() {
+  const { toast } = useToast();
   const [currentLevel, setCurrentLevel] = useState<LevelId | null>(null);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [userAnswers, setUserAnswers] = useState<Record<number, string>>({});
@@ -58,6 +86,7 @@ export default function TriviaPage() {
   const [certificateData, setCertificateData] = useState<{fullName: string, nameOnly: string, level: string} | null>(null);
   const [questions, setQuestions] = useState<Question[]>([]);
   const [isTestMode, setIsTestMode] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const levelData = currentLevel ? triviaLevels[currentLevel] : null;
   const currentQuestion = questions[currentQuestionIndex];
@@ -68,6 +97,7 @@ export default function TriviaPage() {
       name: "",
       phone: "",
       city: "",
+      countryCode: "+57",
     },
   });
 
@@ -123,12 +153,41 @@ export default function TriviaPage() {
     return { message: "Sigue estudiando para mejorar tus conocimientos.", icon: <XCircle className="w-16 h-16 text-destructive" /> };
   };
 
-  const onSubmit = (data: CertificateFormData) => {
-    console.log("Form submitted for certificate:", data);
-    const title = data.gender === 'male' ? 'Dr.' : 'Dra.';
-    const fullName = `${title} ${data.name}`;
+  const onSubmit = async (data: CertificateFormData) => {
+    setIsSubmitting(true);
     const levelTitle = isTestMode ? triviaLevels.legendary.title : levelData!.title;
-    setCertificateData({ fullName: fullName, nameOnly: data.name, level: levelTitle });
+    const fullPhoneNumber = `${data.countryCode}${data.phone}`;
+
+    try {
+        const { error } = await supabase
+            .from('certificates')
+            .insert({ 
+                name: data.name, 
+                phone: fullPhoneNumber,
+                city: data.city,
+                level: levelTitle,
+                score: percentage,
+            });
+
+        if (error) {
+            throw error;
+        }
+
+        console.log("Form submitted successfully to Supabase:", data);
+        const title = data.gender === 'male' ? 'Dr.' : 'Dra.';
+        const fullName = `${title} ${data.name}`;
+        setCertificateData({ fullName: fullName, nameOnly: data.name, level: levelTitle });
+
+    } catch (error) {
+        console.error("Error submitting to Supabase:", error);
+        toast({
+          variant: "destructive",
+          title: "Error al guardar",
+          description: "No se pudo guardar la información del certificado. Por favor, intenta de nuevo.",
+        });
+    } finally {
+        setIsSubmitting(false);
+    }
   };
   
   if (certificateData) {
@@ -239,19 +298,41 @@ export default function TriviaPage() {
                         </FormItem>
                       )}
                     />
-                     <FormField
-                      control={form.control}
-                      name="phone"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Teléfono</FormLabel>
-                          <FormControl>
-                            <Input placeholder="Tu número de teléfono" {...field} />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
+                    <FormItem>
+                      <FormLabel>Teléfono</FormLabel>
+                      <div className="flex gap-2">
+                        <FormField
+                          control={form.control}
+                          name="countryCode"
+                          render={({ field }) => (
+                            <Select onValueChange={field.onChange} defaultValue={field.value}>
+                              <FormControl>
+                                <SelectTrigger className="w-[120px]">
+                                  <SelectValue placeholder="Prefijo" />
+                                </SelectTrigger>
+                              </FormControl>
+                              <SelectContent>
+                                {countryCodes.map(c => (
+                                  <SelectItem key={c.code} value={c.code}>
+                                    {c.name} ({c.code})
+                                  </SelectItem>
+                                ))}
+                              </SelectContent>
+                            </Select>
+                          )}
+                        />
+                        <FormField
+                          control={form.control}
+                          name="phone"
+                          render={({ field }) => (
+                            <FormControl>
+                              <Input type="tel" placeholder="Tu número" {...field} />
+                            </FormControl>
+                          )}
+                        />
+                      </div>
+                      <FormMessage>{form.formState.errors.phone?.message}</FormMessage>
+                    </FormItem>
                      <FormField
                       control={form.control}
                       name="city"
@@ -266,10 +347,13 @@ export default function TriviaPage() {
                       )}
                     />
                     <div className="flex justify-end gap-2">
-                        <Button type="button" variant="ghost" onClick={() => {setShowCertificateForm(false); setIsTestMode(false); if (!isTestMode) {setShowResult(true)} else {setShowResult(false); setCurrentLevel(null)}}}>
+                        <Button type="button" variant="ghost" onClick={() => {setShowCertificateForm(false); setIsTestMode(false); if (!isTestMode) {setShowResult(true)} else {setShowResult(false); setCurrentLevel(null)}}} disabled={isSubmitting}>
                             Volver
                         </Button>
-                        <Button type="submit">Generar mi Certificado</Button>
+                        <Button type="submit" disabled={isSubmitting}>
+                          {isSubmitting && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+                          Generar mi Certificado
+                        </Button>
                     </div>
                   </form>
                 </Form>

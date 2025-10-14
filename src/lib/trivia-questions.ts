@@ -79,7 +79,7 @@ export const triviaLevels: Record<string, TriviaLevel> = {
           'D. Anclarse a estructuras óseas',
         ],
         correctAnswer: 'B',
-        explanation: 'Los hilos FIX MINI (también conocidos como screw o tornado) están diseñados para dar un efecto de volumen y redensificación. Su forma enrollada ocupa más espacio y estimula más colágeno en un área concentrada, ideal para rellenar surcos o arrugas profundas.',
+        explanation: 'Los hilos FIX MINI están diseñados para dar un efecto de volumen y redensificación. Su forma enrollada ocupa más espacio y estimula más colágeno en un área concentrada, ideal para rellenar surcos o arrugas profundas.',
       },
       {
         question: '¿Cuál es el principal efecto de los hilos monofilamento (mono) lisos?',
@@ -393,7 +393,7 @@ export const triviaLevels: Record<string, TriviaLevel> = {
           explanation: 'Los hilos unidireccionales tienen espículas en una sola dirección, por lo que necesitan ser fijados en un extremo a una estructura inmóvil (como la fascia) para poder ejercer tracción. Los bidireccionales se auto-anclan al juntar el tejido hacia su centro.',
         },
         {
-          question: '¿Por qué los hilos FIX MINI (Mono) o rellenos bioestimuladores no deben usarse en el párpado o labio?',
+          question: '¿Por qué los hilos FIX MINI o rellenos bioestimuladores no deben usarse en el párpado o labio?',
           options: [
               'A. Riesgo de migración a la córnea',
               'B. Riesgo de daño al nervio óptico',
@@ -644,7 +644,7 @@ export const triviaLevels: Record<string, TriviaLevel> = {
         options: [
           'A. La densidad de fibroblastos en el cuello es mayor',
           'B. El SMAS Tipo II (denso) presiona contra el SMAS Tipo I (laxo) debido a la concentración del tejido traccionado',
-          'C. El anclaje se produce en la unión del SMAS Tipo II denso con la parte más laxa del SMAS Tipo I, empujando la dermis y creando un hoyuelo, una complicación frecuente pero temporal',
+          'C. El anclaje se produce en la unión del SMAS Tipo II denso con la parte más laxa del SMas Tipo I, empujando la dermis y creando un hoyuelo, una complicación frecuente pero temporal',
           'D. El plano subcutáneo en el tercio inferior es más grueso, lo que hace visible la púa',
         ],
         correctAnswer: 'C',
