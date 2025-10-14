@@ -8,7 +8,7 @@ import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
 import { Progress } from '@/components/ui/progress';
-import { CheckCircle, XCircle, Award, ChevronsRight, Info, Loader2 } from 'lucide-react';
+import { CheckCircle, XCircle, Award, ChevronsRight, Info, Loader2, BookCopy } from 'lucide-react';
 import { triviaLevels, type Question } from '@/lib/trivia-questions';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
@@ -20,6 +20,7 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { supabase } from '@/lib/supabase';
 import { useToast } from '@/hooks/use-toast';
+import { Textarea } from '@/components/ui/textarea';
 
 type LevelId = 'beginner' | 'intermediate' | 'expert' | 'legendary';
 
@@ -54,6 +55,7 @@ const certificateSchema = z.object({
   countryCode: z.string({ required_error: "Selecciona un prefijo." }),
   phone: z.string().min(7, { message: "Ingresa un número de teléfono válido." }),
   city: z.string().min(3, { message: "La ciudad debe tener al menos 3 caracteres." }),
+  articles: z.string().optional(),
 });
 
 type CertificateFormData = z.infer<typeof certificateSchema>;
@@ -83,6 +85,7 @@ export default function TriviaPage() {
   const [userAnswers, setUserAnswers] = useState<Record<number, string>>({});
   const [showResult, setShowResult] = useState(false);
   const [showCertificateForm, setShowCertificateForm] = useState(false);
+  const [showArticleSubmission, setShowArticleSubmission] = useState(false);
   const [certificateData, setCertificateData] = useState<{fullName: string, nameOnly: string, level: string} | null>(null);
   const [questions, setQuestions] = useState<Question[]>([]);
   const [isTestMode, setIsTestMode] = useState(false);
@@ -98,6 +101,7 @@ export default function TriviaPage() {
       phone: "",
       city: "",
       countryCode: "+57",
+      articles: "",
     },
   });
 
@@ -108,6 +112,7 @@ export default function TriviaPage() {
     setUserAnswers({});
     setShowResult(false);
     setShowCertificateForm(false);
+    setShowArticleSubmission(false);
     setCertificateData(null);
   };
   
@@ -115,7 +120,8 @@ export default function TriviaPage() {
     // Simulate completing the legendary level to get to the form
     setCurrentLevel('legendary');
     setShowResult(true);
-    setShowCertificateForm(true);
+    // Directly to the article submission form for testing
+    setShowArticleSubmission(true);
     setIsTestMode(true);
   };
 
@@ -167,6 +173,7 @@ export default function TriviaPage() {
                 city: data.city,
                 level: levelTitle,
                 score: percentage,
+                articles: data.articles, // Save articles
             });
 
         if (error) {
@@ -205,7 +212,7 @@ export default function TriviaPage() {
             <CardTitle className="text-3xl font-headline">Resultado del Nivel: {effectiveLevelData.title}</CardTitle>
           </CardHeader>
           <CardContent className="space-y-6">
-            {!showCertificateForm ? (
+            {!showArticleSubmission && !showCertificateForm ? (
               <>
                 <div className="flex justify-center">{icon}</div>
                 <p className="text-xl font-semibold">{message}</p>
@@ -238,14 +245,53 @@ export default function TriviaPage() {
                 <div className="flex gap-4 justify-center">
                   <Button onClick={() => handleSelectLevel(currentLevel!)}>Intentar de Nuevo</Button>
                   <Button variant="outline" onClick={() => { setCurrentLevel(null); setQuestions([]); }}>Elegir otro Nivel</Button>
-                   {hasPassed && (
+                   {hasPassed && currentLevel !== 'legendary' && (
                     <Button onClick={() => setShowCertificateForm(true)}>
                       Generar Certificado <ChevronsRight className="ml-2 h-4 w-4" />
                     </Button>
                   )}
+                  {hasPassed && currentLevel === 'legendary' && (
+                    <Button onClick={() => setShowArticleSubmission(true)}>
+                      Continuar a la Certificación <ChevronsRight className="ml-2 h-4 w-4" />
+                    </Button>
+                  )}
                 </div>
               </>
-            ) : (
+            ) : showArticleSubmission ? (
+                <>
+                  <CardTitle className="text-2xl font-headline">Certificación de Experto Legendario</CardTitle>
+                  <CardDescription>Para obtener tu certificado, por favor, adjunta enlaces o resúmenes de artículos relevantes que respalden tu experiencia.</CardDescription>
+                  <Form {...form}>
+                    <form onSubmit={() => {setShowArticleSubmission(false); setShowCertificateForm(true);}} className="space-y-4 text-left">
+                       <FormField
+                        control={form.control}
+                        name="articles"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>Artículos o Evidencia</FormLabel>
+                            <FormControl>
+                              <Textarea
+                                placeholder="Pega aquí los enlaces a tus artículos, publicaciones o un resumen de tu experiencia..."
+                                className="resize-y min-h-[150px]"
+                                {...field}
+                              />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                      <div className="flex justify-end gap-2">
+                          <Button type="button" variant="ghost" onClick={() => {setShowArticleSubmission(false); setIsTestMode(false);}} disabled={isSubmitting}>
+                              Volver
+                          </Button>
+                          <Button type="submit" disabled={isSubmitting}>
+                            Enviar y Continuar
+                          </Button>
+                      </div>
+                    </form>
+                  </Form>
+                </>
+            ) : ( // showCertificateForm
                <>
                 <CardTitle className="text-2xl font-headline">Datos para el Certificado</CardTitle>
                 <CardDescription>Completa el formulario para generar tu certificado de participación.</CardDescription>
@@ -434,3 +480,4 @@ export default function TriviaPage() {
     </div>
   );
 }
+
