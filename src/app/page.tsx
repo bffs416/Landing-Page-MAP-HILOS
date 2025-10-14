@@ -388,7 +388,7 @@ export default function Home() {
                 <InteractiveGrid />
                 <div className="absolute inset-0 flex items-center justify-center p-8">
                    <Image
-                    src="https://source.unsplash.com/random/400x400/?man-portrait"
+                    src="/images/creator-felipe-franco.jpg"
                     alt="Felipe Franco"
                     width={400}
                     height={400}
