@@ -1,3 +1,4 @@
+
 'use client';
 
 import Image from 'next/image';
@@ -20,7 +21,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, Di
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
 import { EffectCard } from '@/components/effect-card';
-import InteractiveArc from '@/components/interactive-arc';
+import dynamic from 'next/dynamic';
 import AnimatedGallery from '@/components/animated-gallery';
 import { Separator } from '@/components/ui/separator';
 import VectorLiftContent from '@/components/vector-lift-content';
@@ -30,6 +31,12 @@ import ContourNeckContent from '@/components/contour-neck-content';
 import CoreDefineContent from '@/components/core-define-content';
 import ArmContourContent from '@/components/arm-contour-content';
 import GluteCurveContent from '@/components/glute-curve-content';
+import creatorImage from '../../public/creator.png';
+
+const InteractiveArc = dynamic(() => import('@/components/interactive-arc'), {
+  ssr: false,
+});
+
 
 const AnimatedTitle = ({ text }: { text: string }) => {
   return (
@@ -386,7 +393,7 @@ export default function Home() {
               <div className="relative aspect-square max-w-md mx-auto flex items-center justify-center">
                 <InteractiveArc />
                 <Image
-                  src="/creator.png"
+                  src={creatorImage}
                   alt="Felipe Franco"
                   width={320}
                   height={320}
@@ -478,3 +485,5 @@ export default function Home() {
     </div>
   );
 }
+
+    
