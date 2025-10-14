@@ -23,7 +23,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, Di
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
 import { EffectCard } from '@/components/effect-card';
-import InteractiveGrid from '@/components/interactive-grid';
+import InteractiveArc from '@/components/interactive-arc';
 import AnimatedGallery from '@/components/animated-gallery';
 import { Separator } from '@/components/ui/separator';
 import VectorLiftContent from '@/components/vector-lift-content';
@@ -387,7 +387,7 @@ export default function Home() {
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
               <div className="relative aspect-square max-w-md mx-auto">
-                <InteractiveGrid />
+                <InteractiveArc />
                 <div className="absolute inset-0 flex items-center justify-center p-8">
                    <Image
                     src={getImage('creator-felipe-franco')}
