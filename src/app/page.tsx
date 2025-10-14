@@ -31,8 +31,6 @@ import CoreDefineContent from '@/components/core-define-content';
 import ArmContourContent from '@/components/arm-contour-content';
 import GluteCurveContent from '@/components/glute-curve-content';
 
-import creatorImage from '../../../public/creator.png';
-
 const AnimatedTitle = ({ text }: { text: string }) => {
   return (
     <h1 className="font-headline text-5xl md:text-7xl font-bold text-white">
@@ -388,7 +386,7 @@ export default function Home() {
               <div className="relative aspect-square max-w-md mx-auto flex items-center justify-center">
                 <InteractiveArc />
                 <Image
-                  src={creatorImage}
+                  src="/creator.png"
                   alt="Felipe Franco"
                   width={320}
                   height={320}
